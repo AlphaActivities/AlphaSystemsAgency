@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>iOS Black Flash - Automated Diagnostic</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: #0A0A0B;
+      overflow-x: hidden;
+    }
+
+    body {
+      color: white;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 300vh;
+      padding-top: 80px;
+    }
+
+    [data-wallpaper] {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .wallpaper-inner {
+      position: absolute;
+      inset: 0;
+      transform: scale(1) translateY(0);
+      will-change: transform;
+    }
+
+    .wallpaper-gradient {
+      position: absolute;
+      inset: -50%;
+      background-image: conic-gradient(from 45deg, #D4AF37, #7A2CFF, #D4AF37);
+      filter: blur(48px);
+      mix-blend-mode: screen;
+      opacity: 0.26;
+    }
+
+    .wallpaper-radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 80% at 50% 40%, hsla(265, 70%, 50%, 0.06) 0%, transparent 70%);
+    }
+
+    .depth-vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 34;
+      pointer-events: none;
+      background: radial-gradient(120% 100% at 50% 40%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%);
+    }
+
+    .depth-grain {
+      position: fixed;
+      inset: 0;
+      z-index: 35;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035' /%3E%3C/svg%3E");
+      opacity: 1;
+      mix-blend-mode: overlay;
+    }
+
+    .diagnostic-panel {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.95);
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      z-index: 10000;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .diagnostic-panel h1 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: #4ade80;
+      font-weight: 700;
+    }
+
+    .diagnostic-panel h2 {
+      font-size: 14px;
+      margin: 16px 0 8px;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .metric-label {
+      color: #999;
+      font-weight: 500;
+    }
+
+    .metric-value {
+      color: #fff;
+      font-weight: 600;
+      font-family: 'Courier New', monospace;
+    }
+
+    .alert {
+      background: #7f1d1d;
+      border-left: 4px solid #dc2626;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .warning {
+      background: #713f12;
+      border-left: 4px solid #f59e0b;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .success {
+      background: #14532d;
+      border-left: 4px solid #22c55e;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .info {
+      background: #1e3a8a;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+
+    .layer-block {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 8px 0;
+    }
+
+    .layer-name {
+      color: #60a5fa;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .gap-indicator {
+      background: #450a0a;
+      border: 2px solid #dc2626;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .gap-value {
+      font-size: 32px;
+      font-weight: 900;
+      color: #fca5a5;
+      margin: 8px 0;
+    }
+
+    .content-spacer {
+      position: relative;
+      z-index: 100;
+      padding: 20px;
+      height: 200vh;
+    }
+
+    .test-marker {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: red;
+      border: 2px solid white;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 0 10px red;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4ade80;
+      color: #000;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      z-index: 10001;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+    }
+
+    .auto-scroll-btn {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: #60a5fa;
+      color: #000;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      z-index: 10001;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div data-wallpaper>
+    <div class="wallpaper-inner">
+      <div class="wallpaper-gradient"></div>
+      <div class="wallpaper-radial"></div>
+    </div>
+  </div>
+  <div class="depth-vignette"></div>
+  <div class="depth-grain"></div>
+
+  <div class="test-marker" id="hitMarker"></div>
+
+  <div class="diagnostic-panel" id="diagnosticPanel">
+    <h1>🔬 iOS Black Flash — Automated Diagnostic Report</h1>
+    <div id="reportContent">Initializing diagnostic simulation...</div>
+  </div>
+
+  <button class="toggle-btn" id="toggleBtn">Hide Panel</button>
+  <button class="auto-scroll-btn" id="autoScrollBtn">Auto-Scroll Test</button>
+
+  <div class="content-spacer"></div>
+
+  <script>
+    const SIMULATED_CONFIG = {
+      device: 'iPhone 14',
+      viewport: { width: 390, height: 844 },
+      dpr: 3,
+      browser: 'Safari 17',
+      toolbarCollapseRange: { from: 844, to: 760 }
+    };
+
+    const diagnosticState = {
+      issues: [],
+      gaps: [],
+      failures: [],
+      coverageLoss: null,
+      autoScrollActive: false,
+      frameCount: 0
+    };
+
+    function simulateViewportMetrics(scrollProgress) {
+      const baseHeight = SIMULATED_CONFIG.viewport.height;
+      const collapseRange = SIMULATED_CONFIG.toolbarCollapseRange;
+
+      const collapseProgress = Math.min(scrollProgress / 400, 1);
+      const visualViewportHeight = baseHeight - (collapseRange.from - collapseRange.to) * collapseProgress;
+
+      return {
+        windowInnerHeight: window.innerHeight,
+        documentClientHeight: document.documentElement.clientHeight,
+        visualViewportHeight: window.visualViewport?.height || window.innerHeight,
+        simulatedIOSVisualHeight: Math.round(visualViewportHeight),
+        scrollY: window.scrollY,
+        scrollHeight: document.documentElement.scrollHeight
+      };
+    }
+
+    function measureLayerCoverage() {
+      const wallpaperEl = document.querySelector('[data-wallpaper]');
+      const vignetteEl = document.querySelector('.depth-vignette');
+      const grainEl = document.querySelector('.depth-grain');
+
+      const layers = [
+        { name: 'AnimatedWallpaper', element: wallpaperEl, zIndex: 0 },
+        { name: 'depth-vignette', element: vignetteEl, zIndex: 34 },
+        { name: 'depth-grain', element: grainEl, zIndex: 35 }
+      ];
+
+      const viewportBottom = window.innerHeight;
+      const results = [];
+
+      layers.forEach(layer => {
+        if (!layer.element) {
+          results.push({ ...layer, error: 'Element not found' });
+          return;
+        }
+
+        const rect = layer.element.getBoundingClientRect();
+        const computed = window.getComputedStyle(layer.element);
+
+        const gap = viewportBottom - rect.bottom;
+        const hasGap = gap > 1;
+
+        if (hasGap) {
+          diagnosticState.gaps.push({
+            layer: layer.name,
+            gap: gap,
+            zIndex: layer.zIndex,
+            scrollY: window.scrollY
+          });
+        }
+
+        results.push({
+          name: layer.name,
+          zIndex: layer.zIndex,
+          rect: {
+            top: rect.top.toFixed(2),
+            bottom: rect.bottom.toFixed(2),
+            height: rect.height.toFixed(2)
+          },
+          computed: {
+            position: computed.position,
+            inset: computed.inset || `${computed.top} ${computed.right} ${computed.bottom} ${computed.left}`,
+            height: computed.height,
+            width: computed.width,
+            transform: computed.transform,
+            backdropFilter: computed.backdropFilter || computed.webkitBackdropFilter || 'none',
+            backgroundColor: computed.backgroundColor
+          },
+          gap: gap.toFixed(2),
+          hasGap: hasGap,
+          viewportBottom: viewportBottom
+        });
+      });
+
+      return results;
+    }
+
+    function performHitTest() {
+      const testX = Math.floor(window.innerWidth / 2);
+      const testY = window.innerHeight - 2;
+
+      const marker = document.getElementById('hitMarker');
+      marker.style.left = testX + 'px';
+      marker.style.top = testY + 'px';
+
+      const hitElement = document.elementFromPoint(testX, testY);
+
+      const result = {
+        x: testX,
+        y: testY,
+        element: hitElement ? (hitElement.className || hitElement.tagName) : 'NULL',
+        tagName: hitElement?.tagName,
+        isBody: hitElement?.tagName === 'BODY',
+        isHTML: hitElement?.tagName === 'HTML'
+      };
+
+      if (result.isBody || result.isHTML) {
+        const failure = {
+          scrollY: window.scrollY,
+          element: result.tagName,
+          timestamp: Date.now()
+        };
+        diagnosticState.failures.push(failure);
+        diagnosticState.coverageLoss = failure;
+      }
+
+      return result;
+    }
+
+    function checkBackgroundColors() {
+      const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+      const htmlBg = window.getComputedStyle(document.documentElement).backgroundColor;
+
+      const isBlackFlashColor = (color) => {
+        return color === 'rgb(10, 10, 11)' ||
+               color.includes('10, 10, 11') ||
+               color === '#0A0A0B';
+      };
+
+      return {
+        body: bodyBg,
+        html: htmlBg,
+        bodyMatchesFlash: isBlackFlashColor(bodyBg),
+        htmlMatchesFlash: isBlackFlashColor(htmlBg)
+      };
+    }
+
+    function checkWallpaperTransform() {
+      const wallpaperInner = document.querySelector('.wallpaper-inner');
+      if (!wallpaperInner) return null;
+
+      const computed = window.getComputedStyle(wallpaperInner);
+      const transform = computed.transform;
+
+      let scale = 1;
+      let translateY = 0;
+
+      if (transform && transform !== 'none') {
+        const matrix = transform.match(/matrix\(([^)]+)\)/);
+        if (matrix) {
+          const values = matrix[1].split(',').map(v => parseFloat(v.trim()));
+          scale = values[0];
+          translateY = values[5] || 0;
+        }
+      }
+
+      return {
+        transform,
+        scale: scale.toFixed(4),
+        translateY: translateY.toFixed(2),
+        willChange: computed.willChange
+      };
+    }
+
+    function generateDiagnosticReport() {
+      diagnosticState.issues = [];
+      diagnosticState.gaps = [];
+
+      const viewport = simulateViewportMetrics(window.scrollY);
+      const layers = measureLayerCoverage();
+      const hitTest = performHitTest();
+      const backgrounds = checkBackgroundColors();
+      const wallpaperTransform = checkWallpaperTransform();
+
+      let html = '<h2>📱 Simulated iOS Safari Configuration</h2>';
+      html += '<div class="info">';
+      html += `Device: ${SIMULATED_CONFIG.device} (${SIMULATED_CONFIG.viewport.width}×${SIMULATED_CONFIG.viewport.height}, @${SIMULATED_CONFIG.dpr}x)<br>`;
+      html += `Browser: ${SIMULATED_CONFIG.browser}<br>`;
+      html += `Toolbar Collapse: ${SIMULATED_CONFIG.toolbarCollapseRange.from}px → ${SIMULATED_CONFIG.toolbarCollapseRange.to}px`;
+      html += '</div>';
+
+      html += '<h2>A) Runtime Viewport Geometry</h2>';
+      html += '<div class="metric"><span class="metric-label">window.innerHeight</span><span class="metric-value">' + viewport.windowInnerHeight + 'px</span></div>';
+      html += '<div class="metric"><span class="metric-label">visualViewport.height</span><span class="metric-value">' + viewport.visualViewportHeight + 'px</span></div>';
+      html += '<div class="metric"><span class="metric-label">Simulated iOS Visual Height</span><span class="metric-value">' + viewport.simulatedIOSVisualHeight + 'px</span></div>';
+      html += '<div class="metric"><span class="metric-label">scrollY</span><span class="metric-value">' + Math.round(viewport.scrollY) + 'px</span></div>';
+
+      html += '<h2>B) Hit-Test Coverage (Bottom Edge)</h2>';
+      html += '<div class="metric"><span class="metric-label">Test Point</span><span class="metric-value">(' + hitTest.x + ', ' + hitTest.y + ')</span></div>';
+      html += '<div class="metric"><span class="metric-label">Element Hit</span><span class="metric-value">' + hitTest.element + '</span></div>';
+
+      if (hitTest.isBody || hitTest.isHTML) {
+        html += '<div class="alert">🚨 BLACK FLASH DETECTED<br>Hit-test returned ' + hitTest.tagName + ' at bottom edge — background is exposed!</div>';
+      } else {
+        html += '<div class="success">✅ Layer coverage intact at bottom edge</div>';
+      }
+
+      html += '<h2>C) Layer Geometry & Coverage Analysis</h2>';
+
+      let criticalGap = null;
+      layers.forEach(layer => {
+        const isGapped = parseFloat(layer.gap) > 1;
+
+        html += '<div class="layer-block">';
+        html += '<div class="layer-name">' + layer.name + ' (z-index: ' + layer.zIndex + ')</div>';
+
+        html += '<div class="metric"><span class="metric-label">Position</span><span class="metric-value">' + layer.computed.position + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Inset</span><span class="metric-value">' + layer.computed.inset + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Height (computed)</span><span class="metric-value">' + layer.computed.height + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Height (rect)</span><span class="metric-value">' + layer.rect.height + 'px</span></div>';
+        html += '<div class="metric"><span class="metric-label">Rect Bottom</span><span class="metric-value">' + layer.rect.bottom + 'px</span></div>';
+        html += '<div class="metric"><span class="metric-label">Viewport Bottom</span><span class="metric-value">' + layer.viewportBottom + 'px</span></div>';
+
+        if (layer.computed.transform !== 'none') {
+          html += '<div class="metric"><span class="metric-label">Transform</span><span class="metric-value">' + layer.computed.transform + '</span></div>';
+        }
+
+        if (layer.computed.backdropFilter !== 'none') {
+          html += '<div class="metric"><span class="metric-label">Backdrop Filter</span><span class="metric-value">' + layer.computed.backdropFilter + '</span></div>';
+        }
+
+        if (isGapped) {
+          html += '<div class="alert" style="margin-top: 8px;">⚠️ GAP DETECTED: ' + layer.gap + 'px short of viewport bottom</div>';
+          if (!criticalGap || parseFloat(layer.gap) > parseFloat(criticalGap.gap)) {
+            criticalGap = layer;
+          }
+        } else {
+          html += '<div class="success" style="margin-top: 8px;">✅ Full coverage</div>';
+        }
+
+        html += '</div>';
+      });
+
+      if (wallpaperTransform) {
+        html += '<h2>AnimatedWallpaper Transform State</h2>';
+        html += '<div class="layer-block">';
+        html += '<div class="metric"><span class="metric-label">Transform Matrix</span><span class="metric-value">' + wallpaperTransform.transform + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">Scale</span><span class="metric-value">' + wallpaperTransform.scale + '</span></div>';
+        html += '<div class="metric"><span class="metric-label">TranslateY</span><span class="metric-value">' + wallpaperTransform.translateY + 'px</span></div>';
+        html += '<div class="metric"><span class="metric-label">Will-Change</span><span class="metric-value">' + wallpaperTransform.willChange + '</span></div>';
+        html += '</div>';
+      }
+
+      html += '<h2>D) Background Color Analysis</h2>';
+      html += '<div class="metric"><span class="metric-label">body background</span><span class="metric-value">' + backgrounds.body + '</span></div>';
+      html += '<div class="metric"><span class="metric-label">html background</span><span class="metric-value">' + backgrounds.html + '</span></div>';
+
+      if (backgrounds.bodyMatchesFlash || backgrounds.htmlMatchesFlash) {
+        html += '<div class="warning">⚠️ Background color is #0A0A0B — this is what appears during flash</div>';
+      }
+
+      html += '<h2>📊 DIAGNOSTIC SUMMARY</h2>';
+
+      if (criticalGap) {
+        html += '<div class="gap-indicator">';
+        html += '<div>🚨 ROOT CAUSE IDENTIFIED</div>';
+        html += '<div class="gap-value">' + criticalGap.gap + 'px</div>';
+        html += '<div style="margin-top: 8px;">';
+        html += '<strong>' + criticalGap.name + '</strong> (z-index: ' + criticalGap.zIndex + ')<br>';
+        html += 'fails to reach viewport bottom<br>';
+        html += 'Exposes black body background (#0A0A0B)';
+        html += '</div>';
+        html += '</div>';
+
+        html += '<div class="alert">';
+        html += '<strong>Primary Issue:</strong><br>';
+        html += 'Layer <code>' + criticalGap.name + '</code> has insufficient height coverage.<br>';
+        html += 'Bottom edge stops at ' + criticalGap.rect.bottom + 'px but viewport extends to ' + criticalGap.viewportBottom + 'px.';
+        html += '</div>';
+      } else if (hitTest.isBody || hitTest.isHTML) {
+        html += '<div class="alert">';
+        html += '🚨 Black flash detected via hit-test, but no layer gaps measured.<br>';
+        html += 'Possible cause: Transform/animation timing or compositing layer issue.';
+        html += '</div>';
+      } else {
+        html += '<div class="success">';
+        html += '✅ No coverage gaps detected at current scroll position.<br>';
+        html += 'All fixed layers fully cover viewport bottom edge.';
+        html += '</div>';
+      }
+
+      if (diagnosticState.failures.length > 0) {
+        html += '<h2>⚠️ Coverage Loss Events</h2>';
+        html += '<div class="warning">';
+        html += 'Total failures detected: ' + diagnosticState.failures.length + '<br>';
+        diagnosticState.failures.slice(-5).forEach(f => {
+          html += '• scrollY: ' + Math.round(f.scrollY) + 'px → hit ' + f.element + '<br>';
+        });
+        html += '</div>';
+      }
+
+      html += '<div style="margin-top: 20px; padding-top: 16px; border-top: 2px solid #333; font-size: 11px; color: #666;">';
+      html += 'Frame: ' + diagnosticState.frameCount + ' | Scroll: ' + Math.round(viewport.scrollY) + 'px';
+      html += '</div>';
+
+      document.getElementById('reportContent').innerHTML = html;
+      diagnosticState.frameCount++;
+    }
+
+    function autoScrollTest() {
+      if (diagnosticState.autoScrollActive) {
+        diagnosticState.autoScrollActive = false;
+        document.getElementById('autoScrollBtn').textContent = 'Auto-Scroll Test';
+        return;
+      }
+
+      diagnosticState.autoScrollActive = true;
+      document.getElementById('autoScrollBtn').textContent = 'Stop Auto-Scroll';
+      diagnosticState.failures = [];
+
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      let direction = 1;
+      let position = 0;
+
+      function animateScroll() {
+        if (!diagnosticState.autoScrollActive) return;
+
+        position += direction * 10;
+
+        if (position >= maxScroll + 100) {
+          direction = -1;
+        } else if (position <= 0) {
+          direction = 1;
+        }
+
+        window.scrollTo(0, Math.max(0, position));
+        generateDiagnosticReport();
+
+        requestAnimationFrame(animateScroll);
+      }
+
+      animateScroll();
+    }
+
+    let monitoringActive = true;
+    function continuousMonitoring() {
+      if (!monitoringActive) return;
+      generateDiagnosticReport();
+      requestAnimationFrame(continuousMonitoring);
+    }
+
+    continuousMonitoring();
+
+    window.addEventListener('scroll', () => {
+      if (!diagnosticState.autoScrollActive) {
+        generateDiagnosticReport();
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', generateDiagnosticReport);
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', generateDiagnosticReport);
+      window.visualViewport.addEventListener('scroll', generateDiagnosticReport);
+    }
+
+    document.getElementById('toggleBtn').addEventListener('click', function() {
+      const panel = document.getElementById('diagnosticPanel');
+      if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        this.textContent = 'Hide Panel';
+        monitoringActive = true;
+        continuousMonitoring();
+      } else {
+        panel.style.display = 'none';
+        this.textContent = 'Show Panel';
+        monitoringActive = false;
+      }
+    });
+
+    document.getElementById('autoScrollBtn').addEventListener('click', autoScrollTest);
+
+    generateDiagnosticReport();
+  </script>
+</body>
+</html>
