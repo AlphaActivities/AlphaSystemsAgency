@@ -95,6 +95,22 @@ export default function Home() {
           ))}
         </div>
       </section>
+      </section>   // FIN DE TON HERO
+
+{/* 🔥 SECTION POUR GOOGLE ADS – TEXTE SEO CLAIR */}
+<section className="px-6 py-12 max-w-4xl mx-auto text-white">
+  <h1 className="text-3xl md:text-4xl font-bold mb-4">
+    RV Rentals & Golf Cart Rentals in Texas
+  </h1>
+  <p className="text-lg text-gray-300">
+    Triple W Rentals offers affordable RV rentals and golf cart rentals across East Texas.
+    Whether you need a travel trailer for a weekend getaway or a golf cart delivered to your 
+    location, we provide fast service, clean equipment, and reliable delivery in Tyler, Jacksonville, 
+    Whitehouse, Bullard, and surrounding areas. We focus on high-quality customer service, fast 
+    delivery, and simple booking for your next outdoor adventure.
+  </p>
+</section>
+
     </div>
   );
 }
