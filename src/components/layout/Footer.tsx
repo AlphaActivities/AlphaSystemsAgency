@@ -39,7 +39,7 @@ export default function Footer() {
           {/* About Us */}
           <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">About Us</h3>
-            <ul className="space-y-2 text-sm text-white">
+            <ul className="flex flex-col text-sm text-white">
               <li>
                 <Link
                   to="/work"
@@ -48,7 +48,7 @@ export default function Footer() {
                   Work
                 </Link>
               </li>
-              <li>
+              <li className="mt-4">
                 <Link
                   to="/services"
                   className="transition-colors hover:text-uv-500"
@@ -56,7 +56,7 @@ export default function Footer() {
                   Services
                 </Link>
               </li>
-              <li>
+              <li className="mt-8">
                 <Link
                   to="/team"
                   className="transition-colors hover:text-uv-500"
@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Resources */}
           <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">Resources</h3>
-            <ul className="space-y-2 text-sm text-white">
+            <ul className="flex flex-col text-sm text-white">
               <li>
                 <Link
                   to="/insights"
@@ -79,7 +79,7 @@ export default function Footer() {
                   Insights
                 </Link>
               </li>
-              <li>
+              <li className="mt-4">
                 <Link
                   to="/contact"
                   className="transition-colors hover:text-uv-500"
@@ -87,7 +87,7 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
+              <li className="mt-8">
                 <Link
                   to="/privacy"
                   className="transition-colors hover:text-uv-500"
