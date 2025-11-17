@@ -48,7 +48,7 @@ export default function Footer() {
                   Work
                 </Link>
               </li>
-              <li className="mt-4">
+              <li className="mt-6">
                 <Link
                   to="/services"
                   className="transition-colors hover:text-uv-500"
@@ -56,7 +56,7 @@ export default function Footer() {
                   Services
                 </Link>
               </li>
-              <li className="mt-8">
+              <li className="mt-6">
                 <Link
                   to="/team"
                   className="transition-colors hover:text-uv-500"
@@ -79,7 +79,7 @@ export default function Footer() {
                   Insights
                 </Link>
               </li>
-              <li className="mt-4">
+              <li className="mt-6">
                 <Link
                   to="/contact"
                   className="transition-colors hover:text-uv-500"
@@ -87,7 +87,7 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li className="mt-8">
+              <li className="mt-6">
                 <Link
                   to="/privacy"
                   className="transition-colors hover:text-uv-500"
