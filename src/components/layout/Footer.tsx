@@ -43,7 +43,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/work"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Work
                 </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li className="mt-6">
                 <Link
                   to="/services"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Services
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li className="mt-6">
                 <Link
                   to="/team"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Team
                 </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/insights"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Insights
                 </Link>
@@ -82,7 +82,7 @@ export default function Footer() {
               <li className="mt-6">
                 <Link
                   to="/contact"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Contact
                 </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
               <li className="mt-6">
                 <Link
                   to="/privacy"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   Privacy
                 </Link>
