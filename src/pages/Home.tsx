@@ -95,8 +95,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      </section>   // FIN DE TON HERO
-
     </div>
   );
 }
