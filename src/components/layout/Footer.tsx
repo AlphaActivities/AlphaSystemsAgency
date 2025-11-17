@@ -14,7 +14,7 @@ export default function Footer() {
               className="-mb-8 -mt-7 h-28 w-28 rounded-sm brand-logo-glow"
             />
             <span
-              className="brand-wrap text-white font-semibold text-[22px] sm:text-[24px] mt-2"
+              className="brand-wrap text-white font-semibold text-[22px] sm:text-[24px] mt-4"
               style={{ fontKerning: "normal" }}
             >
               {Array.from("Alpha Systems").map((ch, i) => {
