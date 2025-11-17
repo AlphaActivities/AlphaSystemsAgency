@@ -2,6 +2,42 @@ import React, {useEffect, useRef, useState} from "react";
 
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
   const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
+  const positionRef = useRef(0);
+  const speedRef = useRef(0.5);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const firstChild = container.firstElementChild as HTMLElement;
+    if (!firstChild) return;
+
+    const animate = () => {
+      if (!isPaused) {
+        positionRef.current -= speedRef.current;
+
+        const resetPoint = -(firstChild.offsetWidth / 2);
+
+        if (positionRef.current <= resetPoint) {
+          positionRef.current += firstChild.offsetWidth / 2;
+        }
+
+        container.style.transform = `translateX(${positionRef.current}px)`;
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isPaused]);
 
   return (
     <div
@@ -14,8 +50,8 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       }}
     >
       <div
-        className="flex gap-12 items-center animate-marquee will-change-transform"
-        style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+        ref={containerRef}
+        className="flex gap-12 items-center will-change-transform"
       >
         {logos.map((l,i)=>(
           <img
