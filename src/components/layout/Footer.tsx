@@ -11,7 +11,7 @@ export default function Footer() {
             <img
               src="/images/Alpha-Logo.PNG"
               alt="Alpha Systems"
-              className="mb-4 h-9 w-9 rounded-sm brand-logo-glow"
+              className="mb-4 h-18 w-18 rounded-sm brand-logo-glow"
             />
             <span
               className="brand-wrap text-white font-semibold text-[17px] sm:text-[18px]"
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           {/* About Us */}
-          <div className="tile tile-uv-glow p-6">
+          <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">About Us</h3>
             <ul className="space-y-2 text-sm text-white">
               <li>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
 
           {/* Resources */}
-          <div className="tile tile-uv-glow p-6">
+          <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">Resources</h3>
             <ul className="space-y-2 text-sm text-white">
               <li>
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
 
           {/* Connect */}
-          <div className="tile tile-uv-glow p-6">
+          <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">Connect</h3>
             <ul className="space-y-2 text-sm text-white">
               <li>
