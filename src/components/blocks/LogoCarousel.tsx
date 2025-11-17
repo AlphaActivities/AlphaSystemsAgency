@@ -14,12 +14,11 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string}[]})
       className="relative overflow-hidden py-6"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      style={{
+        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
+      }}
     >
-      {/* Left fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black/100 via-black/50 to-transparent z-10 pointer-events-none" />
-      {/* Right fade */}
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black/100 via-black/50 to-transparent z-10 pointer-events-none" />
-
       <div
         ref={track}
         className="flex gap-12 items-center animate-marquee will-change-transform"
