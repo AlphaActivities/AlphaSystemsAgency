@@ -11,7 +11,7 @@ export default {
         marquee: { from:{ transform:"translateX(0)" }, to:{ transform:"translateX(-50%)" } }
       },
       animation: {
-        marquee: "marquee var(--marquee-speed, 28s) linear infinite"
+        marquee: "marquee var(--marquee-speed, 14s) linear infinite"
       },
       boxShadow: {
         uvnav: "0 0 24px rgba(111, 89, 255, 0.45)"
