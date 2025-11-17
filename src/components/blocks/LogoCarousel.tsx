@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
   const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [cloneCount] = useState(3);
+  const [cloneCount] = useState(4);
 
   useEffect(() => {
     const track = trackRef.current;
