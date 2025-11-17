@@ -43,8 +43,8 @@ export default function Privacy() {
           <h2 className="text-2xl font-semibold text-white mb-4">Contact Us</h2>
           <p>
             If you have questions about this privacy policy, please contact us at{" "}
-            <a href="mailto:hello@alphasystems.agency" className="text-uv-500 hover:underline">
-              hello@alphasystems.agency
+            <a href="mailto:agency.alphasystems@gmail.com" className="text-uv-500 hover:underline">
+              info@alphasystemsagency
             </a>
           </p>
         </section>
