@@ -29,7 +29,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string}[]})
             key={i}
             src={l.src}
             alt={l.alt}
-            className="h-28 w-auto max-w-[350px] opacity-80 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+            className="h-28 w-auto max-w-[350px] opacity-100 flex-shrink-0"
             loading="lazy"
           />
         ))}
