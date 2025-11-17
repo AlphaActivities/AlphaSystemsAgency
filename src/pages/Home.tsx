@@ -59,7 +59,7 @@ export default function Home() {
               <Rocket className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Verified Launches</span>
             </div>
-            <Counter to={launchCount} duration={6500} />
+            <Counter to={launchCount} duration={8000} />
           </div>
         </div>
       </section>
