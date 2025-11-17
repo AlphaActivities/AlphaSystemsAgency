@@ -99,12 +99,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom line */}
-        <div className="border-t border-white/5 pt-6 text-center text-sm text-gray-500 md:flex md:items-center md:justify-between md:text-left">
+        <div className="border-t border-white/5 pt-6 text-center text-sm text-gray-500">
           <p>
             &copy; {new Date().getFullYear()} Alpha Systems. All rights reserved.
-          </p>
-          <p className="mt-3 text-xs text-gray-500/80 md:mt-0">
-            Crafted by three specialized minds, engineered for measurable growth.
           </p>
         </div>
       </div>
