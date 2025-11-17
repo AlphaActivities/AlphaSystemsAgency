@@ -67,7 +67,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-semibold mb-1">Phone</div>
-                <a href="tel:+12148627913" className="text-gray-400 hover:text-uv-500 transition-colors">+1 (214) 862-7913</a>
+                <a href="tel:+12148627913" className="text-gray-400 hover:text-uv-500 transition-colors">(214) 862-7913</a>
               </div>
             </div>
             <div className="flex items-start gap-4">

@@ -28,7 +28,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4 text-lg">Connect</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><a href="mailto:agency.alphasystems@gmail.com" className="hover:text-uv-500 transition-colors">info@alphasystemsagency</a></li>
-              <li><a href="tel:+12148627913" className="hover:text-uv-500 transition-colors">+1 (214) 862-7913</a></li>
+              <li><a href="tel:+12148627913" className="hover:text-uv-500 transition-colors">(214) 862-7913</a></li>
             </ul>
           </div>
         </div>
