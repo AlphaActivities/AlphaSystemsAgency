@@ -116,7 +116,7 @@ export default function Navbar() {
           }}
         >
           <div className="nav-row relative z-10 h-16 flex items-center justify-between px-4">
-            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2">
+            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 relative z-20">
               <img src="/images/Alpha-Logo.PNG" alt="Alpha Systems" className="h-8 w-8 rounded-sm" />
 
               {/* Single brand element, kerning-safe per-letter spans, real spaces preserved */}
@@ -139,7 +139,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2 z-10">
               {links.map(l => (
                 <NavLink
                   key={l.to}
@@ -151,10 +151,11 @@ export default function Navbar() {
                   {l.label}
                 </NavLink>
               ))}
-              <Link to="/contact" className="cta-uv inline-flex items-center rounded-full bg-[var(--gold-500,#d4af37)] px-4 py-2 text-[13.5px] font-semibold text-black">
-                Book a strategy call
-              </Link>
             </nav>
+
+            <Link to="/contact" className="cta-uv hidden lg:inline-flex items-center rounded-full bg-[var(--gold-500,#d4af37)] px-4 py-2 text-[13.5px] font-semibold text-black relative z-20">
+              Book a strategy call
+            </Link>
 
             <button
               type="button"
