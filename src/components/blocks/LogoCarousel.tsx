@@ -3,27 +3,27 @@ import React, {useEffect, useRef, useState} from "react";
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
   const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
+  const positionRef = useRef(0);
   const [cloneCount] = useState(4);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    let position = 0;
     let animationId: number;
     const speed = 0.75;
 
     const animate = () => {
       if (!isPaused && track.firstElementChild) {
-        position -= speed;
+        positionRef.current -= speed;
 
         const singleSetWidth = track.scrollWidth / cloneCount;
 
-        if (Math.abs(position) >= singleSetWidth) {
-          position = position % singleSetWidth;
+        if (Math.abs(positionRef.current) >= singleSetWidth) {
+          positionRef.current = positionRef.current % singleSetWidth;
         }
 
-        track.style.transform = `translateX(${position}px)`;
+        track.style.transform = `translateX(${positionRef.current}px)`;
       }
 
       animationId = requestAnimationFrame(animate);
