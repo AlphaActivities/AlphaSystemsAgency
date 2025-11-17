@@ -115,8 +115,8 @@ export default function Navbar() {
             ["--navDur" as any]: open ? "360ms" : "180ms"
           }}
         >
-          <div className="nav-row relative z-10 h-16 flex items-center justify-between px-4">
-            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2">
+          <div className="nav-row relative z-10 h-16 flex items-center px-4">
+            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 absolute left-4">
               <img src="/images/Alpha-Logo.PNG" alt="Alpha Systems" className="h-8 w-8 rounded-sm" />
 
               {/* Single brand element, kerning-safe per-letter spans, real spaces preserved */}
@@ -139,7 +139,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-6 mx-auto">
               {links.map(l => (
                 <NavLink
                   key={l.to}
