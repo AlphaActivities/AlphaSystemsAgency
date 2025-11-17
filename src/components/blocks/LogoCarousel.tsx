@@ -11,7 +11,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
 
     let position = 0;
     let animationId: number;
-    const speed = 0.5;
+    const speed = 0.75;
 
     const animate = () => {
       if (!isPaused && track.firstElementChild) {
