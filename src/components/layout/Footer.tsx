@@ -14,7 +14,7 @@ export default function Footer() {
               className="-mb-6 -mt-2 h-20 w-20 rounded-sm brand-logo-glow"
             />
             <span
-              className="brand-wrap text-white font-semibold text-[22px] sm:text-[24px]"
+              className="brand-wrap text-white font-semibold text-[22px] sm:text-[24px] mt-2"
               style={{ fontKerning: "normal" }}
             >
               {Array.from("Alpha Systems").map((ch, i) => {
@@ -32,7 +32,7 @@ export default function Footer() {
             </span>
             <p className="mt-3 text-sm text-white/90">
               <span className="block">Your unified expert team</span>
-              <span className="block">elevating your customer growth.</span>
+              <span className="block">elevating your customer flow.</span>
             </p>
           </div>
 
