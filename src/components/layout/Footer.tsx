@@ -7,11 +7,11 @@ export default function Footer() {
         {/* Top footer content */}
         <div className="grid gap-8 mb-10 md:grid-cols-4">
           {/* Brand tile */}
-          <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
+          <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center overflow-visible">
             <img
               src="/images/Alpha-Logo.PNG"
               alt="Alpha Systems"
-              className="-mb-8 -mt-4 h-28 w-28 rounded-sm brand-logo-glow"
+              className="-mb-8 -mt-10 h-28 w-28 rounded-sm brand-logo-glow"
             />
             <span
               className="brand-wrap text-white font-semibold text-[22px] sm:text-[24px] mt-2"
