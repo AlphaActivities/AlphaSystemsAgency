@@ -10,7 +10,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       const firstSet = trackRef.current.querySelector('.logo-set');
       if (firstSet) {
         const width = firstSet.getBoundingClientRect().width;
-        const duration = width / 50;
+        const duration = width / 100;
         setAnimationDuration(duration);
       }
     }
