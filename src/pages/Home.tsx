@@ -36,7 +36,7 @@ export default function Home() {
               <Star className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Satisfaction score</span>
             </div>
-            <div className="text-4xl font-semibold flex items-baseline">
+            <div className="text-4xl font-semibold flex items-baseline justify-center">
               <Counter to={100} duration={4000} />
               <span>%</span>
             </div>
