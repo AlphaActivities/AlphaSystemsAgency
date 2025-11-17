@@ -15,9 +15,14 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string}[]})
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* Left fade */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
+      {/* Right fade */}
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
+
       <div
         ref={track}
-        className="flex gap-10 items-center animate-marquee will-change-transform"
+        className="flex gap-12 items-center animate-marquee will-change-transform"
         style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
       >
         {logos.map((l,i)=>(
@@ -25,7 +30,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string}[]})
             key={i}
             src={l.src}
             alt={l.alt}
-            className="h-20 w-auto max-w-[280px] opacity-80 hover:opacity-100 transition-all duration-300"
+            className="h-28 w-auto max-w-[350px] opacity-80 hover:opacity-100 transition-all duration-300 flex-shrink-0"
             loading="lazy"
           />
         ))}
