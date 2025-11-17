@@ -58,7 +58,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-semibold mb-1">Email</div>
-                <div className="text-gray-400">hello@alphasystems.agency</div>
+                <a href="mailto:agency.alphasystems@gmail.com" className="text-gray-400 hover:text-uv-500 transition-colors">info@alphasystemsagency</a>
               </div>
             </div>
             <div className="flex items-start gap-4">
