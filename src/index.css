@@ -475,6 +475,12 @@ html { scrollbar-gutter: stable both-edges; }
     radial-gradient(160% 120% at 50% 40%, rgba(18, 0, 36, 1) 0%, rgba(8, 0, 20, 1) 60%, rgba(6, 0, 14, 1) 100%);
 }
 
+.footer-shell {
+  background-color: rgba(20, 0, 40, 0.9);
+  position: relative;
+  z-index: 0;
+}
+
 /* Optional: prefer dynamic viewport where supported, still overshoot */
 @supports (height: 100dvh) {
   .viewport-floor { height: 200dvh; }
