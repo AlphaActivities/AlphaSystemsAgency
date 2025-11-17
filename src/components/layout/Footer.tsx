@@ -31,8 +31,8 @@ export default function Footer() {
               })}
             </span>
             <p className="mt-3 text-sm text-white/90">
-              <span className="block">Your unified expert growth team</span>
-              <span className="block">elevating your customer flow</span>
+              <span className="block">Your unified expert team</span>
+              <span className="block">elevating your customer growth.</span>
             </p>
           </div>
 
