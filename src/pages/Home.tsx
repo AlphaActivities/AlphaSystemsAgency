@@ -46,7 +46,7 @@ export default function Home() {
             </div>
             <div className="text-4xl font-semibold flex items-baseline gap-2">
               <span>Under</span>
-              <Counter to={14} duration={2000} />
+              <Counter to={14} duration={4000} />
               <span>days</span>
             </div>
           </div>
@@ -56,7 +56,7 @@ export default function Home() {
               <Rocket className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Verified Launches</span>
             </div>
-            <Counter to={launchCount} duration={2000} />
+            <Counter to={launchCount} duration={3500} />
           </div>
         </div>
       </section>
