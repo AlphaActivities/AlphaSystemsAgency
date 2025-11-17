@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 
-export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?:number}[]}) {
+export default function LogoCarousel({logos}:{logos:{src:string; alt:string}[]}) {
   const track = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -30,7 +30,6 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
             src={l.src}
             alt={l.alt}
             className="h-28 w-auto max-w-[350px] opacity-80 hover:opacity-100 transition-all duration-300 flex-shrink-0"
-            style={{ transform: l.scale ? `scale(${l.scale})` : undefined }}
             loading="lazy"
           />
         ))}
