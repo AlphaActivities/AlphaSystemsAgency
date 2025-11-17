@@ -36,7 +36,10 @@ export default function Home() {
               <Star className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Satisfaction score</span>
             </div>
-            <div className="text-4xl font-semibold">100%</div>
+            <div className="text-4xl font-semibold flex items-baseline">
+              <Counter to={100} duration={4000} />
+              <span>%</span>
+            </div>
           </div>
 
           <div className="tile tile-uv-glow px-8 py-6">
