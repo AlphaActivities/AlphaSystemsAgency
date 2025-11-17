@@ -44,7 +44,7 @@ export default function Home() {
               <Zap className="text-uv-500" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Avg project launch</span>
             </div>
-            <div className="text-4xl font-semibold flex items-baseline gap-2 min-w-[200px]">
+            <div className="text-4xl font-semibold flex items-baseline gap-2">
               <span>Under</span>
               <Counter to={14} duration={5000} />
               <span>days</span>
