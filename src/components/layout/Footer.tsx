@@ -45,7 +45,7 @@ export default function Footer() {
                   to="/work"
                   className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
-                  Work
+                  Our Work
                 </Link>
               </li>
               <li className="mt-6">
@@ -53,7 +53,7 @@ export default function Footer() {
                   to="/services"
                   className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
-                  Services
+                  Our Services
                 </Link>
               </li>
               <li className="mt-6">
@@ -61,7 +61,7 @@ export default function Footer() {
                   to="/team"
                   className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
-                  Team
+                  Our Team
                 </Link>
               </li>
             </ul>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:info@alphasystemsagency.com"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   info@alphasystemsagency.com
                 </a>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+12148627913"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-white/20 pb-1"
                 >
                   (214) 862-7913
                 </a>
