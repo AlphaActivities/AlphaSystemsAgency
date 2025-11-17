@@ -73,7 +73,7 @@ export default function Home() {
             { src: "/images/company-logos/Elite Barbershop logo.PNG", alt: "Elite Barbershop" },
             { src: "/images/company-logos/Remax logo.PNG", alt: "Remax" },
             { src: "/images/company-logos/Rocket Baller logo.PNG", alt: "Rocket Baller", scale: 1.2 },
-            { src: "/images/company-logos/Triple W Rentals logo.PNG", alt: "Triple W Rentals" }
+            { src: "/images/company-logos/Triple W Rentals logo.PNG", alt: "Triple W Rentals", scale: 0.8 }
           ]}
         />
       </section>
