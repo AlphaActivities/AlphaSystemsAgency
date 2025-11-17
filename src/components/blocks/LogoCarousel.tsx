@@ -1,13 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
-  const track = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(()=>{
-    const el = track.current!;
-    el.innerHTML = el.innerHTML + el.innerHTML;
-  }, []);
 
   return (
     <div
@@ -20,13 +14,22 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       }}
     >
       <div
-        ref={track}
         className="flex gap-12 items-center animate-marquee will-change-transform"
         style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
       >
         {logos.map((l,i)=>(
           <img
-            key={i}
+            key={`original-${i}`}
+            src={l.src}
+            alt={l.alt}
+            className="h-28 w-auto max-w-[350px] opacity-100 flex-shrink-0"
+            style={l.scale ? { transform: `scale(${l.scale})` } : undefined}
+            loading="lazy"
+          />
+        ))}
+        {logos.map((l,i)=>(
+          <img
+            key={`duplicate-${i}`}
             src={l.src}
             alt={l.alt}
             className="h-28 w-auto max-w-[350px] opacity-100 flex-shrink-0"
