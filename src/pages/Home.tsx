@@ -66,7 +66,7 @@ export default function Home() {
         <LogoCarousel
           logos={[
             { src: "/images/company-logos/Aksarben Locksmiths logo.PNG", alt: "Aksarben Locksmiths" },
-            { src: "/images/company-logos/Caliber Luxury Rentals logo.PNG", alt: "Caliber Luxury Rentals" },
+            { src: "/images/company-logos/Caliber Luxury Rentals logo.PNG", alt: "Caliber Luxury Rentals", scale: 1.2 },
             { src: "/images/company-logos/Centre Dentaire logo.PNG", alt: "Centre Dentaire" },
             { src: "/images/company-logos/Classy Roofs logo.PNG", alt: "Classy Roofs" },
             { src: "/images/company-logos/Culture Barbershop logo.PNG", alt: "Culture Barbershop" },
