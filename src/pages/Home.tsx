@@ -46,7 +46,7 @@ export default function Home() {
             </div>
             <div className="text-4xl font-semibold flex items-baseline gap-2">
               <span>Under</span>
-              <Counter to={14} duration={4000} />
+              <Counter to={14} duration={5000} />
               <span>days</span>
             </div>
           </div>
