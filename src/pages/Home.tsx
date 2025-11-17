@@ -63,11 +63,19 @@ export default function Home() {
 
       <section className="section-rhythm">
         <h2 className="text-3xl font-bold text-center mb-8">Trusted By Leading Brands</h2>
-        <LogoCarousel logos={[
-          {src: "https://via.placeholder.com/150x40/6f59ff/ffffff?text=Aksarben", alt: "Aksarben Locksmiths"},
-          {src: "https://via.placeholder.com/150x40/6f59ff/ffffff?text=TechSolutions", alt: "Tech Solutions"},
-          {src: "https://via.placeholder.com/150x40/6f59ff/ffffff?text=Digital", alt: "Digital Ventures"}
-        ]} />
+        <LogoCarousel
+          logos={[
+            { src: "/images/company-logos/Aksarben Locksmiths logo.PNG", alt: "Aksarben Locksmiths" },
+            { src: "/images/company-logos/Caliber Luxury Rentals logo.PNG", alt: "Caliber Luxury Rentals" },
+            { src: "/images/company-logos/Centre Dentaire logo.PNG", alt: "Centre Dentaire" },
+            { src: "/images/company-logos/Classy Roofs logo.PNG", alt: "Classy Roofs" },
+            { src: "/images/company-logos/Culture Barbershop logo.PNG", alt: "Culture Barbershop" },
+            { src: "/images/company-logos/Elite Barbershop logo.PNG", alt: "Elite Barbershop" },
+            { src: "/images/company-logos/Remax logo.PNG", alt: "Remax" },
+            { src: "/images/company-logos/Rocket Baller logo.PNG", alt: "Rocket Baller" },
+            { src: "/images/company-logos/Triple W Rentals logo.PNG", alt: "Triple W Rentals" }
+          ]}
+        />
       </section>
 
       <section className="section-rhythm">
