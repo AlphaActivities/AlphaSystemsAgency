@@ -11,7 +11,7 @@ export default function Footer() {
             <img
               src="/images/Alpha-Logo.PNG"
               alt="Alpha Systems"
-              className="mb-4 h-9 w-9 rounded-sm brand-logo-glow"
+              className="-mb-3 h-16 w-16 rounded-sm brand-logo-glow"
             />
             <span
               className="brand-wrap text-white font-semibold text-[17px] sm:text-[18px]"
