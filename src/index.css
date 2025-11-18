@@ -534,6 +534,23 @@ html { scrollbar-gutter: stable both-edges; }
   .viewport-floor { height: 200dvh; }
 }
 
+.hero-anim-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hero-crystal-ring-canvas {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
 @keyframes footerEnergySweep {
   0% {
     background-position: -40% 50%;
