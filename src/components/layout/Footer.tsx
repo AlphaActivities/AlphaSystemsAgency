@@ -119,7 +119,7 @@ export default function Footer() {
                 </a>
               </li>
 
-              <li className="mt-6 text-white/90 leading-[1.375rem]">
+              <li className="mt-4 text-white/90 leading-[1.375rem]">
                 Consultations by request
               </li>
               <li className="-mt-[0.0625rem] text-white/90 leading-[1.375rem]">
