@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:info@alphasystemsagency.com"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-yellow-500/60 pb-1"
                 >
                   info@alphasystemsagency.com
                 </a>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li className="mt-3">
                 <a
                   href="tel:+12148627913"
-                  className="transition-colors hover:text-uv-500"
+                  className="transition-colors hover:text-uv-500 border-b border-yellow-500/60 pb-1"
                 >
                   (214) 862-7913
                 </a>
