@@ -1,13 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
 
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
-  const [isPaused, setIsPaused] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const velocityRef = useRef(0);
   const [cloneCount] = useState(4);
   const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
   const lastXRef = useRef(0);
   const lastTimeRef = useRef(0);
   const lastInteractionTimeRef = useRef(0);
@@ -18,26 +17,26 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
 
     let animationId: number;
     const baseSpeed = 0.75;
-    const friction = 0.95;
-    const resumeDelay = 1200;
+    const friction = 0.92;
+    const resumeDelay = 800;
 
     const animate = () => {
       if (track.firstElementChild) {
         const now = performance.now();
         const timeSinceInteraction = now - lastInteractionTimeRef.current;
 
-        if (!isPaused && !isDraggingRef.current) {
+        if (!isDraggingRef.current) {
           if (Math.abs(velocityRef.current) > 0.1) {
             velocityRef.current *= friction;
             positionRef.current += velocityRef.current;
-          } else if (timeSinceInteraction > resumeDelay) {
+          } else if (timeSinceInteraction > resumeDelay && !isHovering) {
             velocityRef.current = 0;
             positionRef.current -= baseSpeed;
           } else {
             velocityRef.current *= friction;
             positionRef.current += velocityRef.current;
           }
-        } else if (isDraggingRef.current) {
+        } else {
           lastInteractionTimeRef.current = now;
         }
 
@@ -57,7 +56,6 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
 
     const handlePointerDown = (e: PointerEvent) => {
       isDraggingRef.current = true;
-      startXRef.current = e.clientX;
       lastXRef.current = e.clientX;
       lastTimeRef.current = performance.now();
       velocityRef.current = 0;
@@ -104,13 +102,13 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       document.removeEventListener('pointerup', handlePointerUp);
       document.removeEventListener('pointercancel', handlePointerUp);
     };
-  }, [isPaused, cloneCount]);
+  }, [cloneCount, isHovering]);
 
   return (
     <div
       className="relative overflow-hidden py-6"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
       style={{
         maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
