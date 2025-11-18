@@ -122,7 +122,7 @@ export default function Footer() {
               <li className="mt-6 text-white/90 leading-[1.375rem]">
                 Consultations by request
               </li>
-              <li className="mt-1 text-white/90 leading-[1.375rem]">
+              <li className="-mt-[0.0625rem] text-white/90 leading-[1.375rem]">
                 Response time under 24 hours
               </li>
             </ul>
