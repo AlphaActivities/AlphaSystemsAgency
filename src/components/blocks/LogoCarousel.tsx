@@ -59,7 +59,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       lastTimeRef.current = performance.now();
       velocityRef.current = 0;
       track.style.cursor = 'grabbing';
-      e.preventDefault();
+      track.setPointerCapture(e.pointerId);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
@@ -76,30 +76,33 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       positionRef.current += deltaX;
       lastXRef.current = e.clientX;
       lastTimeRef.current = now;
+      e.preventDefault();
     };
 
-    const handlePointerUp = () => {
+    const handlePointerUp = (e: PointerEvent) => {
       if (isDraggingRef.current) {
         isDraggingRef.current = false;
         track.style.cursor = 'grab';
         lastInteractionTimeRef.current = performance.now();
+        track.releasePointerCapture(e.pointerId);
       }
     };
 
     track.style.cursor = 'grab';
+    track.style.touchAction = 'none';
     track.addEventListener('pointerdown', handlePointerDown);
-    document.addEventListener('pointermove', handlePointerMove);
-    document.addEventListener('pointerup', handlePointerUp);
-    document.addEventListener('pointercancel', handlePointerUp);
+    track.addEventListener('pointermove', handlePointerMove);
+    track.addEventListener('pointerup', handlePointerUp);
+    track.addEventListener('pointercancel', handlePointerUp);
 
     animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
       track.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('pointermove', handlePointerMove);
-      document.removeEventListener('pointerup', handlePointerUp);
-      document.removeEventListener('pointercancel', handlePointerUp);
+      track.removeEventListener('pointermove', handlePointerMove);
+      track.removeEventListener('pointerup', handlePointerUp);
+      track.removeEventListener('pointercancel', handlePointerUp);
     };
   }, [cloneCount]);
 
