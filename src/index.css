@@ -530,7 +530,11 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .footer-top-glow {
-  box-shadow: 0 -1px 22px rgba(160, 100, 255, 0.45);
+  /* Outer UV glow that you already liked above the footer */
+  box-shadow:
+    0 -1px 22px rgba(160, 100, 255, 0.45),
+    /* Inner UV glow that bleeds down into the top of the footer */
+    inset 0 12px 32px rgba(160, 100, 255, 0.40);
 }
 
 /* Optional: prefer dynamic viewport where supported, still overshoot */
