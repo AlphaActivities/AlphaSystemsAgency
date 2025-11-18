@@ -12,18 +12,18 @@ const members: Member[] = [
   {
     initials: "J",
     name: "Josh",
-    role: "Founder and System Architect",
+    role: "Founder & Systems Architect",
     blurb:
-      "Josh leads strategy, architecture, and implementation, focusing on fast builds, clean analytics, and measurable growth.",
+      "Josh represents high-end, $50,000+ digital experiences, transforming complex architecture and GA4 insights into sleek, conversion-focused systems. He represents the agency's technical vision, ensuring every build is as fast and flawless as it is future-proof.",
     tags: [
       "React",
       "TypeScript",
       "System Design",
-      "Analytics",
+      "GA4",
       "Attribution",
       "CRO",
       "Automation",
-      "GA4",
+      "Performance Architecture",
     ],
   },
   {
@@ -31,16 +31,16 @@ const members: Member[] = [
     name: "Heber",
     role: "Design and Meta Specialist",
     blurb:
-      "Heber shapes the visual system, brand consistency, and paid social performance across Meta and creative iterations.",
+      "Heber shapes the agency's visual and brand systems, blending UI/UX excellence with Meta ad performance. His expertise ensures every project is visually stunning, brand-consistent, and performance-driven.",
     tags: [
       "UI and UX",
       "Figma",
       "Meta Ads",
-      "Visual Systems",
       "Brand Strategy",
-      "Content",
+      "Visual Systems",
       "Motion",
       "Prototyping",
+      "Content Design",
     ],
   },
   {
@@ -48,11 +48,11 @@ const members: Member[] = [
     name: "Juan",
     role: "Ads and Data Strategist",
     blurb:
-      "Juan drives Google Ads strategy, telemetry, and budget control with operator-style measurement and clear reporting.",
+      "Juan specializes in turning Google Ads mastery and client systems into seamless, data-driven strategies. He bridges ad expertise with practical client insights, ensuring every campaign is measured, client-friendly, and results-driven.",
     tags: [
       "Google Ads",
-      "Attribution",
       "Keyword Strategy",
+      "Attribution",
       "Landing Pages",
       "GTM",
       "GA4",
