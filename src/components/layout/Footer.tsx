@@ -101,7 +101,7 @@ export default function Footer() {
           {/* Connect */}
           <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">Connect</h3>
-            <ul className="space-y-2 text-sm text-white">
+            <ul className="space-y-2 text-sm text-white text-center">
               <li>
                 <a
                   href="mailto:info@alphasystemsagency.com"
@@ -117,6 +117,13 @@ export default function Footer() {
                 >
                   (214) 862-7913
                 </a>
+              </li>
+
+              <li className="pt-2 text-white/90">
+                Consultations by request
+              </li>
+              <li className="text-white/90">
+                Response time under 24 hours
               </li>
             </ul>
           </div>
