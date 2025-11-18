@@ -476,12 +476,53 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .footer-shell {
-  background-color: rgba(20, 0, 40, 0.9);
   position: relative;
   z-index: 0;
+  overflow: hidden;
+  background-color: rgba(20, 0, 40, 0.9);
+}
+
+.footer-shell::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(122, 44, 255, 0.0) 10%,
+      rgba(122, 44, 255, 0.26) 40%,
+      rgba(160, 100, 255, 0.32) 50%,
+      rgba(122, 44, 255, 0.26) 60%,
+      transparent 90%,
+      transparent 100%
+    );
+  opacity: 0.26;
+  animation: footerEnergySweep 26s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.footer-shell > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Optional: prefer dynamic viewport where supported, still overshoot */
 @supports (height: 100dvh) {
   .viewport-floor { height: 200dvh; }
+}
+
+@keyframes footerEnergySweep {
+  0% {
+    background-position: -40% 50%;
+    opacity: 0.16;
+  }
+  50% {
+    background-position: 50% 50%;
+    opacity: 0.28;
+  }
+  100% {
+    background-position: 140% 50%;
+    opacity: 0.16;
+  }
 }
