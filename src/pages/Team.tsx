@@ -48,7 +48,7 @@ const members: Member[] = [
     name: "Juan",
     role: "Ads and Data Strategist",
     blurb:
-      "Juan specializes in turning Google Ads mastery and client systems into seamless, data-driven strategies. He bridges ad expertise with practical client insights, ensuring every campaign is measured, client-friendly, and results-driven.",
+      "Juan drives Google Ads mastery and client systems into seamless, data-driven strategies. He bridges ad expertise with practical client insights, ensuring every campaign is measured, client-friendly, and results-driven.",
     tags: [
       "Google Ads",
       "Keyword Strategy",
