@@ -1,7 +1,6 @@
 import React from "react";
 import Counter from "../components/ui/Counter";
 import LogoCarousel from "../components/blocks/LogoCarousel";
-import HeroCrystalRing from "../components/visual/HeroCrystalRing";
 import { getVerifiedLaunchCount } from "../data/clients";
 import { Star, Zap, Rocket } from "lucide-react";
 
@@ -26,7 +25,6 @@ export default function Home() {
               Growth Engines
             </span>
           </h1>
-          <HeroCrystalRing />
         </div>
         <p className="text-xl md:text-2xl text-white mt-[220px] mb-4 sm:mb-5 md:mb-6 max-w-2xl mx-auto">
           We build high-performance websites and growth systems for businesses ready to scale.
