@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const velocityRef = useRef(0);
@@ -11,8 +12,9 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
   const lastInteractionTimeRef = useRef(0);
 
   useEffect(() => {
+    const container = containerRef.current;
     const track = trackRef.current;
-    if (!track) return;
+    if (!container || !track) return;
 
     let animationId: number;
     const baseSpeed = 0.75;
@@ -58,8 +60,8 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       lastXRef.current = e.clientX;
       lastTimeRef.current = performance.now();
       velocityRef.current = 0;
-      track.style.cursor = 'grabbing';
-      track.setPointerCapture(e.pointerId);
+      container.style.cursor = 'grabbing';
+      container.setPointerCapture(e.pointerId);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
@@ -82,32 +84,33 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     const handlePointerUp = (e: PointerEvent) => {
       if (isDraggingRef.current) {
         isDraggingRef.current = false;
-        track.style.cursor = 'grab';
+        container.style.cursor = 'grab';
         lastInteractionTimeRef.current = performance.now();
-        track.releasePointerCapture(e.pointerId);
+        container.releasePointerCapture(e.pointerId);
       }
     };
 
-    track.style.cursor = 'grab';
-    track.style.touchAction = 'none';
-    track.addEventListener('pointerdown', handlePointerDown);
-    track.addEventListener('pointermove', handlePointerMove);
-    track.addEventListener('pointerup', handlePointerUp);
-    track.addEventListener('pointercancel', handlePointerUp);
+    container.style.cursor = 'grab';
+    container.style.touchAction = 'none';
+    container.addEventListener('pointerdown', handlePointerDown);
+    container.addEventListener('pointermove', handlePointerMove);
+    container.addEventListener('pointerup', handlePointerUp);
+    container.addEventListener('pointercancel', handlePointerUp);
 
     animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
-      track.removeEventListener('pointerdown', handlePointerDown);
-      track.removeEventListener('pointermove', handlePointerMove);
-      track.removeEventListener('pointerup', handlePointerUp);
-      track.removeEventListener('pointercancel', handlePointerUp);
+      container.removeEventListener('pointerdown', handlePointerDown);
+      container.removeEventListener('pointermove', handlePointerMove);
+      container.removeEventListener('pointerup', handlePointerUp);
+      container.removeEventListener('pointercancel', handlePointerUp);
     };
   }, [cloneCount]);
 
   return (
     <div
+      ref={containerRef}
       className="relative overflow-hidden py-6"
       style={{
         maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
