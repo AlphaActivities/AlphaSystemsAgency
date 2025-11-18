@@ -502,6 +502,28 @@ html { scrollbar-gutter: stable both-edges; }
   pointer-events: none;
 }
 
+.footer-shell::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(
+      circle at 12% 35%,
+      rgba(160, 100, 255, 0.35) 0%,
+      rgba(160, 100, 255, 0.0) 55%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(255, 180, 120, 0.30) 0%,
+      rgba(255, 180, 120, 0.0) 60%
+    );
+  opacity: 0.78;
+  mix-blend-mode: screen;
+  animation: footerOrbDrift 38s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .footer-shell > .container {
   position: relative;
   z-index: 1;
@@ -524,5 +546,17 @@ html { scrollbar-gutter: stable both-edges; }
   100% {
     background-position: 140% 50%;
     opacity: 0.16;
+  }
+}
+
+@keyframes footerOrbDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  40% {
+    transform: translate3d(-3%, 2%, 0);
+  }
+  100% {
+    transform: translate3d(4%, -3%, 0);
   }
 }
