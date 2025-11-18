@@ -110,7 +110,7 @@ export default function Footer() {
                   info@alphasystemsagency.com
                 </a>
               </li>
-              <li className="mt-1">
+              <li className="mt-3">
                 <a
                   href="tel:+12148627913"
                   className="transition-colors hover:text-uv-500"
