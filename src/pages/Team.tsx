@@ -60,6 +60,23 @@ const members: Member[] = [
       "Experimentation",
     ],
   },
+  {
+    initials: "A",
+    name: "Abdul",
+    role: "Conversion & Creative Strategist",
+    blurb:
+      "Abdul specializes in conversion-driven messaging, funnel architecture, and offer positioning. He bridges creative strategy with performance outcomes, crafting compelling assets that raise engagement and accelerate revenue growth.",
+    tags: [
+      "Direct Response Copywriting",
+      "Funnel Building",
+      "Offer Positioning",
+      "Meta Ads",
+      "Google Ads",
+      "Landing Pages",
+      "Content Strategy",
+      "Lead Magnet Creation",
+    ],
+  },
 ];
 
 export default function Team() {
@@ -68,7 +85,7 @@ export default function Team() {
       <div className="mx-auto max-w-6xl">
         <header className="mb-10">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Three specialized minds working as one
+            Specialized minds working as one
           </h1>
           <p className="mt-3 text-[var(--neutral-300)] max-w-3xl">
             Clear roles, shared standards, and measurable outcomes on every engagement.
