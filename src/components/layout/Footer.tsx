@@ -101,30 +101,24 @@ export default function Footer() {
           {/* Connect */}
           <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center">
             <h3 className="mb-4 text-lg font-semibold text-white">Connect</h3>
-<ul className="space-y-2 text-sm text-white">
-  <li>
-    <a
-      href="mailto:info@alphasystemsagency.com"
-      className="transition-colors hover:text-uv-500"
-    >
-      info@alphasystemsagency.com
-    </a>
-  </li>
-  <li>
-    <a
-      href="tel:+12148627913"
-      className="transition-colors hover:text-uv-500"
-    >
-      (214) 862-7913
-    </a>
-  </li>
-  <li className="pt-2 text-white/90">
-    Consultation Availability: By request
-  </li>
-  <li className="text-white/90">
-    Average Response Time: Under 24 hours
-  </li>
-</ul>
+            <ul className="space-y-2 text-sm text-white">
+              <li>
+                <a
+                  href="mailto:info@alphasystemsagency.com"
+                  className="transition-colors hover:text-uv-500"
+                >
+                  info@alphasystemsagency.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+12148627913"
+                  className="transition-colors hover:text-uv-500"
+                >
+                  (214) 862-7913
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
