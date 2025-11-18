@@ -119,10 +119,10 @@ export default function Footer() {
                 </a>
               </li>
 
-              <li className="pt-2 text-white/90">
+              <li className="-mt-1 text-white/90 leading-[1.375rem]">
                 Consultations by request
               </li>
-              <li className="text-white/90">
+              <li className="text-white/90 leading-[1.375rem]">
                 Response time under 24 hours
               </li>
             </ul>
