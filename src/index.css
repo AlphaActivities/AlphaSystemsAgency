@@ -533,6 +533,22 @@ html { scrollbar-gutter: stable both-edges; }
   box-shadow: 0 -1px 22px rgba(160, 100, 255, 0.45);
 }
 
+.footer-top-glow-strip {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  right: -40px;
+  height: 40px;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(160, 100, 255, 0.55) 0%,
+    rgba(160, 100, 255, 0.0) 60%
+  );
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Optional: prefer dynamic viewport where supported, still overshoot */
 @supports (height: 100dvh) {
   .viewport-floor { height: 200dvh; }
