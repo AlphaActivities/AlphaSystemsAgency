@@ -10,6 +10,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
   const startXRef = useRef(0);
   const lastXRef = useRef(0);
   const lastTimeRef = useRef(0);
+  const lastInteractionTimeRef = useRef(0);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -19,12 +20,11 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     const baseSpeed = 0.75;
     const friction = 0.95;
     const resumeDelay = 1200;
-    let lastInteractionTime = 0;
 
     const animate = () => {
       if (track.firstElementChild) {
         const now = performance.now();
-        const timeSinceInteraction = now - lastInteractionTime;
+        const timeSinceInteraction = now - lastInteractionTimeRef.current;
 
         if (!isPaused && !isDraggingRef.current) {
           if (Math.abs(velocityRef.current) > 0.1) {
@@ -38,7 +38,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
             positionRef.current += velocityRef.current;
           }
         } else if (isDraggingRef.current) {
-          lastInteractionTime = now;
+          lastInteractionTimeRef.current = now;
         }
 
         const singleSetWidth = track.scrollWidth / cloneCount;
@@ -85,7 +85,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       if (isDraggingRef.current) {
         isDraggingRef.current = false;
         track.style.cursor = 'grab';
-        lastInteractionTime = performance.now();
+        lastInteractionTimeRef.current = performance.now();
       }
     };
 
