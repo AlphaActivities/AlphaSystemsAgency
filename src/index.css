@@ -529,6 +529,10 @@ html { scrollbar-gutter: stable both-edges; }
   z-index: 1;
 }
 
+.footer-top-glow {
+  box-shadow: 0 -1px 22px rgba(160, 100, 255, 0.45);
+}
+
 /* Optional: prefer dynamic viewport where supported, still overshoot */
 @supports (height: 100dvh) {
   .viewport-floor { height: 200dvh; }
