@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 
 export default function LogoCarousel({logos}:{logos:{src:string; alt:string; scale?: number}[]}) {
-  const [isHovering, setIsHovering] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const velocityRef = useRef(0);
@@ -29,7 +28,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           if (Math.abs(velocityRef.current) > 0.1) {
             velocityRef.current *= friction;
             positionRef.current += velocityRef.current;
-          } else if (timeSinceInteraction > resumeDelay && !isHovering) {
+          } else if (timeSinceInteraction > resumeDelay) {
             velocityRef.current = 0;
             positionRef.current -= baseSpeed;
           } else {
@@ -102,13 +101,11 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       document.removeEventListener('pointerup', handlePointerUp);
       document.removeEventListener('pointercancel', handlePointerUp);
     };
-  }, [cloneCount, isHovering]);
+  }, [cloneCount]);
 
   return (
     <div
       className="relative overflow-hidden py-6"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
       style={{
         maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
