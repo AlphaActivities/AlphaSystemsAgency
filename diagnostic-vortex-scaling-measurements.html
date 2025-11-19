@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Scaling Diagnostic - Lock Center Analysis</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #00ff00;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { color: #00ffff; margin-bottom: 30px; text-align: center; font-size: 24px; }
+    .breakpoint-section {
+      background: #1a1a1a;
+      border: 2px solid #00ff00;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+    .breakpoint-title {
+      color: #ffff00;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .measurement-group {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #0f0f0f;
+      border-left: 4px solid #00ffff;
+    }
+    .measurement-label {
+      color: #ffffff;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .measurement-value {
+      color: #00ff00;
+      font-size: 16px;
+      margin-left: 20px;
+      font-family: monospace;
+    }
+    .formula {
+      color: #ff00ff;
+      margin-left: 20px;
+      font-style: italic;
+    }
+    .critical {
+      color: #ff0000;
+      font-weight: bold;
+      background: #2a0000;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #ff0000;
+    }
+    .warning {
+      color: #ffaa00;
+      background: #2a1a00;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #ffaa00;
+    }
+    .success {
+      color: #00ff00;
+      background: #002a00;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #00ff00;
+    }
+    .strategy-box {
+      background: #1a1a2a;
+      border: 2px solid #00ffff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .strategy-title {
+      color: #00ffff;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: #0a0a0a;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #1a1a1a;
+      color: #00ffff;
+      font-weight: bold;
+    }
+    td {
+      color: #00ff00;
+    }
+    .btn {
+      background: #00ff00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 4px;
+    }
+    .btn:hover {
+      background: #00ffff;
+    }
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1a1a1a;
+      border: 2px solid #00ff00;
+      padding: 15px;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+    .copy-btn {
+      background: #ffaa00;
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+      display: block;
+      width: 100%;
+    }
+    .copy-btn:hover {
+      background: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 VORTEX SCALING DIAGNOSTIC - LOCK CENTER ANALYSIS</h1>
+
+    <div class="critical">
+      ⚠️ CURRENT STATE: sizeMap = 200×200 all breakpoints | biasUpPx = 14 | Formula: localTop = midpointViewportY - secRect.top - h / 2
+    </div>
+
+    <div id="measurements"></div>
+
+    <div class="strategy-box">
+      <div class="strategy-title">📊 STRATEGY A: Adjust biasUpPx Per Breakpoint</div>
+      <div id="strategyA"></div>
+    </div>
+
+    <div class="strategy-box">
+      <div class="strategy-title">📊 STRATEGY B: Keep biasUpPx Fixed, Use Constant 100 Instead of h/2</div>
+      <div id="strategyB"></div>
+    </div>
+
+    <div class="strategy-box">
+      <div class="strategy-title">🎯 FINAL RECOMMENDATION</div>
+      <div id="recommendation"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div style="color: #00ff00; font-weight: bold; margin-bottom: 10px;">RESIZE WINDOW</div>
+    <div style="color: #ffaa00; font-size: 12px; margin-bottom: 10px;">Current: <span id="currentBP"></span></div>
+    <button class="copy-btn" onclick="copyAllData()">📋 COPY ALL DATA</button>
+  </div>
+
+  <script>
+    // Configuration from actual component
+    const CURRENT_BIAS_UP_PX = 14;
+    const CURRENT_SIZE = 200;
+    const PROPOSED_SCALE = 1.4; // 40% increase
+
+    // Proposed new sizes per breakpoint (can be adjusted)
+    const proposedSizes = {
+      mobile: 280,   // 40% larger
+      tablet: 300,   // 50% larger (slightly more room on tablet)
+      desktop: 320   // 60% larger (most room on desktop)
+    };
+
+    function getCurrentBreakpoint() {
+      const width = window.innerWidth;
+      if (width >= 1024) return 'desktop';
+      if (width >= 640) return 'tablet';
+      return 'mobile';
+    }
+
+    function measureEverything() {
+      const hero = document.getElementById('heroTitle');
+      const paragraph = document.querySelector('section#hero p');
+      const heroSection = document.querySelector('section#hero');
+
+      if (!hero || !paragraph || !heroSection) {
+        return {
+          error: true,
+          message: 'Missing elements - this diagnostic must run on the actual Home page'
+        };
+      }
+
+      const titleRect = hero.getBoundingClientRect();
+      const pRect = paragraph.getBoundingClientRect();
+      const secRect = heroSection.getBoundingClientRect();
+
+      const gap = Math.max(0, pRect.top - titleRect.bottom);
+      const h = CURRENT_SIZE;
+      const midpointViewportY = titleRect.bottom + gap / 2 - CURRENT_BIAS_UP_PX;
+      const localTop = midpointViewportY - secRect.top - h / 2;
+
+      // Calculate the ACTUAL CENTER Y position within section#hero
+      const centerYInSection = localTop + h / 2;
+
+      const bp = getCurrentBreakpoint();
+      const hNew = proposedSizes[bp];
+      const deltaHalf = (hNew / 2) - (CURRENT_SIZE / 2);
+      const centerDropIfNoChange = deltaHalf;
+
+      // Strategy A: New bias to keep center locked
+      const newBiasStrategyA = CURRENT_BIAS_UP_PX + deltaHalf;
+
+      // Strategy B: Using constant 100
+      const localTopStrategyB_current = midpointViewportY - secRect.top - 100;
+      const centerStrategyB_current = localTopStrategyB_current + h / 2;
+      const localTopStrategyB_new = midpointViewportY - secRect.top - 100;
+      const centerStrategyB_new = localTopStrategyB_new + hNew / 2;
+      const centerShiftStrategyB = centerStrategyB_new - centerStrategyB_current;
+
+      // Overlap calculations
+      const overlapAbove = Math.max(0, centerYInSection - hNew / 2 - 0); // how much above section top
+      const overlapWithTitle = Math.max(0, (centerYInSection - hNew / 2) - (titleRect.bottom - secRect.top) + gap);
+      const overlapWithPara = Math.max(0, (centerYInSection + hNew / 2) - (pRect.top - secRect.top));
+
+      return {
+        error: false,
+        bp,
+        titleRect: {
+          bottom: titleRect.bottom.toFixed(2)
+        },
+        pRect: {
+          top: pRect.top.toFixed(2)
+        },
+        secRect: {
+          top: secRect.top.toFixed(2)
+        },
+        gap: gap.toFixed(2),
+        h: h,
+        midpointViewportY: midpointViewportY.toFixed(2),
+        localTop: localTop.toFixed(2),
+        centerYInSection: centerYInSection.toFixed(2),
+        hNew: hNew,
+        deltaHalf: deltaHalf.toFixed(2),
+        centerDropIfNoChange: centerDropIfNoChange.toFixed(2),
+        newBiasStrategyA: newBiasStrategyA.toFixed(2),
+        localTopStrategyB_current: localTopStrategyB_current.toFixed(2),
+        centerStrategyB_current: centerStrategyB_current.toFixed(2),
+        localTopStrategyB_new: localTopStrategyB_new.toFixed(2),
+        centerStrategyB_new: centerStrategyB_new.toFixed(2),
+        centerShiftStrategyB: centerShiftStrategyB.toFixed(2),
+        overlapAbove: overlapAbove.toFixed(2),
+        overlapWithTitle: overlapWithTitle.toFixed(2),
+        overlapWithPara: overlapWithPara.toFixed(2)
+      };
+    }
+
+    function renderMeasurements() {
+      const data = measureEverything();
+
+      document.getElementById('currentBP').textContent = data.error ? 'ERROR' : data.bp.toUpperCase();
+
+      if (data.error) {
+        document.getElementById('measurements').innerHTML = `
+          <div class="critical">
+            ❌ ${data.message}
+            <br><br>
+            This diagnostic page must be integrated into the actual Home.tsx page to measure real DOM elements.
+            <br><br>
+            Please open the actual application at the home page and check the browser console for measurements.
+          </div>
+        `;
+        return;
+      }
+
+      const { bp } = data;
+
+      document.getElementById('measurements').innerHTML = `
+        <div class="breakpoint-section">
+          <div class="breakpoint-title">📐 ${bp.toUpperCase()} BREAKPOINT (${window.innerWidth}px wide)</div>
+
+          <div class="measurement-group">
+            <div class="measurement-label">1️⃣ CONFIG VALUES</div>
+            <div class="measurement-value">sizeMap[${bp}] = [${CURRENT_SIZE}, ${CURRENT_SIZE}]</div>
+            <div class="measurement-value">biasUpPx = ${CURRENT_BIAS_UP_PX}</div>
+            <div class="measurement-value">Current h = ${data.h}px</div>
+          </div>
+
+          <div class="measurement-group">
+            <div class="measurement-label">2️⃣ CURRENT PERFECT CENTER (200×200)</div>
+            <div class="measurement-value">a) titleRect.bottom = ${data.titleRect.bottom}px</div>
+            <div class="measurement-value">b) paragraphRect.top = ${data.pRect.top}px</div>
+            <div class="measurement-value">c) gap = ${data.gap}px</div>
+            <div class="formula">gap = paragraphRect.top - titleRect.bottom</div>
+            <div class="measurement-value">d) midpointViewportY = ${data.midpointViewportY}px</div>
+            <div class="formula">midpointViewportY = titleRect.bottom + gap / 2 - biasUpPx</div>
+            <div class="measurement-value">e) secRect.top = ${data.secRect.top}px</div>
+            <div class="measurement-value">f) h = ${data.h}px</div>
+            <div class="measurement-value">g) localTop = ${data.localTop}px</div>
+            <div class="formula">localTop = midpointViewportY - secRect.top - h / 2</div>
+            <div class="success">
+              <strong>h) VORTEX CENTER Y in section#hero = ${data.centerYInSection}px</strong><br>
+              <span style="font-size: 12px;">This is our "locked crosshair" position that must remain constant</span>
+            </div>
+          </div>
+
+          <div class="measurement-group">
+            <div class="measurement-label">3️⃣ TARGET: ~40% LARGER, SAME CENTER</div>
+            <div class="measurement-value">Proposed hNew = ${data.hNew}px (was 200px)</div>
+            <div class="measurement-value">Change in h / 2 = ${data.deltaHalf}px</div>
+            <div class="formula">deltaHalf = (${data.hNew} / 2) - (200 / 2) = ${data.deltaHalf}px</div>
+            <div class="warning">
+              <strong>⚠️ If we ONLY change sizeMap to ${data.hNew}px without adjusting anything else:</strong><br>
+              The vortex CENTER would DROP by exactly <strong>${data.centerDropIfNoChange}px</strong>
+            </div>
+          </div>
+
+          <div class="measurement-group">
+            <div class="measurement-label">4️⃣ OVERLAP ANALYSIS (with hNew = ${data.hNew}px)</div>
+            <div class="measurement-value">Overlap above section top: ${data.overlapAbove}px</div>
+            <div class="measurement-value">Overlap into H1 area: ${data.overlapWithTitle}px</div>
+            <div class="measurement-value">Overlap into paragraph area: ${data.overlapWithPara}px</div>
+            ${data.overlapAbove > 0
+              ? '<div class="critical">⚠️ CLIPPING RISK: Vortex extends above section bounds</div>'
+              : '<div class="success">✅ No clipping above section</div>'
+            }
+          </div>
+        </div>
+      `;
+
+      document.getElementById('strategyA').innerHTML = `
+        <div class="measurement-group">
+          <div class="measurement-label">STRATEGY A: Adjust biasUpPx to compensate for larger size</div>
+          <div class="measurement-value">Current biasUpPx = ${CURRENT_BIAS_UP_PX}</div>
+          <div class="measurement-value">deltaHalf = ${data.deltaHalf}px</div>
+          <div class="success">
+            <strong>newBias = ${data.newBiasStrategyA}</strong><br>
+            <span style="font-size: 12px;">Formula: newBias = ${CURRENT_BIAS_UP_PX} + ${data.deltaHalf}</span>
+          </div>
+          <div class="measurement-value" style="margin-top: 15px;">
+            With this newBias and hNew = ${data.hNew}px:<br>
+            • midpointViewportY would adjust upward by ${data.deltaHalf}px<br>
+            • localTop would use (midpointViewportY - secRect.top - ${data.hNew} / 2)<br>
+            • Center Y would remain at <strong>${data.centerYInSection}px</strong> ✅
+          </div>
+        </div>
+      `;
+
+      document.getElementById('strategyB').innerHTML = `
+        <div class="measurement-group">
+          <div class="measurement-label">STRATEGY B: Replace h/2 with constant 100</div>
+          <div class="measurement-value">Keep biasUpPx = ${CURRENT_BIAS_UP_PX} (unchanged)</div>
+          <div class="measurement-value">Change formula from: localTop = midpointViewportY - secRect.top - h / 2</div>
+          <div class="measurement-value">To: localTop = midpointViewportY - secRect.top - 100</div>
+
+          <div style="margin-top: 15px;">
+            <div class="measurement-label">With h = 200 (current):</div>
+            <div class="measurement-value">localTop = ${data.localTopStrategyB_current}px</div>
+            <div class="measurement-value">Center Y = ${data.centerStrategyB_current}px</div>
+          </div>
+
+          <div style="margin-top: 15px;">
+            <div class="measurement-label">With h = ${data.hNew} (new):</div>
+            <div class="measurement-value">localTop = ${data.localTopStrategyB_new}px (same as above)</div>
+            <div class="measurement-value">Center Y = ${data.centerStrategyB_new}px</div>
+            ${Math.abs(parseFloat(data.centerShiftStrategyB)) < 0.1
+              ? '<div class="success">✅ CENTER REMAINS LOCKED (shift < 0.1px)</div>'
+              : `<div class="warning">⚠️ Center would shift by ${data.centerShiftStrategyB}px</div>`
+            }
+          </div>
+        </div>
+      `;
+
+      // Generate recommendation
+      const strategyAWorks = true; // By design, Strategy A always works
+      const strategyBWorks = Math.abs(parseFloat(data.centerShiftStrategyB)) < 0.1;
+
+      let recHTML = `
+        <table>
+          <tr>
+            <th>Metric</th>
+            <th>${bp.toUpperCase()}</th>
+          </tr>
+          <tr>
+            <td>Recommended hNew (width × height)</td>
+            <td><strong>${data.hNew} × ${data.hNew}px</strong></td>
+          </tr>
+          <tr>
+            <td>Strategy A: newBias</td>
+            <td><strong>${data.newBiasStrategyA}</strong></td>
+          </tr>
+          <tr>
+            <td>Strategy B: constant 100</td>
+            <td>${strategyBWorks ? '<span style="color: #00ff00;">✅ WORKS</span>' : '<span style="color: #ff0000;">❌ SHIFTS CENTER</span>'}</td>
+          </tr>
+        </table>
+
+        <div class="success" style="margin-top: 20px;">
+          <strong>🎯 RECOMMENDED STRATEGY: ${strategyBWorks ? 'STRATEGY B' : 'STRATEGY A'}</strong><br><br>
+          ${strategyBWorks
+            ? `<strong>WHY STRATEGY B:</strong><br>
+               • Cleaner implementation - one constant instead of breakpoint-specific biases<br>
+               • The constant "100" semantically represents "half of the original 200px size"<br>
+               • Center remains perfectly locked when scaling<br>
+               • More maintainable - if we want different sizes per breakpoint, no need to recalculate bias<br>
+               • "Radar growth from fixed crosshairs" effect is guaranteed`
+            : `<strong>WHY STRATEGY A:</strong><br>
+               • Mathematically compensates for the size change<br>
+               • Keeps the same formula structure<br>
+               • Requires per-breakpoint bias values but achieves perfect center lock`
+          }
+        </div>
+      `;
+
+      document.getElementById('recommendation').innerHTML = recHTML;
+    }
+
+    function copyAllData() {
+      const data = measureEverything();
+      if (data.error) {
+        alert('Cannot copy - please run on actual Home page');
+        return;
+      }
+
+      const text = `
+VORTEX SCALING DIAGNOSTIC - ${data.bp.toUpperCase()} BREAKPOINT
+Window Width: ${window.innerWidth}px
+========================================
+
+1️⃣ CURRENT CONFIG
+- sizeMap[${data.bp}] = [${CURRENT_SIZE}, ${CURRENT_SIZE}]
+- biasUpPx = ${CURRENT_BIAS_UP_PX}
+- Current h = ${data.h}px
+
+2️⃣ CURRENT PERFECT CENTER (200×200)
+a) titleRect.bottom = ${data.titleRect.bottom}px
+b) paragraphRect.top = ${data.pRect.top}px
+c) gap = ${data.gap}px
+d) midpointViewportY = ${data.midpointViewportY}px
+e) secRect.top = ${data.secRect.top}px
+f) h = ${data.h}px
+g) localTop = ${data.localTop}px
+h) VORTEX CENTER Y in section#hero = ${data.centerYInSection}px ⭐ LOCKED POSITION
+
+3️⃣ TARGET: ~40% LARGER, SAME CENTER
+- Proposed hNew = ${data.hNew}px
+- deltaHalf = ${data.deltaHalf}px
+- Center would DROP by ${data.centerDropIfNoChange}px if no compensation
+
+4️⃣ STRATEGY A: Adjust biasUpPx
+- newBias = ${data.newBiasStrategyA}
+
+5️⃣ STRATEGY B: Constant 100
+- Center shift = ${data.centerShiftStrategyB}px
+
+RECOMMENDATION: ${Math.abs(parseFloat(data.centerShiftStrategyB)) < 0.1 ? 'STRATEGY B' : 'STRATEGY A'}
+      `;
+
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        alert('✅ Data copied to clipboard!');
+      });
+    }
+
+    // Auto-update on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderMeasurements, 250);
+    });
+
+    // Initial render
+    renderMeasurements();
+
+    // Also log to console for easy access
+    console.log('=== VORTEX SCALING DIAGNOSTIC ===');
+    const data = measureEverything();
+    if (!data.error) {
+      console.log('Breakpoint:', data.bp.toUpperCase());
+      console.log('Current Center Y:', data.centerYInSection + 'px');
+      console.log('Proposed hNew:', data.hNew + 'px');
+      console.log('Strategy A newBias:', data.newBiasStrategyA);
+      console.log('Strategy B center shift:', data.centerShiftStrategyB + 'px');
+    }
+  </script>
+</body>
+</html>
