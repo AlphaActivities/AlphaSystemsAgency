@@ -81,10 +81,10 @@ export default function HeroVortexPortal({
       const localY = yViewport - secRect.top - hSize / 2;
 
       host.style.top = `${Math.max(0, localY)}px`;
-      host.style.left = '50%';
-      host.style.transform = 'translateX(-50%)';
       host.style.width = `${w}px`;
       host.style.height = `${hSize}px`;
+      host.style.marginLeft = "auto";
+      host.style.marginRight = "auto";
     };
 
     place();
