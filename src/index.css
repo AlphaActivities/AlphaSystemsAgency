@@ -574,3 +574,18 @@ html { scrollbar-gutter: stable both-edges; }
     transform: translate3d(4%, -3%, 0);
   }
 }
+
+@keyframes growthPulse {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.45));
+  }
+  50% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+  }
+}
+
+.text-growth-pulse {
+  animation: growthPulse 3.5s ease-in-out infinite;
+}
