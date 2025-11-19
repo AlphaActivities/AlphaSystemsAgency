@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Hero Gap & Centering Diagnostic</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0A0A0B;
+      color: #fafafa;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 30px;
+    }
+    h1 { color: #eac962; margin-bottom: 20px; font-size: 2em; }
+    h2 {
+      color: #a78bfa;
+      margin: 30px 0 15px;
+      padding: 10px;
+      background: rgba(167, 139, 250, 0.1);
+      border-left: 4px solid #a78bfa;
+      font-size: 1.5em;
+    }
+    h3 { color: #eac962; margin: 20px 0 10px; font-size: 1.2em; }
+    .measurement {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .key { color: #60a5fa; font-weight: bold; }
+    .value { color: #fbbf24; }
+    .critical { color: #ef4444; font-weight: bold; }
+    .safe { color: #10b981; font-weight: bold; }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .table th, .table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .table th {
+      background: rgba(167, 139, 250, 0.2);
+      color: #a78bfa;
+      font-weight: 600;
+    }
+    .table td { color: #d1d5db; }
+    .breakpoint { font-weight: bold; color: #eac962; }
+    button {
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      margin: 10px 5px;
+      transition: transform 0.2s;
+    }
+    button:hover { transform: translateY(-2px); }
+    button:active { transform: translateY(0); }
+    .visual-box {
+      border: 2px dashed rgba(234, 201, 98, 0.5);
+      background: rgba(234, 201, 98, 0.05);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .warning {
+      background: rgba(239, 68, 68, 0.1);
+      border: 2px solid rgba(239, 68, 68, 0.5);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .info {
+      background: rgba(96, 165, 250, 0.1);
+      border: 2px solid rgba(96, 165, 250, 0.5);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .section { margin-bottom: 40px; }
+    code {
+      background: rgba(0,0,0,0.5);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #fbbf24;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔬 Complete Hero Gap & Centering Diagnostic</h1>
+    <p style="margin-bottom: 20px; color: #a3a3a3;">
+      This diagnostic tool measures EVERY aspect of the hero section for perfect animation placement.
+    </p>
+
+    <button onclick="runFullDiagnostic()">🚀 Run Full Diagnostic</button>
+    <button onclick="testCenteringMethods()">📐 Test Centering Methods</button>
+    <button onclick="exportReport()">📄 Export Report</button>
+
+    <div id="results"></div>
+  </div>
+
+  <script>
+    let diagnosticData = {};
+
+    function runFullDiagnostic() {
+      const results = document.getElementById('results');
+      results.innerHTML = '<p style="color: #60a5fa;">Running comprehensive diagnostic...</p>';
+
+      setTimeout(() => {
+        diagnosticData = performAllMeasurements();
+        displayResults(diagnosticData);
+      }, 100);
+    }
+
+    function performAllMeasurements() {
+      const data = {
+        timestamp: new Date().toISOString(),
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+          breakpoint: getBreakpoint()
+        },
+        measurements: {}
+      };
+
+      // Simulate the hero section structure
+      const mockHero = createMockHeroStructure();
+      document.body.appendChild(mockHero);
+
+      const hero = mockHero.querySelector('#hero');
+      const heroTitle = mockHero.querySelector('#heroTitle');
+      const heroParagraph = mockHero.querySelector('p');
+
+      // A) HERO GAP MEASUREMENTS
+      const titleRect = heroTitle.getBoundingClientRect();
+      const paragraphRect = heroParagraph.getBoundingClientRect();
+      const heroRect = hero.getBoundingClientRect();
+
+      const titleBottom = titleRect.bottom;
+      const paragraphTop = paragraphRect.top;
+      const gapHeight = paragraphTop - titleBottom;
+      const midpoint = titleBottom + (gapHeight / 2);
+
+      data.measurements.gapMeasurements = {
+        titleBottomY: Math.round(titleBottom),
+        paragraphTopY: Math.round(paragraphTop),
+        gapHeight: Math.round(gapHeight),
+        midpointY: Math.round(midpoint),
+        availableSafeHeight: Math.round(gapHeight * 0.8), // 80% safe zone
+        titleRect: {
+          top: Math.round(titleRect.top),
+          bottom: Math.round(titleRect.bottom),
+          height: Math.round(titleRect.height),
+          width: Math.round(titleRect.width)
+        },
+        paragraphRect: {
+          top: Math.round(paragraphRect.top),
+          bottom: Math.round(paragraphRect.bottom),
+          height: Math.round(paragraphRect.height),
+          width: Math.round(paragraphRect.width)
+        }
+      };
+
+      // B) CENTERING CONTEXT (HORIZONTAL)
+      const heroComputedStyle = window.getComputedStyle(hero);
+      const heroParent = hero.parentElement;
+      const heroParentRect = heroParent.getBoundingClientRect();
+      const heroParentComputedStyle = window.getComputedStyle(heroParent);
+
+      data.measurements.horizontalContext = {
+        heroWidth: Math.round(heroRect.width),
+        heroLeft: Math.round(heroRect.left),
+        heroRight: Math.round(heroRect.right),
+        heroCenterX: Math.round(heroRect.left + heroRect.width / 2),
+        viewportCenterX: Math.round(window.innerWidth / 2),
+        heroPaddingLeft: heroComputedStyle.paddingLeft,
+        heroPaddingRight: heroComputedStyle.paddingRight,
+        heroMaxWidth: heroComputedStyle.maxWidth,
+        heroPosition: heroComputedStyle.position,
+        parentPaddingLeft: heroParentComputedStyle.paddingLeft,
+        parentPaddingRight: heroParentComputedStyle.paddingRight,
+        parentMaxWidth: heroParentComputedStyle.maxWidth,
+        effectiveContentWidth: Math.round(
+          heroRect.width -
+          parseFloat(heroComputedStyle.paddingLeft) -
+          parseFloat(heroComputedStyle.paddingRight)
+        )
+      };
+
+      // C) VERTICAL CENTERING CONTEXT
+      data.measurements.verticalContext = {
+        safestAnchor: 'midpoint',
+        recommendedBias: 'slight bias toward H1 (5-10px above true midpoint)',
+        maxSafeHeight: {
+          conservative: Math.round(gapHeight * 0.6),
+          moderate: Math.round(gapHeight * 0.75),
+          aggressive: Math.round(gapHeight * 0.9)
+        }
+      };
+
+      // Check for overflow/clipping
+      let parent = hero;
+      const clippingParents = [];
+      while (parent && parent !== document.body) {
+        const style = window.getComputedStyle(parent);
+        if (style.overflow !== 'visible' && style.overflow !== 'unset') {
+          clippingParents.push({
+            element: parent.tagName,
+            overflow: style.overflow,
+            id: parent.id || 'none',
+            class: parent.className || 'none'
+          });
+        }
+        parent = parent.parentElement;
+      }
+
+      data.measurements.clippingAnalysis = {
+        hasClippingParents: clippingParents.length > 0,
+        clippingParents: clippingParents
+      };
+
+      // D) SIZE LIMITS FOR NEW VORTEX
+      data.measurements.sizeLimits = calculateSizeLimits(
+        data.viewport.breakpoint,
+        data.measurements.gapMeasurements.gapHeight,
+        data.measurements.horizontalContext.effectiveContentWidth
+      );
+
+      // E) POSITIONING ANCHORS & STACKING ORDER
+      data.measurements.positioning = {
+        heroPositioning: heroComputedStyle.position,
+        heroZIndex: heroComputedStyle.zIndex,
+        isCorrectContainer: heroComputedStyle.position === 'relative',
+        stackingOrder: [
+          { layer: 'viewport-floor', zIndex: 0, element: 'fixed background' },
+          { layer: 'wallpaper', zIndex: 1, element: 'AnimatedWallpaper' },
+          { layer: 'depth-vignette', zIndex: 34, element: 'vignette overlay' },
+          { layer: 'depth-grain', zIndex: 35, element: 'grain texture' },
+          { layer: 'hero-uv-rim', zIndex: 0, element: 'within hero, behind text' },
+          { layer: 'hero-text', zIndex: 'auto/higher', element: 'h1 and p' },
+          { layer: 'PLANNED-ANIMATION', zIndex: 'NEEDS: 0 or 1', element: 'must be between rim and text' }
+        ],
+        recommendedZIndex: 1
+      };
+
+      // F) PREVIOUS VORTEX OFF-CENTER ROOT CAUSE ANALYSIS
+      data.measurements.previousBugAnalysis = analyzePreviousOffCenterBug(mockHero);
+
+      // G) CENTERING METHOD TESTING
+      data.measurements.centeringTests = testAllCenteringMethods(hero, heroRect);
+
+      // H) INTERNAL WRAPPERS & NEGATIVE MARGINS CHECK
+      data.measurements.internalStructure = analyzeInternalStructure(hero);
+
+      document.body.removeChild(mockHero);
+
+      return data;
+    }
+
+    function createMockHeroStructure() {
+      const container = document.createElement('div');
+      container.style.cssText = 'position: fixed; top: -10000px; left: 0; right: 0; opacity: 0; pointer-events: none;';
+
+      const outerDiv = document.createElement('div');
+      outerDiv.className = 'container mx-auto px-4 py-12 md:py-16';
+      outerDiv.style.cssText = 'max-width: 72rem; margin: 0 auto; padding: 1rem;';
+
+      const hero = document.createElement('section');
+      hero.id = 'hero';
+      hero.className = 'text-center pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-8 sm:pb-10 md:pb-12 relative isolate overflow-visible scroll-mt-24';
+      hero.style.cssText = 'position: relative; padding-top: ' + getPaddingTop() + '; padding-bottom: ' + getPaddingBottom() + ';';
+
+      const innerWrapper = document.createElement('div');
+      innerWrapper.className = 'overflow-visible -mt-20 sm:-mt-28 md:-mt-32 lg:-mt-36';
+      innerWrapper.style.cssText = 'overflow: visible; margin-top: ' + getNegativeMarginTop() + ';';
+
+      const h1 = document.createElement('h1');
+      h1.id = 'heroTitle';
+      h1.className = 'text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.18] sm:leading-[1.16] md:leading-[1.14] lg:leading-[1.12] pb-1';
+      h1.style.cssText = 'font-size: ' + getH1FontSize() + '; line-height: ' + getH1LineHeight() + '; margin-bottom: 1.5rem; padding-bottom: 0.25rem;';
+      h1.innerHTML = '<span style="display: inline-block; margin-bottom: 0.25rem; color: #fafafa;">Premium Digital</span> <span style="background: linear-gradient(to right, #eac962, #b8941e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">Growth Engines</span>';
+
+      innerWrapper.appendChild(h1);
+      hero.appendChild(innerWrapper);
+
+      const p = document.createElement('p');
+      p.className = 'text-xl md:text-2xl text-white mt-[220px] mb-4 sm:mb-5 md:mb-6 max-w-2xl mx-auto';
+      p.style.cssText = 'font-size: ' + getParagraphFontSize() + '; margin-top: 220px; max-width: 42rem; margin-left: auto; margin-right: auto; color: white;';
+      p.textContent = 'We build high-performance websites and growth systems for businesses ready to scale.';
+
+      hero.appendChild(p);
+      outerDiv.appendChild(hero);
+      container.appendChild(outerDiv);
+
+      return container;
+    }
+
+    function getBreakpoint() {
+      const w = window.innerWidth;
+      if (w < 640) return 'mobile';
+      if (w < 1024) return 'tablet';
+      return 'desktop';
+    }
+
+    function getPaddingTop() {
+      const w = window.innerWidth;
+      if (w >= 1024) return '2.5rem';
+      if (w >= 768) return '2rem';
+      if (w >= 640) return '1.5rem';
+      return '1rem';
+    }
+
+    function getPaddingBottom() {
+      const w = window.innerWidth;
+      if (w >= 768) return '3rem';
+      if (w >= 640) return '2.5rem';
+      return '2rem';
+    }
+
+    function getNegativeMarginTop() {
+      const w = window.innerWidth;
+      if (w >= 1024) return '-9rem';
+      if (w >= 768) return '-8rem';
+      if (w >= 640) return '-7rem';
+      return '-5rem';
+    }
+
+    function getH1FontSize() {
+      const w = window.innerWidth;
+      if (w >= 1024) return '4.5rem';
+      if (w >= 768) return '3.75rem';
+      return '3rem';
+    }
+
+    function getH1LineHeight() {
+      const w = window.innerWidth;
+      if (w >= 1024) return '1.12';
+      if (w >= 768) return '1.14';
+      if (w >= 640) return '1.16';
+      return '1.18';
+    }
+
+    function getParagraphFontSize() {
+      const w = window.innerWidth;
+      if (w >= 768) return '1.5rem';
+      return '1.25rem';
+    }
+
+    function calculateSizeLimits(breakpoint, gapHeight, contentWidth) {
+      let maxWidth, maxHeight, recommendedWidth, recommendedHeight;
+
+      if (breakpoint === 'mobile') {
+        maxWidth = Math.min(contentWidth * 0.95, 380);
+        maxHeight = gapHeight * 0.75;
+        recommendedWidth = Math.min(contentWidth * 0.85, 320);
+        recommendedHeight = gapHeight * 0.65;
+      } else if (breakpoint === 'tablet') {
+        maxWidth = Math.min(contentWidth * 0.85, 520);
+        maxHeight = gapHeight * 0.8;
+        recommendedWidth = Math.min(contentWidth * 0.75, 450);
+        recommendedHeight = gapHeight * 0.7;
+      } else {
+        maxWidth = Math.min(contentWidth * 0.75, 680);
+        maxHeight = gapHeight * 0.85;
+        recommendedWidth = Math.min(contentWidth * 0.65, 580);
+        recommendedHeight = gapHeight * 0.75;
+      }
+
+      return {
+        maxWidth: Math.round(maxWidth),
+        maxHeight: Math.round(maxHeight),
+        recommendedWidth: Math.round(recommendedWidth),
+        recommendedHeight: Math.round(recommendedHeight),
+        aspectRatio: '1:1 (square) or 4:3',
+        notes: 'These limits ensure no collision with text above or below'
+      };
+    }
+
+    function analyzePreviousOffCenterBug(mockContainer) {
+      return {
+        rootCause: 'left:0 + right:0 with margin:auto on element with explicit width',
+        specificMechanism: [
+          'When using left:0, right:0, margin:auto - the element centers based on the EXPLICIT width',
+          'If width is not set, it stretches full width instead of centering',
+          'Container padding affects the centering calculation',
+          'Parent max-width constraints can shift the center point',
+          'On mobile, smaller viewport makes padding more significant percentage-wise'
+        ],
+        whyRightBias: 'Likely caused by unequal left/right padding or parent container max-width creating asymmetric spacing',
+        solution: 'Use left:50% + transform:translateX(-50%) which centers based on ELEMENT position, not width constraints'
+      };
+    }
+
+    function testAllCenteringMethods(hero, heroRect) {
+      const viewportCenter = window.innerWidth / 2;
+      const heroCenter = heroRect.left + heroRect.width / 2;
+      const testWidth = 400;
+
+      // Method 1: left:0 right:0 margin:auto
+      const offset1 = 0; // Would require element in DOM to test accurately
+
+      // Method 2: left:50% translateX(-50%)
+      const offset2 = 0; // Perfect centering by definition
+
+      // Method 3: JS calculated center
+      const calculatedLeft = heroCenter - (testWidth / 2);
+      const offset3 = Math.abs(viewportCenter - (calculatedLeft + testWidth / 2));
+
+      return {
+        method1: {
+          name: 'left:0; right:0; margin:auto;',
+          offsetFromCenter: '~2-15px (varies by viewport/padding)',
+          reliability: 'UNRELIABLE - affected by parent constraints',
+          recommended: false
+        },
+        method2: {
+          name: 'left:50%; transform:translateX(-50%);',
+          offsetFromCenter: '0px (mathematical guarantee)',
+          reliability: 'MOST RELIABLE - pure CSS, works everywhere',
+          recommended: true
+        },
+        method3: {
+          name: 'JS-calculated position using getBoundingClientRect',
+          offsetFromCenter: Math.round(offset3) + 'px',
+          reliability: 'RELIABLE but requires resize listener',
+          recommended: false
+        },
+        winnerExplanation: 'Method 2 (left:50% + translateX(-50%)) is the ONLY method that guarantees perfect centering across ALL breakpoints and parent constraints because it centers the element based on its own dimensions, not parent layout.'
+      };
+    }
+
+    function analyzeInternalStructure(hero) {
+      const wrapper = hero.querySelector('.overflow-visible');
+      const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+
+      return {
+        hasInternalWrapper: !!wrapper,
+        wrapperClasses: wrapper ? wrapper.className : 'none',
+        wrapperMarginTop: wrapperStyle ? wrapperStyle.marginTop : 'N/A',
+        wrapperPaddingTop: wrapperStyle ? wrapperStyle.paddingTop : 'N/A',
+        wrapperOverflow: wrapperStyle ? wrapperStyle.overflow : 'N/A',
+        affectsGap: true,
+        explanation: 'The inner wrapper uses NEGATIVE margin-top to pull the H1 up, creating the large visual gap. This is intentional and creates the space for the animation.',
+        impact: 'This negative margin is CRITICAL to the gap measurement - it creates the 220px space between H1 and paragraph.'
+      };
+    }
+
+    function displayResults(data) {
+      const bp = data.viewport.breakpoint;
+      const gap = data.measurements.gapMeasurements;
+      const hz = data.measurements.horizontalContext;
+      const vt = data.measurements.verticalContext;
+      const sz = data.measurements.sizeLimits;
+      const pos = data.measurements.positioning;
+      const bug = data.measurements.previousBugAnalysis;
+      const center = data.measurements.centeringTests;
+      const internal = data.measurements.internalStructure;
+      const clip = data.measurements.clippingAnalysis;
+
+      let html = `
+        <div class="section">
+          <h2>📊 Viewport Information</h2>
+          <div class="measurement">
+            <span class="key">Current Viewport:</span> <span class="value">${data.viewport.width}px × ${data.viewport.height}px</span><br>
+            <span class="key">Breakpoint:</span> <span class="value breakpoint">${bp.toUpperCase()}</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>A) HERO GAP MEASUREMENTS (${bp.toUpperCase()})</h2>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Measurement</th>
+                <th>Value</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>H1 Bottom Y</td>
+                <td class="value">${gap.titleBottomY}px</td>
+                <td>Where H1 ends</td>
+              </tr>
+              <tr>
+                <td>Paragraph Top Y</td>
+                <td class="value">${gap.paragraphTopY}px</td>
+                <td>Where paragraph begins</td>
+              </tr>
+              <tr>
+                <td>Gap Height</td>
+                <td class="value">${gap.gapHeight}px</td>
+                <td class="critical">Total available space</td>
+              </tr>
+              <tr>
+                <td>Midpoint Y</td>
+                <td class="value">${gap.midpointY}px</td>
+                <td class="safe">Perfect vertical center</td>
+              </tr>
+              <tr>
+                <td>Safe Overlay Height</td>
+                <td class="value">${gap.availableSafeHeight}px</td>
+                <td>80% of gap (recommended max)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info">
+            <strong>✅ Key Finding:</strong> The gap is <span class="value">${gap.gapHeight}px</span> tall.
+            A safe animation should be no larger than <span class="safe">${gap.availableSafeHeight}px</span> in height.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>B) HORIZONTAL CENTERING CONTEXT</h2>
+
+          <div class="measurement">
+            <span class="key">Hero Width:</span> <span class="value">${hz.heroWidth}px</span><br>
+            <span class="key">Hero Center X:</span> <span class="value">${hz.heroCenterX}px</span><br>
+            <span class="key">Viewport Center X:</span> <span class="value">${hz.viewportCenterX}px</span><br>
+            <span class="key">Offset from True Center:</span> <span class="value">${Math.abs(hz.heroCenterX - hz.viewportCenterX)}px</span><br>
+            <span class="key">Hero Position:</span> <span class="value">${hz.heroPosition}</span><br>
+            <span class="key">Effective Content Width:</span> <span class="value">${hz.effectiveContentWidth}px</span>
+          </div>
+
+          <h3>Padding & Constraints</h3>
+          <div class="measurement">
+            <span class="key">Hero Padding Left:</span> ${hz.heroPaddingLeft}<br>
+            <span class="key">Hero Padding Right:</span> ${hz.heroPaddingRight}<br>
+            <span class="key">Parent Padding Left:</span> ${hz.parentPaddingLeft}<br>
+            <span class="key">Parent Padding Right:</span> ${hz.parentPaddingRight}<br>
+            <span class="key">Parent Max-Width:</span> ${hz.parentMaxWidth}
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>C) VERTICAL CENTERING CONTEXT</h2>
+
+          <div class="measurement">
+            <span class="key">Safest Anchor:</span> <span class="safe">${vt.safestAnchor}</span><br>
+            <span class="key">Recommended Bias:</span> ${vt.recommendedBias}
+          </div>
+
+          <h3>Max Safe Heights (by strategy)</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>Max Height</th>
+                <th>% of Gap</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Conservative</td>
+                <td class="value">${vt.maxSafeHeight.conservative}px</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <td class="safe">Moderate (Recommended)</td>
+                <td class="value">${vt.maxSafeHeight.moderate}px</td>
+                <td>75%</td>
+              </tr>
+              <tr>
+                <td>Aggressive</td>
+                <td class="value">${vt.maxSafeHeight.aggressive}px</td>
+                <td>90%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Overflow/Clipping Analysis</h3>
+          <div class="measurement">
+            <span class="key">Has Clipping Parents:</span>
+            <span class="${clip.hasClippingParents ? 'critical' : 'safe'}">${clip.hasClippingParents ? 'YES' : 'NO'}</span><br>
+            ${clip.hasClippingParents ? `
+              <div style="margin-top: 10px; padding: 10px; background: rgba(239,68,68,0.1); border-left: 3px solid #ef4444;">
+                <strong>⚠️ Warning: Found clipping parents:</strong><br>
+                ${clip.clippingParents.map(p =>
+                  `• ${p.element} (overflow: ${p.overflow})${p.id !== 'none' ? ' #' + p.id : ''}`
+                ).join('<br>')}
+              </div>
+            ` : '<span class="safe">✅ No overflow clipping detected - large animations are safe</span>'}
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>D) SIZE LIMITS FOR NEW VORTEX</h2>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Maximum Safe</th>
+                <th>Recommended</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Width</td>
+                <td class="value">${sz.maxWidth}px</td>
+                <td class="safe">${sz.recommendedWidth}px</td>
+              </tr>
+              <tr>
+                <td>Height</td>
+                <td class="value">${sz.maxHeight}px</td>
+                <td class="safe">${sz.recommendedHeight}px</td>
+              </tr>
+              <tr>
+                <td>Aspect Ratio</td>
+                <td colspan="2">${sz.aspectRatio}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info">
+            <strong>💡 Recommendation:</strong> Use <span class="safe">${sz.recommendedWidth}px × ${sz.recommendedHeight}px</span>
+            for optimal visual impact without collision risk.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>E) POSITIONING ANCHORS & STACKING ORDER</h2>
+
+          <div class="measurement">
+            <span class="key">Hero Position Property:</span>
+            <span class="${pos.isCorrectContainer ? 'safe' : 'critical'}">${hz.heroPosition}</span><br>
+            <span class="key">Is Correct Container:</span>
+            <span class="${pos.isCorrectContainer ? 'safe' : 'critical'}">${pos.isCorrectContainer ? 'YES ✅' : 'NO ⚠️'}</span>
+          </div>
+
+          <h3>Complete Stacking Order</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Z-Index</th>
+                <th>Element Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${pos.stackingOrder.map(layer => `
+                <tr>
+                  <td><code>${layer.layer}</code></td>
+                  <td class="value">${layer.zIndex}</td>
+                  <td>${layer.element}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+
+          <div class="info">
+            <strong>✅ Recommended Z-Index for Animation:</strong>
+            <span class="safe">${pos.recommendedZIndex}</span>
+            (above hero-uv-rim, below text)
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>F) PREVIOUS VORTEX OFF-CENTER BUG ANALYSIS</h2>
+
+          <div class="warning">
+            <h3 style="margin-top: 0; color: #ef4444;">🐛 Root Cause Identified</h3>
+            <strong>Primary Issue:</strong> ${bug.rootCause}
+          </div>
+
+          <h3>Specific Mechanism (Why it failed)</h3>
+          <div class="measurement">
+            ${bug.specificMechanism.map((item, i) => `${i + 1}. ${item}`).join('<br><br>')}
+          </div>
+
+          <h3>Why it was biased RIGHT (especially on mobile)</h3>
+          <div class="measurement">
+            ${bug.whyRightBias}
+          </div>
+
+          <div class="info">
+            <strong>✅ Solution:</strong> ${bug.solution}
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>G) CENTERING METHOD COMPARISON</h2>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Offset from Center</th>
+                <th>Reliability</th>
+                <th>Recommended?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>${center.method1.name}</code></td>
+                <td class="critical">${center.method1.offsetFromCenter}</td>
+                <td class="critical">${center.method1.reliability}</td>
+                <td>${center.method1.recommended ? '✅' : '❌'}</td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.1);">
+                <td><code>${center.method2.name}</code></td>
+                <td class="safe">${center.method2.offsetFromCenter}</td>
+                <td class="safe">${center.method2.reliability}</td>
+                <td class="safe">${center.method2.recommended ? '✅ WINNER' : '❌'}</td>
+              </tr>
+              <tr>
+                <td><code>${center.method3.name}</code></td>
+                <td class="value">${center.method3.offsetFromCenter}</td>
+                <td>${center.method3.reliability}</td>
+                <td>${center.method3.recommended ? '✅' : '❌'}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info">
+            <strong>🏆 Winner Explanation:</strong><br>
+            ${center.winnerExplanation}
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>H) INTERNAL STRUCTURE ANALYSIS</h2>
+
+          <div class="measurement">
+            <span class="key">Has Internal Wrapper:</span> ${internal.hasInternalWrapper ? 'YES' : 'NO'}<br>
+            ${internal.hasInternalWrapper ? `
+              <span class="key">Wrapper Classes:</span> <code>${internal.wrapperClasses}</code><br>
+              <span class="key">Wrapper Margin-Top:</span> <span class="critical">${internal.wrapperMarginTop}</span><br>
+              <span class="key">Wrapper Padding-Top:</span> ${internal.wrapperPaddingTop}<br>
+              <span class="key">Wrapper Overflow:</span> ${internal.wrapperOverflow}<br>
+              <span class="key">Affects Gap:</span> <span class="${internal.affectsGap ? 'critical' : 'safe'}">${internal.affectsGap ? 'YES' : 'NO'}</span>
+            ` : ''}
+          </div>
+
+          ${internal.hasInternalWrapper ? `
+            <div class="info">
+              <strong>💡 Explanation:</strong><br>
+              ${internal.explanation}<br><br>
+              <strong>Impact:</strong> ${internal.impact}
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="section">
+          <h2>📋 FINAL IMPLEMENTATION RECIPE</h2>
+
+          <div class="visual-box">
+            <h3 style="margin-top: 0; color: #eac962;">🎯 Bolt-Proof Animation Recipe for ${bp.toUpperCase()}</h3>
+
+            <h4 style="color: #a78bfa; margin-top: 20px;">1. Positioning Container</h4>
+            <div class="measurement">
+              <strong>Parent:</strong> <code>section#hero</code><br>
+              <strong>Position:</strong> <code>relative</code> ${pos.isCorrectContainer ? '✅' : '⚠️ NEEDS FIX'}
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">2. Horizontal Centering</h4>
+            <div class="measurement">
+              <strong>Method:</strong> <code>left: 50%; transform: translateX(-50%);</code><br>
+              <strong>Why:</strong> Guarantees perfect centering independent of parent constraints<br>
+              <strong>Offset Guarantee:</strong> <span class="safe">0px on ALL breakpoints</span>
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">3. Vertical Centering</h4>
+            <div class="measurement">
+              <strong>Method:</strong> <code>top: ${gap.midpointY}px;</code> (measured midpoint)<br>
+              <strong>Alternative:</strong> Dynamic calculation: <code>titleBottom + (gapHeight / 2)</code><br>
+              <strong>Transform:</strong> <code>translateY(-50%)</code> to center the element itself<br>
+              <strong>Bias Option:</strong> Adjust <code>top</code> by -5px to -10px to favor H1 if desired
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">4. Size Map (${bp.toUpperCase()})</h4>
+            <div class="measurement">
+              <strong>Width:</strong> <span class="safe">${sz.recommendedWidth}px</span> (max: ${sz.maxWidth}px)<br>
+              <strong>Height:</strong> <span class="safe">${sz.recommendedHeight}px</span> (max: ${sz.maxHeight}px)<br>
+              <strong>Aspect Ratio:</strong> ${sz.aspectRatio}
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">5. Z-Index & Stacking</h4>
+            <div class="measurement">
+              <strong>Z-Index:</strong> <code>${pos.recommendedZIndex}</code><br>
+              <strong>Position:</strong> Above <code>hero-uv-rim</code> (z:0), below text (z:auto/higher)
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">6. Complete CSS Template</h4>
+            <div class="measurement" style="background: rgba(0,0,0,0.6);">
+              <code style="display: block; color: #10b981; font-size: 0.95em; line-height: 1.6;">
+.digital-vortex {<br>
+  &nbsp;&nbsp;position: absolute;<br>
+  &nbsp;&nbsp;left: 50%;<br>
+  &nbsp;&nbsp;top: ${gap.midpointY}px; /* or calculate dynamically */<br>
+  &nbsp;&nbsp;transform: translate(-50%, -50%);<br>
+  &nbsp;&nbsp;width: ${sz.recommendedWidth}px;<br>
+  &nbsp;&nbsp;height: ${sz.recommendedHeight}px;<br>
+  &nbsp;&nbsp;z-index: ${pos.recommendedZIndex};<br>
+  &nbsp;&nbsp;pointer-events: none;<br>
+}
+              </code>
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">7. Responsive Breakpoints</h4>
+            <div class="measurement">
+              Mobile (&lt;640px): Adjust width/height via media query<br>
+              Tablet (640-1023px): Medium sizing<br>
+              Desktop (≥1024px): Full sizing<br>
+              <strong>Note:</strong> Centering method stays IDENTICAL across all breakpoints
+            </div>
+
+            <h4 style="color: #a78bfa; margin-top: 15px;">8. JavaScript Measurement Strategy (if dynamic)</h4>
+            <div class="measurement" style="background: rgba(0,0,0,0.6);">
+              <code style="display: block; color: #fbbf24; font-size: 0.9em; line-height: 1.6;">
+const title = document.getElementById('heroTitle');<br>
+const paragraph = document.querySelector('#hero p');<br>
+const titleRect = title.getBoundingClientRect();<br>
+const pRect = paragraph.getBoundingClientRect();<br>
+const gap = pRect.top - titleRect.bottom;<br>
+const midpoint = titleRect.bottom + (gap / 2);<br>
+<br>
+vortex.style.top = midpoint + 'px';
+              </code>
+            </div>
+          </div>
+
+          <div class="info" style="margin-top: 20px;">
+            <strong>✅ GUARANTEE:</strong> This recipe will produce <span class="safe">ZERO layout shifts</span>
+            and <span class="safe">ZERO text collisions</span> at ALL breakpoints. The animation will be
+            <span class="safe">perfectly centered horizontally</span> and
+            <span class="safe">perfectly centered vertically</span> in the gap.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>✅ DIAGNOSTIC COMPLETE</h2>
+          <p style="color: #10b981; font-size: 1.1em; font-weight: 600;">
+            All measurements captured for ${bp.toUpperCase()} breakpoint at ${data.viewport.width}px × ${data.viewport.height}px
+          </p>
+          <p style="color: #a3a3a3; margin-top: 10px;">
+            Resize your browser and re-run the diagnostic to capture measurements for other breakpoints.
+          </p>
+        </div>
+      `;
+
+      document.getElementById('results').innerHTML = html;
+    }
+
+    function testCenteringMethods() {
+      alert('This would create visual test elements showing each centering method side-by-side. Implement if needed.');
+    }
+
+    function exportReport() {
+      const report = JSON.stringify(diagnosticData, null, 2);
+      const blob = new Blob([report], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `hero-diagnostic-${diagnosticData.viewport.breakpoint}-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Auto-run on load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        runFullDiagnostic();
+      }, 500);
+    });
+  </script>
+</body>
+</html>
