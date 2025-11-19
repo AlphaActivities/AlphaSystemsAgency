@@ -3,6 +3,7 @@ import Counter from "../components/ui/Counter";
 import LogoCarousel from "../components/blocks/LogoCarousel";
 import { getVerifiedLaunchCount } from "../data/clients";
 import { Star, Zap, Rocket } from "lucide-react";
+import HeroSingularityVortex from "../components/visual/HeroSingularityVortex";
 
 export default function Home() {
   const launchCount = getVerifiedLaunchCount();
@@ -26,6 +27,9 @@ export default function Home() {
             </span>
           </h1>
         </div>
+
+        <HeroSingularityVortex />
+
         <p className="text-xl md:text-2xl text-white mt-[220px] mb-4 sm:mb-5 md:mb-6 max-w-2xl mx-auto">
           We build high-performance websites and growth systems for businesses ready to scale.
         </p>
