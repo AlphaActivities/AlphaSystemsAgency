@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Portal Analysis</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #0A0A0B;
+      color: #fff;
+      font-size: 12px;
+    }
+    .section {
+      margin-bottom: 30px;
+      border: 1px solid #333;
+      padding: 15px;
+      background: #111;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #a064ff;
+      font-size: 16px;
+    }
+    .measurement {
+      margin: 8px 0;
+      padding: 5px;
+      background: #1a1a1a;
+    }
+    .breakpoint {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #7a2cff;
+      color: white;
+      border-radius: 3px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .value {
+      color: #ffd480;
+    }
+    .label {
+      color: #aaa;
+    }
+    button {
+      padding: 10px 20px;
+      background: #7a2cff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #a064ff;
+    }
+    .controls {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #1a1a1a;
+      padding: 15px;
+      border: 1px solid #7a2cff;
+      border-radius: 8px;
+    }
+    .warning {
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+    .success {
+      color: #51cf66;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="measure(390)">Mobile (390px)</button>
+    <button onclick="measure(768)">Tablet (768px)</button>
+    <button onclick="measure(1440)">Desktop (1440px)</button>
+  </div>
+
+  <h1>🔍 Vortex Portal Diagnostic Analysis</h1>
+
+  <div id="results"></div>
+
+  <script>
+    function measure(width) {
+      // Set viewport width
+      window.resizeTo(width + 100, 1000);
+
+      // Wait for layout to stabilize
+      setTimeout(() => {
+        const results = document.getElementById('results');
+        results.innerHTML = '';
+
+        const breakpoint = width <= 640 ? 'MOBILE' : width <= 1024 ? 'TABLET' : 'DESKTOP';
+
+        // Get elements
+        const hero = document.getElementById('heroTitle');
+        const heroSection = document.getElementById('hero');
+        const para = document.querySelector('section#hero p');
+        const vortexHost = document.querySelector('.hero-anim-overlay');
+        const vortexCanvas = document.querySelector('.vortex-core-canvas');
+        const statCards = document.querySelector('section#hero > div.flex.flex-wrap');
+        const container = document.querySelector('.container.mx-auto');
+
+        if (!hero || !heroSection || !para || !vortexHost) {
+          results.innerHTML = '<div class="warning">ERROR: Could not find required elements. Make sure you are running this on the actual site.</div>';
+          return;
+        }
+
+        let output = '';
+
+        // A) HERO GAP & ANCHORS
+        output += `<div class="section">`;
+        output += `<h2>A) HERO GAP & ANCHORS</h2>`;
+        output += `<div class="breakpoint">${breakpoint} - ${width}px</div>`;
+
+        // A1: DOM Order
+        output += `<div class="measurement">`;
+        output += `<strong>1. DOM ORDER inside section#hero:</strong><br>`;
+        const heroChildren = Array.from(heroSection.children);
+        heroChildren.forEach((child, idx) => {
+          let desc = '';
+          if (child.classList.contains('hero-uv-rim')) desc = '• div.hero-uv-rim (background glow effect)';
+          else if (child.classList.contains('overflow-visible') && child.querySelector('#heroTitle')) desc = '• div.overflow-visible (wrapper containing H1 #heroTitle)';
+          else if (child.classList.contains('hero-anim-overlay')) desc = '• div.hero-anim-overlay (HeroVortexPortal host, contains canvas.vortex-core-canvas)';
+          else if (child.tagName === 'P') desc = '• p.text-xl (hero paragraph with class="text-xl md:text-2xl text-white mt-[220px]...")';
+          else if (child.classList.contains('flex') && child.classList.contains('flex-wrap')) desc = '• div.flex.flex-wrap.justify-center (stat cards container)';
+          else desc = `• ${child.tagName}.${child.className.split(' ').slice(0, 2).join('.')}`;
+          output += `  ${idx + 1}. ${desc}<br>`;
+        });
+        output += `</div>`;
+
+        // A2: Margins and Gap
+        output += `<div class="measurement">`;
+        output += `<strong>2. H1 & PARAGRAPH MARGINS + GAP:</strong><br>`;
+
+        const h1Styles = window.getComputedStyle(hero);
+        const paraStyles = window.getComputedStyle(para);
+
+        output += `<span class="label">H1 margin-bottom:</span> <span class="value">${h1Styles.marginBottom}</span><br>`;
+        output += `<span class="label">Paragraph margin-top:</span> <span class="value">${paraStyles.marginTop}</span><br>`;
+
+        const h1Rect = hero.getBoundingClientRect();
+        const paraRect = para.getBoundingClientRect();
+        const actualGap = paraRect.top - h1Rect.bottom;
+
+        output += `<span class="label">Actual vertical gap (paragraph.top - H1.bottom):</span> <span class="value">${actualGap.toFixed(2)}px</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // B) HERO VORTEX HOST POSITION
+        output += `<div class="section">`;
+        output += `<h2>B) HERO VORTEX HOST POSITION</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>3. HeroVortexPortal host (.hero-anim-overlay) COMPUTED STYLES:</strong><br>`;
+
+        const hostStyles = window.getComputedStyle(vortexHost);
+        output += `<span class="label">position:</span> <span class="value">${hostStyles.position}</span><br>`;
+        output += `<span class="label">top:</span> <span class="value">${hostStyles.top}</span><br>`;
+        output += `<span class="label">left:</span> <span class="value">${hostStyles.left}</span><br>`;
+        output += `<span class="label">right:</span> <span class="value">${hostStyles.right}</span><br>`;
+        output += `<span class="label">bottom:</span> <span class="value">${hostStyles.bottom}</span><br>`;
+        output += `<span class="label">margin-left:</span> <span class="value">${hostStyles.marginLeft}</span><br>`;
+        output += `<span class="label">margin-right:</span> <span class="value">${hostStyles.marginRight}</span><br>`;
+        output += `<span class="label">width:</span> <span class="value">${hostStyles.width}</span><br>`;
+        output += `<span class="label">height:</span> <span class="value">${hostStyles.height}</span><br>`;
+        output += `<span class="label">Positioned relative to section#hero?</span> <span class="value">${hostStyles.position === 'absolute' ? 'YES' : 'NO'}</span><br>`;
+        output += `</div>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>4. BOUNDING RECTANGLES & HORIZONTAL CENTERING:</strong><br>`;
+
+        const hostRect = vortexHost.getBoundingClientRect();
+        const sectionRect = heroSection.getBoundingClientRect();
+        const statCardsRect = statCards ? statCards.getBoundingClientRect() : null;
+
+        output += `<span class="label">section#hero rect:</span> <span class="value">x=${sectionRect.x.toFixed(2)}, y=${sectionRect.y.toFixed(2)}, w=${sectionRect.width.toFixed(2)}, h=${sectionRect.height.toFixed(2)}</span><br>`;
+        output += `<span class="label">H1 #heroTitle rect:</span> <span class="value">x=${h1Rect.x.toFixed(2)}, y=${h1Rect.y.toFixed(2)}, w=${h1Rect.width.toFixed(2)}, h=${h1Rect.height.toFixed(2)}</span><br>`;
+        output += `<span class="label">Paragraph rect:</span> <span class="value">x=${paraRect.x.toFixed(2)}, y=${paraRect.y.toFixed(2)}, w=${paraRect.width.toFixed(2)}, h=${paraRect.height.toFixed(2)}</span><br>`;
+        if (statCardsRect) {
+          output += `<span class="label">Stat cards container rect:</span> <span class="value">x=${statCardsRect.x.toFixed(2)}, y=${statCardsRect.y.toFixed(2)}, w=${statCardsRect.width.toFixed(2)}</span><br>`;
+        }
+        output += `<span class="label">.hero-anim-overlay rect:</span> <span class="value">x=${hostRect.x.toFixed(2)}, y=${hostRect.y.toFixed(2)}, w=${hostRect.width.toFixed(2)}, h=${hostRect.height.toFixed(2)}</span><br>`;
+
+        const hostCenterX = hostRect.x + hostRect.width / 2;
+        const sectionCenterX = sectionRect.x + sectionRect.width / 2;
+        const offset = hostCenterX - sectionCenterX;
+
+        output += `<br><span class="label">Host center X:</span> <span class="value">${hostCenterX.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Section center X:</span> <span class="value">${sectionCenterX.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Horizontal offset:</span> <span class="${Math.abs(offset) < 1 ? 'success' : 'warning'}">${offset.toFixed(2)}px ${offset > 0 ? '(TOO FAR RIGHT)' : offset < 0 ? '(TOO FAR LEFT)' : '(CENTERED ✓)'}</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // C) VORTEX CANVAS SIZE & SCALING
+        output += `<div class="section">`;
+        output += `<h2>C) VORTEX CANVAS SIZE & SCALING</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>5. SIZE CONFIGURATION:</strong><br>`;
+        output += `<span class="label">Configured sizes from HeroVortexPortal:</span><br>`;
+        output += `  • Mobile: <span class="value">[200, 140]px</span><br>`;
+        output += `  • Tablet: <span class="value">[220, 160]px</span><br>`;
+        output += `  • Desktop: <span class="value">[260, 180]px</span><br>`;
+
+        if (vortexCanvas) {
+          output += `<br><span class="label">Actual canvas dimensions (clientWidth × clientHeight):</span> <span class="value">${vortexCanvas.clientWidth} × ${vortexCanvas.clientHeight}px</span><br>`;
+        }
+        output += `</div>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>6. CANVAS HORIZONTAL POSITIONING:</strong><br>`;
+
+        if (vortexCanvas) {
+          const canvasRect = vortexCanvas.getBoundingClientRect();
+          const leftEdgeToSection = canvasRect.x - sectionRect.x;
+          const rightEdgeToSection = (sectionRect.x + sectionRect.width) - (canvasRect.x + canvasRect.width);
+
+          output += `<span class="label">Canvas left edge to section left edge:</span> <span class="value">${leftEdgeToSection.toFixed(2)}px</span><br>`;
+          output += `<span class="label">Canvas right edge to section right edge:</span> <span class="value">${rightEdgeToSection.toFixed(2)}px</span><br>`;
+
+          const canvasCenterX = canvasRect.x + canvasRect.width / 2;
+          const canvasOffset = canvasCenterX - sectionCenterX;
+
+          output += `<span class="label">Canvas visually centered in section?</span> <span class="${Math.abs(canvasOffset) < 1 ? 'success' : 'warning'}">${Math.abs(canvasOffset) < 1 ? 'YES ✓' : 'NO - offset by ' + canvasOffset.toFixed(2) + 'px'}</span><br>`;
+          output += `<span class="label">Empty space difference:</span> <span class="value">${Math.abs(leftEdgeToSection - rightEdgeToSection).toFixed(2)}px (${leftEdgeToSection > rightEdgeToSection ? 'MORE on LEFT' : 'MORE on RIGHT'})</span><br>`;
+        }
+        output += `</div>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>7. ANCESTOR WIDTH/PADDING ANALYSIS:</strong><br>`;
+
+        const containerStyles = container ? window.getComputedStyle(container) : null;
+        const sectionStyles = window.getComputedStyle(heroSection);
+
+        if (containerStyles) {
+          output += `<span class="label">.container.mx-auto:</span> max-w=<span class="value">${containerStyles.maxWidth}</span>, px=<span class="value">${containerStyles.paddingLeft} / ${containerStyles.paddingRight}</span><br>`;
+        }
+        output += `<span class="label">section#hero:</span> text-align=<span class="value">${sectionStyles.textAlign}</span>, px=<span class="value">${sectionStyles.paddingLeft} / ${sectionStyles.paddingRight}</span><br>`;
+        output += `<span class="label">.hero-anim-overlay CSS:</span> left=<span class="value">0</span>, right=<span class="value">0</span>, display=<span class="value">grid</span>, place-items=<span class="value">center</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // D) HORIZONTAL OFFSET ROOT CAUSE
+        output += `<div class="section">`;
+        output += `<h2>D) HORIZONTAL OFFSET ROOT CAUSE</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>8. ANALYSIS:</strong><br>`;
+        output += `<span class="label">Primary issue:</span> <span class="${Math.abs(offset) > 1 ? 'warning' : 'success'}">`;
+
+        if (Math.abs(offset) > 1) {
+          output += `The vortex host (.hero-anim-overlay) is using marginLeft/marginRight: "auto" (set in JS line 86-87 of HeroVortexPortal.tsx), `;
+          output += `BUT it has a fixed width set inline (${hostStyles.width}), AND it's position: absolute with left: 0 and right: 0. `;
+          output += `The issue is that "margin: auto" centering does NOT work reliably on absolutely positioned elements with BOTH left: 0 and right: 0 set in CSS, `;
+          output += `when the inline JS then sets a specific width. The browser may not recalculate the auto margins properly.<br><br>`;
+          output += `<strong>Root cause location:</strong> src/components/visual/HeroVortexPortal.tsx:86-87 (margin-left/right: auto) `;
+          output += `combined with src/index.css:478-487 (.hero-anim-overlay with left: 0, right: 0, display: grid).<br><br>`;
+          output += `The CSS grid with place-items: center is attempting to center, but the fixed width set in JS without proper positioning creates the offset.`;
+        } else {
+          output += `Canvas appears centered ✓`;
+        }
+        output += `</span></div>`;
+        output += `</div>`;
+
+        // E) VERTICAL PLACEMENT WITHIN THE GAP
+        output += `<div class="section">`;
+        output += `<h2>E) VERTICAL PLACEMENT WITHIN THE GAP</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>9. GAP CENTER ANALYSIS:</strong><br>`;
+
+        const h1Bottom = h1Rect.bottom;
+        const paraTop = paraRect.top;
+        const gapCenter = (h1Bottom + paraTop) / 2;
+        const hostCenterY = hostRect.y + hostRect.height / 2;
+        const verticalOffset = hostCenterY - gapCenter;
+
+        output += `<span class="label">H1 bottom:</span> <span class="value">${h1Bottom.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Paragraph top:</span> <span class="value">${paraTop.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Gap center (midpoint):</span> <span class="value">${gapCenter.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Vortex host center Y:</span> <span class="value">${hostCenterY.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Offset from gap center:</span> <span class="${Math.abs(verticalOffset) < 10 ? 'success' : 'warning'}">${verticalOffset.toFixed(2)}px ${verticalOffset > 0 ? '(BELOW center)' : '(ABOVE center)'}</span><br>`;
+        output += `</div>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>10. POSITION BIAS CALCULATION:</strong><br>`;
+
+        const totalGap = paraTop - h1Bottom;
+        const distanceFromH1Bottom = hostCenterY - h1Bottom;
+        const effectiveBias = totalGap > 0 ? distanceFromH1Bottom / totalGap : 0;
+        const idealBias = 0.5; // for perfect centering
+
+        output += `<span class="label">Current positionBias:</span> <span class="value">0.35</span><br>`;
+        output += `<span class="label">Effective bias (measured):</span> <span class="value">${effectiveBias.toFixed(3)}</span><br>`;
+        output += `<span class="label">For exact gap midpoint:</span> <span class="value">${idealBias.toFixed(2)} (bias of 0.5)</span><br>`;
+        output += `<span class="label">Adjustment needed:</span> <span class="value">${(idealBias - 0.35).toFixed(2)} (increase bias by ${((idealBias - 0.35) * 100).toFixed(0)}%)</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // F) NON-INTRUSIVE SIZE LIMIT
+        output += `<div class="section">`;
+        output += `<h2>F) NON-INTRUSIVE SIZE LIMIT (NO LAYOUT SHIFT)</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>11. MAXIMUM SIZE BEFORE OVERLAP:</strong><br>`;
+
+        const maxHeightBeforeOverlap = actualGap - 20; // 20px safety margin
+        const paraMaxWidth = parseFloat(paraStyles.maxWidth);
+        const safeMaxWidth = paraMaxWidth || sectionRect.width * 0.7;
+
+        output += `<span class="label">Available gap height:</span> <span class="value">${actualGap.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Max vortex height (with 20px safety margin):</span> <span class="value">${maxHeightBeforeOverlap.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Current vortex height:</span> <span class="value">${hostRect.height.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Height headroom:</span> <span class="${(maxHeightBeforeOverlap - hostRect.height) > 0 ? 'success' : 'warning'}">${(maxHeightBeforeOverlap - hostRect.height).toFixed(2)}px available</span><br>`;
+        output += `<br><span class="label">Paragraph max-width:</span> <span class="value">${paraStyles.maxWidth}</span><br>`;
+        output += `<span class="label">Safe max vortex width:</span> <span class="value">${safeMaxWidth.toFixed(2)}px (70% of section width for premium look)</span><br>`;
+        output += `<span class="label">Current vortex width:</span> <span class="value">${hostRect.width.toFixed(2)}px</span><br>`;
+        output += `<span class="label">Width headroom:</span> <span class="${(safeMaxWidth - hostRect.width) > 0 ? 'success' : 'warning'}">${(safeMaxWidth - hostRect.width).toFixed(2)}px available</span><br>`;
+        output += `</div>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>12. 25% SIZE INCREASE TEST:</strong><br>`;
+
+        const newWidth = hostRect.width * 1.25;
+        const newHeight = hostRect.height * 1.25;
+
+        output += `<span class="label">New dimensions (125%):</span> <span class="value">${newWidth.toFixed(2)} × ${newHeight.toFixed(2)}px</span><br>`;
+
+        const willCauseShift = hostStyles.position !== 'absolute';
+        const willOverlapH1 = (gapCenter - newHeight / 2) < h1Bottom;
+        const willOverlapPara = (gapCenter + newHeight / 2) > paraTop;
+        const willClip = newHeight > (sectionRect.height - 100);
+
+        output += `<span class="label">Will cause layout shift?</span> <span class="${willCauseShift ? 'warning' : 'success'}">${willCauseShift ? 'YES - not absolutely positioned' : 'NO ✓'}</span><br>`;
+        output += `<span class="label">Will overlap H1?</span> <span class="${willOverlapH1 ? 'warning' : 'success'}">${willOverlapH1 ? 'YES' : 'NO ✓'}</span><br>`;
+        output += `<span class="label">Will overlap paragraph?</span> <span class="${willOverlapPara ? 'warning' : 'success'}">${willOverlapPara ? 'YES' : 'NO ✓'}</span><br>`;
+        output += `<span class="label">Will clip/overflow?</span> <span class="${willClip ? 'warning' : 'success'}">${willClip ? 'YES' : 'NO ✓'}</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // G) Z-INDEX & INTERACTION
+        output += `<div class="section">`;
+        output += `<h2>G) Z-INDEX & INTERACTION</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>13. Z-INDEX LAYERING:</strong><br>`;
+
+        const wallpaper = document.querySelector('.animated-wallpaper') || document.querySelector('[class*="wallpaper"]');
+        const vignette = document.querySelector('.depth-vignette');
+        const grain = document.querySelector('.depth-grain');
+
+        output += `<span class="label">Stacking context created by:</span> section#hero (position: <span class="value">${sectionStyles.position}</span>, isolate: <span class="value">${sectionStyles.isolation}</span>)<br><br>`;
+
+        output += `<strong>Layer stack (back to front):</strong><br>`;
+        output += `1. AnimatedWallpaper: z-index=<span class="value">${wallpaper ? window.getComputedStyle(wallpaper).zIndex : 'N/A'}</span><br>`;
+        output += `2. .depth-vignette: z-index=<span class="value">${vignette ? window.getComputedStyle(vignette).zIndex : '34'}</span><br>`;
+        output += `3. .depth-grain: z-index=<span class="value">${grain ? window.getComputedStyle(grain).zIndex : '35'}</span><br>`;
+        output += `4. .hero-anim-overlay (vortex): z-index=<span class="value">${hostStyles.zIndex}</span>, pointer-events=<span class="value">${hostStyles.pointerEvents}</span><br>`;
+        output += `5. Hero text (H1, p): z-index=<span class="value">${h1Styles.zIndex}</span> (natural stacking)<br>`;
+        output += `6. Stat cards: z-index=<span class="value">${statCards ? window.getComputedStyle(statCards).zIndex : 'auto'}</span><br><br>`;
+
+        const isVortexBehindText = parseInt(hostStyles.zIndex) < 0;
+        const hasPointerEventsNone = hostStyles.pointerEvents === 'none';
+
+        output += `<span class="label">✓ Vortex behind text?</span> <span class="${isVortexBehindText ? 'success' : 'warning'}">${isVortexBehindText ? 'YES ✓' : 'NO - z-index issue'}</span><br>`;
+        output += `<span class="label">✓ No click interference?</span> <span class="${hasPointerEventsNone ? 'success' : 'warning'}">${hasPointerEventsNone ? 'YES ✓' : 'NO - pointer-events issue'}</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        // H) IMPLEMENTATION CONFIDENCE
+        output += `<div class="section">`;
+        output += `<h2>H) IMPLEMENTATION CONFIDENCE</h2>`;
+
+        output += `<div class="measurement">`;
+        output += `<strong>14. SAFETY ASSESSMENT:</strong><br>`;
+
+        const canCenterSafely = hostStyles.position === 'absolute' && !willCauseShift;
+        const canScaleSafely = (maxHeightBeforeOverlap - newHeight) > 0 && (safeMaxWidth - newWidth) > 0;
+
+        output += `<span class="label">Can safely center horizontally?</span> <span class="${canCenterSafely ? 'success' : 'warning'}">${canCenterSafely ? 'YES ✓' : 'CAUTION'}</span><br>`;
+        output += `<span class="label">Can safely scale up 25%?</span> <span class="${canScaleSafely ? 'success' : 'warning'}">${canScaleSafely ? 'YES ✓' : 'NO - will overlap'}</span><br><br>`;
+
+        output += `<strong>Minimal surgical adjustment needed:</strong><br>`;
+        output += `<span class="value">`;
+        if (Math.abs(offset) > 1) {
+          output += `Replace the margin-left/right: "auto" approach in HeroVortexPortal.tsx:86-87 with a proper centering method. `;
+          output += `Since the host is already position: absolute with left: 0 and right: 0, use transform: translateX(-50%) with left: 50% instead, `;
+          output += `OR change .hero-anim-overlay CSS to use left: 50% and transform: translateX(-50%) with the inline width.`;
+        } else {
+          output += `Centering appears functional. Only refinements needed for optimal vertical placement.`;
+        }
+        output += `</span><br>`;
+        output += `</div>`;
+        output += `</div>`;
+
+        results.innerHTML = output;
+      }, 500);
+    }
+
+    // Auto-run on mobile by default
+    window.addEventListener('load', () => {
+      const width = window.innerWidth;
+      setTimeout(() => measure(width), 1000);
+    });
+  </script>
+
+  <div style="margin-top: 40px; padding: 20px; background: #1a1a1a; border: 1px solid #7a2cff;">
+    <h3>⚠️ INSTRUCTIONS</h3>
+    <p>This diagnostic must be run on the ACTUAL site with the vortex rendered. Steps:</p>
+    <ol>
+      <li>Save this file</li>
+      <li>Open DevTools on your site</li>
+      <li>Copy the entire measure() function from this file</li>
+      <li>Paste and run it in the Console with: measure(390), measure(768), or measure(1440)</li>
+      <li>OR inject this script into the page</li>
+    </ol>
+  </div>
+</body>
+</html>
