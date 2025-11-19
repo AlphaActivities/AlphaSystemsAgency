@@ -29,9 +29,9 @@ const useBreakpoint = (): Breakpoint => {
 };
 
 const sizeMap: Record<Breakpoint, [number, number]> = {
-  mobile: [200, 200],
-  tablet: [200, 200],
-  desktop: [200, 200],
+  mobile: [280, 280],
+  tablet: [300, 300],
+  desktop: [320, 320],
 };
 
 interface HeroSingularityVortexProps {
@@ -68,14 +68,14 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
       const [w, h] = sizeMap[bp];
 
-      const midpointViewportY = titleRect.bottom + gap / 2 - biasUpPx;
+      const centerViewportY = titleRect.bottom + gap / 2 - biasUpPx;
 
-      const localTop = midpointViewportY - secRect.top - h / 2;
+      const localCenterY = centerViewportY - secRect.top;
 
       host.style.position = "absolute";
-      host.style.top = `${Math.max(0, localTop)}px`;
+      host.style.top = `${Math.max(0, localCenterY)}px`;
       host.style.left = "50%";
-      host.style.transform = "translateX(-50%)";
+      host.style.transform = "translate(-50%, -50%)";
       host.style.width = `${w}px`;
       host.style.height = `${h}px`;
       host.style.marginLeft = "0";
