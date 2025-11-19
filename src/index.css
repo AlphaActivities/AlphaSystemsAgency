@@ -203,6 +203,9 @@ button:focus-visible {
   .hero-gold-beam {
     animation: driftPulse 3s ease-in-out infinite !important;
   }
+  .text-growth-pulse {
+    animation: growthPulse 3.5s ease-in-out infinite !important;
+  }
 }
 
 :root {
