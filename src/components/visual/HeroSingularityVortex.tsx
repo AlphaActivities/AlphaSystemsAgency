@@ -29,9 +29,9 @@ const useBreakpoint = (): Breakpoint => {
 };
 
 const sizeMap: Record<Breakpoint, [number, number]> = {
-  mobile: [160, 160],
-  tablet: [180, 180],
-  desktop: [190, 190],
+  mobile: [200, 200],
+  tablet: [200, 200],
+  desktop: [200, 200],
 };
 
 interface HeroSingularityVortexProps {
