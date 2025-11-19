@@ -21,7 +21,7 @@ export default function Home() {
               Premium Digital
             </span>
             {' '}
-            <span className="text-growth-pulse bg-gradient-to-r from-[var(--gold-400)] to-[var(--gold-600)] bg-clip-text text-transparent inline-block">
+            <span className="hero-gold-beam bg-gradient-to-r from-[var(--gold-400)] to-[var(--gold-600)] bg-clip-text text-transparent inline-block">
               Growth Engines
             </span>
           </h1>

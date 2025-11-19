@@ -200,12 +200,6 @@ button:focus-visible {
   .brand-logo-glow {
     filter: none !important;
   }
-  .hero-gold-beam {
-    animation: driftPulse 3s ease-in-out infinite !important;
-  }
-  .text-growth-pulse {
-    animation: growthPulse 3.5s ease-in-out infinite !important;
-  }
 }
 
 :root {
@@ -231,17 +225,14 @@ html, body {
 }
 
 @keyframes driftPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: translate(0px, 0px);
-  }
-  50% {
-    opacity: 0.4;
-    transform: translate(2px, 0px);
-  }
+  0%,100% { opacity: 1; transform: translateX(0); }
+  50%     { opacity: 0.4; transform: translateX(2px); }
 }
 .hero-gold-beam {
   animation: driftPulse 3s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-gold-beam { animation: none !important; }
 }
 
 @keyframes fadeSlideIn {
@@ -576,19 +567,4 @@ html { scrollbar-gutter: stable both-edges; }
   100% {
     transform: translate3d(4%, -3%, 0);
   }
-}
-
-@keyframes growthPulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.65;
-  }
-}
-
-.text-growth-pulse {
-  animation: growthPulse 3.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(234, 201, 98, 0.6))
-          drop-shadow(0 0 16px rgba(234, 201, 98, 0.4));
 }
