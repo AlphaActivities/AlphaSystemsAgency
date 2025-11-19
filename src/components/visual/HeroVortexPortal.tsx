@@ -83,8 +83,6 @@ export default function HeroVortexPortal({
       host.style.top = `${Math.max(0, localY)}px`;
       host.style.width = `${w}px`;
       host.style.height = `${hSize}px`;
-      host.style.marginLeft = "auto";
-      host.style.marginRight = "auto";
     };
 
     place();
