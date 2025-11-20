@@ -156,6 +156,9 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       ctx.arc(cx, cy, minDim * 0.5, 0, Math.PI * 2);
       ctx.fill();
 
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = "rgba(172,112,255,0.75)";
+
       for (const p of particles) {
         p.angle += p.speed;
         p.radius += p.drift * Math.sin(t * 0.005);
@@ -167,8 +170,6 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
         ctx.beginPath();
         ctx.lineWidth = 1.2;
         ctx.strokeStyle = `hsla(${p.hue}, 90%, 70%, ${p.alpha})`;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = "rgba(172,112,255,0.75)";
         ctx.moveTo(x, y);
 
         const tx = cx + Math.cos(p.angle - 0.12) * (r * 0.98);
