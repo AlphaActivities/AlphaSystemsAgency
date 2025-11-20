@@ -170,14 +170,15 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
   }, [cloneCount]);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative overflow-hidden py-6"
-    >
+    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden py-6">
       <div
-        ref={trackRef}
-        className="flex gap-12 items-center will-change-transform select-none"
+        ref={containerRef}
+        className="relative w-full overflow-hidden"
       >
+        <div
+          ref={trackRef}
+          className="flex gap-12 items-center will-change-transform select-none"
+        >
         {Array.from({ length: cloneCount }).map((_, cloneIndex) => (
           <React.Fragment key={`clone-${cloneIndex}`}>
             {logos.map((l, i) => (
@@ -193,6 +194,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
             ))}
           </React.Fragment>
         ))}
+        </div>
       </div>
     </div>
   );
