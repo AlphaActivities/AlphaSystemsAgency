@@ -7,6 +7,7 @@ type Member = {
   blurb: string;
   tags: string[];
   photo?: string;
+  location: string;
 };
 
 const members: Member[] = [
@@ -17,6 +18,7 @@ const members: Member[] = [
     photo: "/images/profile-photos/Josh.jpg",
     blurb:
       "Josh represents high-end, $50,000+ digital experiences, transforming complex architecture and GA4 insights into sleek, conversion-focused systems. He represents the agency's technical vision, ensuring every build is as fast and flawless as it is future-proof.",
+    location: "Omaha, NE 🇺🇸",
     tags: [
       "React",
       "TypeScript",
@@ -34,6 +36,7 @@ const members: Member[] = [
     role: "Design and Meta Specialist",
     blurb:
       "Heber shapes the agency's visual and brand systems, blending UI/UX excellence with Meta ad performance. His expertise ensures every project is visually stunning, brand-consistent, and performance-driven.",
+    location: "Texas, USA 🇺🇸",
     tags: [
       "UI and UX",
       "Figma",
@@ -51,6 +54,7 @@ const members: Member[] = [
     role: "Ads and Data Strategist",
     blurb:
       "Juan drives Google Ads mastery and client systems into seamless, data-driven strategies. He bridges ad expertise with practical client insights, ensuring every campaign is measured, client-friendly, and results-driven.",
+    location: "Canada 🇨🇦",
     tags: [
       "Google Ads",
       "Keyword Strategy",
@@ -68,6 +72,7 @@ const members: Member[] = [
     role: "Conversion & Creative Strategist",
     blurb:
       "Abdul specializes in conversion-driven messaging, funnel architecture, and offer positioning. He bridges creative strategy with performance outcomes, crafting compelling assets that raise engagement and accelerate revenue growth.",
+    location: "Global 🌍",
     tags: [
       "Direct Response Copywriting",
       "Funnel Building",
@@ -116,6 +121,10 @@ export default function Team() {
 
               <p className="mt-4 text-sm leading-relaxed text-[var(--neutral-300)]">
                 {m.blurb}
+              </p>
+
+              <p className="text-xs md:text-sm text-slate-200/80 mt-1">
+                {m.location}
               </p>
 
               <ul className="mt-5 flex flex-wrap gap-2">
