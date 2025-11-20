@@ -101,12 +101,13 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const host = hostRef.current;
+    if (!canvas || !host) return;
 
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    let frameId: number;
+    const rafRef = { current: null as number | null };
     let t = 0;
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
 
@@ -131,11 +132,11 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       alpha: 0.35 + Math.random() * 0.4,
     }));
 
-    const render = () => {
+    const animate = () => {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       if (w === 0 || h === 0) {
-        frameId = requestAnimationFrame(render);
+        rafRef.current = requestAnimationFrame(animate);
         return;
       }
 
@@ -187,13 +188,45 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       ctx.arc(cx, cy, coreR * 2.2, 0, Math.PI * 2);
       ctx.fill();
 
-      frameId = requestAnimationFrame(render);
+      rafRef.current = requestAnimationFrame(animate);
     };
 
-    frameId = requestAnimationFrame(render);
+    const startAnimation = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    const stopAnimation = () => {
+      if (rafRef.current != null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+
+    const heroSection = host.closest("section#hero") as HTMLElement | null;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (heroSection) {
+      observer.observe(heroSection);
+    }
 
     return () => {
-      cancelAnimationFrame(frameId);
+      stopAnimation();
+      observer.disconnect();
       ro.disconnect();
     };
   }, [bp]);
