@@ -31,7 +31,7 @@ const members: Member[] = [
   {
     initials: "H",
     name: "Heber Herrera",
-    role: "Design and Meta Specialist",
+    role: "Founder and Growth Specialist",
     blurb:
       "Heber shapes the agency's visual and brand systems, blending UI/UX excellence with Meta ad performance. His expertise ensures every project is visually stunning, brand-consistent, and performance-driven.",
     tags: [
