@@ -173,11 +173,15 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     <div
       ref={containerRef}
       className="relative overflow-hidden py-6"
-      style={{
-        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
-      }}
+      style={{ position: 'relative', overflow: 'hidden' }}
     >
+      <div
+        className="pointer-events-none absolute inset-0 z-10"
+        style={{
+          background:
+            'linear-gradient(to right, rgba(10,10,11,1) 0%, rgba(10,10,11,0) 8%, rgba(10,10,11,0) 92%, rgba(10,10,11,1) 100%)',
+        }}
+      />
       <div
         ref={trackRef}
         className="flex gap-12 items-center will-change-transform select-none"
