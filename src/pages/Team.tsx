@@ -12,8 +12,8 @@ type Member = {
 const members: Member[] = [
   {
     initials: "J",
-    name: "Josh",
-    role: "Founder & Systems Architect",
+    name: "Josh the Warrior",
+    role: "Systems Architecture Executive",
     photo: "/images/profile-photos/Josh.jpg",
     blurb:
       "Josh represents high-end, $50,000+ digital experiences, transforming complex architecture and GA4 insights into sleek, conversion-focused systems. He represents the agency's technical vision, ensuring every build is as fast and flawless as it is future-proof.",
