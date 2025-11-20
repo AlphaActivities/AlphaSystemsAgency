@@ -402,8 +402,47 @@ html { scrollbar-gutter: stable both-edges; }
   .nav-glass { transition: none !important; }
 }
 
-/* ===== Brand Letter v9 (kerning-safe) — NO GLOW ===== */
+/* ===== Brand Letter Glow v9 (kerning-safe) — for navbar ===== */
 .brand-letter-v9{
+  /* Keep inline to preserve kerning, do NOT force inline-block */
+  /* animation is per-letter, delays inline */
+  animation: brandLetterGlow_v9 2200ms ease-out both;
+  text-shadow: 0 0 0 rgba(255,255,255,0);
+  will-change: text-shadow, filter;
+}
+
+/* Bright, quick pop early, then back to base without shifting layout */
+@keyframes brandLetterGlow_v9{
+  0%{
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+    filter: none;
+  }
+  8%{
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.9),
+      0 0 14px rgba(255,255,255,0.75),
+      0 0 22px rgba(255,255,255,0.6);
+  }
+  16%{
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+  100%{
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+}
+
+/* Carve an exception through the global reduced-motion wildcard ONLY for these letters */
+@media (prefers-reduced-motion: reduce){
+  .brand-letter-v9{
+    animation-name: brandLetterGlow_v9 !important;
+    animation-duration: 2200ms !important;
+    animation-iteration-count: 1 !important;
+    animation-play-state: running !important;
+  }
+}
+
+/* ===== Brand Letter (no glow) — for footer ===== */
+.brand-letter-no-glow{
   /* Keep inline to preserve kerning, do NOT force inline-block */
   /* No animation applied */
 }

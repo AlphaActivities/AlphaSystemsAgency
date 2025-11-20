@@ -22,8 +22,7 @@ export default function Footer() {
                 return (
                   <span
                     key={i}
-                    className="brand-letter-v9 text-white"
-                    style={{ animationDelay: `${i * 55}ms` }}
+                    className="brand-letter-no-glow text-white"
                   >
                     {ch}
                   </span>
