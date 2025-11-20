@@ -21,15 +21,6 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     const friction = 0.92;
     const resumeDelay = 800;
 
-    let singleSetWidth = 0;
-
-    const computeSingleSetWidth = () => {
-      if (!track || cloneCount <= 0) return;
-      const width = track.scrollWidth / cloneCount;
-      if (!Number.isFinite(width) || width <= 0) return;
-      singleSetWidth = width;
-    };
-
     const animate = () => {
       if (track.firstElementChild) {
         const now = performance.now();
@@ -50,16 +41,12 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           lastInteractionTimeRef.current = now;
         }
 
-        if (!singleSetWidth) {
-          computeSingleSetWidth();
-        }
+        const singleSetWidth = track.scrollWidth / cloneCount;
 
-        if (singleSetWidth > 0) {
-          if (positionRef.current < -singleSetWidth) {
-            positionRef.current = positionRef.current % singleSetWidth;
-          } else if (positionRef.current > 0) {
-            positionRef.current = -(singleSetWidth + (positionRef.current % singleSetWidth));
-          }
+        if (positionRef.current < -singleSetWidth) {
+          positionRef.current = positionRef.current % singleSetWidth;
+        } else if (positionRef.current > 0) {
+          positionRef.current = -(singleSetWidth + (positionRef.current % singleSetWidth));
         }
 
         track.style.transform = `translateX(${positionRef.current}px)`;
@@ -103,22 +90,6 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       }
     };
 
-    computeSingleSetWidth();
-
-    let resizeObserver: ResizeObserver | null = null;
-    if (track) {
-      resizeObserver = new ResizeObserver(() => {
-        computeSingleSetWidth();
-      });
-      resizeObserver.observe(track);
-    }
-
-    const handleResize = () => {
-      computeSingleSetWidth();
-    };
-
-    window.addEventListener("resize", handleResize);
-
     container.style.cursor = 'grab';
     container.style.touchAction = 'none';
     container.addEventListener('pointerdown', handlePointerDown);
@@ -130,10 +101,6 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
 
     return () => {
       cancelAnimationFrame(animationId);
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-      window.removeEventListener("resize", handleResize);
       container.removeEventListener('pointerdown', handlePointerDown);
       container.removeEventListener('pointermove', handlePointerMove);
       container.removeEventListener('pointerup', handlePointerUp);
