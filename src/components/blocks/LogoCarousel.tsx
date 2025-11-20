@@ -179,7 +179,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
         className="pointer-events-none absolute inset-0 z-10"
         style={{
           background:
-            'linear-gradient(to right, rgba(10,10,11,1) 0%, rgba(10,10,11,0) 8%, rgba(10,10,11,0) 92%, rgba(10,10,11,1) 100%)',
+            'linear-gradient(to right, rgba(0,0,0,0.9) 0%, transparent 8%, transparent 92%, rgba(0,0,0,0.9) 100%)',
         }}
       />
       <div
