@@ -91,6 +91,7 @@ export default function Team() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
             Specialized minds working as one
           </h1>
+          <div className="page-tone-line" />
           <p className="mt-3 text-[var(--neutral-300)] max-w-3xl">
             Clear roles, shared standards, and measurable outcomes on every engagement.
           </p>
