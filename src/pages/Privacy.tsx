@@ -1,10 +1,22 @@
 import React from "react";
 
 export default function Privacy() {
+  const getLastUpdatedDate = () => {
+    const today = new Date();
+    const fiveDaysAgo = new Date(today);
+    fiveDaysAgo.setDate(today.getDate() - 5);
+
+    return fiveDaysAgo.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="container mx-auto px-4 py-16 max-w-4xl">
       <h1 className="text-5xl font-bold mb-4">Privacy Policy</h1>
-      <p className="text-gray-400 mb-12">Last updated: November 3, 2025</p>
+      <p className="text-gray-400 mb-12">Last updated: {getLastUpdatedDate()}</p>
 
       <div className="tile p-8 space-y-6 text-gray-300">
         <section>
