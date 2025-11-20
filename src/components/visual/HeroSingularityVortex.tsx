@@ -175,13 +175,6 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
         const ty = cy + Math.sin(p.angle - 0.12) * (r * 0.72 * 0.98);
         ctx.lineTo(tx, ty);
         ctx.stroke();
-
-        if ((t + (x | 0)) % 60 === 0) {
-          ctx.fillStyle = "rgba(255,220,160,0.9)";
-          ctx.shadowBlur = 18;
-          ctx.shadowColor = "rgba(255,220,160,0.9)";
-          ctx.fillRect(x, y, 2, 2);
-        }
       }
 
       ctx.beginPath();
