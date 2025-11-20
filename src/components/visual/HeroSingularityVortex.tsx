@@ -157,8 +157,8 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       ctx.arc(cx, cy, minDim * 0.5, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = "rgba(172,112,255,0.75)";
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = "rgba(255,255,255,0.5)";
 
       for (const p of particles) {
         p.angle += p.speed;
@@ -181,7 +181,7 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
       ctx.beginPath();
       const coreG = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreR * 2.2);
-      coreG.addColorStop(0, "rgba(255,255,255,0.95)");
+      coreG.addColorStop(0, "rgba(255,255,255,0.75)");
       coreG.addColorStop(0.4, "rgba(172,112,255,0.55)");
       coreG.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = coreG;
