@@ -103,7 +103,7 @@ export default function Team() {
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 shrink-0 rounded-full bg-[var(--violet-600,_#7a2cff)] text-white grid place-items-center text-lg font-bold overflow-hidden">
                   {m.photo ? (
-                    <img src={m.photo} alt={m.name} className="h-full w-full object-cover object-[center_30%]" />
+                    <img src={m.photo} alt={m.name} className="h-full w-full object-cover object-[center_60%]" />
                   ) : (
                     m.initials
                   )}
