@@ -67,6 +67,7 @@ const members: Member[] = [
     initials: "A",
     name: "Abdul Fattah",
     role: "Conversion & Creative Strategist",
+    photo: "/images/profile-photos/Abdul.PNG",
     blurb:
       "Abdul specializes in conversion-driven messaging, funnel architecture, and offer positioning. He bridges creative strategy with performance outcomes, crafting compelling assets that raise engagement and accelerate revenue growth.",
     tags: [
