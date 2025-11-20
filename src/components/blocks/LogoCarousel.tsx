@@ -95,20 +95,10 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           lastInteractionTimeRef.current = now;
         }
 
-        // Use cached width for modulo wrapping
-        let singleSetWidth = singleSetWidthRef.current;
+        const totalWidth = trackEl.scrollWidth;
+        const singleSetWidth = cloneCount > 0 ? totalWidth / cloneCount : 0;
 
-        // Fallback: if width is not yet known, measure once
-        if (!singleSetWidth || singleSetWidth <= 0) {
-          const totalWidth = trackEl.scrollWidth;
-          if (totalWidth > 0 && cloneCount > 0) {
-            singleSetWidth = totalWidth / cloneCount;
-            singleSetWidthRef.current = singleSetWidth;
-          }
-        }
-
-        // If we still do not have a valid width, skip wrapping for this frame
-        if (singleSetWidth && singleSetWidth > 0) {
+        if (singleSetWidth > 0) {
           if (positionRef.current < -singleSetWidth) {
             positionRef.current = positionRef.current % singleSetWidth;
           } else if (positionRef.current > 0) {
