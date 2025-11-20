@@ -1,5 +1,6 @@
 import React from "react";
 import { Code, Palette, Zap, Rocket, Shield, HeartHandshake } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Services() {
   const services = [
@@ -65,12 +66,12 @@ export default function Services() {
         <p className="text-gray-400 mb-8 max-w-xl mx-auto">
           Let's discuss your project and how we can help bring your vision to life
         </p>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="cta-btn inline-block bg-gold-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
         >
           Get in Touch
-        </a>
+        </Link>
       </div>
     </div>
   );
