@@ -14,6 +14,8 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
   // Cached width of a single logo set, used for modulo wrapping
   const singleSetWidthRef = useRef<number | null>(null);
 
+  const isVisibleRef = useRef(true);
+
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
@@ -43,8 +45,38 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       resizeObserver.observe(track);
     }
 
+    // Visibility observer to pause animation when off-screen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            isVisibleRef.current = true;
+            // Resume animation loop immediately
+            animationId = requestAnimationFrame(animate);
+          } else {
+            isVisibleRef.current = false;
+            // Stop animation when not visible
+            cancelAnimationFrame(animationId);
+          }
+        }
+      },
+      {
+        root: null,
+        threshold: 0.1, // Consider visible if at least 10 percent is on-screen
+      }
+    );
+
+    observer.observe(container);
+
     const animate = () => {
-      if (track.firstElementChild) {
+      const trackEl = trackRef.current;
+
+      // Phase Two: stop processing if not visible
+      if (!isVisibleRef.current) {
+        return; // Do not schedule next frame
+      }
+
+      if (trackEl && trackEl.firstElementChild) {
         const now = performance.now();
         const timeSinceInteraction = now - lastInteractionTimeRef.current;
 
@@ -68,7 +100,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
 
         // Fallback: if width is not yet known, measure once
         if (!singleSetWidth || singleSetWidth <= 0) {
-          const totalWidth = track.scrollWidth;
+          const totalWidth = trackEl.scrollWidth;
           if (totalWidth > 0 && cloneCount > 0) {
             singleSetWidth = totalWidth / cloneCount;
             singleSetWidthRef.current = singleSetWidth;
@@ -84,7 +116,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           }
         }
 
-        track.style.transform = `translateX(${positionRef.current}px)`;
+        trackEl.style.transform = `translate3d(${positionRef.current}px, 0, 0)`;
       }
 
       animationId = requestAnimationFrame(animate);
@@ -143,6 +175,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
+      observer.disconnect();
     };
   }, [cloneCount]);
 
