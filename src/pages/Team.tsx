@@ -34,7 +34,7 @@ const members: Member[] = [
     role: "Founder and Growth Specialist",
     photo: "/images/profile-photos/Heber.jpg",
     blurb:
-      "Heber shapes the agency's visual and brand systems, blending UI/UX excellence with Meta ad performance. His expertise ensures every project is visually stunning, brand-consistent, and performance-driven.",
+      "Heber shapes the agency's visual and brand systems, uniting UI/UX excellence with Meta ads, text and email marketing, social media, and sales systems. His work ensures every project is visually stunning, brand-consistent, and built to convert.",
     tags: [
       "UI and UX",
       "Figma",
