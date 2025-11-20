@@ -92,7 +92,7 @@ export default function Home() {
             { name: "John Smith", company: "Aksarben Locksmiths", text: "Outstanding work! The site is fast, beautiful, and exactly what we needed." },
             { name: "Sarah Johnson", company: "Tech Solutions Inc", text: "Professional team that delivered beyond our expectations. Highly recommended!" }
           ].map((review, i) => (
-            <div key={i} className="tile p-8">
+            <div key={i} className="tile tile-uv-glow p-8">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-uv-500 to-uv-700 flex items-center justify-center">
                   <span className="text-white font-semibold">{review.name[0]}</span>
