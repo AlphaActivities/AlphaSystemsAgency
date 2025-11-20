@@ -12,7 +12,7 @@ type Member = {
 const members: Member[] = [
   {
     initials: "J",
-    name: "Josh the Warrior",
+    name: "Josh Lad",
     role: "Systems Architecture Executive",
     photo: "/images/profile-photos/Josh.jpg",
     blurb:
@@ -47,7 +47,7 @@ const members: Member[] = [
   },
   {
     initials: "J",
-    name: "Juan",
+    name: "Juan Lunacci",
     role: "Ads and Data Strategist",
     blurb:
       "Juan drives Google Ads mastery and client systems into seamless, data-driven strategies. He bridges ad expertise with practical client insights, ensuring every campaign is measured, client-friendly, and results-driven.",
