@@ -30,7 +30,7 @@ const members: Member[] = [
   },
   {
     initials: "H",
-    name: "Heber",
+    name: "Heber Herrera",
     role: "Design and Meta Specialist",
     blurb:
       "Heber shapes the agency's visual and brand systems, blending UI/UX excellence with Meta ad performance. His expertise ensures every project is visually stunning, brand-consistent, and performance-driven.",
@@ -64,7 +64,7 @@ const members: Member[] = [
   },
   {
     initials: "A",
-    name: "Abdul",
+    name: "Abdul Fattah",
     role: "Conversion & Creative Strategist",
     blurb:
       "Abdul specializes in conversion-driven messaging, funnel architecture, and offer positioning. He bridges creative strategy with performance outcomes, crafting compelling assets that raise engagement and accelerate revenue growth.",
