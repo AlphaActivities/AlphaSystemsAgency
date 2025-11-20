@@ -6,6 +6,7 @@ type Member = {
   role: string;
   blurb: string;
   tags: string[];
+  photo?: string;
 };
 
 const members: Member[] = [
@@ -13,6 +14,7 @@ const members: Member[] = [
     initials: "J",
     name: "Josh",
     role: "Founder & Systems Architect",
+    photo: "/images/profile-photos/Josh.jpg",
     blurb:
       "Josh represents high-end, $50,000+ digital experiences, transforming complex architecture and GA4 insights into sleek, conversion-focused systems. He represents the agency's technical vision, ensuring every build is as fast and flawless as it is future-proof.",
     tags: [
@@ -99,8 +101,12 @@ export default function Team() {
               className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-[var(--gold-500)]/40 transition-colors"
             >
               <div className="flex items-center gap-4">
-                <div className="h-12 w-12 shrink-0 rounded-full bg-[var(--violet-600,_#7a2cff)] text-white grid place-items-center text-lg font-bold">
-                  {m.initials}
+                <div className="h-12 w-12 shrink-0 rounded-full bg-[var(--violet-600,_#7a2cff)] text-white grid place-items-center text-lg font-bold overflow-hidden">
+                  {m.photo ? (
+                    <img src={m.photo} alt={m.name} className="h-full w-full object-cover" />
+                  ) : (
+                    m.initials
+                  )}
                 </div>
                 <div>
                   <div className="text-white font-semibold">{m.name}</div>
