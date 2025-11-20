@@ -116,8 +116,8 @@ export default function Navbar() {
           }}
         >
           <div className="nav-row relative z-10 h-16 flex items-center justify-between px-4">
-            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 relative z-20">
-              <img src="/images/Alpha-Logo.PNG" alt="Alpha Systems" className="h-8 w-8 rounded-sm" />
+            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 relative z-20 self-center">
+              <img src="/images/Alpha-Logo.PNG" alt="Alpha Systems" className="h-8 w-8 rounded-sm object-contain" />
 
               {/* Single brand element, kerning-safe per-letter spans, real spaces preserved */}
               <span
@@ -161,7 +161,7 @@ export default function Navbar() {
               type="button"
               aria-label="Toggle menu"
               onClick={() => setOpen(v => !v)}
-              className="lg:hidden relative grid h-10 w-10 place-items-center rounded-full bg-[rgb(122,44,255)] text-white focus:outline-none focus:ring-4 ring-white/20"
+              className="lg:hidden relative grid h-10 w-10 place-items-center rounded-full bg-[rgb(122,44,255)] text-white focus:outline-none focus:ring-4 ring-white/20 self-center"
             >
               <svg
                 className={`h-5 w-5 transition-transform duration-150 ${open ? "scale-0" : "scale-100"}`}
