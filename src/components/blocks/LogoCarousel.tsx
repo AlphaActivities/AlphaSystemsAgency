@@ -21,8 +21,26 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     const friction = 0.92;
     const resumeDelay = 800;
 
+    // Cache singleSetWidth to avoid reading scrollWidth every frame
+    let singleSetWidth = 0;
+
+    const computeSingleSetWidth = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      singleSetWidth = track.scrollWidth / cloneCount;
+    };
+
     const animate = () => {
       if (track.firstElementChild) {
+        // Guard: compute singleSetWidth if not yet measured
+        if (!singleSetWidth) {
+          computeSingleSetWidth();
+          if (!singleSetWidth) {
+            animationId = requestAnimationFrame(animate);
+            return;
+          }
+        }
+
         const now = performance.now();
         const timeSinceInteraction = now - lastInteractionTimeRef.current;
 
@@ -41,8 +59,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           lastInteractionTimeRef.current = now;
         }
 
-        const singleSetWidth = track.scrollWidth / cloneCount;
-
+        // Use cached singleSetWidth
         if (positionRef.current < -singleSetWidth) {
           positionRef.current = positionRef.current % singleSetWidth;
         } else if (positionRef.current > 0) {
@@ -90,13 +107,20 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       }
     };
 
+    const handleResize = () => {
+      computeSingleSetWidth();
+    };
+
     container.style.cursor = 'grab';
     container.style.touchAction = 'none';
     container.addEventListener('pointerdown', handlePointerDown);
     container.addEventListener('pointermove', handlePointerMove);
     container.addEventListener('pointerup', handlePointerUp);
     container.addEventListener('pointercancel', handlePointerUp);
+    window.addEventListener('resize', handleResize);
 
+    // Compute singleSetWidth once before starting animation
+    computeSingleSetWidth();
     animationId = requestAnimationFrame(animate);
 
     return () => {
@@ -105,6 +129,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       container.removeEventListener('pointermove', handlePointerMove);
       container.removeEventListener('pointerup', handlePointerUp);
       container.removeEventListener('pointercancel', handlePointerUp);
+      window.removeEventListener('resize', handleResize);
     };
   }, [cloneCount]);
 
