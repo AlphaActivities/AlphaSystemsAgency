@@ -11,6 +11,9 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
   const lastTimeRef = useRef(0);
   const lastInteractionTimeRef = useRef(0);
 
+  // Cached width of a single logo set, used for modulo wrapping
+  const singleSetWidthRef = useRef<number | null>(null);
+
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
@@ -20,6 +23,25 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     const baseSpeed = 0.75;
     const friction = 0.92;
     const resumeDelay = 800;
+
+    // Initialize cached width once the track has a measurable width
+    const updateSingleSetWidth = () => {
+      const totalWidth = track.scrollWidth;
+      if (totalWidth > 0 && cloneCount > 0) {
+        singleSetWidthRef.current = totalWidth / cloneCount;
+      }
+    };
+
+    updateSingleSetWidth();
+
+    // Keep cached width in sync if layout changes
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateSingleSetWidth();
+      });
+      resizeObserver.observe(track);
+    }
 
     const animate = () => {
       if (track.firstElementChild) {
@@ -41,12 +63,25 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           lastInteractionTimeRef.current = now;
         }
 
-        const singleSetWidth = track.scrollWidth / cloneCount;
+        // Use cached width for modulo wrapping
+        let singleSetWidth = singleSetWidthRef.current;
 
-        if (positionRef.current < -singleSetWidth) {
-          positionRef.current = positionRef.current % singleSetWidth;
-        } else if (positionRef.current > 0) {
-          positionRef.current = -(singleSetWidth + (positionRef.current % singleSetWidth));
+        // Fallback: if width is not yet known, measure once
+        if (!singleSetWidth || singleSetWidth <= 0) {
+          const totalWidth = track.scrollWidth;
+          if (totalWidth > 0 && cloneCount > 0) {
+            singleSetWidth = totalWidth / cloneCount;
+            singleSetWidthRef.current = singleSetWidth;
+          }
+        }
+
+        // If we still do not have a valid width, skip wrapping for this frame
+        if (singleSetWidth && singleSetWidth > 0) {
+          if (positionRef.current < -singleSetWidth) {
+            positionRef.current = positionRef.current % singleSetWidth;
+          } else if (positionRef.current > 0) {
+            positionRef.current = -(singleSetWidth + (positionRef.current % singleSetWidth));
+          }
         }
 
         track.style.transform = `translateX(${positionRef.current}px)`;
@@ -105,6 +140,9 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
       container.removeEventListener('pointermove', handlePointerMove);
       container.removeEventListener('pointerup', handlePointerUp);
       container.removeEventListener('pointercancel', handlePointerUp);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
     };
   }, [cloneCount]);
 
