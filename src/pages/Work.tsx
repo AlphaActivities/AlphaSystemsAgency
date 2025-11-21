@@ -9,7 +9,7 @@ export default function Work() {
       client: "Local Service",
       description: "High-conversion website, Google Ads, and Blog redesign for a local locksmith business",
       image: "/images/our-work-photos/josh/Aksarbenlocksmiths.png",
-      launchDate: "2025-02-15",
+      launchDate: "2024-04-03",
       slug: "/work/aksarben-locksmiths"
     },
     {
