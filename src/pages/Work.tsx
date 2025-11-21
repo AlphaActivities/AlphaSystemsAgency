@@ -5,7 +5,7 @@ import Counter from "../components/ui/Counter";
 export default function Work() {
   const projects = [
     {
-      title: "Aksarben Locksmiths Market Growth Case Study",
+      title: "Aksarben Locksmiths Client Market Growth Case Study",
       client: "Local Service",
       description: "High-conversion Website and Google Ads, and Blog redesign for a local service brand",
       image: "/images/our-work-photos/josh/Aksarbenlocksmiths.png",
