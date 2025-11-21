@@ -7,7 +7,7 @@ export default function Work() {
     {
       title: "Aksarben Locksmiths Market Growth Case Study",
       client: "Local Service",
-      description: "High-conversion redesign for a local service brand",
+      description: "High-conversion Website and Google Ads, and Blog redesign for a local service brand",
       image: "/images/our-work-photos/josh/Aksarbenlocksmiths.png",
       launchDate: "2025-02-15",
       slug: "/work/aksarben-locksmiths"
