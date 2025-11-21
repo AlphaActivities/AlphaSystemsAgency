@@ -5,11 +5,12 @@ import Counter from "../components/ui/Counter";
 export default function Work() {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      client: "Retail Co",
-      description: "Full-stack solution with payment integration",
+      title: "Aksarben Locksmiths Case Study",
+      client: "Local Service",
+      description: "High-conversion redesign for a local service brand",
       image: "/images/our-work-photos/josh/Aksarbenlocksmiths.png",
-      launchDate: "2025-02-15"
+      launchDate: "2025-02-15",
+      slug: "/work/aksarben-locksmiths"
     },
     {
       title: "SaaS Dashboard",
