@@ -8,7 +8,7 @@ export default function Work() {
       title: "E-Commerce Platform",
       client: "Retail Co",
       description: "Full-stack solution with payment integration",
-      image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/our-work-photos/Aksarbenlocksmiths.png",
       launchDate: "2025-02-15"
     },
     {
