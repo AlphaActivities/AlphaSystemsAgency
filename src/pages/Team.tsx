@@ -48,7 +48,7 @@ const members: Member[] = [
   },
   {
     initials: "J",
-    name: "Juan Lunacci Portillo",
+    name: "Juan Lunacci",
     role: "Ads and Data Strategist",
     photo: "/images/profile-photos/Juan.jpg",
     blurb:
