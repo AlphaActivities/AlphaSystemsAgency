@@ -32,9 +32,9 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="aspect-video mb-16 rounded-2xl overflow-hidden border border-white/10">
+      <div className="rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 border border-white/10">
         <img
-          src="https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          src="/images/our-work-photos/josh/Aksarbenlocksmiths.png"
           alt="Aksarben Locksmiths Website"
           className="w-full h-full object-cover"
         />
@@ -78,7 +78,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Performance</h3>
-              <p className="text-sm text-gray-400">Optimized images, lazy loading</p>
+              <p className="text-sm text-gray-400">Optimized images and asset delivery</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
