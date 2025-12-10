@@ -6,8 +6,8 @@ import {
   Code,
   Zap,
   Shield,
-  AlertCircle,
-  Award,
+  AlertTriangle,
+  Check,
   ArrowLeft,
   ArrowUpRight,
 } from "lucide-react";
@@ -63,8 +63,8 @@ export default function Aksarben() {
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center">
-              <AlertCircle className="w-8 h-8 text-red-500" />
+            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(245,215,110,0.6)]">
+              <AlertTriangle className="w-6 h-6 text-red-800" />
             </div>
             <span>The Problem</span>
           </h2>
@@ -75,8 +75,8 @@ export default function Aksarben() {
 
         <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center">
-              <Award className="w-8 h-8 text-emerald-400" />
+            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(245,215,110,0.6)]">
+              <Check className="w-7 h-7 text-emerald-700 stroke-[3]" />
             </div>
             <span>The Solution</span>
           </h2>
