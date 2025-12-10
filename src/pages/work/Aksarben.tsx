@@ -86,7 +86,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile p-8 mb-16">
+      <div className="tile tile-uv-glow p-8 mb-16">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-4">
@@ -119,7 +119,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile p-8">
+      <div className="tile tile-uv-glow p-8">
         <h2 className="text-2xl font-bold mb-4">Results</h2>
         <ul className="space-y-3 text-gray-400">
           <li className="flex items-start gap-3">
