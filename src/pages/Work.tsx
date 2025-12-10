@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ExternalLink } from "lucide-react";
 import Counter from "../components/ui/Counter";
 
 export default function Work() {
@@ -65,9 +64,8 @@ export default function Work() {
                   <span>wks live</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 flex items-center justify-between">
+              <h3 className="text-xl font-semibold mb-2">
                 {project.title}
-                <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
               <p className="text-gray-400 text-sm">{project.description}</p>
             </div>
