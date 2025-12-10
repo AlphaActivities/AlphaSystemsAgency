@@ -63,8 +63,8 @@ export default function Aksarben() {
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full bg-gold-400 flex items-center justify-center">
-              <AlertTriangle className="w-8 h-8 text-red-500" />
+            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center">
+              <AlertTriangle className="w-6 h-6 text-red-500" />
             </div>
             <span>The Problem</span>
           </h2>
@@ -75,8 +75,8 @@ export default function Aksarben() {
 
         <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full bg-gold-400 flex items-center justify-center">
-              <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center">
+              <CheckCircle2 className="w-6 h-6 text-emerald-400" />
             </div>
             <span>The Solution</span>
           </h2>
