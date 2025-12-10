@@ -57,7 +57,7 @@ export default function Aksarben() {
         <div className="tile p-8">
           <h2 className="text-2xl font-bold mb-4">The Solution</h2>
           <p className="text-gray-400 leading-relaxed">
-            We recovered the original domain, rebuilt the entire online presence from scratch, and moved hosting and ownership into the client's control. The new site is a high end, video driven experience with dedicated service pages, a service areas search page, blog content, and full analytics tracking designed to turn visitors into booked emergency calls.
+            We recovered the original domain, rebuilt the entire online presence from scratch, and moved hosting and ownership into the client's control. The new site is a high end, video driven experience with dedicated service pages, and a service areas page, and a search page, blog content system, and full SEO and full Looker Studio analytics tracking, plus Google ad game-plan strategy designed to turn visitors into booked emergency calls.
           </p>
         </div>
       </div>
