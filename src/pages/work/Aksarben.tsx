@@ -124,7 +124,7 @@ export default function Aksarben() {
         <ul className="space-y-3 text-gray-400">
           <li className="flex items-start gap-3">
             <span className="text-uv-500 mt-1">✓</span>
-            <span>98/100 Google PageSpeed score across all pages</span>
+            <span>98/100 Google Optimization score across all pages</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-uv-500 mt-1">✓</span>
