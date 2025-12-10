@@ -48,7 +48,7 @@ export default function Work() {
           <Link
             key={i}
             to={project.slug}
-            className="tile overflow-hidden group block"
+            className="tile tile-uv-glow overflow-hidden group block"
           >
             <div className="aspect-video overflow-hidden">
               <img
