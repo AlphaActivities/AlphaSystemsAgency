@@ -18,44 +18,46 @@ export default function Aksarben() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
-        <div className="tile p-8 text-center ">
+        <div className="tile tile-uv-glow p-8 text-center ">
           <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">Weeks Live</div>
           <Counter to={weeksLive} duration={1400} />
         </div>
-        <div className="tile p-8 text-center ">
-          <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">Page Speed</div>
+        <div className="tile tile-uv-glow p-8 text-center ">
+          <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">Lighthouse Optimization Results</div>
           <Counter to={98} label="/100" duration={1600} />
         </div>
-        <div className="tile p-8 text-center ">
-          <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">Load Time</div>
+        <div className="tile tile-uv-glow p-8 text-center ">
+          <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">Site Loading Speed</div>
           <div className="text-4xl font-semibold tracking-tight">&lt;1s</div>
         </div>
       </div>
 
       <div className="rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 border border-white/10">
-        <img
-          src="/images/our-work-photos/josh/Aksarbenlocksmiths.png"
-          alt="Aksarben Locksmiths Website"
-          className="w-full h-full object-cover"
-        />
+        <a
+          href="https://aksarbenlocksmiths.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src="/images/our-work-photos/josh/Aksarbenlocksmiths.png"
+            alt="Aksarben Locksmiths Website"
+            className="w-full h-full object-cover"
+          />
+        </a>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div className="tile p-8">
           <h2 className="text-2xl font-bold mb-4">The Problem</h2>
           <p className="text-gray-400 leading-relaxed">
-            Aksarben Locksmiths needed a modern online presence that reflected their professionalism
-            and made it easy for customers to request emergency locksmith services. Their old site
-            was outdated, slow, and not mobile-friendly.
+            Aksarben Locksmiths had no active website or domain when we stepped in. Their previous marketing provider let the domain lapse after inconsistent performance and support, leaving the business with zero online presence even though their materials still pointed customers to a non-existent site.
           </p>
         </div>
 
         <div className="tile p-8">
           <h2 className="text-2xl font-bold mb-4">The Solution</h2>
           <p className="text-gray-400 leading-relaxed">
-            We built a fast, responsive website with a prominent call-to-action for emergency calls,
-            clear service descriptions, and optimized SEO for local searches. The result is a
-            professional site that converts visitors into customers.
+            We recovered the original domain, rebuilt the entire online presence from scratch, and moved hosting and ownership into the client's control. The new site is a high end, video driven experience with dedicated service pages, a service areas search page, blog content, and full analytics tracking designed to turn visitors into booked emergency calls.
           </p>
         </div>
       </div>
@@ -69,7 +71,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Development</h3>
-              <p className="text-sm text-gray-400">React, Vite, Tailwind CSS</p>
+              <p className="text-sm text-gray-400">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -78,7 +80,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Performance</h3>
-              <p className="text-sm text-gray-400">Optimized images and asset delivery</p>
+              <p className="text-sm text-gray-400">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -87,7 +89,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Hosting</h3>
-              <p className="text-sm text-gray-400">Secure, fast CDN delivery</p>
+              <p className="text-sm text-gray-400">Secure Netlify hosting with SSL, CDN backed delivery, and the domain held in the client's name.</p>
             </div>
           </div>
         </div>
