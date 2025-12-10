@@ -13,18 +13,18 @@ export default function Work() {
       slug: "/work/aksarben-locksmiths"
     },
     {
-      title: "SaaS Dashboard",
+      title: "Coming soon",
       client: "Tech Startup",
-      description: "Real-time analytics and data visualization",
+      description: "Coming soon",
       image: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2025-01-20"
+      launchDate: "2026-01-01"
     },
     {
-      title: "Marketing Website",
+      title: "Coming soon",
       client: "Agency",
-      description: "SEO-optimized with modern animations",
+      description: "Coming soon",
       image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2024-12-10"
+      launchDate: "2026-01-01"
     }
   ];
 
