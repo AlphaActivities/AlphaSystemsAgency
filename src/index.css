@@ -148,11 +148,15 @@
 }
 
 .tile-red-glow {
+  background: radial-gradient(circle at top left,
+    rgba(248, 113, 113, 0.45),
+    rgba(127, 29, 29, 0.95)
+  );
   box-shadow:
     0 0 10px rgba(239, 68, 68, 0.55),
     0 0 22px rgba(239, 68, 68, 0.28);
   border-color: rgba(239, 68, 68, 0.95);
-  transition: box-shadow 300ms ease, border-color 300ms ease;
+  transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
 }
 
 .tile-red-glow:hover {
@@ -164,11 +168,15 @@
 }
 
 .tile-green-glow {
+  background: radial-gradient(circle at top left,
+    rgba(110, 231, 183, 0.45),
+    rgba(6, 95, 70, 0.95)
+  );
   box-shadow:
     0 0 10px rgba(16, 185, 129, 0.55),
     0 0 22px rgba(16, 185, 129, 0.28);
   border-color: rgba(16, 185, 129, 0.95);
-  transition: box-shadow 300ms ease, border-color 300ms ease;
+  transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
 }
 
 .tile-green-glow:hover {
