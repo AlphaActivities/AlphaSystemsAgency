@@ -147,6 +147,38 @@
     0 0 22px rgba(122, 44, 255, 0.28);
 }
 
+.tile-red-glow {
+  box-shadow:
+    0 0 10px rgba(239, 68, 68, 0.55),
+    0 0 22px rgba(239, 68, 68, 0.28);
+  border-color: rgba(239, 68, 68, 0.95);
+  transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.tile-red-glow:hover {
+  box-shadow:
+    0 0 16px rgba(239, 68, 68, 0.70),
+    0 0 32px rgba(239, 68, 68, 0.40),
+    0 0 48px rgba(239, 68, 68, 0.20);
+  border-color: rgba(239, 68, 68, 1);
+}
+
+.tile-green-glow {
+  box-shadow:
+    0 0 10px rgba(16, 185, 129, 0.55),
+    0 0 22px rgba(16, 185, 129, 0.28);
+  border-color: rgba(16, 185, 129, 0.95);
+  transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.tile-green-glow:hover {
+  box-shadow:
+    0 0 16px rgba(16, 185, 129, 0.70),
+    0 0 32px rgba(16, 185, 129, 0.40),
+    0 0 48px rgba(16, 185, 129, 0.20);
+  border-color: rgba(16, 185, 129, 1);
+}
+
 .section-rhythm {
   padding-top: 80px;
   padding-bottom: 72px;

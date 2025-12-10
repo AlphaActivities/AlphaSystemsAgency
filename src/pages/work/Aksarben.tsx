@@ -20,7 +20,7 @@ export default function Aksarben() {
       <div className="mb-12">
         <Link
           to="/work"
-          className="cta-btn inline-flex items-center gap-2 bg-[var(--gold-500,#d4af37)] text-black px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)] mb-6"
+          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)] mb-6"
         >
           <ArrowLeft size={16} />
           <span>Back to Our Work</span>
@@ -32,15 +32,15 @@ export default function Aksarben() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
-        <div className="tile tile-uv-glow p-8 text-center ">
+        <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Weeks Live</div>
           <Counter to={weeksLive} duration={1400} />
         </div>
-        <div className="tile tile-uv-glow p-8 text-center ">
+        <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Lighthouse Optimization Results</div>
           <Counter to={98} label="/100" duration={1600} />
         </div>
-        <div className="tile tile-uv-glow p-8 text-center ">
+        <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Site Loading Speed</div>
           <div className="text-4xl font-semibold tracking-tight">&lt;1s</div>
         </div>
@@ -61,9 +61,11 @@ export default function Aksarben() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
-        <div className="tile p-8 bg-red-900/40 border border-red-500/30">
+        <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <AlertTriangle className="w-6 h-6 text-red-400" />
+            <div className="w-8 h-8 rounded-full bg-gold-400 flex items-center justify-center">
+              <AlertTriangle className="w-4 h-4 text-gray-900" />
+            </div>
             <span>The Problem</span>
           </h2>
           <p className="text-gray-100 leading-relaxed">
@@ -71,9 +73,11 @@ export default function Aksarben() {
           </p>
         </div>
 
-        <div className="tile p-8 bg-emerald-900/40 border border-emerald-500/30">
+        <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+            <div className="w-8 h-8 rounded-full bg-gold-400 flex items-center justify-center">
+              <CheckCircle2 className="w-4 h-4 text-gray-900" />
+            </div>
             <span>The Solution</span>
           </h2>
           <p className="text-gray-100 leading-relaxed">
@@ -142,7 +146,7 @@ export default function Aksarben() {
           href="https://aksarbenlocksmiths.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-btn inline-flex items-center gap-2 bg-[var(--gold-500,#d4af37)] text-black px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
+          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
         >
           Visit Live Site
           <ArrowUpRight size={18} />
