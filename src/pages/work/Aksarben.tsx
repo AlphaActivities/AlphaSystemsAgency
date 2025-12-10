@@ -20,7 +20,7 @@ export default function Aksarben() {
       <div className="mb-12">
         <Link
           to="/work"
-          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)] mb-6"
+          className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] mb-6"
         >
           <ArrowLeft size={16} />
           <span>Back to Our Work</span>
@@ -63,7 +63,7 @@ export default function Aksarben() {
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(245,215,110,0.6)]">
+            <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <AlertTriangle className="w-[30px] h-[30px] text-red-800 -translate-y-[1px]" strokeWidth={2.5} />
             </div>
             <span>The Problem</span>
@@ -75,7 +75,7 @@ export default function Aksarben() {
 
         <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(245,215,110,0.6)]">
+            <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <Check className="w-7 h-7 text-emerald-700 stroke-[3]" />
             </div>
             <span>The Solution</span>
@@ -146,7 +146,7 @@ export default function Aksarben() {
           href="https://aksarbenlocksmiths.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
+          className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)]"
         >
           Visit Live Site
           <ArrowUpRight size={18} />
