@@ -64,7 +64,7 @@ export default function Aksarben() {
         <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(245,215,110,0.6)]">
-              <AlertTriangle className="w-[28px] h-[28px] text-red-800" strokeWidth={2.5} />
+              <AlertTriangle className="w-[30px] h-[30px] text-red-800 -translate-y-[1px]" strokeWidth={2.5} />
             </div>
             <span>The Problem</span>
           </h2>
