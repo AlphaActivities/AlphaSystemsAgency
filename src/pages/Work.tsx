@@ -1,6 +1,5 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
 import Counter from "../components/ui/Counter";
 
 export default function Work() {
@@ -45,11 +44,7 @@ export default function Work() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, i) => (
-          <Link
-            key={i}
-            to={project.slug}
-            className="tile overflow-hidden group block"
-          >
+          <div key={i} className="tile overflow-hidden group">
             <div className="aspect-video overflow-hidden">
               <img
                 src={project.image}
@@ -71,7 +66,7 @@ export default function Work() {
               </h3>
               <p className="text-gray-400 text-sm">{project.description}</p>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
