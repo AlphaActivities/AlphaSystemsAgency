@@ -20,7 +20,7 @@ export default function Aksarben() {
       <div className="mb-12">
         <Link
           to="/work"
-          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)] mb-6"
+          className="cta-btn inline-flex items-center gap-2 bg-[var(--gold-500,#d4af37)] text-black px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)] mb-6"
         >
           <ArrowLeft size={16} />
           <span>Back to Our Work</span>
@@ -142,7 +142,7 @@ export default function Aksarben() {
           href="https://aksarbenlocksmiths.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-btn inline-flex items-center gap-2 bg-gold-400 text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
+          className="cta-btn inline-flex items-center gap-2 bg-[var(--gold-500,#d4af37)] text-black px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(245,215,110,.35)]"
         >
           Visit Live Site
           <ArrowUpRight size={18} />
