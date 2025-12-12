@@ -39,7 +39,7 @@ export default function Counter({to=100, duration=1400, label}:{to:number; durat
 
   return (
     <div ref={containerRef} className="text-4xl font-semibold tracking-tight tabular-nums">
-      {val}{label? <span className="ml-1 text-base opacity-80">{label}</span>: null}
+      {val}{label? <span className="ml-1 text-base">{label}</span>: null}
     </div>
   );
 }
