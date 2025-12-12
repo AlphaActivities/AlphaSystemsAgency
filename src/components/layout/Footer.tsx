@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand tile */}
           <div className="tile tile-uv-glow p-6 flex flex-col items-center text-center overflow-visible">
             <img
-              src="/images/Alpha-Logo.PNG"
+              src="/images/profile-photos/Alpha-Logo.png"
               alt="Alpha Systems"
               className="-mb-8 -mt-7 h-28 w-28 rounded-sm brand-logo-glow"
             />

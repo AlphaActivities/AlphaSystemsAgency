@@ -117,7 +117,7 @@ export default function Navbar() {
         >
           <div className="nav-row relative z-10 h-16 flex items-center justify-between px-4">
             <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 relative z-20 self-center">
-              <img src="/images/Alpha-Logo.PNG" alt="Alpha Systems" className="h-8 w-8 rounded-sm object-contain" />
+              <img src="/images/profile-photos/Alpha-Logo.png" alt="Alpha Systems" className="h-8 w-8 rounded-sm object-contain" />
 
               {/* Single brand element, kerning-safe per-letter spans, real spaces preserved */}
               <span
