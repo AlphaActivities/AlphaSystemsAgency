@@ -95,7 +95,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Development</h3>
-              <p className="text-sm text-gray-400">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
+              <p className="text-sm text-white">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -104,7 +104,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Performance</h3>
-              <p className="text-sm text-gray-400">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
+              <p className="text-sm text-white">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -113,7 +113,7 @@ export default function Aksarben() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Hosting</h3>
-              <p className="text-sm text-gray-400">Secure Netlify hosting with SSL, CDN backed delivery, and the domain held in the client's name.</p>
+              <p className="text-sm text-white">Secure Netlify hosting with SSL, CDN backed delivery, and the domain held in the client's name.</p>
             </div>
           </div>
         </div>
@@ -121,21 +121,21 @@ export default function Aksarben() {
 
       <div className="tile tile-uv-glow p-8">
         <h2 className="text-2xl font-bold mb-4">Results</h2>
-        <ul className="space-y-3 text-gray-400">
+        <ul className="space-y-3 text-white">
           <li className="flex items-start gap-3">
-            <span className="text-uv-500 mt-1">✓</span>
+            <span className="text-green-500 mt-1">✓</span>
             <span>98/100 Google Optimization score across all pages</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-uv-500 mt-1">✓</span>
+            <span className="text-green-500 mt-1">✓</span>
             <span>40% increase in mobile conversions within first month</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-uv-500 mt-1">✓</span>
+            <span className="text-green-500 mt-1">✓</span>
             <span>Top 3 local search rankings for key locksmith terms</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-uv-500 mt-1">✓</span>
+            <span className="text-green-500 mt-1">✓</span>
             <span>Client reports significantly more emergency call requests</span>
           </li>
         </ul>
