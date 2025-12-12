@@ -40,7 +40,7 @@ export default function Home() {
               <Star className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Satisfaction score</span>
             </div>
-            <div className="text-4xl font-semibold flex items-baseline justify-center">
+            <div className="text-4xl font-semibold flex items-baseline justify-center bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">
               <Counter to={100} duration={4000} />
               <span>%</span>
             </div>
@@ -51,7 +51,7 @@ export default function Home() {
               <Zap className="text-uv-500" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Avg project launch</span>
             </div>
-            <div className="text-4xl font-semibold flex items-baseline gap-2">
+            <div className="text-4xl font-semibold flex items-baseline gap-2 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">
               <span>Under</span>
               <Counter to={14} duration={5000} />
               <span>days</span>
@@ -63,7 +63,9 @@ export default function Home() {
               <Rocket className="text-gold-400" size={24} />
               <span className="text-sm text-gray-400 uppercase tracking-wider">Verified Launches</span>
             </div>
-            <Counter to={launchCount} duration={8000} />
+            <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">
+              <Counter to={launchCount} duration={8000} />
+            </div>
           </div>
         </div>
       </section>

@@ -33,7 +33,7 @@ export default function Aksarben() {
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Weeks Live</div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
           <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
