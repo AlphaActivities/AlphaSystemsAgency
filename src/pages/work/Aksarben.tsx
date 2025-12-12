@@ -88,32 +88,32 @@ export default function Aksarben() {
 
       <div className="tile tile-uv-glow p-8 mb-16">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="flex items-start gap-4">
-            <div className="p-2 rounded-lg bg-uv-500/10">
-              <Sparkles className="text-uv-500" size={20} />
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center text-center gap-4 group">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] group-hover:scale-110 group-hover:rotate-3">
+              <Sparkles className="text-gray-900" size={36} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Development</h3>
-              <p className="text-sm text-white">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
+              <h3 className="font-bold text-lg mb-2 text-[#d4af37]">Development</h3>
+              <p className="text-sm text-gray-300 leading-relaxed">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
             </div>
           </div>
-          <div className="flex items-start gap-4">
-            <div className="p-2 rounded-lg bg-uv-500/10">
-              <Gauge className="text-uv-500" size={20} />
+          <div className="flex flex-col items-center text-center gap-4 group">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_40px_rgba(0,212,255,0.5)] transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(0,212,255,0.8)] group-hover:scale-110 group-hover:rotate-3">
+              <Gauge className="text-gray-900" size={36} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Performance</h3>
-              <p className="text-sm text-white">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
+              <h3 className="font-bold text-lg mb-2 text-[#00d4ff]">Performance</h3>
+              <p className="text-sm text-gray-300 leading-relaxed">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
             </div>
           </div>
-          <div className="flex items-start gap-4">
-            <div className="p-2 rounded-lg bg-uv-500/10">
-              <Globe className="text-uv-500" size={20} />
+          <div className="flex flex-col items-center text-center gap-4 group">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_40px_rgba(0,255,136,0.5)] transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(0,255,136,0.8)] group-hover:scale-110 group-hover:rotate-3">
+              <Globe className="text-gray-900" size={36} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Hosting</h3>
-              <p className="text-sm text-white">Secure Netlify hosting with SSL, CDN backed delivery, and the domain held in the client's name.</p>
+              <h3 className="font-bold text-lg mb-2 text-[#00ff88]">Hosting</h3>
+              <p className="text-sm text-gray-300 leading-relaxed">Secure Netlify hosting with SSL, CDN backed delivery, and the domain held in the client's name.</p>
             </div>
           </div>
         </div>
