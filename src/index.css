@@ -191,14 +191,14 @@
 
 .section-rhythm {
   padding-top: 0;
-  margin-top: -8px;
+  margin-top: -24px;
   padding-bottom: 72px;
 }
 
 @media (max-width: 1024px) {
   .section-rhythm {
     padding-top: 0;
-    margin-top: -8px;
+    margin-top: -20px;
     padding-bottom: 56px;
   }
 }
@@ -206,7 +206,7 @@
 @media (max-width: 640px) {
   .section-rhythm {
     padding-top: 0;
-    margin-top: -8px;
+    margin-top: -16px;
     padding-bottom: 40px;
   }
 }

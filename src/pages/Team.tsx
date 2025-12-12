@@ -86,7 +86,7 @@ const members: Member[] = [
 
 export default function Team() {
   return (
-    <section className="relative min-h-screen px-6 pt-28 pb-20">
+    <section className="relative min-h-screen px-6 pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-20">
       <div className="mx-auto max-w-6xl">
         <header className="mb-10">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
