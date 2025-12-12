@@ -3,9 +3,9 @@ import Counter from "../../components/ui/Counter";
 import { Link } from "react-router-dom";
 import {
   ExternalLink,
-  Code,
-  Zap,
-  Shield,
+  Sparkles,
+  Gauge,
+  Globe,
   AlertTriangle,
   Check,
   ArrowLeft,
@@ -91,7 +91,7 @@ export default function Aksarben() {
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-4">
             <div className="p-2 rounded-lg bg-uv-500/10">
-              <Code className="text-uv-500" size={20} />
+              <Sparkles className="text-uv-500" size={20} />
             </div>
             <div>
               <h3 className="font-semibold mb-1">Development</h3>
@@ -100,7 +100,7 @@ export default function Aksarben() {
           </div>
           <div className="flex items-start gap-4">
             <div className="p-2 rounded-lg bg-uv-500/10">
-              <Zap className="text-uv-500" size={20} />
+              <Gauge className="text-uv-500" size={20} />
             </div>
             <div>
               <h3 className="font-semibold mb-1">Performance</h3>
@@ -109,7 +109,7 @@ export default function Aksarben() {
           </div>
           <div className="flex items-start gap-4">
             <div className="p-2 rounded-lg bg-uv-500/10">
-              <Shield className="text-uv-500" size={20} />
+              <Globe className="text-uv-500" size={20} />
             </div>
             <div>
               <h3 className="font-semibold mb-1">Hosting</h3>
