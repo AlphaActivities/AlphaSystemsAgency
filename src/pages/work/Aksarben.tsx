@@ -123,19 +123,19 @@ export default function Aksarben() {
         <h2 className="text-2xl font-bold mb-4">Results</h2>
         <ul className="space-y-3 text-white">
           <li className="flex items-start gap-3">
-            <span className="text-green-500 mt-1">✓</span>
+            <span className="text-green-500 text-xl font-bold mt-0.5">✓</span>
             <span>98/100 Google Optimization score across all pages</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-green-500 mt-1">✓</span>
+            <span className="text-green-500 text-xl font-bold mt-0.5">✓</span>
             <span>40% increase in mobile conversions within first month</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-green-500 mt-1">✓</span>
+            <span className="text-green-500 text-xl font-bold mt-0.5">✓</span>
             <span>Top 3 local search rankings for key locksmith terms</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-green-500 mt-1">✓</span>
+            <span className="text-green-500 text-xl font-bold mt-0.5">✓</span>
             <span>Client reports significantly more emergency call requests</span>
           </li>
         </ul>
