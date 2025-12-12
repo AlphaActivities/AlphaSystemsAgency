@@ -21,6 +21,7 @@ const members: Member[] = [
       "React",
       "TypeScript",
       "System Design",
+      "Full Site Design",
       "GA4",
       "Attribution",
       "CRO",
