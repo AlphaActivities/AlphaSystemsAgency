@@ -1,6 +1,6 @@
 import React from "react";
 import Counter from "../components/ui/Counter";
-import LogoCarousel from "../components/blocks/LogoCarousel";
+import LazyLogoCarousel from "../components/blocks/LazyLogoCarousel";
 import { getVerifiedLaunchCount } from "../data/clients";
 import { Star, Zap, Rocket } from "lucide-react";
 import HeroSingularityVortex from "../components/visual/HeroSingularityVortex";
@@ -72,7 +72,7 @@ export default function Home() {
 
       <section className="section-rhythm">
         <h2 className="text-3xl font-bold text-center mb-8">Trusted By Leading Brands</h2>
-        <LogoCarousel
+        <LazyLogoCarousel
           logos={[
             { src: "/images/company-logos/Aksarben Locksmiths logo.PNG", alt: "Aksarben Locksmiths" },
             { src: "/images/company-logos/Caliber Luxury Rentals logo.PNG", alt: "Caliber Luxury Rentals", scale: 1.2 },
