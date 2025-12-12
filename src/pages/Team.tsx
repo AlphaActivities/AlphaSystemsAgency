@@ -86,17 +86,16 @@ const members: Member[] = [
 
 export default function Team() {
   return (
-    <section className="relative min-h-screen px-6 pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-20">
-      <div className="mx-auto max-w-6xl">
-        <header className="mb-10">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            4 specialized minds working as 1
-          </h1>
-          <div className="page-tone-line" />
-          <p className="mt-3 text-[var(--neutral-300)] max-w-3xl">
-            Clear roles, shared standards, and measurable outcomes on every engagement.
-          </p>
-        </header>
+    <div className="container mx-auto px-4 max-w-6xl section-rhythm">
+      <div>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+          4 specialized minds working as 1
+        </h1>
+        <div className="page-tone-line" />
+        <p className="text-xl text-gray-400 mb-16 mt-6 max-w-3xl">
+          Clear roles, shared standards, and measurable outcomes on every engagement.
+        </p>
+      </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {members.map((m) => (
@@ -140,7 +139,6 @@ export default function Team() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
