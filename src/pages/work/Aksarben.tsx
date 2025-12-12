@@ -10,9 +10,6 @@ import {
   Check,
   ArrowLeft,
   ArrowUpRight,
-  Calendar,
-  Award,
-  Zap,
 } from "lucide-react";
 
 export default function Aksarben() {
@@ -35,31 +32,16 @@ export default function Aksarben() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
-        <div className="tile tile-uv-glow p-8 text-center group">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-500 group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)] group-hover:scale-110 group-hover:rotate-3">
-              <Calendar className="text-gray-900" size={20} strokeWidth={2.5} />
-            </div>
-            <span className="text-sm text-white uppercase tracking-wider font-semibold">Total Weeks Live</span>
-          </div>
+        <div className="tile tile-uv-glow p-8 text-center">
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
           <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
         </div>
-        <div className="tile tile-uv-glow p-8 text-center group">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-500 group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)] group-hover:scale-110 group-hover:rotate-3">
-              <Award className="text-gray-900" size={20} strokeWidth={2.5} />
-            </div>
-            <span className="text-sm text-white uppercase tracking-wider font-semibold">Lighthouse Optimization Results</span>
-          </div>
+        <div className="tile tile-uv-glow p-8 text-center">
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Lighthouse Optimization Results</div>
           <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={98} label="/100" duration={1600} /></div>
         </div>
-        <div className="tile tile-uv-glow p-8 text-center group">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-500 group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)] group-hover:scale-110 group-hover:rotate-3">
-              <Zap className="text-gray-900" size={20} strokeWidth={2.5} />
-            </div>
-            <span className="text-sm text-white uppercase tracking-wider font-semibold">Site Loading Speed</span>
-          </div>
+        <div className="tile tile-uv-glow p-8 text-center">
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Site Loading Speed</div>
           <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">&lt;1s</div>
         </div>
       </div>
