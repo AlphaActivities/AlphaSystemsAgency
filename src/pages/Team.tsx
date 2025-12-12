@@ -23,7 +23,6 @@ const members: Member[] = [
       "System Design",
       "Full Site Design",
       "GA4",
-      "Attribution",
       "CRO",
       "Automation",
       "Performance Architecture",
