@@ -190,20 +190,20 @@
 }
 
 .section-rhythm {
-  padding-top: 80px;
+  padding-top: 24px;
   padding-bottom: 72px;
 }
 
 @media (max-width: 1024px) {
   .section-rhythm {
-    padding-top: 64px;
+    padding-top: 20px;
     padding-bottom: 56px;
   }
 }
 
 @media (max-width: 640px) {
   .section-rhythm {
-    padding-top: 48px;
+    padding-top: 16px;
     padding-bottom: 40px;
   }
 }
