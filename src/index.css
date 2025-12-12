@@ -8,11 +8,13 @@
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
-  width: 120px;
+  width: 400px;
+  max-width: 90vw;
   height: 3px;
   background: linear-gradient(90deg,
     hsl(var(--tone-hue, 265), 95%, 65%, 0.8) 0%,
-    hsl(var(--tone-hue, 265), 90%, 60%, 0.5) 50%,
+    hsl(var(--tone-hue, 265), 90%, 60%, 0.6) 40%,
+    hsl(var(--tone-hue, 265), 85%, 60%, 0.3) 70%,
     transparent 100%
   );
   border-radius: 2px;
