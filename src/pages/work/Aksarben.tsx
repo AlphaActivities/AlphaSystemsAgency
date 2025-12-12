@@ -33,16 +33,16 @@ export default function Aksarben() {
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Weeks Live</div>
-          <Counter to={weeksLive} duration={1400} />
+          <div className="text-sm uppercase tracking-wider font-semibold mb-2 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent">Weeks Live</div>
+          <div className="text-[rgb(122,44,255)] [text-shadow:0_0_20px_rgba(122,44,255,0.5)]"><Counter to={weeksLive} duration={1400} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Lighthouse Optimization Results</div>
-          <Counter to={98} label="/100" duration={1600} />
+          <div className="text-sm uppercase tracking-wider font-semibold mb-2 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent">Lighthouse Optimization Results</div>
+          <div className="text-[rgb(122,44,255)] [text-shadow:0_0_20px_rgba(122,44,255,0.5)]"><Counter to={98} label="/100" duration={1600} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-2">Site Loading Speed</div>
-          <div className="text-4xl font-semibold tracking-tight">&lt;1s</div>
+          <div className="text-sm uppercase tracking-wider font-semibold mb-2 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent">Site Loading Speed</div>
+          <div className="text-4xl font-semibold tracking-tight text-[rgb(122,44,255)] [text-shadow:0_0_20px_rgba(122,44,255,0.5)]">&lt;1s</div>
         </div>
       </div>
 
