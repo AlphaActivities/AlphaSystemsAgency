@@ -15,6 +15,14 @@ import {
 export default function Aksarben() {
   const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-04-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
 
+  const contributors = [
+    {
+      name: "Josh Lad",
+      role: "Systems Architecture, UX, SEO",
+      image: "/images/profile-photos/Josh.jpg",
+    },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-16 max-w-6xl">
       <div className="mb-12">
@@ -144,56 +152,33 @@ export default function Aksarben() {
       <div className="tile p-8 mt-12 mb-10">
         <h3 className="text-2xl font-bold mb-6">Project Contributors</h3>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Josh.jpg"
-              alt="Josh Lad"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Josh Lad</div>
-              <div className="text-sm text-gray-400">Systems Architecture, UX, SEO</div>
+        <div
+          className={
+            contributors.length === 1
+              ? "flex justify-center"
+              : "grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          }
+        >
+          {contributors.map((c) => (
+            <div
+              key={c.name}
+              className={
+                contributors.length === 1
+                  ? "flex items-center gap-4"
+                  : "flex items-center gap-4"
+              }
+            >
+              <img
+                src={c.image}
+                alt={c.name}
+                className="w-14 h-14 rounded-full object-cover border border-white/20"
+              />
+              <div>
+                <div className="font-semibold">{c.name}</div>
+                <div className="text-sm text-gray-400">{c.role}</div>
+              </div>
             </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Heber.jpg"
-              alt="Heber Herrera"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Heber Herrera</div>
-              <div className="text-sm text-gray-400">Brand Systems, UI/UX, Meta Ads</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Juan.jpg"
-              alt="Juan Portillo"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Juan Portillo</div>
-              <div className="text-sm text-gray-400">Google Ads, Analytics, CRO</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Abdul.PNG"
-              alt="Abdul Fattah"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Abdul Fattah</div>
-              <div className="text-sm text-gray-400">Conversion Strategy, Messaging</div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
 
