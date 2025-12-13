@@ -59,10 +59,37 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
     if (!hero || !paragraph || !heroSection) return;
 
+    // Throttle helper function
+    let throttleTimer: number | null = null;
+    const throttle = (callback: () => void, delay: number) => {
+      if (throttleTimer !== null) return;
+      throttleTimer = window.setTimeout(() => {
+        callback();
+        throttleTimer = null;
+      }, delay);
+    };
+
+    // Cache for getBoundingClientRect results
+    const rectCache = {
+      titleRect: null as DOMRect | null,
+      pRect: null as DOMRect | null,
+      secRect: null as DOMRect | null,
+      lastUpdate: 0
+    };
+
     const place = () => {
-      const titleRect = hero.getBoundingClientRect();
-      const pRect = paragraph.getBoundingClientRect();
-      const secRect = heroSection.getBoundingClientRect();
+      const now = Date.now();
+      // Cache rects for 100ms to reduce layout thrashing
+      if (now - rectCache.lastUpdate > 100) {
+        rectCache.titleRect = hero.getBoundingClientRect();
+        rectCache.pRect = paragraph.getBoundingClientRect();
+        rectCache.secRect = heroSection.getBoundingClientRect();
+        rectCache.lastUpdate = now;
+      }
+
+      const titleRect = rectCache.titleRect!;
+      const pRect = rectCache.pRect!;
+      const secRect = rectCache.secRect!;
 
       const gap = Math.max(0, pRect.top - titleRect.bottom);
 
@@ -84,18 +111,33 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
     place();
 
-    const ro = new ResizeObserver(place);
+    // Throttled scroll handler - only runs every 150ms
+    const throttledPlace = () => throttle(place, 150);
+
+    // Debounced resize handler
+    let resizeTimer: number | null = null;
+    const debouncedPlace = () => {
+      if (resizeTimer !== null) clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        rectCache.lastUpdate = 0; // Force cache refresh on resize
+        place();
+      }, 100);
+    };
+
+    const ro = new ResizeObserver(debouncedPlace);
     ro.observe(document.documentElement);
 
-    window.addEventListener("scroll", place, { passive: true });
-    window.addEventListener("orientationchange", place);
-    window.addEventListener("resize", place);
+    window.addEventListener("scroll", throttledPlace, { passive: true });
+    window.addEventListener("orientationchange", debouncedPlace);
+    window.addEventListener("resize", debouncedPlace);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener("scroll", place);
-      window.removeEventListener("orientationchange", place);
-      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", throttledPlace);
+      window.removeEventListener("orientationchange", debouncedPlace);
+      window.removeEventListener("resize", debouncedPlace);
+      if (throttleTimer !== null) clearTimeout(throttleTimer);
+      if (resizeTimer !== null) clearTimeout(resizeTimer);
     };
   }, [bp, heroId, paraSelector, biasUpPx]);
 
@@ -109,6 +151,7 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
     const rafRef = { current: null as number | null };
     let t = 0;
+    let isPaused = false;
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
 
     const resize = () => {
@@ -123,7 +166,7 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
 
-    const particles = Array.from({ length: 220 }).map(() => ({
+    const particles = Array.from({ length: 150 }).map(() => ({
       angle: Math.random() * Math.PI * 2,
       radius: Math.random() * 0.48 + 0.08,
       speed: 0.004 + Math.random() * 0.006,
@@ -132,13 +175,32 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       alpha: 0.35 + Math.random() * 0.4,
     }));
 
-    const animate = () => {
+    // Limit to 30 FPS for better performance
+    const targetFPS = 30;
+    const frameInterval = 1000 / targetFPS;
+    let lastFrameTime = 0;
+
+    const animate = (currentTime: number = 0) => {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       if (w === 0 || h === 0) {
         rafRef.current = requestAnimationFrame(animate);
         return;
       }
+
+      // Skip rendering if paused (during menu interactions)
+      if (isPaused) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      // Throttle to 30 FPS
+      const elapsed = currentTime - lastFrameTime;
+      if (elapsed < frameInterval) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTime = currentTime - (elapsed % frameInterval);
 
       t += 1;
       ctx.clearRect(0, 0, w, h);
@@ -205,6 +267,21 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
 
     const heroSection = host.closest("section#hero") as HTMLElement | null;
 
+    // Listen for menu state changes and pause animation during interactions
+    const handleMenuStateChange = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+      isPaused = customEvent.detail.isOpen;
+
+      // Resume with a small delay after menu closes for smooth experience
+      if (!customEvent.detail.isOpen) {
+        setTimeout(() => {
+          isPaused = false;
+        }, 300);
+      }
+    };
+
+    window.addEventListener('menuStateChange', handleMenuStateChange);
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -228,6 +305,7 @@ const HeroSingularityVortex: React.FC<HeroSingularityVortexProps> = ({
       stopAnimation();
       observer.disconnect();
       ro.disconnect();
+      window.removeEventListener('menuStateChange', handleMenuStateChange);
     };
   }, [bp]);
 

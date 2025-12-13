@@ -16,6 +16,12 @@ export default function Navbar() {
   const [menuH, setMenuH] = useState(0);
   const location = useLocation();
 
+  // Dispatch custom event when menu state changes to pause animations
+  useEffect(() => {
+    const event = new CustomEvent('menuStateChange', { detail: { isOpen: open } });
+    window.dispatchEvent(event);
+  }, [open]);
+
   const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.stopPropagation();
 
@@ -38,7 +44,7 @@ export default function Navbar() {
         void (el as HTMLElement).offsetWidth; // force reflow
         el.classList.add("brand-letter-v9");
       });
-    }, 2000); // every 2 seconds
+    }, 5000); // every 5 seconds - reduced frequency for better performance
     return () => clearInterval(interval);
   }, []);
 
