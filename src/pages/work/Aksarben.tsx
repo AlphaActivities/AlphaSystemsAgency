@@ -15,6 +15,14 @@ import {
 export default function Aksarben() {
   const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-04-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
 
+  const contributors = [
+    {
+      name: "Josh Lad",
+      roles: ["Systems Architecture", "UX", "SEO"],
+      image: "/images/profile-photos/Josh.jpg",
+    },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-16 max-w-6xl">
       <div className="mb-12">
@@ -120,37 +128,79 @@ export default function Aksarben() {
       </div>
 
       <div className="tile tile-uv-glow p-8">
-        <h2 className="text-2xl font-bold mb-4">Results</h2>
-        <ul className="space-y-3 text-white">
-          <li className="flex items-start gap-3">
-            <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-            <span>98/100 Google Optimization score across all pages</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-            <span>40% increase in mobile conversions within first month</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-            <span>Top 3 local search rankings for key locksmith terms</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-            <span>Client reports significantly more emergency call requests</span>
-          </li>
-        </ul>
-      </div>
+        <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
+          {/* Left Panel: Project Lead / Contributors */}
+          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
+            <h3 className="text-lg font-semibold mb-6 text-[#d4af37]">
+              {contributors.length === 1 ? "Project Lead" : "Built By"}
+            </h3>
 
-      <div className="mt-16 text-center">
-        <a
-          href="https://aksarbenlocksmiths.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)]"
-        >
-          Visit Live Site
-          <ArrowUpRight size={18} />
-        </a>
+            <div className={`w-full ${contributors.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-0'}`}>
+              {contributors.map((contributor, idx) => (
+                <div key={idx} className="flex flex-col items-center md:items-start">
+                  <div className="relative mb-4">
+                    <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#d4af37]/40 shadow-[0_0_24px_rgba(212,175,55,0.4)]">
+                      <img
+                        src={contributor.image}
+                        alt={contributor.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <h4 className="font-bold text-white text-center md:text-left mb-2">
+                    {contributor.name}
+                  </h4>
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                    {contributor.roles.map((role, roleIdx) => (
+                      <span
+                        key={roleIdx}
+                        className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300"
+                      >
+                        {role}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Panel: Results */}
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-bold mb-4">Results</h2>
+            <ul className="space-y-3 text-white mb-8">
+              <li className="flex items-start gap-3">
+                <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
+                <span>98/100 Google Optimization score across all pages</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
+                <span>40% increase in mobile conversions within first month</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
+                <span>Top 3 local search rankings for key locksmith terms</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
+                <span>Client reports significantly more emergency call requests</span>
+              </li>
+            </ul>
+
+            {/* CTA Button inside tile */}
+            <div className="mt-auto pt-4 flex justify-center md:justify-end">
+              <a
+                href="https://aksarbenlocksmiths.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center"
+              >
+                Visit Live Site
+                <ArrowUpRight size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
