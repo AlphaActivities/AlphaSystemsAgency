@@ -44,7 +44,7 @@ export default function Navbar() {
         void (el as HTMLElement).offsetWidth; // force reflow
         el.classList.add("brand-letter-v9");
       });
-    }, 5000); // every 5 seconds - reduced frequency for better performance
+    }, 3000); // every 3 seconds - reduced frequency for better performance
     return () => clearInterval(interval);
   }, []);
 
