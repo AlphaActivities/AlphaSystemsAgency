@@ -141,62 +141,6 @@ export default function Aksarben() {
         </ul>
       </div>
 
-      <div className="tile p-8 mt-12 mb-10">
-        <h3 className="text-2xl font-bold mb-6">Project Contributors</h3>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Josh.jpg"
-              alt="Josh Lad"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Josh Lad</div>
-              <div className="text-sm text-gray-400">Systems Architecture, UX, SEO</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Heber.jpg"
-              alt="Heber Herrera"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Heber Herrera</div>
-              <div className="text-sm text-gray-400">Brand Systems, UI/UX, Meta Ads</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Juan.jpg"
-              alt="Juan Portillo"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Juan Portillo</div>
-              <div className="text-sm text-gray-400">Google Ads, Analytics, CRO</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <img
-              src="/images/profile-photos/Abdul.PNG"
-              alt="Abdul Fattah"
-              className="w-14 h-14 rounded-full object-cover border border-white/20"
-            />
-            <div>
-              <div className="font-semibold">Abdul Fattah</div>
-              <div className="text-sm text-gray-400">Conversion Strategy, Messaging</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
       <div className="mt-16 text-center">
         <a
           href="https://aksarbenlocksmiths.com"
