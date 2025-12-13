@@ -91,8 +91,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-12">Client Feedback</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {[
-            { name: "Mike Smith", company: "Aksarben Locksmiths", text: "Outstanding work! The site is fast, beautiful, and exactly what we needed." },
-            { name: "Sarah Johnson", company: "Tech Solutions Inc", text: "Professional team that delivered beyond our expectations. Highly recommended!" }
+            { name: "Mike Smith", company: "Aksarben Locksmiths", text: "Outstanding work! The site is fast, beautiful, and exactly what we needed." }
           ].map((review, i) => (
             <div key={i} className="tile tile-uv-glow p-8">
               <div className="flex items-center gap-2 mb-4">
