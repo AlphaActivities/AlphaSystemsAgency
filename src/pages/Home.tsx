@@ -89,11 +89,11 @@ export default function Home() {
 
       <section className="section-rhythm">
         <h2 className="text-3xl font-bold text-center mb-12">Client Feedback</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex justify-center">
           {[
             { name: "Mike Smith", company: "Aksarben Locksmiths", text: "Outstanding work! The site is fast, beautiful, and exactly what we needed." }
           ].map((review, i) => (
-            <div key={i} className="tile tile-uv-glow p-8">
+            <div key={i} className="tile tile-uv-glow p-8 max-w-md w-full">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-uv-500 to-uv-700 flex items-center justify-center">
                   <span className="text-white font-semibold">{review.name[0]}</span>
