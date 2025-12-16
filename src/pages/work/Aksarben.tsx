@@ -148,10 +148,10 @@ export default function Aksarben() {
                       />
                     </div>
                   </div>
-                  <h4 className="font-bold text-white text-center mb-2 w-full">
+                  <h4 className="font-bold text-white text-center mb-2">
                     {contributor.name}
                   </h4>
-                  <div className="text-sm text-gray-300 text-center mb-3 w-full">
+                  <div className="text-sm text-gray-300 text-center mb-3">
                     {contributor.title}
                   </div>
                   <div className="flex flex-wrap gap-2 justify-start">
