@@ -774,3 +774,24 @@ html { scrollbar-gutter: stable both-edges; }
     filter: drop-shadow(0 8px 16px rgba(212, 175, 55, 0.3));
   }
 }
+
+/* Luxury Lazy Load Effect */
+.luxury-lazy-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-lazy-item.luxury-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-lazy-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Counter from "../../components/ui/Counter";
 import { Link } from "react-router-dom";
 import {
@@ -18,6 +18,41 @@ import {
 } from "lucide-react";
 
 export default function Aksarben() {
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll(".luxury-lazy-item");
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add("luxury-visible");
+            }, index * 200);
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const currentRef = resultsRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
   const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-04-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
 
   const contributors = [
@@ -200,7 +235,7 @@ export default function Aksarben() {
           </div>
 
           {/* Right Panel: Results */}
-          <div className="flex flex-col">
+          <div className="flex flex-col" ref={resultsRef}>
             <div className="mb-6 relative inline-block">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
                 Results
@@ -209,44 +244,44 @@ export default function Aksarben() {
             </div>
             <div className="flex-1 flex flex-col justify-center">
               <ul className="space-y-3 text-white mb-8">
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 luxury-lazy-item">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>98/100 Google Optimization score across all pages</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 luxury-lazy-item">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>40% increase in mobile conversions within first month</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 luxury-lazy-item">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>Top 3 local search rankings for key locksmith terms</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 luxury-lazy-item">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>Client reports significantly more emergency call requests</span>
               </li>
               </ul>
 
               <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 luxury-lazy-item">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>These outcomes are directly attributable to the systems implemented for this project.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 luxury-lazy-item">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 luxury-lazy-item">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 luxury-lazy-item">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
