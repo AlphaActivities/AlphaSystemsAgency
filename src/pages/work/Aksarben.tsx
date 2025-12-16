@@ -47,7 +47,7 @@ export default function Aksarben() {
           <img
             src="/images/company-logos/Aksarben Locksmiths logo.PNG"
             alt="Aksarben Locksmiths Logo"
-            className="h-16 sm:h-20 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+            className="h-24 sm:h-28 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
           />
         </div>
         <p className="text-xl text-gray-400">
