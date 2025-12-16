@@ -44,7 +44,7 @@ export default function Aksarben() {
             Aksarben<br className="md:hidden" />
             <span className="md:ml-3">Locksmiths</span>
           </h1>
-          <div className="logo-wrapper">
+          <div className="logo-wrapper-locksmith">
             <img
               src="/images/company-logos/Aksarben Locksmiths logo.PNG"
               alt="Aksarben Locksmiths Logo"
