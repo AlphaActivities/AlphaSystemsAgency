@@ -170,7 +170,7 @@ export default function Aksarben() {
             </div>
 
             <div className="mt-5 text-white text-sm leading-relaxed text-center md:text-left">
-              Josh designed and implemented the complete growth system powering this project.
+              Josh designed and implemented the complete growth system powering this project for 10 conversions daily.
             </div>
           </div>
 
