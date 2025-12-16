@@ -60,7 +60,7 @@ export default function Work() {
               <div className="flex items-center justify-between mb-2">
                 <div className="text-sm text-[#d4af37]">{project.client}</div>
                 <div className="text-xs text-[#d4af37] flex items-center gap-1">
-                  <Counter to={calculateWeeksLive(project.launchDate)} duration={1200} />
+                  <Counter to={calculateWeeksLive(project.launchDate)} duration={3000} />
                   <span>wks live</span>
                 </div>
               </div>
