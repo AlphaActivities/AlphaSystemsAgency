@@ -31,7 +31,7 @@ export default function Aksarben() {
 
   return (
     <div className="container mx-auto px-4 max-w-6xl section-rhythm">
-      <div>
+      <div className="mb-12">
         <Link
           to="/work"
           className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-5 py-2 rounded-full text-sm font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] mb-[34px]"
@@ -39,19 +39,10 @@ export default function Aksarben() {
           <ArrowLeft size={16} />
           <span>Back to Our Work</span>
         </Link>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-16">
-          <div>
-            <h1 className="text-5xl font-bold mb-4">Aksarben Locksmiths</h1>
-            <p className="text-xl text-gray-400">
-              Modern web presence for Omaha's trusted locksmith service
-            </p>
-          </div>
-          <img
-            src="/images/company-logos/Aksarben Locksmiths logo.PNG"
-            alt="Aksarben Locksmiths Logo"
-            className="w-40 h-auto object-contain mt-4 md:mt-0 drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"
-          />
-        </div>
+        <h1 className="text-5xl font-bold mb-4">Aksarben Locksmiths</h1>
+        <p className="text-xl text-gray-400">
+          Modern web presence for Omaha's trusted locksmith service
+        </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
