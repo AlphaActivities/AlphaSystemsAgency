@@ -174,13 +174,13 @@ export default function Aksarben() {
               ))}
             </div>
 
-            <div className="mt-6 relative">
+            <div className="-mx-4 md:-mx-10 mt-6 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-[#f4d03f]/10 to-[#d4af37]/20 rounded-lg blur-sm"></div>
               <div className="relative border border-[#d4af37]/30 rounded-lg p-4 bg-gradient-to-br from-[#d4af37]/5 to-transparent backdrop-blur-sm">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-0.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-[10px] font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
                   Impact
                 </div>
-                <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
+                <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2 max-w-[320px] mx-auto md:mx-0">
                   Josh designed and implemented the complete growth system powering this project for <span className="font-semibold text-[#f4d03f]">10 calls/conversions daily</span>.
                 </p>
               </div>
