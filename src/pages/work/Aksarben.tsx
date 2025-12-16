@@ -138,7 +138,7 @@ export default function Aksarben() {
 
             <div className={`w-full ${contributors.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-0'}`}>
               {contributors.map((contributor, idx) => (
-                <div key={idx} className="flex flex-col items-center md:items-start">
+                <div key={idx} className="flex flex-col items-center">
                   <div className="relative mb-4">
                     <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#d4af37]/40 shadow-[0_0_24px_rgba(212,175,55,0.4)]">
                       <img
@@ -148,13 +148,13 @@ export default function Aksarben() {
                       />
                     </div>
                   </div>
-                  <h4 className="font-bold text-white mb-2">
+                  <h4 className="font-bold text-white mb-2 text-center w-24">
                     {contributor.name}
                   </h4>
-                  <div className="text-sm text-gray-300 mb-3">
+                  <div className="text-sm text-gray-300 mb-3 text-center w-24">
                     {contributor.title}
                   </div>
-                  <div className="flex flex-wrap gap-2 justify-start">
+                  <div className="flex flex-wrap gap-2 justify-center w-full">
                     {contributor.roles.map((role, roleIdx) => (
                       <span
                         key={roleIdx}
