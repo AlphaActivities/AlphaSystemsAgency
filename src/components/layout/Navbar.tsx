@@ -15,7 +15,6 @@ export default function Navbar() {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [menuH, setMenuH] = useState(0);
   const location = useLocation();
-  const [logoAnimState, setLogoAnimState] = useState<'idle' | 'growing' | 'waving-fast' | 'waving-slow' | 'ungrow'>('idle');
 
   // Dispatch custom event when menu state changes to pause animations
   useEffect(() => {
@@ -110,22 +109,6 @@ export default function Navbar() {
     return true;
   };
 
-  const handleLogoMouseEnter = () => {
-    setLogoAnimState('growing');
-  };
-
-  const handleLogoMouseLeave = () => {
-    setLogoAnimState('ungrow');
-  };
-
-  const handleLogoAnimationEnd = () => {
-    if (logoAnimState === 'growing') {
-      setLogoAnimState('waving-fast');
-    } else if (logoAnimState === 'ungrow') {
-      setLogoAnimState('idle');
-    }
-  };
-
   return (
     <header className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
       <div className="w-full max-w-6xl px-4 pointer-events-auto">
@@ -139,24 +122,8 @@ export default function Navbar() {
           }}
         >
           <div className="nav-row relative z-10 h-16 flex items-center justify-between px-4">
-            <Link
-              to="/"
-              onClick={handleBrandClick}
-              onMouseEnter={handleLogoMouseEnter}
-              onMouseLeave={handleLogoMouseLeave}
-              className="flex items-center gap-2 relative z-20"
-            >
-              <img
-                src="/images/profile-photos/Alpha-Logo.png"
-                alt="Alpha Systems"
-                className={`h-8 w-8 rounded-sm object-contain shrink-0 logo-hover-base ${
-                  logoAnimState === 'growing' ? 'logo-growing' :
-                  logoAnimState === 'waving-fast' ? 'logo-waving-fast' :
-                  logoAnimState === 'ungrow' ? 'logo-ungrow' :
-                  ''
-                }`}
-                onAnimationEnd={handleLogoAnimationEnd}
-              />
+            <Link to="/" onClick={handleBrandClick} className="flex items-center gap-2 relative z-20">
+              <img src="/images/profile-photos/Alpha-Logo.png" alt="Alpha Systems" className="h-8 w-8 rounded-sm object-contain shrink-0" />
 
               {/* Single brand element, kerning-safe per-letter spans, real spaces preserved */}
               <span
