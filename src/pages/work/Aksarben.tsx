@@ -14,6 +14,7 @@ import {
   Layers,
   Award,
   Shield,
+  TrendingUp,
 } from "lucide-react";
 
 export default function Aksarben() {
@@ -173,8 +174,11 @@ export default function Aksarben() {
               ))}
             </div>
 
-            <div className="mt-5 text-white text-sm leading-relaxed text-center md:text-left">
-              Josh designed and implemented the complete growth system powering this project for 10 calls/conversions daily.
+            <div className="mt-5 flex items-start gap-2.5 text-center md:text-left">
+              <TrendingUp className="text-[#d4af37] flex-shrink-0 mt-0.5" size={16} strokeWidth={2.5} />
+              <span className="text-white text-sm leading-relaxed">
+                Josh designed and implemented the complete growth system powering this project for 10 calls/conversions daily.
+              </span>
             </div>
           </div>
 
