@@ -21,37 +21,45 @@ export default function Aksarben() {
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
-    };
+    // Delay observer setup to allow ScrollLuxuryBottom to complete its animation
+    const setupDelay = setTimeout(() => {
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const items = entry.target.querySelectorAll(".luxury-lazy-item");
-          items.forEach((item, index) => {
-            setTimeout(() => {
-              item.classList.add("luxury-visible");
-            }, index * 200);
-          });
-        }
-      });
-    };
+      let hasTriggered = false;
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const currentRef = resultsRef.current;
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTriggered) {
+            hasTriggered = true;
+            const items = entry.target.querySelectorAll(".luxury-lazy-item");
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add("luxury-visible");
+              }, index * 200);
+            });
+          }
+        });
+      };
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+      const currentRef = resultsRef.current;
 
-    return () => {
       if (currentRef) {
-        observer.unobserve(currentRef);
+        observer.observe(currentRef);
       }
-    };
+
+      return () => {
+        if (currentRef) {
+          observer.unobserve(currentRef);
+        }
+      };
+    }, 1500); // Wait 1.5s for ScrollLuxuryBottom animation to complete
+
+    return () => clearTimeout(setupDelay);
   }, []);
   const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-04-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
 
