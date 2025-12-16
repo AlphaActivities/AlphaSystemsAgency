@@ -194,7 +194,6 @@ export default function Aksarben() {
                 Results
               </h2>
               <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-0 animate-underline-draw"></div>
-              <Sparkles className="absolute -right-8 top-0 text-[#d4af37] opacity-0 animate-sparkle-fade" size={16} />
             </div>
             <div className="flex-1 flex flex-col justify-center">
               <ul className="space-y-3 text-white mb-8">
