@@ -10,6 +10,10 @@ import {
   Check,
   ArrowLeft,
   ArrowUpRight,
+  Settings,
+  Layers,
+  Award,
+  Shield,
 } from "lucide-react";
 
 export default function Aksarben() {
@@ -196,11 +200,31 @@ export default function Aksarben() {
               </li>
             </ul>
 
-            <div className="text-white text-sm leading-relaxed space-y-2 mb-6">
-              <div>These outcomes are directly attributable to the systems implemented for this project.</div>
-              <div>The outcome reflects a unified system where paid traffic, content, and local search work together.</div>
-              <div>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</div>
-              <div>Domain ownership resides with the client.</div>
+            <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                  <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                </div>
+                <span>These outcomes are directly attributable to the systems implemented for this project.</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                  <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                </div>
+                <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                  <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                </div>
+                <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                  <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                </div>
+                <span>Domain ownership resides with the client.</span>
+              </div>
             </div>
 
             {/* CTA Button inside tile */}
