@@ -21,45 +21,71 @@ export default function Aksarben() {
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Delay observer setup to allow ScrollLuxuryBottom to complete its animation
-    const setupDelay = setTimeout(() => {
+    const animatedElements = new Set<Element>();
+
+    // Wait for scroll to reach top before activating observer
+    const checkScrollComplete = () => {
+      if (window.scrollY < 20) {
+        setupObserver();
+      } else {
+        requestAnimationFrame(checkScrollComplete);
+      }
+    };
+
+    const setupObserver = () => {
       const observerOptions = {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
+        rootMargin: "-50px",
+        threshold: 0.15,
       };
-
-      let hasTriggered = false;
 
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasTriggered) {
-            hasTriggered = true;
-            const items = entry.target.querySelectorAll(".luxury-lazy-item");
-            items.forEach((item, index) => {
-              setTimeout(() => {
-                item.classList.add("luxury-visible");
-              }, index * 200);
-            });
+          if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+            animatedElements.add(entry.target);
+
+            // Check if this is the Results container with nested items
+            const hasNestedItems = entry.target.querySelector(".luxury-lazy-item");
+
+            if (hasNestedItems) {
+              // First animate the container
+              entry.target.classList.add("luxury-visible");
+
+              // Then cascade the nested items
+              const items = entry.target.querySelectorAll(".luxury-lazy-item");
+              items.forEach((item, index) => {
+                setTimeout(() => {
+                  item.classList.add("luxury-visible");
+                }, index * 200);
+              });
+            } else {
+              // Just animate the container
+              entry.target.classList.add("luxury-visible");
+            }
+
+            // Stop observing this element
+            observer.unobserve(entry.target);
           }
         });
       };
 
       const observer = new IntersectionObserver(observerCallback, observerOptions);
-      const currentRef = resultsRef.current;
 
-      if (currentRef) {
-        observer.observe(currentRef);
-      }
+      // Observe all lazy load containers
+      const containers = document.querySelectorAll(".luxury-lazy-container");
+      containers.forEach((container) => {
+        observer.observe(container);
+      });
 
       return () => {
-        if (currentRef) {
-          observer.unobserve(currentRef);
-        }
+        containers.forEach((container) => {
+          observer.unobserve(container);
+        });
       };
-    }, 1500); // Wait 1.5s for ScrollLuxuryBottom animation to complete
+    };
 
-    return () => clearTimeout(setupDelay);
+    // Start checking for scroll completion
+    requestAnimationFrame(checkScrollComplete);
   }, []);
   const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-04-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
 
@@ -115,7 +141,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 border border-white/10">
+      <div className="rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 border border-white/10 luxury-lazy-container">
         <a
           href="https://aksarbenlocksmiths.com"
           target="_blank"
@@ -130,7 +156,7 @@ export default function Aksarben() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
-        <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30">
+        <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30 luxury-lazy-container">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <AlertTriangle className="w-[30px] h-[30px] text-red-800 -translate-y-[1px]" strokeWidth={2.5} />
@@ -142,7 +168,7 @@ export default function Aksarben() {
           </p>
         </div>
 
-        <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30">
+        <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30 luxury-lazy-container">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <Check className="w-7 h-7 text-emerald-700 stroke-[3]" />
@@ -155,7 +181,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16">
+      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-4 group">
@@ -188,7 +214,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8">
+      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
           <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">

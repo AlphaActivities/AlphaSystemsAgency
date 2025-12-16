@@ -788,8 +788,22 @@ html { scrollbar-gutter: stable both-edges; }
   transform: translateY(0);
 }
 
+/* Luxury Lazy Load for Containers - Faster, more confident feel */
+.luxury-lazy-container {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.luxury-lazy-container.luxury-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .luxury-lazy-item {
+  .luxury-lazy-item,
+  .luxury-lazy-container {
     opacity: 1;
     transform: none;
     transition: none;
