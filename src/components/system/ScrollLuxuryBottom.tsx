@@ -32,13 +32,13 @@ export default function ScrollLuxuryBottom() {
 
     requestAnimationFrame(() => {
       const bottom1 = getMaxScroll();
-      const startPos = bottom1 > 0 ? bottom1 : FAUX_DIP;
+      const startPos = bottom1 > 0 ? Math.floor(bottom1 * 0.5) : FAUX_DIP;
       scrollEl.scrollTop = startPos;
 
       requestAnimationFrame(() => {
         const bottom2 = getMaxScroll();
         if (bottom2 > startPos) {
-          scrollEl.scrollTop = bottom2;
+          scrollEl.scrollTop = Math.floor(bottom2 * 0.5);
         }
         const id = window.setTimeout(() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
