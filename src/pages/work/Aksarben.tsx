@@ -237,7 +237,7 @@ export default function Aksarben() {
             </div>
 
             {/* CTA Button inside tile */}
-            <div className="mt-auto pt-4 flex justify-center md:justify-end">
+            <div className="pt-4 flex justify-center md:justify-end">
               <a
                 href="https://aksarbenlocksmiths.com"
                 target="_blank"
