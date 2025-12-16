@@ -121,8 +121,6 @@ export default function Navbar() {
   const handleLogoAnimationEnd = () => {
     if (logoAnimState === 'growing') {
       setLogoAnimState('waving-fast');
-    } else if (logoAnimState === 'waving-fast') {
-      setLogoAnimState('waving-slow');
     } else if (logoAnimState === 'ungrow') {
       setLogoAnimState('idle');
     }
@@ -154,7 +152,6 @@ export default function Navbar() {
                 className={`h-8 w-8 rounded-sm object-contain shrink-0 logo-hover-base ${
                   logoAnimState === 'growing' ? 'logo-growing' :
                   logoAnimState === 'waving-fast' ? 'logo-waving-fast' :
-                  logoAnimState === 'waving-slow' ? 'logo-waving-slow' :
                   logoAnimState === 'ungrow' ? 'logo-ungrow' :
                   ''
                 }`}

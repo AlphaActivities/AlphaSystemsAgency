@@ -567,7 +567,7 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .logo-waving-fast {
-  animation: logo-wave-fast 0.8s ease-in-out forwards;
+  animation: logo-wave-fast 0.8s ease-in-out infinite;
 }
 
 .logo-waving-slow {
