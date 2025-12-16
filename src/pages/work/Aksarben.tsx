@@ -36,7 +36,7 @@ export default function Aksarben() {
       const observerOptions = {
         root: null,
         rootMargin: "-50px",
-        threshold: 0.15,
+        threshold: 0.25,
       };
 
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
