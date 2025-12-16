@@ -6,7 +6,7 @@ export default function Work() {
   const projects = [
     {
       title: "Aksarben Locksmiths Client Market Growth Case Study",
-      client: "Local Service",
+      client: "Located in Omaha, NE",
       description: "High-conversion website, Google Ads, and Blog redesign for a local locksmith business",
       image: "/images/our-work-photos/josh/Aksarbenlocksmiths.png",
       launchDate: "2025-04-03",
@@ -58,7 +58,7 @@ export default function Work() {
             </div>
             <div className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <div className="text-sm text-uv-500">{project.client}</div>
+                <div className="text-sm text-[#d4af37]">{project.client}</div>
                 <div className="text-xs text-white flex items-center gap-1">
                   <Counter to={calculateWeeksLive(project.launchDate)} duration={1200} />
                   <span>wks live</span>
