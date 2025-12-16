@@ -198,7 +198,8 @@ export default function Aksarben() {
             <div className="text-gray-400 text-sm leading-relaxed space-y-2 mb-6">
               <div>These outcomes are directly attributable to the systems implemented for this project.</div>
               <div>The outcome reflects a unified system where paid traffic, content, and local search work together.</div>
-              <div>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems. Domain ownership resides with the client.</div>
+              <div>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</div>
+              <div>Domain ownership resides with the client.</div>
             </div>
 
             {/* CTA Button inside tile */}
