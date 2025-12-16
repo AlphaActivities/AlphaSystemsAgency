@@ -39,7 +39,14 @@ export default function Aksarben() {
           <ArrowLeft size={16} />
           <span>Back to Our Work</span>
         </Link>
-        <h1 className="text-5xl font-bold mb-4">Aksarben Locksmiths</h1>
+        <div className="flex items-center justify-between gap-4 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Aksarben Locksmiths</h1>
+          <img
+            src="/images/company-logos/Aksarben Locksmiths logo.PNG"
+            alt="Aksarben Locksmiths Logo"
+            className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+          />
+        </div>
         <p className="text-xl text-gray-400">
           Modern web presence for Omaha's trusted locksmith service
         </p>
