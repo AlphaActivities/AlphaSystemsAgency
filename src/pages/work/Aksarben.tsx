@@ -181,7 +181,7 @@ export default function Aksarben() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  Josh fully designed & implemented the complete online web presence growth system, powering this project for <span className="font-semibold text-[#f4d03f]">10 calls/conversions daily</span>.
+                  Josh fully designed & implemented the complete online web presence growth system powering this project for <span className="font-semibold text-[#f4d03f]">10 calls/conversions daily</span>.
                 </p>
               </div>
             </div>
