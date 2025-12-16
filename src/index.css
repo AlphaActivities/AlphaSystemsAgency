@@ -12,9 +12,9 @@
   max-width: 90vw;
   height: 3px;
   background: linear-gradient(90deg,
-    hsl(var(--tone-hue, 265), 95%, 65%, 0.8) 0%,
-    hsl(var(--tone-hue, 265), 90%, 60%, 0.6) 40%,
-    hsl(var(--tone-hue, 265), 85%, 60%, 0.3) 70%,
+    rgba(212, 175, 55, 0.8) 0%,
+    rgba(212, 175, 55, 0.6) 40%,
+    rgba(212, 175, 55, 0.3) 70%,
     transparent 100%
   );
   border-radius: 2px;
