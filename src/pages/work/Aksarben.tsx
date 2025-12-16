@@ -44,11 +44,13 @@ export default function Aksarben() {
             Aksarben<br className="md:hidden" />
             <span className="md:ml-3">Locksmiths</span>
           </h1>
-          <img
-            src="/images/company-logos/Aksarben Locksmiths logo.PNG"
-            alt="Aksarben Locksmiths Logo"
-            className="h-24 sm:h-28 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
-          />
+          <div className="logo-wrapper">
+            <img
+              src="/images/company-logos/Aksarben Locksmiths logo.PNG"
+              alt="Aksarben Locksmiths Logo"
+              className="h-24 sm:h-28 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+            />
+          </div>
         </div>
         <p className="text-xl text-gray-400">
           Modern web presence for Omaha's trusted locksmith service
