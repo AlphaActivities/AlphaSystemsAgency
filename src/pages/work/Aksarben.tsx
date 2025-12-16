@@ -18,8 +18,9 @@ export default function Aksarben() {
   const contributors = [
     {
       name: "Josh Lad",
-      roles: ["Systems Architecture", "UX", "SEO"],
+      roles: ["Google Ads Strategy & Setup", "Content System", "Conversion Strategy", "Local SEO"],
       image: "/images/profile-photos/Josh.jpg",
+      title: "Systems Architect",
     },
   ];
 
@@ -150,6 +151,9 @@ export default function Aksarben() {
                   <h4 className="font-bold text-white text-center md:text-left mb-2">
                     {contributor.name}
                   </h4>
+                  <div className="text-sm text-gray-300 text-center md:text-left mb-3">
+                    {contributor.title}
+                  </div>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {contributor.roles.map((role, roleIdx) => (
                       <span
@@ -162,6 +166,10 @@ export default function Aksarben() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-5 text-gray-400 text-sm leading-relaxed text-center md:text-left">
+              I designed and implemented the complete growth system powering this project.
             </div>
           </div>
 
@@ -186,6 +194,12 @@ export default function Aksarben() {
                 <span>Client reports significantly more emergency call requests</span>
               </li>
             </ul>
+
+            <div className="text-gray-400 text-sm leading-relaxed space-y-2 mb-6">
+              <div>These outcomes are directly attributable to the systems implemented for this project.</div>
+              <div>The outcome reflects a unified system where paid traffic, content, and local search work together.</div>
+              <div>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems. Domain ownership resides with the client.</div>
+            </div>
 
             {/* CTA Button inside tile */}
             <div className="mt-auto pt-4 flex justify-center md:justify-end">
