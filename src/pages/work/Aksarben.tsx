@@ -18,7 +18,7 @@ export default function Aksarben() {
   const contributors = [
     {
       name: "Josh Lad",
-      roles: ["Google Ads Strategy & Setup", "Content System", "Conversion Strategy", "Local SEO"],
+      roles: ["Full Website Build", "Local SEO", "Google Ads Strategy & Setup", "Social Content Systems", "Conversion Strategy"],
       image: "/images/profile-photos/Josh.jpg",
       title: "Systems Architect",
     },
