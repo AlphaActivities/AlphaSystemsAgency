@@ -189,7 +189,13 @@ export default function Aksarben() {
 
           {/* Right Panel: Results */}
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold mb-4">Results</h2>
+            <div className="mb-6 relative inline-block">
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
+                Results
+              </h2>
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-0 animate-underline-draw"></div>
+              <Sparkles className="absolute -right-8 top-0 text-[#d4af37] opacity-0 animate-sparkle-fade" size={16} />
+            </div>
             <div className="flex-1 flex flex-col justify-center">
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3">
