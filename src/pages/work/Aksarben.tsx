@@ -30,7 +30,7 @@ export default function Aksarben() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-6xl">
+    <div className="container mx-auto px-4 max-w-6xl section-rhythm">
       <div className="mb-12">
         <Link
           to="/work"
