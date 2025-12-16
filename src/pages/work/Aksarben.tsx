@@ -40,11 +40,14 @@ export default function Aksarben() {
           <span>Back to Our Work</span>
         </Link>
         <div className="flex items-center justify-between gap-4 mb-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Aksarben Locksmiths</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight">
+            Aksarben<br className="md:hidden" />
+            <span className="md:ml-3">Locksmiths</span>
+          </h1>
           <img
             src="/images/company-logos/Aksarben Locksmiths logo.PNG"
             alt="Aksarben Locksmiths Logo"
-            className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+            className="h-16 sm:h-20 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
           />
         </div>
         <p className="text-xl text-gray-400">
