@@ -188,7 +188,7 @@ export default function Aksarben() {
           </div>
 
           {/* Right Panel: Results */}
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center">
             <h2 className="text-2xl font-bold mb-4">Results</h2>
             <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3">
