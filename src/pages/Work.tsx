@@ -59,15 +59,15 @@ export default function Work() {
             <div className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <div className="text-sm text-[#d4af37]">{project.client}</div>
-                <div className="text-xs text-white flex items-center gap-1">
+                <div className="text-xs text-[#d4af37] flex items-center gap-1">
                   <Counter to={calculateWeeksLive(project.launchDate)} duration={1200} />
                   <span>wks live</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-xl font-semibold mb-2 [text-shadow:_2px_2px_8px_rgb(0_0_0_/_90%)]">
                 {project.title}
               </h3>
-              <p className="text-white text-sm">{project.description}</p>
+              <p className="text-white text-sm [text-shadow:_2px_2px_6px_rgb(0_0_0_/_90%)]">{project.description}</p>
             </div>
           </Link>
         ))}
