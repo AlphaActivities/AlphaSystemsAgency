@@ -169,8 +169,8 @@ export default function Aksarben() {
               ))}
             </div>
 
-            <div className="mt-5 text-gray-400 text-sm leading-relaxed text-center md:text-left">
-              I designed and implemented the complete growth system powering this project.
+            <div className="mt-5 text-white text-sm leading-relaxed text-center md:text-left">
+              Josh designed and implemented the complete growth system powering this project.
             </div>
           </div>
 
@@ -196,7 +196,7 @@ export default function Aksarben() {
               </li>
             </ul>
 
-            <div className="text-gray-400 text-sm leading-relaxed space-y-2 mb-6">
+            <div className="text-white text-sm leading-relaxed space-y-2 mb-6">
               <div>These outcomes are directly attributable to the systems implemented for this project.</div>
               <div>The outcome reflects a unified system where paid traffic, content, and local search work together.</div>
               <div>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</div>
