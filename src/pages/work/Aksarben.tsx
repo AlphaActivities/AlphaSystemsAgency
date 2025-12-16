@@ -190,7 +190,8 @@ export default function Aksarben() {
           {/* Right Panel: Results */}
           <div className="flex flex-col">
             <h2 className="text-2xl font-bold mb-4">Results</h2>
-            <ul className="space-y-3 text-white mb-8">
+            <div className="flex-1 flex flex-col justify-center">
+              <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>98/100 Google Optimization score across all pages</span>
@@ -207,46 +208,47 @@ export default function Aksarben() {
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>Client reports significantly more emergency call requests</span>
               </li>
-            </ul>
+              </ul>
 
-            <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
-                  <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+              <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                    <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                  </div>
+                  <span>These outcomes are directly attributable to the systems implemented for this project.</span>
                 </div>
-                <span>These outcomes are directly attributable to the systems implemented for this project.</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
-                  <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                    <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                  </div>
+                  <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
                 </div>
-                <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
-                  <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                    <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                  </div>
+                  <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
                 </div>
-                <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
-                  <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
+                    <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
+                  </div>
+                  <span>Domain ownership resides with the client.</span>
                 </div>
-                <span>Domain ownership resides with the client.</span>
               </div>
-            </div>
 
-            {/* CTA Button inside tile */}
-            <div className="pt-4 flex justify-center md:justify-end">
-              <a
-                href="https://aksarbenlocksmiths.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center"
-              >
-                Visit Live Site
-                <ArrowUpRight size={18} />
-              </a>
+              {/* CTA Button inside tile */}
+              <div className="pt-4 flex justify-center md:justify-end">
+                <a
+                  href="https://aksarbenlocksmiths.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center"
+                >
+                  Visit Live Site
+                  <ArrowUpRight size={18} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
