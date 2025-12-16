@@ -151,7 +151,7 @@ export default function Aksarben() {
                   <h4 className="font-bold text-white mb-2 text-center w-24">
                     {contributor.name}
                   </h4>
-                  <div className="text-sm text-gray-300 mb-3 text-center w-24">
+                  <div className="text-sm text-gray-300 mb-3 text-center whitespace-nowrap">
                     {contributor.title}
                   </div>
                   <div className="flex flex-wrap gap-2 justify-start">
