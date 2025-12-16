@@ -40,23 +40,20 @@ export default function Aksarben() {
           <span>Back to Our Work</span>
         </Link>
 
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div>
             <h1 className="text-5xl font-bold mb-4">Aksarben Locksmiths</h1>
             <p className="text-xl text-gray-400">
               Modern web presence for Omaha's trusted locksmith service
             </p>
           </div>
 
-          <div className="flex-shrink-0 flex justify-center md:justify-end">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/30 to-[#f4d03f]/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <img
-                src="/images/company-logos/Aksarben Locksmiths logo.PNG"
-                alt="Aksarben Locksmiths Logo"
-                className="relative w-40 h-40 md:w-48 md:h-48 object-contain rounded-2xl border border-[#d4af37]/20 bg-black/20 p-4 shadow-[0_0_30px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-500 group-hover:scale-105"
-              />
-            </div>
+          <div className="flex-shrink-0">
+            <img
+              src="/images/company-logos/Aksarben Locksmiths logo.PNG"
+              alt="Aksarben Locksmiths Logo"
+              className="w-32 h-32 md:w-40 md:h-40 object-contain"
+            />
           </div>
         </div>
       </div>
