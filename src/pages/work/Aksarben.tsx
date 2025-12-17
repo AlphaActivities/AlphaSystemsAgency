@@ -260,7 +260,7 @@ export default function Aksarben() {
           </div>
 
           {/* Right Panel: Results */}
-          <div className="flex flex-col luxury-lazy-item" ref={resultsRef}>
+          <div className="flex flex-col luxury-lazy-container" ref={resultsRef}>
             <div className="mb-6 relative inline-block">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
                 Results
