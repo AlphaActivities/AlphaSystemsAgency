@@ -208,7 +208,7 @@ export default function Aksarben() {
       <div className="tile tile-uv-glow p-8 luxury-lazy-container">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
-          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
+          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8 luxury-lazy-item">
             <h3 className="text-lg font-semibold mb-6 text-[#d4af37]">
               {contributors.length === 1 ? "Project Lead" : "Built By"}
             </h3>
@@ -260,7 +260,7 @@ export default function Aksarben() {
           </div>
 
           {/* Right Panel: Results */}
-          <div className="flex flex-col" ref={resultsRef}>
+          <div className="flex flex-col luxury-lazy-item" ref={resultsRef}>
             <div className="mb-6 relative inline-block">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
                 Results
