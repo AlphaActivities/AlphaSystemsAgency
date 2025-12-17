@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Scroll Position Diagnostic</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    .info-panel {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.9);
+      border: 1px solid #d4af37;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      z-index: 9999;
+      max-width: 200px;
+    }
+    .info-panel div { margin-bottom: 4px; }
+    .highlight { color: #d4af37; font-weight: bold; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .test-container {
+      border: 2px solid #333;
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      position: relative;
+      min-height: 200px;
+    }
+
+    .test-container.visible {
+      border-color: #00ff88;
+      background: rgba(0,255,136,0.1);
+    }
+
+    .label {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .metrics {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 10px;
+      border: 1px solid #333;
+    }
+
+    .metrics.triggered {
+      border-color: #00ff88;
+      background: rgba(0,255,136,0.2);
+    }
+
+    .spacer {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .header {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info-panel" id="scrollInfo">
+    <div>Scroll Y: <span class="highlight" id="scrollY">0</span>px</div>
+    <div>Viewport H: <span class="highlight" id="viewportH">0</span>px</div>
+    <div>Document H: <span class="highlight" id="docH">0</span>px</div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>📱 Mobile Container Visibility Test</h1>
+      <p>Scroll down slowly and watch when each container triggers</p>
+    </div>
+
+    <div class="spacer">⬇ Scroll Down ⬇</div>
+
+    <div class="test-container" data-name="Screenshot">
+      <div class="label">Container 1</div>
+      <div class="title">Screenshot Container</div>
+      <p style="color: #ccc;">This is the website screenshot image container</p>
+      <div class="metrics" data-container="1">
+        <div>Top: <span class="top-pos">-</span>px</div>
+        <div>Triggered: <span class="trigger-scroll">-</span>px</div>
+      </div>
+    </div>
+
+    <div class="test-container" data-name="Problem">
+      <div class="label">Container 2</div>
+      <div class="title">The Problem (Red)</div>
+      <p style="color: #ccc;">Red glow tile - left side</p>
+      <div class="metrics" data-container="2">
+        <div>Top: <span class="top-pos">-</span>px</div>
+        <div>Triggered: <span class="trigger-scroll">-</span>px</div>
+      </div>
+    </div>
+
+    <div class="test-container" data-name="Solution">
+      <div class="label">Container 3</div>
+      <div class="title">The Solution (Green)</div>
+      <p style="color: #ccc;">Green glow tile - right side</p>
+      <div class="metrics" data-container="3">
+        <div>Top: <span class="top-pos">-</span>px</div>
+        <div>Triggered: <span class="trigger-scroll">-</span>px</div>
+      </div>
+    </div>
+
+    <div class="test-container" data-name="Stack">
+      <div class="label">Container 4</div>
+      <div class="title">Stack & Services</div>
+      <p style="color: #ccc;">Three columns with icons</p>
+      <div class="metrics" data-container="4">
+        <div>Top: <span class="top-pos">-</span>px</div>
+        <div>Triggered: <span class="trigger-scroll">-</span>px</div>
+      </div>
+    </div>
+
+    <div class="test-container" data-name="ProjectLead">
+      <div class="label">Container 5 - MAIN ISSUE</div>
+      <div class="title">Project Lead + Results</div>
+      <p style="color: #ccc;">Large container with Josh's profile and results list</p>
+      <div class="metrics" data-container="5">
+        <div>Top: <span class="top-pos">-</span>px</div>
+        <div>Triggered: <span class="trigger-scroll">-</span>px</div>
+      </div>
+    </div>
+
+    <div class="spacer" style="height: 500px;">End of page ⬆</div>
+  </div>
+
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: "50px",
+      threshold: 0.1,
+    };
+
+    const containers = document.querySelectorAll('.test-container');
+    const triggered = new Set();
+
+    function updateScrollInfo() {
+      document.getElementById('scrollY').textContent = Math.round(window.scrollY);
+      document.getElementById('viewportH').textContent = window.innerHeight;
+      document.getElementById('docH').textContent = document.documentElement.scrollHeight;
+    }
+
+    function updateTopPositions() {
+      containers.forEach((container, idx) => {
+        const rect = container.getBoundingClientRect();
+        const topPos = rect.top + window.scrollY;
+        const metricsEl = container.querySelector('.metrics');
+        metricsEl.querySelector('.top-pos').textContent = Math.round(topPos);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !triggered.has(entry.target)) {
+          triggered.add(entry.target);
+          entry.target.classList.add('visible');
+
+          const metricsEl = entry.target.querySelector('.metrics');
+          metricsEl.classList.add('triggered');
+          metricsEl.querySelector('.trigger-scroll').textContent = Math.round(window.scrollY);
+
+          console.log(`Container "${entry.target.dataset.name}" triggered at scroll position:`, Math.round(window.scrollY));
+        }
+      });
+    }, observerOptions);
+
+    containers.forEach(container => {
+      observer.observe(container);
+    });
+
+    window.addEventListener('scroll', updateScrollInfo);
+    window.addEventListener('resize', () => {
+      updateScrollInfo();
+      updateTopPositions();
+    });
+
+    updateScrollInfo();
+    updateTopPositions();
+  </script>
+</body>
+</html>
