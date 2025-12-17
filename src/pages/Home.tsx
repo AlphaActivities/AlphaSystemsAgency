@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Counter from "../components/ui/Counter";
 import LogoCarousel from "../components/blocks/LogoCarousel";
 import { getVerifiedLaunchCount } from "../data/clients";
@@ -7,6 +7,51 @@ import HeroSingularityVortex from "../components/visual/HeroSingularityVortex";
 
 export default function Home() {
   const launchCount = getVerifiedLaunchCount();
+
+  useEffect(() => {
+    const animatedElements = new Set<Element>();
+
+    const checkScrollComplete = () => {
+      if (window.scrollY < 20) {
+        setupObserver();
+      } else {
+        requestAnimationFrame(checkScrollComplete);
+      }
+    };
+
+    const setupObserver = () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: "50px",
+        threshold: 0.15,
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+            animatedElements.add(entry.target);
+            entry.target.classList.add("luxury-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      const containers = document.querySelectorAll(".luxury-lazy-container");
+      containers.forEach((container) => {
+        observer.observe(container);
+      });
+
+      return () => {
+        containers.forEach((container) => {
+          observer.unobserve(container);
+        });
+      };
+    };
+
+    requestAnimationFrame(checkScrollComplete);
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
@@ -70,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-rhythm">
+      <section className="section-rhythm luxury-lazy-container">
         <h2 className="text-3xl font-bold text-center mb-8">Trusted By Leading Brands</h2>
         <LogoCarousel
           logos={[
@@ -87,7 +132,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="section-rhythm">
+      <section className="section-rhythm luxury-lazy-container">
         <h2 className="text-3xl font-bold text-center mb-12">Client Feedback</h2>
         <div className="flex justify-center">
           {[
