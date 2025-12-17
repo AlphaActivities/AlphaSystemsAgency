@@ -208,7 +208,7 @@ export default function Aksarben() {
       <div className="tile tile-uv-glow p-8 luxury-lazy-container">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
-          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8 luxury-lazy-item">
+          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
             <h3 className="text-lg font-semibold mb-6 text-[#d4af37]">
               {contributors.length === 1 ? "Project Lead" : "Built By"}
             </h3>
