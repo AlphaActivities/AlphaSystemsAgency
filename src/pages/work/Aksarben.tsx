@@ -246,7 +246,7 @@ export default function Aksarben() {
               ))}
             </div>
 
-            <div className="mt-6 relative transition-transform duration-300 hover:scale-105">
+            <div className="mt-6 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-[#f4d03f]/10 to-[#d4af37]/20 rounded-lg blur-sm"></div>
               <div className="relative border border-[#d4af37]/30 rounded-lg p-4 bg-gradient-to-br from-[#d4af37]/5 to-transparent backdrop-blur-sm">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-0.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-[10px] font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
