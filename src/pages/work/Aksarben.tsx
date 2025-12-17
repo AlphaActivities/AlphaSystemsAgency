@@ -38,7 +38,7 @@ export default function Aksarben() {
 
       const earlyObserverOptions = {
         root: null,
-        rootMargin: "-50px",
+        rootMargin: "100px",
         threshold: 0.1,
       };
 
