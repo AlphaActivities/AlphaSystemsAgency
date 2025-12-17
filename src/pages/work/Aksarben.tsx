@@ -187,7 +187,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container">
+      <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="luxury-cascade-item flex items-start gap-4 group" data-delay="200">
@@ -220,7 +220,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
           <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
