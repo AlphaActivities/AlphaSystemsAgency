@@ -192,12 +192,19 @@ export default function Aksarben() {
           href="https://aksarbenlocksmiths.com"
           target="_blank"
           rel="noreferrer"
+          className="luxury-image-hover"
         >
           <img
             src="/images/our-work-photos/josh/Aksarbenlocksmiths.png"
             alt="Aksarben Locksmiths Website"
             className="w-full h-full object-cover"
           />
+          <div className="luxury-image-hover-btn">
+            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              Visit Live Site
+              <ArrowUpRight size={18} />
+            </span>
+          </div>
         </a>
       </div>
 

@@ -1037,3 +1037,72 @@ html { scrollbar-gutter: stable both-edges; }
     transform: none;
   }
 }
+
+/* === Clickable Image Hover Effect === */
+.luxury-image-hover {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.luxury-image-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.luxury-image-hover:hover::before {
+  opacity: 1;
+}
+
+.luxury-image-hover-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  z-index: 2;
+  transition: all 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.luxury-image-hover:hover .luxury-image-hover-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.luxury-image-hover img {
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-image-hover:hover img {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-image-hover::before {
+    transition: none;
+  }
+  .luxury-image-hover-btn {
+    transition: none;
+  }
+  .luxury-image-hover img {
+    transition: none;
+  }
+  .luxury-image-hover:hover img {
+    transform: none;
+  }
+}
