@@ -220,6 +220,10 @@ export default function Navbar() {
                     if (l.to.startsWith("#") || l.to.startsWith("/#")) {
                       e.preventDefault();
                       scrollToTarget(l.to);
+                    } else if (location.pathname === l.to) {
+                      e.preventDefault();
+                      const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+                      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
                     }
                     setOpen(false);
                   }}
