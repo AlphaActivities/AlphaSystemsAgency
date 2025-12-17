@@ -149,7 +149,7 @@ export default function Aksarben() {
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div className="tile tile-red-glow p-8 bg-red-900/40 border border-red-500/30 luxury-lazy-container transition-transform duration-300 hover:scale-105">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <AlertTriangle className="w-[30px] h-[30px] text-red-800 -translate-y-[1px]" strokeWidth={2.5} />
             </div>
             <span>The Problem</span>
@@ -161,7 +161,7 @@ export default function Aksarben() {
 
         <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30 luxury-lazy-container transition-transform duration-300 hover:scale-105">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <Check className="w-7 h-7 text-emerald-700 stroke-[3]" />
             </div>
             <span>The Solution</span>
