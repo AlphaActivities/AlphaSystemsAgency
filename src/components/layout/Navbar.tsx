@@ -147,13 +147,13 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2 z-10">
+            <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2 z-10">
               {links.map(l => (
                 <NavLink
                   key={l.to}
                   to={l.to}
                   className={({ isActive }) =>
-                    `pb-1 transition-colors ${isActive ? "text-white border-b-2 border-[var(--gold-500,#d4af37)]" : "text-white/70 hover:text-white"}`
+                    `px-4 py-3 pb-1 transition-colors ${isActive ? "text-white border-b-2 border-[var(--gold-500,#d4af37)]" : "text-white/70 hover:text-white"}`
                   }
                 >
                   {l.label}
