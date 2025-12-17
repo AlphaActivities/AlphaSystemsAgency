@@ -172,7 +172,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8 mb-16 bg-purple-900/40 border border-purple-500/30 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex items-start gap-4 group">
