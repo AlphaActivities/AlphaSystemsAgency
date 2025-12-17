@@ -381,7 +381,7 @@ export default function Aksarben() {
                   href="https://aksarbenlocksmiths.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-btn inline-flex items-center gap-2 bg-[#d4af37] text-gray-900 px-8 py-3 rounded-full font-medium hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center"
+                  className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center relative z-10"
                 >
                   Visit Live Site
                   <ArrowUpRight size={18} />

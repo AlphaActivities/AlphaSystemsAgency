@@ -906,3 +906,134 @@ html { scrollbar-gutter: stable both-edges; }
     transition: none;
   }
 }
+
+/* === Luxury Gold Button Animation System === */
+.luxury-gold-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #f4d03f 25%,
+    #d4af37 50%,
+    #f4d03f 75%,
+    #d4af37 100%
+  );
+  background-size: 300% 100%;
+  animation: goldGradientShift 4s ease-in-out infinite;
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.6),
+    0 0 40px rgba(212, 175, 55, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.luxury-gold-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: goldShineSwipe 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.luxury-gold-cta::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.8),
+    rgba(244, 208, 63, 0.8)
+  );
+  filter: blur(12px);
+  opacity: 0.7;
+  z-index: -1;
+  animation: goldGlowPulse 2.5s ease-in-out infinite;
+}
+
+.luxury-gold-cta:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.9),
+    0 0 60px rgba(212, 175, 55, 0.6),
+    0 0 90px rgba(212, 175, 55, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.luxury-gold-cta:hover::after {
+  filter: blur(18px);
+  opacity: 1;
+  animation: goldGlowPulseIntense 1.5s ease-in-out infinite;
+}
+
+.luxury-gold-cta:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes goldGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes goldShineSwipe {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 200%;
+  }
+}
+
+@keyframes goldGlowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes goldGlowPulseIntense {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-gold-cta {
+    animation: none !important;
+    background: #d4af37;
+    background-size: 100% 100%;
+  }
+  .luxury-gold-cta::before {
+    animation: none !important;
+    display: none;
+  }
+  .luxury-gold-cta::after {
+    animation: none !important;
+  }
+  .luxury-gold-cta:hover {
+    transform: none;
+  }
+}
