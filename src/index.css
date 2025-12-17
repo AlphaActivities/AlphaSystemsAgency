@@ -189,6 +189,26 @@
   border-color: rgba(16, 185, 129, 1);
 }
 
+.tile-purple-glow {
+  background: radial-gradient(circle at top left,
+    rgba(88, 28, 135, 0.9),
+    rgba(49, 10, 76, 0.95)
+  );
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.55),
+    0 0 22px rgba(168, 85, 247, 0.28);
+  border-color: rgba(168, 85, 247, 0.95);
+  transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.tile-purple-glow:hover {
+  box-shadow:
+    0 0 16px rgba(168, 85, 247, 0.70),
+    0 0 32px rgba(168, 85, 247, 0.40),
+    0 0 48px rgba(168, 85, 247, 0.20);
+  border-color: rgba(168, 85, 247, 1);
+}
+
 .section-rhythm {
   padding-top: 0;
   margin-top: -24px;
