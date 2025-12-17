@@ -36,6 +36,12 @@ export default function Aksarben() {
         threshold: 0.1,
       };
 
+      const earlyObserverOptions = {
+        root: null,
+        rootMargin: "-50px",
+        threshold: 0.1,
+      };
+
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !animatedElements.has(entry.target)) {
@@ -61,16 +67,50 @@ export default function Aksarben() {
         });
       };
 
+      const earlyObserverCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+            animatedElements.add(entry.target);
+
+            const hasNestedItems = entry.target.querySelector(".luxury-lazy-item");
+
+            if (hasNestedItems) {
+              entry.target.classList.add("luxury-visible");
+
+              const items = entry.target.querySelectorAll(".luxury-lazy-item");
+              items.forEach((item, index) => {
+                setTimeout(() => {
+                  item.classList.add("luxury-visible");
+                }, index * 1400);
+              });
+            } else {
+              entry.target.classList.add("luxury-visible");
+            }
+
+            earlyObserver.unobserve(entry.target);
+          }
+        });
+      };
+
       const observer = new IntersectionObserver(observerCallback, observerOptions);
+      const earlyObserver = new IntersectionObserver(earlyObserverCallback, earlyObserverOptions);
 
       const containers = document.querySelectorAll(".luxury-lazy-container");
       containers.forEach((container) => {
         observer.observe(container);
       });
 
+      const earlyContainers = document.querySelectorAll(".luxury-lazy-container-early");
+      earlyContainers.forEach((container) => {
+        earlyObserver.observe(container);
+      });
+
       return () => {
         containers.forEach((container) => {
           observer.unobserve(container);
+        });
+        earlyContainers.forEach((container) => {
+          earlyObserver.unobserve(container);
         });
       };
     };
@@ -205,7 +245,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8 luxury-lazy-container-early">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
           <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8 luxury-lazy-item">
