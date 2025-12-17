@@ -32,8 +32,8 @@ export default function Aksarben() {
     const setupObserver = () => {
       const observerOptions = {
         root: null,
-        rootMargin: "100px",
-        threshold: 0,
+        rootMargin: "-150px",
+        threshold: 0.1,
       };
 
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -50,7 +50,7 @@ export default function Aksarben() {
               items.forEach((item, index) => {
                 setTimeout(() => {
                   item.classList.add("luxury-visible");
-                }, index * 750);
+                }, index * 1400);
               });
             } else {
               entry.target.classList.add("luxury-visible");
