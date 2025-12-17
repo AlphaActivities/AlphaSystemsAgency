@@ -36,6 +36,12 @@ export default function Aksarben() {
         threshold: 0.15,
       };
 
+      const earlyObserverOptions = {
+        root: null,
+        rootMargin: "100px",
+        threshold: 0.05,
+      };
+
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !animatedElements.has(entry.target)) {
@@ -57,20 +63,31 @@ export default function Aksarben() {
             }
 
             observer.unobserve(entry.target);
+            earlyObserver.unobserve(entry.target);
           }
         });
       };
 
       const observer = new IntersectionObserver(observerCallback, observerOptions);
+      const earlyObserver = new IntersectionObserver(observerCallback, earlyObserverOptions);
 
       const containers = document.querySelectorAll(".luxury-lazy-container");
+      const earlyContainers = document.querySelectorAll(".luxury-lazy-early");
+
       containers.forEach((container) => {
         observer.observe(container);
+      });
+
+      earlyContainers.forEach((container) => {
+        earlyObserver.observe(container);
       });
 
       return () => {
         containers.forEach((container) => {
           observer.unobserve(container);
+        });
+        earlyContainers.forEach((container) => {
+          earlyObserver.unobserve(container);
         });
       };
     };
@@ -205,7 +222,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8 luxury-lazy-early">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
           <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
