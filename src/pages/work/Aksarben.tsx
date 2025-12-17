@@ -205,7 +205,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
           <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8">
