@@ -205,15 +205,15 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 luxury-lazy-container">
+      <div className="tile tile-uv-glow p-8">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
-          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8 luxury-lazy-item">
-            <h3 className="text-lg font-semibold mb-6 text-[#d4af37]">
+          <div className="flex flex-col items-center md:items-start md:border-r md:border-white/10 md:pr-8 luxury-lazy-container">
+            <h3 className="text-lg font-semibold mb-6 text-[#d4af37] luxury-lazy-item">
               {contributors.length === 1 ? "Project Lead" : "Built By"}
             </h3>
 
-            <div className={`w-full ${contributors.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-0'}`}>
+            <div className={`w-full luxury-lazy-item ${contributors.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-0'}`}>
               {contributors.map((contributor, idx) => (
                 <div key={idx} className="flex flex-col items-start">
                   <div className="relative mb-4">
@@ -246,7 +246,7 @@ export default function Aksarben() {
               ))}
             </div>
 
-            <div className="mt-6 relative">
+            <div className="mt-6 relative luxury-lazy-item">
               <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-[#f4d03f]/10 to-[#d4af37]/20 rounded-lg blur-sm"></div>
               <div className="relative border border-[#d4af37]/30 rounded-lg p-4 bg-gradient-to-br from-[#d4af37]/5 to-transparent backdrop-blur-sm">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-0.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-[10px] font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
@@ -260,8 +260,8 @@ export default function Aksarben() {
           </div>
 
           {/* Right Panel: Results */}
-          <div className="flex flex-col luxury-lazy-item" ref={resultsRef}>
-            <div className="mb-6 relative inline-block">
+          <div className="flex flex-col luxury-lazy-container" ref={resultsRef}>
+            <div className="mb-6 relative inline-block luxury-lazy-item">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
                 Results
               </h2>
