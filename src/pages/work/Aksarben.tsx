@@ -187,7 +187,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 border border-white/10 luxury-lazy-container">
+      <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
         <a
           href="https://aksarbenlocksmiths.com"
           target="_blank"
