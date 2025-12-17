@@ -153,13 +153,6 @@ export default function Navbar() {
                   key={l.to}
                   to={l.to}
                   className="py-3 px-2"
-                  onClick={(e) => {
-                    if (location.pathname === l.to) {
-                      e.preventDefault();
-                      const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-                      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-                    }
-                  }}
                 >
                   {({ isActive }) => (
                     <span className={`pb-1 transition-colors ${isActive ? "text-white border-b-2 border-[var(--gold-500,#d4af37)]" : "text-white/70 hover:text-white"}`}>
