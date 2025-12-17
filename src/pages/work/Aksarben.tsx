@@ -42,6 +42,7 @@ export default function Aksarben() {
             animatedElements.add(entry.target);
 
             const hasNestedItems = entry.target.querySelector(".luxury-lazy-item");
+            const hasCascadeItems = entry.target.querySelector(".luxury-cascade-item");
 
             if (hasNestedItems) {
               entry.target.classList.add("luxury-visible");
@@ -51,6 +52,16 @@ export default function Aksarben() {
                 setTimeout(() => {
                   item.classList.add("luxury-visible");
                 }, index * 1400);
+              });
+            } else if (hasCascadeItems) {
+              entry.target.classList.add("luxury-visible");
+
+              const cascadeItems = entry.target.querySelectorAll(".luxury-cascade-item");
+              cascadeItems.forEach((item) => {
+                const delay = parseInt(item.getAttribute("data-delay") || "0", 10);
+                setTimeout(() => {
+                  item.classList.add("luxury-visible");
+                }, delay);
               });
             } else {
               entry.target.classList.add("luxury-visible");
@@ -154,9 +165,11 @@ export default function Aksarben() {
             </div>
             <span>The Problem</span>
           </h2>
-          <p className="text-gray-100 leading-relaxed">
-            Aksarben Locksmiths had no active website or domain when we stepped in. Their previous marketing provider let the domain lapse after inconsistent performance and support, leaving the business with zero online presence even though their materials still pointed customers to a non-existent site.
-          </p>
+          <div className="luxury-cascade-item" data-delay="200">
+            <p className="text-gray-100 leading-relaxed">
+              Aksarben Locksmiths had no active website or domain when we stepped in. Their previous marketing provider let the domain lapse after inconsistent performance and support, leaving the business with zero online presence even though their materials still pointed customers to a non-existent site.
+            </p>
+          </div>
         </div>
 
         <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30 luxury-lazy-container transition-transform duration-300 hover:scale-105">
@@ -166,16 +179,18 @@ export default function Aksarben() {
             </div>
             <span>The Solution</span>
           </h2>
-          <p className="text-gray-100 leading-relaxed">
-            We recovered the original domain, rebuilt the entire online presence from scratch, and moved hosting and ownership into the client's control. The new site is a high end, video driven experience with dedicated service pages, a service areas page, and a search page, blog content system, and full SEO and full Looker Studio analytics tracking, plus Google ad game-plan strategy designed to turn visitors into booked emergency calls.
-          </p>
+          <div className="luxury-cascade-item" data-delay="200">
+            <p className="text-gray-100 leading-relaxed">
+              We recovered the original domain, rebuilt the entire online presence from scratch, and moved hosting and ownership into the client's control. The new site is a high end, video driven experience with dedicated service pages, a service areas page, and a search page, blog content system, and full SEO and full Looker Studio analytics tracking, plus Google ad game-plan strategy designed to turn visitors into booked emergency calls.
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container">
         <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="flex items-start gap-4 group">
+          <div className="luxury-cascade-item flex items-start gap-4 group" data-delay="200">
             <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
               <Sparkles className="text-gray-900" size={20} strokeWidth={2.5} />
             </div>
@@ -184,7 +199,7 @@ export default function Aksarben() {
               <p className="text-sm text-white">Custom React and Tailwind build with a video hero, responsive layout, and modern branding tailored to the locksmith market.</p>
             </div>
           </div>
-          <div className="flex items-start gap-4 group">
+          <div className="luxury-cascade-item flex items-start gap-4 group" data-delay="400">
             <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,212,255,0.7)] group-hover:scale-110 group-hover:rotate-3">
               <Gauge className="text-gray-900" size={20} strokeWidth={2.5} />
             </div>
@@ -193,7 +208,7 @@ export default function Aksarben() {
               <p className="text-sm text-white">Lighthouse optimised structure with compressed media, GA4 event tracking, and search friendly page architecture.</p>
             </div>
           </div>
-          <div className="flex items-start gap-4 group">
+          <div className="luxury-cascade-item flex items-start gap-4 group" data-delay="600">
             <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] group-hover:scale-110 group-hover:rotate-3">
               <Globe className="text-gray-900" size={20} strokeWidth={2.5} />
             </div>

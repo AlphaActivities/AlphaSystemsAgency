@@ -803,10 +803,24 @@ html { scrollbar-gutter: stable both-edges; }
   transform: translateY(0);
 }
 
+/* Luxury Cascade Item - For nested content that cascades after parent appears */
+.luxury-cascade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.luxury-cascade-item.luxury-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .luxury-lazy-item,
   .luxury-lazy-container,
-  .luxury-lazy-container-early {
+  .luxury-lazy-container-early,
+  .luxury-cascade-item {
     opacity: 1;
     transform: none;
     transition: none;
