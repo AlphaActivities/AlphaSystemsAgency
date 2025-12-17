@@ -159,7 +159,7 @@ export default function Aksarben() {
           </p>
         </div>
 
-        <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30 luxury-lazy-container">
+        <div className="tile tile-green-glow p-8 bg-emerald-900/40 border border-emerald-500/30 luxury-lazy-container transition-transform duration-300 hover:scale-105">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#d4af37] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.75)]">
               <Check className="w-7 h-7 text-emerald-700 stroke-[3]" />
