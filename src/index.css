@@ -822,6 +822,15 @@ html { scrollbar-gutter: stable both-edges; }
   transform: scale(1.05);
 }
 
+/* Prevent gold flash on load by starting with consistent darker gold */
+.impact-container .absolute.inset-0 {
+  background: linear-gradient(to right,
+    rgba(212, 175, 55, 0.15) 0%,
+    rgba(244, 208, 63, 0.08) 50%,
+    rgba(212, 175, 55, 0.15) 100%
+  ) !important;
+  animation: none !important;
+}
 
 /* === Dark Purple Background for Stacks & Services === */
 .tile-purple-glow {
