@@ -32,7 +32,7 @@ export default function Aksarben() {
     const setupObserver = () => {
       const observerOptions = {
         root: null,
-        rootMargin: "0px",
+        rootMargin: "-100px",
         threshold: 0.1,
       };
 
