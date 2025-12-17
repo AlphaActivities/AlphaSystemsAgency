@@ -20,10 +20,12 @@ export default function Aksarben() {
 
   useEffect(() => {
     const animatedElements = new Set<Element>();
+    const resultsAnimated = new Set<Element>();
 
     const checkScrollComplete = () => {
       if (window.scrollY < 20) {
         setupObserver();
+        setupResultsObserver();
       } else {
         requestAnimationFrame(checkScrollComplete);
       }
@@ -83,6 +85,48 @@ export default function Aksarben() {
         containers.forEach((container) => {
           observer.unobserve(container);
         });
+      };
+    };
+
+    const setupResultsObserver = () => {
+      if (!resultsRef.current) return;
+
+      const resultsObserverOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.2,
+      };
+
+      const resultsObserverCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !resultsAnimated.has(entry.target)) {
+            resultsAnimated.add(entry.target);
+
+            const heading = entry.target.querySelector(".results-cascade-heading");
+            if (heading) {
+              heading.classList.add("results-visible");
+            }
+
+            const items = entry.target.querySelectorAll(".results-cascade-item");
+            items.forEach((item) => {
+              const delay = parseInt(item.getAttribute("data-delay") || "0", 10);
+              setTimeout(() => {
+                item.classList.add("results-visible");
+              }, delay);
+            });
+
+            resultsObserver.unobserve(entry.target);
+          }
+        });
+      };
+
+      const resultsObserver = new IntersectionObserver(resultsObserverCallback, resultsObserverOptions);
+      resultsObserver.observe(resultsRef.current);
+
+      return () => {
+        if (resultsRef.current) {
+          resultsObserver.unobserve(resultsRef.current);
+        }
       };
     };
 
@@ -278,7 +322,7 @@ export default function Aksarben() {
 
           {/* Right Panel: Results */}
           <div className="flex flex-col" ref={resultsRef}>
-            <div className="mb-6 relative inline-block">
+            <div className="mb-6 relative inline-block results-cascade-heading">
               <h2 className="text-2xl font-bold bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] bg-clip-text text-transparent relative inline-block pb-3 animate-gradient bg-[length:200%_100%]">
                 Results
               </h2>
@@ -286,44 +330,44 @@ export default function Aksarben() {
             </div>
             <div className="flex-1 flex flex-col justify-center">
               <ul className="space-y-3 text-white mb-8">
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>98/100 Google Optimization score across all pages</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>40% increase in mobile conversions within first month</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>Top 3 local search rankings for key locksmith terms</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
                 <span>Client reports significantly more emergency call requests</span>
               </li>
               </ul>
 
               <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="3400">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>These outcomes are directly attributable to the systems implemented for this project.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="4100">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="5500">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
