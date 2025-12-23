@@ -76,7 +76,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
         return; // Do not schedule next frame
       }
 
-      if (trackEl && trackEl.firstElementChild) {
+      if (trackEl) {
         const now = performance.now();
         const timeSinceInteraction = now - lastInteractionTimeRef.current;
 
@@ -95,10 +95,10 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
           lastInteractionTimeRef.current = now;
         }
 
-        const totalWidth = trackEl.scrollWidth;
-        const singleSetWidth = cloneCount > 0 ? totalWidth / cloneCount : 0;
+        // Use cached width instead of reading scrollWidth every frame
+        const singleSetWidth = singleSetWidthRef.current;
 
-        if (singleSetWidth > 0) {
+        if (singleSetWidth && singleSetWidth > 0) {
           if (positionRef.current < -singleSetWidth) {
             positionRef.current = positionRef.current % singleSetWidth;
           } else if (positionRef.current > 0) {
@@ -150,7 +150,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     container.style.cursor = 'grab';
     container.style.touchAction = 'none';
     container.addEventListener('pointerdown', handlePointerDown);
-    container.addEventListener('pointermove', handlePointerMove);
+    container.addEventListener('pointermove', handlePointerMove, { passive: false });
     container.addEventListener('pointerup', handlePointerUp);
     container.addEventListener('pointercancel', handlePointerUp);
 
@@ -159,7 +159,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
     return () => {
       cancelAnimationFrame(animationId);
       container.removeEventListener('pointerdown', handlePointerDown);
-      container.removeEventListener('pointermove', handlePointerMove);
+      container.removeEventListener('pointermove', handlePointerMove, { passive: false } as EventListenerOptions);
       container.removeEventListener('pointerup', handlePointerUp);
       container.removeEventListener('pointercancel', handlePointerUp);
       if (resizeObserver) {
@@ -188,7 +188,7 @@ export default function LogoCarousel({logos}:{logos:{src:string; alt:string; sca
                 alt={l.alt}
                 className="h-28 w-auto max-w-[350px] opacity-100 flex-shrink-0 pointer-events-none"
                 style={l.scale ? { transform: `scale(${l.scale})` } : undefined}
-                loading="lazy"
+                loading="eager"
                 draggable={false}
               />
             ))}
