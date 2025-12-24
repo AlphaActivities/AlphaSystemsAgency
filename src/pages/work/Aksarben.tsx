@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Counter from "../../components/ui/Counter";
+import ImageModal from "../../components/ui/ImageModal";
 import { Link } from "react-router-dom";
 import {
   Sparkles,
@@ -13,10 +14,16 @@ import {
   Layers,
   Award,
   Shield,
+  TrendingUp,
+  Target,
+  BarChart3,
+  Zap,
 } from "lucide-react";
 
 export default function Aksarben() {
   const resultsRef = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({ imageSrc: "", caption: "" });
 
   useEffect(() => {
     const animatedElements = new Set<Element>();
@@ -277,6 +284,112 @@ export default function Aksarben() {
         </div>
       </div>
 
+      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
+        <h2 className="text-2xl font-bold mb-6">Project Timeline</h2>
+        <div className="space-y-8">
+          <div className="luxury-cascade-item" data-delay="400">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] flex-shrink-0">
+                <TrendingUp className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#d4af37] mb-2">Recovery & Rebuild</h3>
+                <p className="text-sm text-white">Domain recovered from lapsed registration, hosting migrated to client control, foundational analytics infrastructure deployed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item" data-delay="800">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] flex-shrink-0">
+                <Settings className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#00d4ff] mb-2">System Stabilization</h3>
+                <p className="text-sm text-white">Complete site rebuild with optimized performance architecture, clean SEO foundation, structured service pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item" data-delay="1200">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] flex-shrink-0">
+                <BarChart3 className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Visibility & Measurement</h3>
+                <p className="text-sm text-white">GA4 event tracking implemented across conversion points, Looker Studio reporting framework configured for daily performance monitoring.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item" data-delay="1600">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#ff00ff] to-[#cc00cc] flex items-center justify-center shadow-[0_0_20px_rgba(255,0,255,0.4)] flex-shrink-0">
+                <Target className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#ff00ff] mb-2">Readiness for Scale</h3>
+                <p className="text-sm text-white">Clean engagement signals established, conversion infrastructure proven, measurement systems validated for optimization decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
+        <div
+          className="luxury-image-hover"
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            setModalContent({
+              imageSrc: "/images/our-work-photos/josh/aksarben-locksmiths-engagement-overview-nov-25th-dec-25th.jpg",
+              caption: "GA4 Engagement Overview, Last 28 Days, Aksarben Locksmiths"
+            });
+            setModalOpen(true);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setModalContent({
+                imageSrc: "/images/our-work-photos/josh/aksarben-locksmiths-engagement-overview-nov-25th-dec-25th.jpg",
+                caption: "GA4 Engagement Overview, Last 28 Days, Aksarben Locksmiths"
+              });
+              setModalOpen(true);
+            }
+          }}
+        >
+          <img
+            src="/images/our-work-photos/josh/aksarben-locksmiths-engagement-overview-nov-25th-dec-25th.jpg"
+            alt="GA4 Performance Overview - Aksarben Locksmiths"
+            className="w-full h-full object-cover"
+          />
+          <div className="luxury-image-hover-btn">
+            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              View Performance Overview
+              <Zap size={18} />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
+        <h2 className="text-2xl font-bold mb-6">Client Outcome</h2>
+        <div className="space-y-4">
+          <div className="luxury-cascade-item" data-delay="400">
+            <p className="text-white leading-relaxed">
+              Mike, owner of Aksarben Locksmiths, now has full control over his domain and digital infrastructure. The site provides reliable performance, clean measurement systems, and a conversion-ready foundation that supports business growth without the dependency or uncertainty of his previous provider relationship.
+            </p>
+          </div>
+          <div className="luxury-cascade-item" data-delay="800">
+            <p className="text-gray-300 text-sm leading-relaxed">
+              The project delivered verified stability, comprehensive analytics tracking, and professional reporting infrastructure. All systems are designed for long-term ownership and operational clarity.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="tile tile-uv-glow p-8 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <div className="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
           {/* Left Panel: Project Lead / Contributors */}
@@ -404,6 +517,14 @@ export default function Aksarben() {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        imageSrc={modalContent.imageSrc}
+        alt="GA4 Performance Overview"
+        caption={modalContent.caption}
+      />
     </div>
   );
 }

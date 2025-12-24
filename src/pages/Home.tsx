@@ -5,6 +5,15 @@ import { getVerifiedLaunchCount } from "../data/clients";
 import { Star, Zap, Rocket } from "lucide-react";
 import HeroSingularityVortex from "../components/visual/HeroSingularityVortex";
 
+const CASE_STUDY_REVIEWS = [
+  {
+    name: "Mike",
+    company: "Aksarben Locksmiths",
+    role: "Owner",
+    text: "Alpha Systems delivered complete digital infrastructure ownership and reliable performance measurement. The site provides clean analytics, professional reporting, and a conversion-ready foundation without vendor dependency."
+  }
+];
+
 const COMPANY_LOGOS = [
   { src: "/images/company-logos/Aksarben Locksmiths logo.PNG", alt: "Aksarben Locksmiths" },
   { src: "/images/company-logos/Caliber Luxury Rentals logo.PNG", alt: "Caliber Luxury Rentals", scale: 1.2 },
@@ -135,9 +144,7 @@ export default function Home() {
       <section className="section-rhythm luxury-lazy-container">
         <h2 className="text-3xl font-bold text-center mb-12">Client Feedback</h2>
         <div className="flex justify-center">
-          {[
-            { name: "Mike Smith", company: "Aksarben Locksmiths", text: "Outstanding work! The site is fast, beautiful, and exactly what we needed." }
-          ].map((review, i) => (
+          {CASE_STUDY_REVIEWS.map((review, i) => (
             <div key={i} className="tile tile-uv-glow p-8 max-w-md w-full">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-uv-500 to-uv-700 flex items-center justify-center">
@@ -145,7 +152,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <div className="font-semibold">{review.name}</div>
-                  <div className="text-sm text-gray-400">{review.company}</div>
+                  <div className="text-sm text-gray-400">{review.role}, {review.company}</div>
                 </div>
               </div>
               <div className="flex gap-1 mb-3">
