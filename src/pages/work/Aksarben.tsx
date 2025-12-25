@@ -256,7 +256,7 @@ export default function Aksarben() {
           <Clock className="text-[#d4af37]" size={28} strokeWidth={2} />
           Project Timeline
         </h2>
-        <div className="page-tone-line-soft mb-6" />
+        <div className="page-tone-line-soft mb-8" />
         <div className="space-y-8">
           <div className="luxury-cascade-item group" data-delay="400">
             <div className="flex items-start gap-4">
@@ -313,7 +313,7 @@ export default function Aksarben() {
           <Box className="text-[#d4af37]" size={28} strokeWidth={2} />
           Stack & Services
         </h2>
-        <div className="page-tone-line-soft mb-6" />
+        <div className="page-tone-line-soft mb-8" />
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
