@@ -18,6 +18,12 @@ import {
   Target,
   BarChart3,
   Zap,
+  RotateCcw,
+  Cog,
+  Activity,
+  Rocket,
+  Clock,
+  Box,
 } from "lucide-react";
 
 export default function Aksarben() {
@@ -245,8 +251,67 @@ export default function Aksarben() {
         </div>
       </div>
 
+      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+          <Clock className="text-[#d4af37]" size={28} strokeWidth={2} />
+          Project Timeline
+        </h2>
+        <div className="space-y-8">
+          <div className="luxury-cascade-item group" data-delay="400">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] flex-shrink-0 ring-2 ring-[#d4af37]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
+                <RotateCcw className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#d4af37] mb-2">Recovery & Rebuild</h3>
+                <p className="text-sm text-white">Domain recovered from lapsed registration, hosting migrated to client control, foundational analytics infrastructure deployed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item group" data-delay="800">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-gradient-to-br from-[#40e0d0] to-[#20c9b9] flex items-center justify-center shadow-[0_0_20px_rgba(64,224,208,0.4)] flex-shrink-0 ring-2 ring-[#40e0d0]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(64,224,208,0.7)] group-hover:scale-110 group-hover:rotate-3">
+                <Cog className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#40e0d0] mb-2">System Stabilization</h3>
+                <p className="text-sm text-white">Complete site rebuild with optimized performance architecture, clean SEO foundation, structured service pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item group" data-delay="1200">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] flex-shrink-0 ring-2 ring-[#00d4ff]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,212,255,0.7)] group-hover:scale-110 group-hover:rotate-3">
+                <Activity className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#00d4ff] mb-2">Visibility & Measurement</h3>
+                <p className="text-sm text-white">GA4 event tracking implemented across conversion points, Looker Studio reporting framework configured for daily performance monitoring.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="luxury-cascade-item group" data-delay="1600">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] flex-shrink-0 ring-2 ring-[#00ff88]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] group-hover:scale-110 group-hover:rotate-3">
+                <Rocket className="text-gray-900" size={20} strokeWidth={2.5} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Readiness for Scale</h3>
+                <p className="text-sm text-white">Clean engagement signals established, conversion infrastructure proven, measurement systems validated for optimization decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105">
-        <h2 className="text-2xl font-bold mb-6">Stack & Services</h2>
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+          <Box className="text-purple-400" size={28} strokeWidth={2} />
+          Stack & Services
+        </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
@@ -284,59 +349,6 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
-        <h2 className="text-2xl font-bold mb-6">Project Timeline</h2>
-        <div className="space-y-8">
-          <div className="luxury-cascade-item" data-delay="400">
-            <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] flex-shrink-0">
-                <TrendingUp className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#d4af37] mb-2">Recovery & Rebuild</h3>
-                <p className="text-sm text-white">Domain recovered from lapsed registration, hosting migrated to client control, foundational analytics infrastructure deployed.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="luxury-cascade-item" data-delay="800">
-            <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] flex-shrink-0">
-                <Settings className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#00d4ff] mb-2">System Stabilization</h3>
-                <p className="text-sm text-white">Complete site rebuild with optimized performance architecture, clean SEO foundation, structured service pages.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="luxury-cascade-item" data-delay="1200">
-            <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] flex-shrink-0">
-                <BarChart3 className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Visibility & Measurement</h3>
-                <p className="text-sm text-white">GA4 event tracking implemented across conversion points, Looker Studio reporting framework configured for daily performance monitoring.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="luxury-cascade-item" data-delay="1600">
-            <div className="flex items-start gap-4">
-              <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#ff00ff] to-[#cc00cc] flex items-center justify-center shadow-[0_0_20px_rgba(255,0,255,0.4)] flex-shrink-0">
-                <Target className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#ff00ff] mb-2">Readiness for Scale</h3>
-                <p className="text-sm text-white">Clean engagement signals established, conversion infrastructure proven, measurement systems validated for optimization decisions.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
         <div
           className="luxury-image-hover"
@@ -368,14 +380,17 @@ export default function Aksarben() {
           <div className="luxury-image-hover-btn">
             <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
               View Performance Overview
-              <Zap size={18} />
+              <ArrowUpRight size={18} />
             </span>
           </div>
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
-        <h2 className="text-2xl font-bold mb-6">Client Outcome</h2>
+      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container max-w-3xl mx-auto relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-xs font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
+          Verified Outcome
+        </div>
+        <h2 className="text-2xl font-bold mb-6 pt-2">Client Outcome</h2>
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
