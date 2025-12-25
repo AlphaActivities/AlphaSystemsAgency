@@ -402,7 +402,13 @@ export default function Aksarben() {
               Mike, owner of Aksarben Locksmiths, now has full control over his domain and digital infrastructure. The site provides reliable performance, clean measurement systems, and a conversion-ready foundation that supports business growth without the dependency or uncertainty of his previous provider relationship.
             </p>
           </div>
-          <div className="h-[2px] w-full max-w-md mx-auto my-4 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
+          <div
+            className="h-[2px] w-full max-w-md mx-auto my-4 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"
+            style={{
+              boxShadow: '0 0 8px rgba(212, 175, 55, 0.8), 0 0 16px rgba(212, 175, 55, 0.5), 0 0 24px rgba(212, 175, 55, 0.3)',
+              filter: 'drop-shadow(0 0 4px rgba(212, 175, 55, 0.9))'
+            }}
+          ></div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
               The project delivered verified stability, comprehensive analytics tracking, and professional reporting infrastructure. All systems are designed for long-term ownership and operational clarity.
