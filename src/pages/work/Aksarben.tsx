@@ -390,15 +390,13 @@ export default function Aksarben() {
 
       <div
         style={{ overflow: 'visible' }}
-        className="tile tile-outcome-glow tile-outcome-ambient p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
+        className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)]">
           Verified Outcome
         </div>
-        <div className="relative inline-block w-full text-center client-outcome-ribbon-wrapper">
-          <h2 className="text-2xl font-bold mb-6 pt-2 relative z-10">Client Outcome</h2>
-        </div>
-        <div className="space-y-4 text-left">
+        <h2 className="text-2xl font-bold mb-6 pt-2">Client Outcome</h2>
+        <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
               Mike, owner of Aksarben Locksmiths, now has full control over his domain and digital infrastructure. The site provides reliable performance, clean measurement systems, and a conversion-ready foundation that supports business growth without the dependency or uncertainty of his previous provider relationship.
