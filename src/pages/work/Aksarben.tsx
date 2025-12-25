@@ -314,7 +314,7 @@ export default function Aksarben() {
           Stack & Services
         </h2>
         <div className="page-tone-line" />
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
               <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
@@ -388,7 +388,10 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative overflow-visible">
+      <div
+        style={{ overflow: 'visible' }}
+        className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
+      >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-xs font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
           Verified Outcome
         </div>
