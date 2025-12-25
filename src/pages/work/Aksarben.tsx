@@ -257,7 +257,7 @@ export default function Aksarben() {
           Project Timeline
         </h2>
         <div className="page-tone-line" />
-        <div className="space-y-8">
+        <div className="space-y-8 mt-6">
           <div className="luxury-cascade-item group" data-delay="400">
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] flex-shrink-0 ring-2 ring-[#d4af37]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
@@ -388,7 +388,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container max-w-3xl mx-auto relative overflow-visible">
+      <div className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative overflow-visible">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-xs font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
           Verified Outcome
         </div>
