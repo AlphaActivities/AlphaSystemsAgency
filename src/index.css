@@ -1254,16 +1254,6 @@ html { scrollbar-gutter: stable both-edges; }
   }
 }
 
-/* === Ambient Luxury Motion === */
-@keyframes ambient-drift {
-  0% { transform: translateX(-6%); opacity: 0.55; }
-  100% { transform: translateX(6%); opacity: 0.55; }
-}
-
-.animate-ambient-drift {
-  animation: ambient-drift 22s linear infinite alternate;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .luxury-modal-backdrop,
   .luxury-modal-panel {
@@ -1274,8 +1264,5 @@ html { scrollbar-gutter: stable both-edges; }
   .luxury-modal-close:hover,
   .luxury-modal-close:active {
     transform: none !important;
-  }
-  .animate-ambient-drift {
-    animation: none !important;
   }
 }
