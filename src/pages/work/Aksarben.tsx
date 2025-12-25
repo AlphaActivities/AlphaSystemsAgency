@@ -256,7 +256,7 @@ export default function Aksarben() {
           <Clock className="text-[#d4af37]" size={28} strokeWidth={2} />
           Project Timeline
         </h2>
-        <div className="page-tone-line" />
+        <div className="page-tone-line-soft" />
         <div className="space-y-8 mt-6">
           <div className="luxury-cascade-item group" data-delay="400">
             <div className="flex items-start gap-4">
@@ -313,7 +313,7 @@ export default function Aksarben() {
           <Box className="text-[#d4af37]" size={28} strokeWidth={2} />
           Stack & Services
         </h2>
-        <div className="page-tone-line" />
+        <div className="page-tone-line-soft" />
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
@@ -392,7 +392,7 @@ export default function Aksarben() {
         style={{ overflow: 'visible' }}
         className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-xs font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)]">
           Verified Outcome
         </div>
         <h2 className="text-2xl font-bold mb-6 pt-2">Client Outcome</h2>
@@ -402,6 +402,7 @@ export default function Aksarben() {
               Mike, owner of Aksarben Locksmiths, now has full control over his domain and digital infrastructure. The site provides reliable performance, clean measurement systems, and a conversion-ready foundation that supports business growth without the dependency or uncertainty of his previous provider relationship.
             </p>
           </div>
+          <div className="h-[2px] w-full max-w-md mx-auto my-4 bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
               The project delivered verified stability, comprehensive analytics tracking, and professional reporting infrastructure. All systems are designed for long-term ownership and operational clarity.

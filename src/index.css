@@ -22,6 +22,21 @@
   transition: background 400ms ease;
 }
 
+.page-tone-line-soft {
+  width: 400px;
+  max-width: 90vw;
+  height: 3px;
+  background: linear-gradient(90deg,
+    rgba(212, 175, 55, 0.8) 0%,
+    rgba(212, 175, 55, 0.6) 30%,
+    rgba(212, 175, 55, 0.2) 55%,
+    transparent 75%
+  );
+  border-radius: 2px;
+  margin-top: 12px;
+  transition: background 400ms ease;
+}
+
 .depth-grain {
   position: fixed;
   inset: 0;
