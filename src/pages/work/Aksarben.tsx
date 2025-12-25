@@ -392,22 +392,10 @@ export default function Aksarben() {
         style={{ overflow: 'visible' }}
         className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
       >
-        <div className="relative mx-auto mb-4 w-fit">
-          <div
-            className="relative px-10 py-2 text-sm font-semibold tracking-wide text-emerald-50 uppercase bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-700 rounded-[999px_999px_160px_160px] shadow-[0_6px_18px_rgba(16,185,129,0.35)] overflow-visible"
-            style={{
-              backgroundSize: '200% 100%',
-              animation: 'ribbon-drift 28s linear infinite alternate'
-            }}
-          >
-            Verified Outcome
-
-            <span className="absolute -left-6 top-1/2 -translate-y-1/2 w-6 h-6 bg-emerald-700 opacity-90" style={{ clipPath: 'polygon(100% 0, 0 50%, 100% 100%)' }}></span>
-
-            <span className="absolute -right-6 top-1/2 -translate-y-1/2 w-6 h-6 bg-emerald-700 opacity-90" style={{ clipPath: 'polygon(0 0, 100% 50%, 0 100%)' }}></span>
-          </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)]">
+          Verified Outcome
         </div>
-        <h2 className="text-2xl font-bold mb-6 pt-2 text-center">Client Outcome</h2>
+        <h2 className="text-2xl font-bold mb-6 pt-2">Client Outcome</h2>
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
