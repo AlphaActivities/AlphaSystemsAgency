@@ -256,8 +256,8 @@ export default function Aksarben() {
           <Clock className="text-[#d4af37]" size={28} strokeWidth={2} />
           Project Timeline
         </h2>
-        <div className="page-tone-line-soft" />
-        <div className="space-y-8 mt-6">
+        <div className="page-tone-line-soft mb-6" />
+        <div className="space-y-8">
           <div className="luxury-cascade-item group" data-delay="400">
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] flex-shrink-0 ring-2 ring-[#d4af37]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
@@ -313,8 +313,8 @@ export default function Aksarben() {
           <Box className="text-[#d4af37]" size={28} strokeWidth={2} />
           Stack & Services
         </h2>
-        <div className="page-tone-line-soft" />
-        <div className="grid md:grid-cols-3 gap-6 mt-6">
+        <div className="page-tone-line-soft mb-6" />
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
               <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
