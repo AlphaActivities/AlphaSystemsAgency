@@ -251,11 +251,12 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container">
+      <div className="tile tile-timeline-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
           <Clock className="text-[#d4af37]" size={28} strokeWidth={2} />
           Project Timeline
         </h2>
+        <div className="page-tone-line" />
         <div className="space-y-8">
           <div className="luxury-cascade-item group" data-delay="400">
             <div className="flex items-start gap-4">
@@ -309,9 +310,10 @@ export default function Aksarben() {
 
       <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-          <Box className="text-purple-400" size={28} strokeWidth={2} />
+          <Box className="text-[#d4af37]" size={28} strokeWidth={2} />
           Stack & Services
         </h2>
+        <div className="page-tone-line" />
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex flex-col gap-2 group">
             <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
@@ -386,7 +388,7 @@ export default function Aksarben() {
         </div>
       </div>
 
-      <div className="tile tile-uv-glow p-8 mb-16 luxury-lazy-container max-w-3xl mx-auto relative">
+      <div className="tile tile-outcome-glow p-8 mb-16 luxury-lazy-container max-w-3xl mx-auto relative overflow-visible">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-xs font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
           Verified Outcome
         </div>

@@ -867,6 +867,46 @@ html { scrollbar-gutter: stable both-edges; }
   border-color: rgba(168, 85, 247, 1);
 }
 
+.tile-timeline-glow {
+  background: radial-gradient(circle at top left,
+    rgba(30, 58, 138, 0.9),
+    rgba(17, 24, 39, 0.95)
+  );
+  box-shadow:
+    0 0 10px rgba(79, 70, 229, 0.55),
+    0 0 22px rgba(79, 70, 229, 0.28);
+  border-color: rgba(79, 70, 229, 0.95);
+  transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease, opacity 1200ms cubic-bezier(0.23, 1, 0.32, 1), transform 1200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tile-timeline-glow:hover {
+  box-shadow:
+    0 0 16px rgba(79, 70, 229, 0.70),
+    0 0 32px rgba(79, 70, 229, 0.40),
+    0 0 48px rgba(79, 70, 229, 0.20);
+  border-color: rgba(99, 102, 241, 1);
+}
+
+.tile-outcome-glow {
+  background: radial-gradient(circle at top left,
+    rgba(55, 65, 81, 0.9),
+    rgba(31, 41, 55, 0.95)
+  );
+  box-shadow:
+    0 0 10px rgba(212, 175, 55, 0.55),
+    0 0 22px rgba(212, 175, 55, 0.28);
+  border-color: rgba(212, 175, 55, 0.95);
+  transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease, opacity 1200ms cubic-bezier(0.23, 1, 0.32, 1), transform 1200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tile-outcome-glow:hover {
+  box-shadow:
+    0 0 16px rgba(212, 175, 55, 0.70),
+    0 0 32px rgba(212, 175, 55, 0.40),
+    0 0 48px rgba(212, 175, 55, 0.20);
+  border-color: rgba(244, 208, 63, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .impact-container:hover {
     transform: none;
