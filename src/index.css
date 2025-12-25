@@ -23,7 +23,7 @@
 }
 
 .page-tone-line-soft {
-  width: 400px;
+  width: clamp(351px, 80%, 900px);
   max-width: 90vw;
   height: 3px;
   background: linear-gradient(90deg,
