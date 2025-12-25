@@ -5,6 +5,11 @@
 @keyframes crystalline-rotate { to { transform: rotate(360deg); } }
 .crystalline-rotator { animation: crystalline-rotate 60s linear infinite; }
 
+@keyframes ribbon-drift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
