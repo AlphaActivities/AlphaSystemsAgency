@@ -395,13 +395,7 @@ export default function Aksarben() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)] whitespace-nowrap min-w-max text-center">
           Verified Outcome
         </div>
-        <div className="relative inline-block mx-auto mb-6">
-          <div className="client-outcome-ribbon" aria-hidden="true"></div>
-
-          <h2 className="relative z-10 text-2xl font-bold pt-2 text-center">
-            Client Outcome
-          </h2>
-        </div>
+        <h2 className="text-2xl font-bold mb-6 pt-2 text-center">Client Outcome</h2>
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
