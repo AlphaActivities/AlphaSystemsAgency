@@ -400,10 +400,10 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt=""
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.6] pointer-events-none select-none"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.85] translate-y-[6px] pointer-events-none select-none"
               aria-hidden="true"
             />
-            <h2 className="relative z-10">
+            <h2 className="relative z-10 font-bold">
               Client Outcome
             </h2>
           </div>
