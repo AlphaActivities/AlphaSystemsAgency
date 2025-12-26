@@ -398,14 +398,10 @@ export default function Aksarben() {
         <div className="relative w-full flex justify-center pt-2 mb-6">
           <div className="relative inline-flex items-center justify-center">
 
-            <div
-              className="absolute inset-0 z-0 pointer-events-none"
-              style={{
-                backgroundImage: "url('/images/extras/green-ribbon.png')",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize: "100% 100%"
-              }}
+            <img
+              src="/images/extras/green-ribbon.png"
+              alt=""
+              className="absolute inset-0 z-0 pointer-events-none w-full h-full object-contain"
             />
 
             <h2 className="relative z-10 text-2xl font-bold text-white px-10 py-2 text-center">
