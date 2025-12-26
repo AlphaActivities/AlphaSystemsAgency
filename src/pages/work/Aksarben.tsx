@@ -403,7 +403,7 @@ export default function Aksarben() {
               className="absolute left-1/2 top-[-20px] -translate-x-1/2 scale-[1.95] pointer-events-none select-none"
               aria-hidden="true"
             />
-            <h2 className="relative z-10 font-bold text-[#d4af37] translate-y-[4px]">
+            <h2 className="relative z-10 font-bold text-[#d4af37]">
               Client Outcome
             </h2>
           </div>
