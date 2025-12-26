@@ -396,18 +396,16 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6">
-          <div className="relative inline-flex items-center justify-center">
-
+          <div className="relative inline-block">
             <img
               src="/images/extras/green-ribbon.png"
               alt=""
-              className="absolute inset-0 z-0 pointer-events-none w-full h-full object-contain"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.6] pointer-events-none select-none"
+              aria-hidden="true"
             />
-
-            <h2 className="relative z-10 text-2xl font-bold text-white px-10 py-2 text-center">
+            <h2 className="relative z-10">
               Client Outcome
             </h2>
-
           </div>
         </div>
         <div className="space-y-4">
