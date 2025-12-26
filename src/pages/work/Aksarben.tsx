@@ -396,7 +396,7 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6">
-          <div className="relative inline-flex items-center justify-center">
+          <div className="relative inline-flex items-center justify-center min-h-[96px]">
 
             <img
               src="/images/extras/green-ribbon.png"
