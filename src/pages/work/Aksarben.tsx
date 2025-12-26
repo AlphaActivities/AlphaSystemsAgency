@@ -400,7 +400,7 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt=""
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.95] -translate-y-[10px] pointer-events-none select-none"
+              className="absolute left-1/2 top-[-6px] -translate-x-1/2 scale-[1.95] pointer-events-none select-none"
               aria-hidden="true"
             />
             <h2 className="relative z-10 font-bold text-[#d4af37]">
