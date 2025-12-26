@@ -409,10 +409,10 @@ export default function Aksarben() {
             >
               {Array.from("Client Outcome").map((char, i, arr) => {
                 const center = (arr.length - 1) / 2
-                const distanceFromCenter = Math.abs(i - center)
+                const progress = (i - center) / center
 
-                // 0px lift at the ends, ~7px lift at the center
-                const lift = Math.max(0, 7 - distanceFromCenter * 1.25)
+                // Smooth circular arc (moon/ribbon edge), no peak, no dip
+                const lift = 6 * Math.cos(progress * Math.PI / 2)
 
                 return (
                   <span
