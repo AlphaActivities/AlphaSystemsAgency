@@ -403,8 +403,29 @@ export default function Aksarben() {
               className="absolute left-1/2 top-[-20px] -translate-x-1/2 scale-[1.95] pointer-events-none select-none"
               aria-hidden="true"
             />
-            <h2 className="relative z-10 font-bold text-[#d4af37]">
-              Client Outcome
+            <h2
+              className="relative z-10 font-bold text-[#d4af37] whitespace-nowrap"
+              aria-label="Client Outcome"
+            >
+              {Array.from("Client Outcome").map((char, i, arr) => {
+                const center = (arr.length - 1) / 2
+                const distanceFromCenter = Math.abs(i - center)
+
+                // 0px lift at the ends, ~7px lift at the center
+                const lift = Math.max(0, 7 - distanceFromCenter * 1.25)
+
+                return (
+                  <span
+                    key={i}
+                    style={{
+                      display: "inline-block",
+                      transform: `translateY(-${lift}px)`,
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                )
+              })}
             </h2>
           </div>
         </div>
