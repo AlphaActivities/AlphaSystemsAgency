@@ -1266,3 +1266,39 @@ html { scrollbar-gutter: stable both-edges; }
     transform: none !important;
   }
 }
+
+/* === Client Outcome Green Ribbon === */
+.client-outcome-ribbon {
+  position: absolute;
+  inset: -14px -32px;
+  z-index: 0;
+
+  background: linear-gradient(
+    90deg,
+    #0f8f4f 0%,
+    #2ecc71 50%,
+    #0f8f4f 100%
+  );
+
+  border-radius: 999px;
+  transform: rotate(-1deg);
+
+  clip-path: polygon(
+    4% 0%,
+    96% 0%,
+    100% 50%,
+    96% 100%,
+    70% 100%,
+    65% 80%,
+    35% 80%,
+    30% 100%,
+    4% 100%,
+    0% 50%
+  );
+
+  box-shadow:
+    0 8px 24px rgba(46, 204, 113, 0.35),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+
+  pointer-events: none;
+}
