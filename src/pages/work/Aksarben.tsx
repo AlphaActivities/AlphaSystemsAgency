@@ -403,36 +403,9 @@ export default function Aksarben() {
               className="absolute left-1/2 top-[-20px] -translate-x-1/2 scale-[1.95] pointer-events-none select-none"
               aria-hidden="true"
             />
-            <svg
-  width="320"
-  height="90"
-  viewBox="0 0 320 90"
-  className="relative z-10 pointer-events-none"
-  aria-label="Client Outcome"
->
-  <defs>
-    <path
-      id="clientOutcomeArc"
-      d="M 20 55 Q 160 30 300 55"
-    />
-  </defs>
-
-  <text
-    fill="#D4AF37"
-    font-size="22"
-    font-weight="700"
-    text-anchor="middle"
-    dominant-baseline="middle"
-    style="letter-spacing: 0.02em;"
-  >
-    <textPath
-      href="#clientOutcomeArc"
-      startOffset="50%"
-    >
-      Client Outcome
-    </textPath>
-  </text>
-</svg>
+            <h2 className="relative z-10 font-bold text-[#d4af37]">
+              Client Outcome
+            </h2>
           </div>
         </div>
         <div className="space-y-4">
