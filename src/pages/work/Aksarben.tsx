@@ -158,40 +158,7 @@ export default function Aksarben() {
   ];
 
   return (
-    <>
-      <style>{`
-        .client-outcome-ribbon {
-          position: absolute;
-          left: -24px;
-          right: -24px;
-          top: 50%;
-          height: 44px;
-          transform: translateY(-50%) rotate(-1.2deg);
-
-          background: linear-gradient(
-            90deg,
-            #0f8f4f 0%,
-            #18b56a 50%,
-            #0f8f4f 100%
-          );
-
-          border-radius: 120px / 32px;
-
-          clip-path: polygon(
-            6% 0%,
-            94% 0%,
-            100% 50%,
-            94% 100%,
-            6% 100%,
-            0% 50%
-          );
-
-          box-shadow:
-            0 6px 18px rgba(24,181,106,0.35),
-            inset 0 -4px 10px rgba(0,0,0,0.25);
-        }
-      `}</style>
-      <div className="container mx-auto px-4 max-w-6xl section-rhythm">
+    <div className="container mx-auto px-4 max-w-6xl section-rhythm">
       <div className="mb-12">
         <Link
           to="/work"
@@ -428,13 +395,7 @@ export default function Aksarben() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)]">
           Verified Outcome
         </div>
-        <div className="relative inline-block mx-auto mb-6">
-          <span className="client-outcome-ribbon absolute inset-0 -z-10"></span>
-
-          <h2 className="relative z-10 text-2xl font-bold pt-2 text-center">
-            Client Outcome
-          </h2>
-        </div>
+        <h2 className="text-2xl font-bold mb-6 pt-2">Client Outcome</h2>
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
@@ -587,7 +548,6 @@ export default function Aksarben() {
         alt="GA4 Performance Overview"
         caption={modalContent.caption}
       />
-      </div>
-    </>
+    </div>
   );
 }
