@@ -396,10 +396,61 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6">
-          <div className="relative inline-flex justify-center">
-            <h2 className="text-2xl font-bold text-center">
+          <div className="relative inline-flex items-center justify-center">
+
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 420 120"
+              preserveAspectRatio="none"
+              className="absolute z-0 -inset-x-8 -inset-y-4 w-[calc(100%+4rem)] h-[calc(100%+2rem)]"
+            >
+              <defs>
+                <linearGradient id="greenRibbonMain" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#1e6b3a" />
+                  <stop offset="50%" stopColor="#2fa866" />
+                  <stop offset="100%" stopColor="#1e6b3a" />
+                </linearGradient>
+
+                <linearGradient id="greenRibbonFold" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#144d2a" />
+                  <stop offset="100%" stopColor="#0f3a1f" />
+                </linearGradient>
+              </defs>
+
+              <path
+                d="M50 30 Q210 5 370 30 L370 90 Q210 115 50 90 Z"
+                fill="url(#greenRibbonMain)"
+              />
+
+              <path
+                d="M50 30 L10 60 L50 90 Z"
+                fill="url(#greenRibbonFold)"
+              />
+
+              <path
+                d="M370 30 L410 60 L370 90 Z"
+                fill="url(#greenRibbonFold)"
+              />
+
+              <path
+                d="M50 30 Q210 5 370 30"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth="2"
+                fill="none"
+              />
+
+              <path
+                d="M50 90 Q210 115 370 90"
+                stroke="rgba(0,0,0,0.25)"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
+
+            <h2 className="relative z-10 text-2xl font-bold text-white px-10 py-2 text-center">
               Client Outcome
             </h2>
+
           </div>
         </div>
         <div className="space-y-4">
