@@ -397,9 +397,11 @@ export default function Aksarben() {
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6">
           <div className="relative inline-flex justify-center">
-            <h2 className="text-2xl font-bold text-center">
-              Client Outcome
-            </h2>
+            <img
+              src="/images/extras/green-ribbon.png"
+              alt="Client Outcome"
+              className="h-12 w-auto select-none pointer-events-none"
+            />
           </div>
         </div>
         <div className="space-y-4">
