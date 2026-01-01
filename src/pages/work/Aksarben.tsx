@@ -396,12 +396,11 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6">
-          <div className="relative inline-flex justify-center h-12">
+          <div className="relative inline-flex justify-center">
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              className="absolute h-24 w-auto select-none pointer-events-none"
-              style={{ top: "50%", transform: "translateY(-50%)" }}
+              className="h-24 w-auto select-none pointer-events-none"
             />
           </div>
         </div>
