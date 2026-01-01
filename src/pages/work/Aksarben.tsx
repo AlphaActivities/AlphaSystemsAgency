@@ -400,8 +400,7 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              className="absolute h-24 w-auto select-none pointer-events-none"
-              style={{ top: "50%", transform: "translateY(-50%)" }}
+              className="h-24 w-auto select-none pointer-events-none"
             />
           </div>
         </div>
