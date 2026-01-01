@@ -1266,3 +1266,25 @@ html { scrollbar-gutter: stable both-edges; }
     transform: none !important;
   }
 }
+
+@keyframes goldAuraPulse {
+  0% {
+    box-shadow:
+      0 0 22px rgba(212, 175, 55, 0.45),
+      0 0 48px rgba(212, 175, 55, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 38px rgba(212, 175, 55, 0.75),
+      0 0 72px rgba(212, 175, 55, 0.45);
+  }
+  100% {
+    box-shadow:
+      0 0 22px rgba(212, 175, 55, 0.45),
+      0 0 48px rgba(212, 175, 55, 0.25);
+  }
+}
+
+.tile-outcome-glow {
+  animation: goldAuraPulse 10s ease-in-out infinite;
+}
