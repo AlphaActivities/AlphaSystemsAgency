@@ -400,7 +400,7 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              className="h-24 w-auto select-none pointer-events-none"
+              className="h-12 w-auto select-none pointer-events-none"
             />
           </div>
         </div>
