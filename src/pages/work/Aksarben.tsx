@@ -401,7 +401,7 @@ export default function Aksarben() {
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
               className="h-12 w-auto select-none pointer-events-none relative z-10"
-              style={{ transform: "scale(2)", transformOrigin: "center" }}
+              style={{ transform: "scale(4)", transformOrigin: "center" }}
             />
           </div>
         </div>
