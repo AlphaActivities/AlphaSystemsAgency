@@ -5,20 +5,6 @@
 @keyframes crystalline-rotate { to { transform: rotate(360deg); } }
 .crystalline-rotator { animation: crystalline-rotate 60s linear infinite; }
 
-@keyframes outcome-crystal-sweep {
-  0% {
-    transform: translateX(-120%) rotate(12deg);
-    opacity: 0.15;
-  }
-  50% {
-    opacity: 0.25;
-  }
-  100% {
-    transform: translateX(120%) rotate(12deg);
-    opacity: 0.15;
-  }
-}
-
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
@@ -934,20 +920,6 @@ html { scrollbar-gutter: stable both-edges; }
     0 0 32px rgba(212, 175, 55, 0.40),
     0 0 48px rgba(212, 175, 55, 0.20);
   border-color: rgba(244, 208, 63, 1);
-}
-
-.tile-outcome-glow::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,255,255,0.25) 50%,
-    transparent 70%
-  );
-  animation: outcome-crystal-sweep 14s linear infinite;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
