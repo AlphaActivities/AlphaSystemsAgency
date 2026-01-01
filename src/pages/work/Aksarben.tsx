@@ -396,7 +396,7 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6 py-6">
-          <div className="relative inline-flex justify-center h-12 py-6 mb-6">
+          <div className="relative inline-flex justify-center h-12 py-8 mb-8">
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
