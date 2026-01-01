@@ -5,6 +5,15 @@
 @keyframes crystalline-rotate { to { transform: rotate(360deg); } }
 .crystalline-rotator { animation: crystalline-rotate 60s linear infinite; }
 
+@keyframes outcomeDiagonalDrift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
@@ -907,6 +916,12 @@ html { scrollbar-gutter: stable both-edges; }
     rgba(55, 65, 81, 0.9),
     rgba(31, 41, 55, 0.95)
   );
+  background-image:
+    radial-gradient(circle at top left, rgba(212,175,55,0.12), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 65%),
+    radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
+  background-size: 200% 200%;
+  animation: outcomeDiagonalDrift 22s linear infinite;
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
     0 0 22px rgba(212, 175, 55, 0.28);
