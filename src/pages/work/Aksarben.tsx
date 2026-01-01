@@ -400,7 +400,8 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              className="h-12 w-auto select-none pointer-events-none"
+              className="h-12 w-auto select-none pointer-events-none relative z-10"
+              style={{ transform: "scale(2)", transformOrigin: "center" }}
             />
           </div>
         </div>
