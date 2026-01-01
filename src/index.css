@@ -5,6 +5,15 @@
 @keyframes crystalline-rotate { to { transform: rotate(360deg); } }
 .crystalline-rotator { animation: crystalline-rotate 60s linear infinite; }
 
+@keyframes outcomeDepthParallax {
+  0% {
+    background-position: 50% 40%;
+  }
+  100% {
+    background-position: 50% 60%;
+  }
+}
+
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
@@ -903,10 +912,15 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .tile-outcome-glow {
-  background: radial-gradient(circle at top left,
-    rgba(55, 65, 81, 0.9),
-    rgba(31, 41, 55, 0.95)
-  );
+  background-image:
+    radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 65%),
+    radial-gradient(circle at top left, rgba(212,175,55,0.10), transparent 70%),
+    radial-gradient(circle at top left,
+      rgba(55, 65, 81, 0.9),
+      rgba(31, 41, 55, 0.95)
+    );
+  background-size: 120% 120%;
+  animation: outcomeDepthParallax 28s ease-in-out infinite alternate;
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
     0 0 22px rgba(212, 175, 55, 0.28);
