@@ -135,11 +135,6 @@
   transform: translateY(-1px);
 }
 
-.tile.tile-outcome-glow::after {
-  content: none !important;
-  display: none !important;
-}
-
 .tile-uv-glow {
   border: 1px solid rgba(122, 44, 255, 0.95);
   box-shadow:
@@ -855,18 +850,6 @@ html { scrollbar-gutter: stable both-edges; }
   transform: scale(1.05) translateZ(0);
 }
 
-/* === Profile Photo Hover Effect === */
-.profile-photo-hover {
-  transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  cursor: pointer;
-}
-
-.profile-photo-hover:hover {
-  transform: scale(1.05) translateZ(0);
-}
-
 /* Static gold gradient background - no blur, no animation */
 .impact-container .absolute.inset-0 {
   background: linear-gradient(to right,
@@ -920,38 +903,15 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .tile-outcome-glow {
-  background-image:
-    radial-gradient(circle at top left,
-      rgba(55, 65, 81, 0.9),
-      rgba(31, 41, 55, 0.95)
-    ),
-    linear-gradient(
-      135deg,
-      transparent 0%,
-      transparent 42%,
-      rgba(212, 175, 55, 0.00) 45%,
-      rgba(212, 175, 55, 0.45) 48.5%,
-      rgba(244, 208, 63, 0.68) 50%,
-      rgba(212, 175, 55, 0.45) 51.5%,
-      rgba(212, 175, 55, 0.00) 55%,
-      transparent 58%,
-      transparent 100%
-    );
-  background-size: 100% 100%, 400% 400%;
-  background-position: 0 0, -120% -120%;
-  background-repeat: no-repeat, no-repeat;
-  animation: outcomeGoldSweep 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-
+  background: radial-gradient(circle at top left,
+    rgba(55, 65, 81, 0.9),
+    rgba(31, 41, 55, 0.95)
+  );
   box-shadow:
-    0 0 14px rgba(212, 175, 55, 0.65),
-    0 0 28px rgba(212, 175, 55, 0.35);
+    0 0 10px rgba(212, 175, 55, 0.55),
+    0 0 22px rgba(212, 175, 55, 0.28);
   border-color: rgba(212, 175, 55, 0.95);
   transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease, opacity 1200ms cubic-bezier(0.23, 1, 0.32, 1), transform 1200ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@keyframes outcomeGoldSweep {
-  0%   { background-position: 0 0,  80%  80%; }
-  100% { background-position: 0 0, -80% -80%; }
 }
 
 .tile-outcome-glow:hover {
@@ -964,9 +924,6 @@ html { scrollbar-gutter: stable both-edges; }
 
 @media (prefers-reduced-motion: reduce) {
   .impact-container:hover {
-    transform: none;
-  }
-  .profile-photo-hover:hover {
     transform: none;
   }
 }
