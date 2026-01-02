@@ -938,8 +938,8 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 @keyframes outcomeGoldSweep {
-  0%   { background-position: 0 0,  120%  120%; }
-  100% { background-position: 0 0, -120% -120%; }
+  0%   { background-position: 0 0,  80%  80%; }
+  100% { background-position: 0 0, -80% -80%; }
 }
 
 .tile-outcome-glow:hover {
