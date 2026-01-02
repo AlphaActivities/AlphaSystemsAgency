@@ -404,10 +404,12 @@ export default function Aksarben() {
               loading="eager"
               decoding="sync"
               style={{
-                transform: "scale(4.6)",
+                transform: "scale(4.6) translate3d(0, 0, 0)",
                 transformOrigin: "center",
-                willChange: "auto",
-                backfaceVisibility: "hidden"
+                willChange: "transform",
+                backfaceVisibility: "hidden",
+                imageRendering: "-webkit-optimize-contrast",
+                filter: "none"
               }}
             />
           </div>
