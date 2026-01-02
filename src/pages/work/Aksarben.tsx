@@ -30,7 +30,6 @@ export default function Aksarben() {
   const resultsRef = useRef<HTMLDivElement>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ imageSrc: "", caption: "" });
-  const [ribbonLoaded, setRibbonLoaded] = useState(false);
 
   useEffect(() => {
     const animatedElements = new Set<Element>();
@@ -404,17 +403,11 @@ export default function Aksarben() {
               className="h-12 w-auto select-none pointer-events-none relative z-10"
               loading="eager"
               decoding="sync"
-              onLoad={() => setRibbonLoaded(true)}
               style={{
                 transform: "scale(4.6)",
                 transformOrigin: "center",
                 willChange: "auto",
-                backfaceVisibility: "hidden",
-                opacity: ribbonLoaded ? 1 : 0,
-                transition: "opacity 0.2s ease-in",
-                imageRendering: "-webkit-optimize-contrast",
-                WebkitFontSmoothing: "antialiased",
-                filter: "contrast(1.1) brightness(1.05)"
+                backfaceVisibility: "hidden"
               }}
             />
           </div>
