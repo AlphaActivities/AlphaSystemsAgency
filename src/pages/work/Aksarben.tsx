@@ -411,7 +411,10 @@ export default function Aksarben() {
                 willChange: "auto",
                 backfaceVisibility: "hidden",
                 opacity: ribbonLoaded ? 1 : 0,
-                transition: "opacity 0.2s ease-in"
+                transition: "opacity 0.2s ease-in",
+                imageRendering: "-webkit-optimize-contrast",
+                WebkitFontSmoothing: "antialiased",
+                filter: "contrast(1.1) brightness(1.05)"
               }}
             />
           </div>
