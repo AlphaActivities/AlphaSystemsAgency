@@ -918,9 +918,9 @@ html { scrollbar-gutter: stable both-edges; }
       transparent 0%,
       transparent 44%,
       rgba(212, 175, 55, 0.00) 46%,
-      rgba(212, 175, 55, 0.16) 49%,
-      rgba(244, 208, 63, 0.22) 50%,
-      rgba(212, 175, 55, 0.16) 51%,
+      rgba(212, 175, 55, 0.32) 49%,
+      rgba(244, 208, 63, 0.48) 50%,
+      rgba(212, 175, 55, 0.32) 51%,
       rgba(212, 175, 55, 0.00) 54%,
       transparent 56%,
       transparent 100%
