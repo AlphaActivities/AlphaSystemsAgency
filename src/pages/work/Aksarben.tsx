@@ -395,8 +395,8 @@ export default function Aksarben() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)] whitespace-nowrap min-w-max text-center">
           Verified Outcome
         </div>
-        <div className="relative w-full flex justify-center pt-2 mb-6 py-6">
-          <div className="relative inline-flex justify-center h-12 py-8 mb-8" style={{ overflow: "visible" }}>
+        <div className="relative w-full flex justify-center mb-6" style={{ height: "220px", marginTop: "40px", marginBottom: "40px" }}>
+          <div className="relative inline-flex justify-center items-center" style={{ overflow: "visible", height: "100%" }}>
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
