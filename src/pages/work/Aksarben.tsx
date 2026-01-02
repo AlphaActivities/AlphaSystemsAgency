@@ -404,7 +404,7 @@ export default function Aksarben() {
               loading="eager"
               decoding="sync"
               style={{
-                transform: "translateZ(0) scale(4.6)",
+                transform: "scale(4.6)",
                 transformOrigin: "center",
                 willChange: "auto",
                 backfaceVisibility: "hidden"
