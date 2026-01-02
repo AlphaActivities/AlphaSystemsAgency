@@ -390,7 +390,7 @@ export default function Aksarben() {
 
       <div
         style={{ overflow: 'visible' }}
-        className="tile tile-outcome-glow p-8 mb-16 transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative"
+        className="tile tile-outcome-glow p-8 mb-16 transition-transform duration-300 hover:scale-105 max-w-3xl mx-auto relative luxury-lazy-container"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-sm font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_28px_rgba(212,175,55,0.6)] whitespace-nowrap min-w-max text-center">
           Verified Outcome
@@ -413,7 +413,7 @@ export default function Aksarben() {
           </div>
         </div>
         <div className="space-y-4">
-          <div>
+          <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
               Mike, owner of Aksarben Locksmiths, now has full control over his domain and digital infrastructure. The site provides reliable performance, clean measurement systems, and a conversion-ready foundation that supports business growth without the dependency or uncertainty of his previous provider relationship.
             </p>
@@ -421,7 +421,7 @@ export default function Aksarben() {
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
             <div className="absolute inset-0 h-[3px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
           </div>
-          <div>
+          <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
               The project delivered verified stability, comprehensive analytics tracking, and professional reporting infrastructure. All systems are designed for long-term ownership and operational clarity.
             </p>
