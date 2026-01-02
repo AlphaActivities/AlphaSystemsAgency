@@ -397,12 +397,29 @@ export default function Aksarben() {
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6 py-6">
           <div className="relative inline-flex justify-center h-12 py-8 mb-8">
-            <img
-              src="/images/extras/green-ribbon.png"
-              alt="Client Outcome"
-              className="h-12 w-auto select-none pointer-events-none relative z-10"
-              style={{ transform: "scale(4.6)", transformOrigin: "center" }}
-            />
+            <div
+              className="relative z-10 pointer-events-none"
+              style={{
+                width: "763.6px",
+                height: "220.8px",
+                contain: "paint",
+                willChange: "auto"
+              }}
+            >
+              <img
+                src="/images/extras/green-ribbon.png"
+                alt="Client Outcome"
+                decoding="async"
+                fetchpriority="high"
+                width="764"
+                height="221"
+                className="block w-full h-full select-none"
+                style={{
+                  backfaceVisibility: "hidden",
+                  imageRendering: "auto"
+                }}
+              />
+            </div>
           </div>
         </div>
         <div className="space-y-4">
