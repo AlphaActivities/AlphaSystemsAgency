@@ -920,6 +920,36 @@ html { scrollbar-gutter: stable both-edges; }
     0 0 32px rgba(212, 175, 55, 0.40),
     0 0 48px rgba(212, 175, 55, 0.20);
   border-color: rgba(244, 208, 63, 1);
+  transform: none !important;
+}
+
+.tile-outcome-glow::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.35),
+    rgba(212, 175, 55, 0.15) 30%,
+    transparent 60%
+  );
+  transform: translate(-150%, -150%);
+  animation: outcomeGoldSweep 22s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tile-outcome-glow::after {
+  display: none !important;
+}
+
+@keyframes outcomeGoldSweep {
+  0% {
+    transform: translate(-150%, -150%);
+  }
+  100% {
+    transform: translate(150%, 150%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
