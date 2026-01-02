@@ -400,16 +400,8 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              decoding="async"
-              fetchpriority="high"
               className="h-12 w-auto select-none pointer-events-none relative z-10"
-              style={{
-                transform: "scale(4.6)",
-                transformOrigin: "center",
-                willChange: "transform",
-                backfaceVisibility: "hidden",
-                contain: "paint"
-              }}
+              style={{ transform: "scale(4.6)", transformOrigin: "center" }}
             />
           </div>
         </div>
