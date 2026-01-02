@@ -926,7 +926,7 @@ html { scrollbar-gutter: stable both-edges; }
       transparent 100%
     );
   background-size: 100% 100%, 400% 400%;
-  background-position: 0 0, -60% -60%;
+  background-position: 0 0, -120% -120%;
   background-repeat: no-repeat, no-repeat;
   animation: outcomeGoldSweep 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 
@@ -938,8 +938,8 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 @keyframes outcomeGoldSweep {
-  0%   { background-position: 0 0,  60%  60%; }
-  100% { background-position: 0 0, -60% -60%; }
+  0%   { background-position: 0 0,  120%  120%; }
+  100% { background-position: 0 0, -120% -120%; }
 }
 
 .tile-outcome-glow:hover {
