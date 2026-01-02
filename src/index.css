@@ -903,19 +903,20 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .tile-outcome-glow {
-  background: radial-gradient(circle at top left,
-    rgba(55, 65, 81, 0.9),
-    rgba(31, 41, 55, 0.95)
-  );
   background-image:
     linear-gradient(
       135deg,
-      transparent 35%,
-      rgba(212,175,55,0.18) 50%,
-      transparent 65%
+      transparent 45%,
+      rgba(212,175,55,0.22) 50%,
+      transparent 55%
+    ),
+    radial-gradient(circle at top left,
+      rgba(55, 65, 81, 0.9),
+      rgba(31, 41, 55, 0.95)
     );
-  background-size: 300% 300%;
-  animation: outcomeGoldVein 20s linear infinite;
+  background-size: 300% 300%, 100% 100%;
+  background-position: -150% -150%, 0% 0%;
+  animation: outcomeGoldVein 22s ease-in-out infinite;
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
     0 0 22px rgba(212, 175, 55, 0.28);
@@ -1086,10 +1087,10 @@ html { scrollbar-gutter: stable both-edges; }
 
 @keyframes outcomeGoldVein {
   0% {
-    background-position: -150% -150%;
+    background-position: -150% -150%, 0% 0%;
   }
   100% {
-    background-position: 150% 150%;
+    background-position: 150% 150%, 0% 0%;
   }
 }
 
