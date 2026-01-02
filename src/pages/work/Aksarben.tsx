@@ -400,7 +400,7 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              className="h-[220px] w-auto select-none pointer-events-none relative z-10"
+              className="h-[220px] w-auto select-none pointer-events-none relative z-10 -translate-y-[86px]"
               loading="eager"
               decoding="sync"
               style={{
