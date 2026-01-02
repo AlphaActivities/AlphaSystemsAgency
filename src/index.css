@@ -928,7 +928,7 @@ html { scrollbar-gutter: stable both-edges; }
   background-size: 100% 100%, 400% 400%;
   background-position: 0 0, -150% -150%;
   background-repeat: no-repeat, no-repeat;
-  animation: outcomeGoldSweep 6s ease-in-out infinite;
+  animation: outcomeGoldSweep 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
