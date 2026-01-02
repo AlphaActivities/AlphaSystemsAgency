@@ -820,6 +820,12 @@ html { scrollbar-gutter: stable both-edges; }
   transform: translateY(0);
 }
 
+/* Luxury Cascade Trigger - No transform on container, only triggers cascade items */
+.luxury-cascade-trigger {
+  opacity: 1;
+  transform: none;
+}
+
 /* Luxury Cascade Item - For nested content that cascades after parent appears */
 .luxury-cascade-item {
   opacity: 0;
