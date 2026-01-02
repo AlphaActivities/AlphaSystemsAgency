@@ -926,9 +926,9 @@ html { scrollbar-gutter: stable both-edges; }
       transparent 100%
     );
   background-size: 100% 100%, 400% 400%;
-  background-position: 0 0, -100% -100%;
+  background-position: 0 0, -60% -60%;
   background-repeat: no-repeat, no-repeat;
-  animation: outcomeGoldSweep 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: outcomeGoldSweep 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
@@ -938,8 +938,8 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 @keyframes outcomeGoldSweep {
-  0%   { background-position: 0 0,  100%  100%; }
-  100% { background-position: 0 0, -100% -100%; }
+  0%   { background-position: 0 0,  60%  60%; }
+  100% { background-position: 0 0, -60% -60%; }
 }
 
 .tile-outcome-glow:hover {
