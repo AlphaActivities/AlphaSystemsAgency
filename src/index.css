@@ -135,6 +135,11 @@
   transform: translateY(-1px);
 }
 
+.tile.tile-outcome-glow::after {
+  content: none !important;
+  display: none !important;
+}
+
 .tile-uv-glow {
   border: 1px solid rgba(122, 44, 255, 0.95);
   box-shadow:
@@ -903,15 +908,38 @@ html { scrollbar-gutter: stable both-edges; }
 }
 
 .tile-outcome-glow {
-  background: radial-gradient(circle at top left,
-    rgba(55, 65, 81, 0.9),
-    rgba(31, 41, 55, 0.95)
-  );
+  background-image:
+    radial-gradient(circle at top left,
+      rgba(55, 65, 81, 0.9),
+      rgba(31, 41, 55, 0.95)
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(212, 175, 55, 0.00) 46%,
+      rgba(212, 175, 55, 0.16) 49%,
+      rgba(244, 208, 63, 0.22) 50%,
+      rgba(212, 175, 55, 0.16) 51%,
+      rgba(212, 175, 55, 0.00) 54%,
+      transparent 56%,
+      transparent 100%
+    );
+  background-size: 100% 100%, 240% 240%;
+  background-position: 0 0, -140% -140%;
+  animation: outcomeGoldSweep 6s ease-in-out infinite;
+
   box-shadow:
     0 0 10px rgba(212, 175, 55, 0.55),
     0 0 22px rgba(212, 175, 55, 0.28);
   border-color: rgba(212, 175, 55, 0.95);
   transition: background 300ms ease, box-shadow 300ms ease, border-color 300ms ease, opacity 1200ms cubic-bezier(0.23, 1, 0.32, 1), transform 1200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes outcomeGoldSweep {
+  0%   { background-position: 0 0, -140% -140%; }
+  50%  { background-position: 0 0,  140%  140%; }
+  100% { background-position: 0 0, -140% -140%; }
 }
 
 .tile-outcome-glow:hover {
