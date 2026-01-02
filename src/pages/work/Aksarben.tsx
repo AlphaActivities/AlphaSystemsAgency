@@ -434,7 +434,7 @@ export default function Aksarben() {
               {contributors.map((contributor, idx) => (
                 <div key={idx} className="flex flex-col items-start">
                   <div className="luxury-cascade-item relative mb-4" data-delay="300">
-                    <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#d4af37]/40 shadow-[0_0_24px_rgba(212,175,55,0.4)]">
+                    <div className="profile-photo-hover w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#d4af37]/40 shadow-[0_0_24px_rgba(212,175,55,0.4)]">
                       <img
                         src={contributor.image}
                         alt={contributor.name}
