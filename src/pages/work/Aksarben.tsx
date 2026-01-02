@@ -396,14 +396,19 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6 py-6">
-          <div className="relative inline-flex justify-center h-[221px] py-8 mb-8">
+          <div className="relative inline-flex justify-center h-12 py-8 mb-8">
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
+              className="h-12 w-auto select-none pointer-events-none relative z-10"
               loading="eager"
               decoding="sync"
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[221px] w-auto select-none pointer-events-none z-10"
-              draggable={false}
+              style={{
+                transform: "scale(4.6)",
+                transformOrigin: "center",
+                willChange: "auto",
+                backfaceVisibility: "hidden"
+              }}
             />
           </div>
         </div>
