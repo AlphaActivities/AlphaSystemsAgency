@@ -397,6 +397,13 @@ export default function Aksarben() {
           Verified Outcome
         </div>
         <div className="relative w-full flex justify-center pt-2 mb-6 py-6">
+          <svg width="0" height="0" style={{ position: 'absolute' }}>
+            <defs>
+              <filter id="sharpen">
+                <feConvolveMatrix order="3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" />
+              </filter>
+            </defs>
+          </svg>
           <div className="relative inline-flex justify-center h-12 py-8 mb-8">
             <img
               src="/images/extras/green-ribbon.png"
@@ -408,13 +415,13 @@ export default function Aksarben() {
               style={{
                 transform: "scale(4.6)",
                 transformOrigin: "center",
-                willChange: "auto",
                 backfaceVisibility: "hidden",
-                opacity: ribbonLoaded ? 1 : 0,
-                transition: "opacity 0.2s ease-in",
-                imageRendering: "-webkit-optimize-contrast",
-                WebkitFontSmoothing: "antialiased",
-                filter: "contrast(1.1) brightness(1.05)"
+                WebkitBackfaceVisibility: "hidden",
+                perspective: "1000px",
+                WebkitPerspective: "1000px",
+                opacity: 1,
+                imageRendering: "high-quality",
+                filter: "contrast(1.15) saturate(1.1) brightness(1.03) url(#sharpen)"
               }}
             />
           </div>
