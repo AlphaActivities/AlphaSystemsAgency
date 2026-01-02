@@ -400,16 +400,14 @@ export default function Aksarben() {
             <img
               src="/images/extras/green-ribbon.png"
               alt="Client Outcome"
-              width="166"
-              height="48"
-              decoding="async"
-              loading="eager"
               className="h-12 w-auto select-none pointer-events-none relative z-10"
+              loading="eager"
+              decoding="sync"
               style={{
                 transform: "scale(4.6)",
                 transformOrigin: "center",
-                backfaceVisibility: "hidden",
-                imageRendering: "auto"
+                willChange: "auto",
+                backfaceVisibility: "hidden"
               }}
             />
           </div>
