@@ -407,7 +407,8 @@ export default function Aksarben() {
                 transform: "scale(4.6)",
                 transformOrigin: "center",
                 willChange: "auto",
-                backfaceVisibility: "hidden"
+                backfaceVisibility: "hidden",
+                imageRendering: "-webkit-optimize-contrast"
               }}
             />
           </div>
