@@ -13,11 +13,12 @@ export default function Work() {
       slug: "/work/aksarben-locksmiths"
     },
     {
-      title: "Coming soon",
-      client: "Tech Startup",
-      description: "Coming soon",
-      image: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2026-01-01"
+      title: "Classy Roofs Market Growth Case Study",
+      client: "Classy Roofs",
+      description: "Roofing lead generation and installation-focused growth system validated through a 17-day test campaign.",
+      image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2024-12-01",
+      slug: "/work/classy-roofs"
     },
     {
       title: "Coming soon",

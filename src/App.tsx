@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Privacy from "./pages/Privacy";
 import Aksarben from "./pages/work/Aksarben";
+import ClassyRoofs from "./pages/work/ClassyRoofs";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/aksarben-locksmiths" element={<Aksarben />} />
+            <Route path="/work/classy-roofs" element={<ClassyRoofs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/team" element={<Team />} />
