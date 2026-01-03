@@ -176,7 +176,7 @@ export default function RocketBaller() {
             <img
               src="/images/company-logos/Rocket Baller logo.PNG"
               alt="Rocket Baller Logo"
-              className="h-24 sm:h-28 md:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+              className="h-32 sm:h-36 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0"
             />
           </div>
         </div>
