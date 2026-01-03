@@ -439,36 +439,15 @@ export default function ClassyRoofs() {
                 </div>
               ))}
 
-              <div className="pt-4 border-t border-white/10">
-                <div className="flex flex-col items-start">
-                  <div className="luxury-cascade-item relative mb-4" data-delay="900">
-                    <div className="profile-photo-hover w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#d4af37]/40 shadow-[0_0_24px_rgba(212,175,55,0.4)]">
-                      <img
-                        src="/images/profile-photos/Alpha-Logo.png"
-                        alt="Alpha Systems Agency"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+              <div className="luxury-cascade-item mt-6 relative impact-container" data-delay="900">
+                <div className="absolute inset-0 rounded-lg"></div>
+                <div className="relative border border-[#d4af37]/30 rounded-lg p-4">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-0.5 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] rounded-full text-[10px] font-bold text-gray-900 uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.5)]">
+                    Impact
                   </div>
-                  <div className="luxury-cascade-item" data-delay="900">
-                    <h4 className="font-bold text-white mb-2 text-center w-24 text-sm">
-                      Alpha Systems
-                    </h4>
-                  </div>
-                  <div className="luxury-cascade-item flex flex-wrap gap-2 justify-start" data-delay="1200">
-                    <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                      Case Study System
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                      UX Design
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                      Presentation
-                    </span>
-                  </div>
+                  <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
+                    Abdul designed & executed the complete lead generation system that delivered <span className="font-semibold text-[#f4d03f] whitespace-nowrap">72+ roofing enquiries in 17 days</span>.
+                  </p>
                 </div>
               </div>
             </div>
