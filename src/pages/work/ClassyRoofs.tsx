@@ -446,7 +446,7 @@ export default function ClassyRoofs() {
                     Impact
                   </div>
                   <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                    Abdul designed & executed the complete lead generation system that delivered <span className="font-semibold text-[#f4d03f] whitespace-nowrap">72+ roofing enquiries in 17 days</span>.
+                    Abdul designed & executed the complete lead generation system that delivered a direct result of <span className="font-semibold text-[#f4d03f] whitespace-nowrap">72+ roofing enquiries in 17 days</span>.
                   </p>
                 </div>
               </div>
