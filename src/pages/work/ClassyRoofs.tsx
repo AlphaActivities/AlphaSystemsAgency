@@ -191,7 +191,7 @@ export default function ClassyRoofs() {
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Validation Phase</div>
-          <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">17 Days</div>
+          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={17} label=" Days" duration={1700} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Avg Cost per Lead</div>
