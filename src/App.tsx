@@ -14,6 +14,12 @@ import Services from "./pages/Services";
 import Privacy from "./pages/Privacy";
 import Aksarben from "./pages/work/Aksarben";
 import ClassyRoofs from "./pages/work/ClassyRoofs";
+import TripleWRentals from "./pages/work/TripleWRentals";
+import RocketBaller from "./pages/work/RocketBaller";
+import Remax from "./pages/work/Remax";
+import CentreDentaire from "./pages/work/CentreDentaire";
+import EliteBarbershop from "./pages/work/EliteBarbershop";
+import CultureBarbershop from "./pages/work/CultureBarbershop";
 
 function App() {
   return (
@@ -32,6 +38,12 @@ function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/work/aksarben-locksmiths" element={<Aksarben />} />
             <Route path="/work/classy-roofs" element={<ClassyRoofs />} />
+            <Route path="/work/triple-w-rentals" element={<TripleWRentals />} />
+            <Route path="/work/rocket-baller" element={<RocketBaller />} />
+            <Route path="/work/remax" element={<Remax />} />
+            <Route path="/work/centre-dentaire" element={<CentreDentaire />} />
+            <Route path="/work/elite-barbershop" element={<EliteBarbershop />} />
+            <Route path="/work/culture-barbershop" element={<CultureBarbershop />} />
             <Route path="/services" element={<Services />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/team" element={<Team />} />

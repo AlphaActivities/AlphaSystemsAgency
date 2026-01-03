@@ -21,11 +21,52 @@ export default function Work() {
       slug: "/work/classy-roofs"
     },
     {
-      title: "Coming soon",
-      client: "Agency",
-      description: "Coming soon",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2026-01-01"
+      title: "Triple W Rentals Case Study",
+      client: "Triple W Rentals",
+      description: "Complete digital presence and rental property management platform",
+      image: "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/triple-w-rentals"
+    },
+    {
+      title: "Rocket Baller Case Study",
+      client: "Rocket Baller",
+      description: "Sports brand website and e-commerce platform",
+      image: "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/rocket-baller"
+    },
+    {
+      title: "Remax Case Study",
+      client: "Remax",
+      description: "Real estate website with property listings and agent profiles",
+      image: "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/remax"
+    },
+    {
+      title: "Centre Dentaire Case Study",
+      client: "Centre Dentaire",
+      description: "Modern dental practice website with appointment booking",
+      image: "https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/centre-dentaire"
+    },
+    {
+      title: "Elite Barbershop Case Study",
+      client: "Elite Barbershop",
+      description: "Premium barbershop website with online booking system",
+      image: "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/elite-barbershop"
+    },
+    {
+      title: "Culture Barbershop Case Study",
+      client: "Culture Barbershop",
+      description: "Modern barbershop brand and digital booking platform",
+      image: "https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=800",
+      launchDate: "2025-01-01",
+      slug: "/work/culture-barbershop"
     }
   ];
 
