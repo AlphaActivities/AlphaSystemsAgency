@@ -343,13 +343,37 @@ export default function ClassyRoofs() {
       </div>
 
       <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
-        <div className="luxury-image-hover relative">
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center min-h-[400px]">
-            <span className="text-red-400 font-semibold text-center px-4">[PLACEHOLDER: awaiting analytics screenshot]</span>
-          </div>
+        <div
+          className="luxury-image-hover"
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            setModalContent({
+              imageSrc: "/images/our-work-photos/Abdul/classy-roofs-income-report-oct-9th-to-oct-22nd.jpeg",
+              caption: "GA4 Revenue Overview, 17 Days Report, Classy Roofs"
+            });
+            setModalOpen(true);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setModalContent({
+                imageSrc: "/images/our-work-photos/Abdul/classy-roofs-income-report-oct-9th-to-oct-22nd.jpeg",
+                caption: "GA4 Revenue Overview, 17 Days Report, Classy Roofs"
+              });
+              setModalOpen(true);
+            }
+          }}
+        >
+          <img
+            src="/images/our-work-photos/Abdul/classy-roofs-income-report-oct-9th-to-oct-22nd.jpeg"
+            alt="GA4 Revenue Overview - Classy Roofs"
+            className="w-full h-full object-cover"
+          />
           <div className="luxury-image-hover-btn">
-            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10 opacity-50 cursor-not-allowed">
-              <span className="text-red-400 font-semibold">[Analytics data pending]</span>
+            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              View Revenue Overview
+              <ArrowUpRight size={18} />
             </span>
           </div>
         </div>
