@@ -41,7 +41,7 @@ export default function Work() {
       client: "Centre Dentaire - Laval, Canada",
       description: "Conversion-ready Invisalign-focused dental website preparing for Google Ads launch",
       image: "https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2024-11-01",
+      launchDate: "2024-12-01",
       slug: "/work/centre-dentaire"
     },
     {
