@@ -181,7 +181,7 @@ export default function Remax() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Real estate website project - delivery complete
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function Remax() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              A real estate partner needed a professional website to establish their online presence and prepare for future growth initiatives.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function Remax() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Website project delivered for real estate partner to support their business operations.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function Remax() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Website completed and delivered successfully. Paid media phase was not executed due to client disengagement after delivery.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function Remax() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              This is a delivery-complete, non-scaled engagement. <span className="text-red-500 font-semibold">[Additional project details and dates needed]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function Remax() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Delivered complete website for real estate partner. Engagement concluded upon delivery.
                 </p>
               </div>
             </div>

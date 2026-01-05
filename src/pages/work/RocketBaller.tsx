@@ -181,7 +181,7 @@ export default function RocketBaller() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Online custom glove brand - brand repositioning and market awareness launch
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function RocketBaller() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              Rocket Baller needed brand repositioning and awareness to compete effectively in the custom glove market and establish a presence across major platforms.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function RocketBaller() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Executed brand repositioning with social media marketing launch, branding assets, and platform setup across all three major social platforms.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function RocketBaller() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Rocket Baller successfully launched with 7,000+ views in the first month and established brand presence across all three major social media platforms through comprehensive brand repositioning.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function RocketBaller() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              Brand awareness and launch phase successfully completed. <span className="text-red-500 font-semibold">[Campaign dates and additional metrics needed]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function RocketBaller() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Repositioned brand and launched social presence generating 7K+ views in first month across all major platforms.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function RocketBaller() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 1]</span></span>
+                <span>7,000+ views generated in one month</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 2]</span></span>
+                <span>Brand activated across all three major social platforms</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 3]</span></span>
+                <span>Brand awareness and launch phase completed</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 4]</span></span>
+                <span><span className="text-red-500 font-semibold">[Additional result data if available]</span></span>
               </li>
               </ul>
 

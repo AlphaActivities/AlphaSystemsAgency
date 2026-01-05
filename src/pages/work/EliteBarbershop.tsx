@@ -181,7 +181,7 @@ export default function EliteBarbershop() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Key Client System implementation - 9 new clients, $4,000+ revenue in 2 months
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function EliteBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              Elite Barbershop needed a systematic approach to increase new customer acquisition and grow their client base consistently.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function EliteBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Implemented a Key Client System (KCS) with lead generation infrastructure to drive consistent new customer acquisition.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function EliteBarbershop() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Elite Barbershop's Key Client System implementation generated 9 new clients and $4,000+ in revenue within a 2-month period, establishing a validated revenue-producing system.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function EliteBarbershop() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              System validated for consistent new customer acquisition. <span className="text-red-500 font-semibold">[Exact campaign dates and additional metrics needed]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function EliteBarbershop() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Implemented KCS generating 9 new clients and $4K+ revenue in 2 months. Validated revenue system.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function EliteBarbershop() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 1]</span></span>
+                <span>9 new clients acquired</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 2]</span></span>
+                <span>$4,000+ revenue generated</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 3]</span></span>
+                <span>Achieved within a 2-month period</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 4]</span></span>
+                <span>Validated revenue-producing system</span>
               </li>
               </ul>
 

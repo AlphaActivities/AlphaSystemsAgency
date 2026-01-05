@@ -181,7 +181,7 @@ export default function CentreDentaire() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Professional dental website build - preparing for Google Ads launch
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function CentreDentaire() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              Centre Dentaire needed a professional website foundation to support their practice and prepare for future growth through paid acquisition channels.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function CentreDentaire() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Professional website design and development delivered as the foundation for future growth initiatives.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function CentreDentaire() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Centre Dentaire's professional website is complete and the practice is currently preparing for Google Ads launch to begin paid acquisition.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function CentreDentaire() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              Active project in transition to paid acquisition phase. <span className="text-red-500 font-semibold">[Google Ads launch date and additional metrics will be available post-launch]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function CentreDentaire() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Professional website delivered as foundation for growth. Preparing for Google Ads launch.
                 </p>
               </div>
             </div>

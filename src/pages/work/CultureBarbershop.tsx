@@ -181,7 +181,7 @@ export default function CultureBarbershop() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Conversion-focused website - Google Ads launching this month
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function CultureBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              Culture Barbershop needed a high-converting website foundation to support their business and enable future paid acquisition efforts.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function CultureBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Conversion-focused website design and development optimized for lead generation and customer acquisition.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function CultureBarbershop() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Culture Barbershop's website is actively converting visitors and Google Ads is launching this month to scale customer acquisition.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function CultureBarbershop() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              Foundation complete, scaling phase upcoming. <span className="text-red-500 font-semibold">[Conversion metrics and Google Ads launch data will be available post-launch]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function CultureBarbershop() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Conversion-focused website actively converting. Google Ads launching this month.
                 </p>
               </div>
             </div>

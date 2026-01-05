@@ -181,7 +181,7 @@ export default function TripleWRentals() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          <span className="text-red-500 font-semibold">[DATA NEEDED: Client subtitle/industry description]</span>
+          Full-funnel marketing system for brand awareness and lead generation
         </p>
       </div>
 
@@ -223,7 +223,7 @@ export default function TripleWRentals() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client problem description]</span>
+              Triple W Rentals needed to expand their market reach and generate consistent lead flow across multiple channels to grow their rental business.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function TripleWRentals() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Solution description]</span>
+              Implemented a comprehensive full-funnel marketing system including Social Media Marketing, Google Ads, Meta Ads, Website Redesign, Email Marketing for past leads, and SMS/Text Message Marketing.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function TripleWRentals() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Client outcome description]</span>
+              Triple W Rentals successfully implemented a full-funnel marketing system that generated $14,000 in documented revenue across multiple channels including organic social media, SMS campaigns, and Google Ads.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function TripleWRentals() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              <span className="text-red-500 font-semibold">[DATA NEEDED: Additional outcome details]</span>
+              The active growth system continues to drive brand awareness and lead generation. <span className="text-red-500 font-semibold">[Start date and campaign duration data needed]</span>
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function TripleWRentals() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  <span className="text-red-500 font-semibold">[DATA NEEDED: Impact statement]</span>
+                  Built and deployed a complete full-funnel marketing system generating $14K in verified revenue across social, SMS, and paid search channels.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function TripleWRentals() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 1]</span></span>
+                <span>$4,000 generated from organic social media</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 2]</span></span>
+                <span>$4,000 generated from SMS campaigns</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 3]</span></span>
+                <span>$6,000 generated from Google Ads</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 4]</span></span>
+                <span>Active growth system delivered</span>
               </li>
               </ul>
 
