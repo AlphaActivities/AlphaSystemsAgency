@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Counter from "../../components/ui/Counter";
 import ImageModal from "../../components/ui/ImageModal";
 import { Link } from "react-router-dom";
+import { projects, calculateWeeksLive } from "../../data/projects";
 import {
   Sparkles,
   Gauge,
@@ -146,7 +147,7 @@ export default function CentreDentaire() {
     requestAnimationFrame(checkScrollComplete);
   }, []);
 
-  const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-01-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
+  const weeksLive = calculateWeeksLive(projects['centre-dentaire'].kickoffDate);
 
   const contributors = [
     {
@@ -187,12 +188,12 @@ export default function CentreDentaire() {
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Location</div>
-          <div className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Laval, Canada</div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
+          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Timeline</div>
-          <div className="text-lg font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Nov → Dec</div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Location</div>
+          <div className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Laval, Canada</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Status</div>

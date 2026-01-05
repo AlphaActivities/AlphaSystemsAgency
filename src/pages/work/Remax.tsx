@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Counter from "../../components/ui/Counter";
 import ImageModal from "../../components/ui/ImageModal";
 import { Link } from "react-router-dom";
+import { projects, calculateWeeksLive } from "../../data/projects";
 import {
   Sparkles,
   Gauge,
@@ -146,7 +147,7 @@ export default function Remax() {
     requestAnimationFrame(checkScrollComplete);
   }, []);
 
-  const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-01-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
+  const weeksLive = calculateWeeksLive(projects['remax'].kickoffDate);
 
   const contributors = [
     {
