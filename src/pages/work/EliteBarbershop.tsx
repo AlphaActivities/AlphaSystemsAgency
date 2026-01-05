@@ -192,8 +192,8 @@ export default function EliteBarbershop() {
           <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">New Clients</div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={9} duration={1400} /></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Location</div>
+          <div className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Laval, Canada</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
           <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Revenue Generated</div>
@@ -207,9 +207,10 @@ export default function EliteBarbershop() {
             <span className="text-red-500 font-semibold text-center px-4">[PLACEHOLDER: Website screenshot needed]</span>
           </div>
           <div className="luxury-image-hover-btn">
-            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10 opacity-50 cursor-not-allowed">
-              <span className="text-red-500 font-semibold">[Live site URL needed]</span>
-            </span>
+            <a href="https://elitebyhadi.com" target="_blank" rel="noopener noreferrer" className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              <span>Visit Live Site</span>
+              <ArrowUpRight size={20} />
+            </a>
           </div>
         </div>
       </div>
@@ -510,9 +511,10 @@ export default function EliteBarbershop() {
 
               {/* CTA Button inside tile */}
               <div className="pt-4 flex justify-center md:justify-end">
-                <div className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold opacity-50 cursor-not-allowed w-full md:w-auto max-w-xs md:max-w-none justify-center relative z-10">
-                  <span className="text-red-500 font-semibold">[Live site URL needed]</span>
-                </div>
+                <a href="https://elitebyhadi.com" target="_blank" rel="noopener noreferrer" className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold w-full md:w-auto max-w-xs md:max-w-none justify-center relative z-10">
+                  <span>Visit Live Site</span>
+                  <ArrowUpRight size={20} />
+                </a>
               </div>
             </div>
           </div>
