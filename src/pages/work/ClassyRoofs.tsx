@@ -200,16 +200,24 @@ export default function ClassyRoofs() {
       </div>
 
       <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
-        <div className="luxury-image-hover relative">
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center min-h-[400px]">
-            <span className="text-red-400 font-semibold text-center px-4">[PLACEHOLDER: awaiting website screenshot]</span>
-          </div>
+        <a
+          href="https://classyroofing.classygroups.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="luxury-image-hover"
+        >
+          <img
+            src="/images/our-work-photos/Abdul/classy-roofs.png"
+            alt="Classy Roofs Website"
+            className="w-full h-full object-cover"
+          />
           <div className="luxury-image-hover-btn">
-            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10 opacity-50 cursor-not-allowed">
-              <span className="text-red-400 font-semibold">[Live site pending]</span>
+            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              Visit Live Site
+              <ArrowUpRight size={18} />
             </span>
           </div>
-        </div>
+        </a>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -523,6 +531,18 @@ export default function ClassyRoofs() {
                   </div>
                   <span>Case study system, UX design, and presentation developed by Alpha Systems Agency.</span>
                 </div>
+              </div>
+
+              <div className="pt-4 flex justify-center md:justify-end">
+                <a
+                  href="https://classyroofing.classygroups.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold hover:shadow-[0_0_30px_rgba(212,175,55,.35)] w-full md:w-auto max-w-xs md:max-w-none justify-center relative z-10"
+                >
+                  Visit Live Site
+                  <ArrowUpRight size={18} />
+                </a>
               </div>
             </div>
           </div>
