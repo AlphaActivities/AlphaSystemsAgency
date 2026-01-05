@@ -146,8 +146,6 @@ export default function EliteBarbershop() {
     requestAnimationFrame(checkScrollComplete);
   }, []);
 
-  const weeksLive = Math.max(0, Math.floor((Date.now() - new Date('2025-01-01T00:00:00-05:00').getTime()) / (1000*60*60*24*7)));
-
   const contributors = [
     {
       name: "Juan",
