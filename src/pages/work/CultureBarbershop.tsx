@@ -181,22 +181,22 @@ export default function CultureBarbershop() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          Conversion-focused website - Google Ads launching this month
+          Conversion-ready system - website live and actively converting, Google Ads launching this month
         </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Launch Date</div>
+          <div className="text-xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">December</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Status</div>
+          <div className="text-xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Live & Converting</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Google Ads</div>
+          <div className="text-xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Launching Soon</div>
         </div>
       </div>
 
@@ -223,7 +223,7 @@ export default function CultureBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Culture Barbershop needed a high-converting website foundation to support their business and enable future paid acquisition efforts.
+              Culture Barbershop needed a conversion-ready website to support their business growth and establish a foundation for paid acquisition campaigns.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function CultureBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Conversion-focused website design and development optimized for lead generation and customer acquisition.
+              Conversion-ready website launched in December. Site is live and actively converting visitors. Google Ads campaign launching this month to scale customer acquisition for ongoing client.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function CultureBarbershop() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              Culture Barbershop's website is actively converting visitors and Google Ads is launching this month to scale customer acquisition.
+              Culture Barbershop's conversion-ready website launched in December as an ongoing client project. The site is live and actively converting visitors. Google Ads campaign launching this month to scale customer acquisition.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function CultureBarbershop() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              Foundation complete, scaling phase upcoming. <span className="text-red-500 font-semibold">[Conversion metrics and Google Ads launch data will be available post-launch]</span>
+              Website live and converting. Google Ads launching this month. Performance metrics will be available post-launch.
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function CultureBarbershop() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  Conversion-focused website actively converting. Google Ads launching this month.
+                  Conversion-ready website launched December. Live and converting. Google Ads launching this month. Ongoing client.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function CultureBarbershop() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 1]</span></span>
+                <span>Website launched December for ongoing client</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 2]</span></span>
+                <span>Site live and actively converting visitors</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 3]</span></span>
+                <span>Google Ads campaign launching this month</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 4]</span></span>
+                <span>Conversion-ready foundation for paid traffic scaling</span>
               </li>
               </ul>
 
@@ -491,19 +491,19 @@ export default function CultureBarbershop() {
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
+                  <span>Ongoing client relationship with active conversion monitoring and optimization.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
+                  <span>Website launched December, currently in paid traffic preparation phase.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="5500">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Domain ownership resides with the client.</span>
+                  <span>Google Ads launching this month to scale customer acquisition.</span>
                 </div>
               </div>
 

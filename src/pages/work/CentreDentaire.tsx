@@ -181,22 +181,22 @@ export default function CentreDentaire() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          Professional dental website build - preparing for Google Ads launch
+          Conversion-ready Invisalign-focused website - preparing for Google Ads launch
         </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Location</div>
+          <div className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Laval, Canada</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Timeline</div>
+          <div className="text-lg font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Nov → Dec</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Status</div>
+          <div className="text-lg font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Live & Converting</div>
         </div>
       </div>
 
@@ -223,7 +223,7 @@ export default function CentreDentaire() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Centre Dentaire needed a professional website foundation to support their practice and prepare for future growth through paid acquisition channels.
+              Centre Dentaire, a dental practice in Laval, Canada, needed a conversion-optimized website to increase Invisalign lead volume and establish a foundation for paid acquisition campaigns.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function CentreDentaire() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Professional website design and development delivered as the foundation for future growth initiatives.
+              Conversion-ready website build completed in December, optimized for Invisalign lead generation. Site is live and currently in paid traffic preparation phase with Google Ads launch upcoming.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function CentreDentaire() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              Centre Dentaire's professional website is complete and the practice is currently preparing for Google Ads launch to begin paid acquisition.
+              Centre Dentaire's conversion-ready website launched in December as a recurring client project. The Invisalign-focused site is live and currently in paid traffic preparation phase, with Google Ads launching soon to scale lead volume.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function CentreDentaire() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              Active project in transition to paid acquisition phase. <span className="text-red-500 font-semibold">[Google Ads launch date and additional metrics will be available post-launch]</span>
+              Website build complete. Google Ads campaign launching to drive Invisalign leads. Performance metrics will be available post-launch.
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function CentreDentaire() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  Professional website delivered as foundation for growth. Preparing for Google Ads launch.
+                  Conversion-ready Invisalign-focused website delivered. Recurring client. Google Ads launching soon.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function CentreDentaire() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 1]</span></span>
+                <span>Website completed December, launched for recurring client</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 2]</span></span>
+                <span>Conversion-optimized for Invisalign lead generation</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 3]</span></span>
+                <span>Site live and currently preparing for Google Ads launch</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span><span className="text-red-500 font-semibold">[DATA NEEDED: Result 4]</span></span>
+                <span>Foundation ready for paid acquisition scaling</span>
               </li>
               </ul>
 
@@ -491,19 +491,19 @@ export default function CentreDentaire() {
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
+                  <span>Recurring client relationship with ongoing support and growth planning.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
+                  <span>Website build completed in December, focusing on Invisalign lead conversion.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="5500">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Domain ownership resides with the client.</span>
+                  <span>Google Ads campaign launching to scale lead volume for the practice.</span>
                 </div>
               </div>
 

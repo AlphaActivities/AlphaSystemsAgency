@@ -181,22 +181,22 @@ export default function EliteBarbershop() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          Key Client System implementation - 9 new clients, $4,000+ revenue in 2 months
+          Validated revenue system - 9 new clients and $4,000+ revenue in approximately 2 months
         </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Total Weeks Live</div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={weeksLive} duration={1400} /></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Location</div>
+          <div className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">Laval, Canada</div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">New Clients</div>
+          <div className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><Counter to={9} duration={1400} /></div>
         </div>
         <div className="tile tile-uv-glow p-8 text-center">
-          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2"><span className="text-red-500 font-semibold">[METRIC NEEDED]</span></div>
-          <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]"><span className="text-red-500 font-semibold">[DATA]</span></div>
+          <div className="text-sm text-white uppercase tracking-wider font-semibold mb-2">Revenue Generated</div>
+          <div className="text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#d4af37] to-[#f4d03f] bg-clip-text text-transparent [text-shadow:0_0_30px_rgba(212,175,55,0.6)]">$4,000+</div>
         </div>
       </div>
 
@@ -223,7 +223,7 @@ export default function EliteBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Elite Barbershop needed a systematic approach to increase new customer acquisition and grow their client base consistently.
+              Elite Barbershop, a barbershop in Laval, Canada, needed a validated system to systematically acquire new clients and generate measurable revenue growth.
             </p>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function EliteBarbershop() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              Implemented a Key Client System (KCS) with lead generation infrastructure to drive consistent new customer acquisition.
+              Implemented Key Customer System (KCS) starting in June. System generated meaningful results by month 3, acquiring 9 new clients and producing approximately $4,000+ in revenue within a 2-month period.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function EliteBarbershop() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              Elite Barbershop's Key Client System implementation generated 9 new clients and $4,000+ in revenue within a 2-month period, establishing a validated revenue-producing system.
+              Elite Barbershop's Key Customer System (KCS), launched in June as a recurring client project, generated 9 new clients and approximately $4,000+ in revenue within a 2-month period. Results became meaningful by month 3, validating the revenue-producing system.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -390,7 +390,7 @@ export default function EliteBarbershop() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              System validated for consistent new customer acquisition. <span className="text-red-500 font-semibold">[Exact campaign dates and additional metrics needed]</span>
+              Validated revenue system demonstrating consistent new customer acquisition for the barbershop practice.
             </p>
           </div>
         </div>
@@ -446,7 +446,7 @@ export default function EliteBarbershop() {
                   Impact
                 </div>
                 <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                  Implemented KCS generating 9 new clients and $4K+ revenue in 2 months. Validated revenue system.
+                  KCS launched June, meaningful results by month 3. 9 new clients, $4,000+ revenue in ≈2 months. Recurring client.
                 </p>
               </div>
             </div>
@@ -464,19 +464,19 @@ export default function EliteBarbershop() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>9 new clients acquired</span>
+                <span>KCS launched June, meaningful results by month 3</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>$4,000+ revenue generated</span>
+                <span>9 new clients acquired within approximately 2-month period</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>Achieved within a 2-month period</span>
+                <span>Approximately $4,000+ revenue generated</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>Validated revenue-producing system</span>
+                <span>Validated revenue system for recurring client</span>
               </li>
               </ul>
 
@@ -491,19 +491,19 @@ export default function EliteBarbershop() {
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>The outcome reflects a unified system where paid traffic, content, and local search work together.</span>
+                  <span>Recurring client relationship with ongoing system optimization and growth support.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Website, SEO, content, and paid media systems were fully designed and executed by Alpha Systems.</span>
+                  <span>KCS implementation started June, with meaningful results observed by month 3.</span>
                 </div>
                 <div className="flex items-start gap-3 results-cascade-item" data-delay="5500">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Shield className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Domain ownership resides with the client.</span>
+                  <span>Conservative revenue framing: approximately $4,000+ generated over 2-month period.</span>
                 </div>
               </div>
 

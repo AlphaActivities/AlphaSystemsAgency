@@ -16,7 +16,6 @@ import Aksarben from "./pages/work/Aksarben";
 import ClassyRoofs from "./pages/work/ClassyRoofs";
 import TripleWRentals from "./pages/work/TripleWRentals";
 import RocketBaller from "./pages/work/RocketBaller";
-import Remax from "./pages/work/Remax";
 import CentreDentaire from "./pages/work/CentreDentaire";
 import EliteBarbershop from "./pages/work/EliteBarbershop";
 import CultureBarbershop from "./pages/work/CultureBarbershop";
@@ -40,7 +39,6 @@ function App() {
             <Route path="/work/classy-roofs" element={<ClassyRoofs />} />
             <Route path="/work/triple-w-rentals" element={<TripleWRentals />} />
             <Route path="/work/rocket-baller" element={<RocketBaller />} />
-            <Route path="/work/remax" element={<Remax />} />
             <Route path="/work/centre-dentaire" element={<CentreDentaire />} />
             <Route path="/work/elite-barbershop" element={<EliteBarbershop />} />
             <Route path="/work/culture-barbershop" element={<CultureBarbershop />} />

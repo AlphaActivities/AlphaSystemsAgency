@@ -37,35 +37,27 @@ export default function Work() {
       slug: "/work/rocket-baller"
     },
     {
-      title: "Remax Case Study",
-      client: "Remax",
-      description: "Real estate website with property listings and agent profiles",
-      image: "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2025-01-01",
-      slug: "/work/remax"
-    },
-    {
       title: "Centre Dentaire Case Study",
-      client: "Centre Dentaire",
-      description: "Modern dental practice website with appointment booking",
+      client: "Centre Dentaire - Laval, Canada",
+      description: "Conversion-ready Invisalign-focused dental website preparing for Google Ads launch",
       image: "https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2025-01-01",
+      launchDate: "2024-12-01",
       slug: "/work/centre-dentaire"
     },
     {
       title: "Elite Barbershop Case Study",
-      client: "Elite Barbershop",
-      description: "Premium barbershop website with online booking system",
+      client: "Elite Barbershop - Laval, Canada",
+      description: "Validated revenue system: 9 new clients and $4,000+ revenue in 2 months",
       image: "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2025-01-01",
+      launchDate: "2024-06-01",
       slug: "/work/elite-barbershop"
     },
     {
       title: "Culture Barbershop Case Study",
       client: "Culture Barbershop",
-      description: "Modern barbershop brand and digital booking platform",
+      description: "Conversion-ready website live and converting - Google Ads launching this month",
       image: "https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=800",
-      launchDate: "2025-01-01",
+      launchDate: "2024-12-01",
       slug: "/work/culture-barbershop"
     }
   ];
