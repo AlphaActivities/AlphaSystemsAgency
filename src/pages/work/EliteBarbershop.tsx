@@ -202,17 +202,24 @@ export default function EliteBarbershop() {
       </div>
 
       <div className="tile tile-uv-glow rounded-3xl overflow-hidden max-h-[480px] md:max-h-[520px] mb-16 luxury-lazy-container">
-        <div className="luxury-image-hover relative">
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center min-h-[400px]">
-            <span className="text-red-500 font-semibold text-center px-4">[PLACEHOLDER: Website screenshot needed]</span>
-          </div>
+        <a
+          href="https://elitebyhadi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="luxury-image-hover"
+        >
+          <img
+            src="/images/our-work-photos/Juan/elite-barbershop.jpg"
+            alt="Elite Barbershop Website"
+            className="w-full h-full object-cover"
+          />
           <div className="luxury-image-hover-btn">
-            <a href="https://elitebyhadi.com" target="_blank" rel="noopener noreferrer" className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
-              <span>Visit Live Site</span>
+            <span className="luxury-gold-cta inline-flex items-center gap-2 text-gray-900 px-8 py-3 rounded-full font-bold relative z-10">
+              Visit Live Site
               <ArrowUpRight size={20} />
-            </a>
+            </span>
           </div>
-        </div>
+        </a>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
