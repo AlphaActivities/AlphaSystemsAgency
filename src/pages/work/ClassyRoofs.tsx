@@ -183,7 +183,7 @@ export default function ClassyRoofs() {
           </div>
         </div>
         <p className="text-xl text-gray-400">
-          Roofing lead generation system validated through a 17-day test campaign in Nigeria
+          Fast validation campaign generating 72+ roofing enquiries through Google Ads in Nigeria
         </p>
       </div>
 
@@ -247,7 +247,7 @@ export default function ClassyRoofs() {
           </h2>
           <div className="luxury-cascade-item" data-delay="250">
             <p className="text-gray-100 leading-relaxed">
-              We deployed a targeted lead generation campaign focused on roofing installation services. The 17-day validation phase tested messaging, audience targeting, and conversion mechanisms to establish a proven baseline for future scale. The system generated 72+ qualified roofing enquiries at an average cost of ₦489 per lead.
+              We deployed a Google Ads campaign focused on roofing installation services. Starting October 10, the 17-day validation phase generated 72+ enquiries through conversion-focused ad campaigns. Enquiries came primarily through WhatsApp, with additional phone calls. Enquiries included a mix of serious homeowners and active buyers, with several converting into paying customers. The validation phase is now complete, transitioning into scaling.
             </p>
           </div>
         </div>
@@ -266,44 +266,20 @@ export default function ClassyRoofs() {
                 <Target className="text-gray-900" size={20} strokeWidth={2.5} />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#d4af37] mb-2">Phase 1: Initial Validation Phase (17 Days)</h3>
-                <p className="text-sm text-white">Fast-tracked campaign deployment to test market demand, audience response, and lead quality for roofing installation services.</p>
+                <h3 className="font-semibold text-lg text-[#d4af37] mb-2">Validation Phase Complete (October 10 - October 27)</h3>
+                <p className="text-sm text-white">17-day fast-track validation campaign launched October 10 to test market demand, audience response, and lead quality for roofing installation services. Validation completed successfully, now transitioning into scaling.</p>
               </div>
             </div>
           </div>
 
           <div className="luxury-cascade-item group" data-delay="800">
             <div className="flex items-start gap-4">
-              <div className="p-3 rounded-full bg-gradient-to-br from-[#40e0d0] to-[#20c9b9] flex items-center justify-center shadow-[0_0_20px_rgba(64,224,208,0.4)] flex-shrink-0 ring-2 ring-[#40e0d0]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(64,224,208,0.7)] group-hover:scale-110 group-hover:rotate-3">
-                <Cog className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#40e0d0] mb-2">Phase 2: Funnel & Messaging Optimization</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div className="luxury-cascade-item group" data-delay="1200">
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] flex-shrink-0 ring-2 ring-[#00d4ff]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,212,255,0.7)] group-hover:scale-110 group-hover:rotate-3">
-                <Activity className="text-gray-900" size={20} strokeWidth={2.5} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#00d4ff] mb-2">Phase 3: Lead System Stabilization</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div className="luxury-cascade-item group" data-delay="1600">
-            <div className="flex items-start gap-4">
               <div className="p-3 rounded-full bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] flex-shrink-0 ring-2 ring-[#00ff88]/30 ring-offset-2 ring-offset-gray-900 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] group-hover:scale-110 group-hover:rotate-3">
                 <Rocket className="text-gray-900" size={20} strokeWidth={2.5} />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Phase 4: Scale-Ready Growth System</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
+                <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Transitioning to Scale</h3>
+                <p className="text-sm text-white">With proven demand and cost-effective lead generation validated, the campaign is being prepared for scaled deployment across Nigeria.</p>
               </div>
             </div>
           </div>
@@ -313,41 +289,79 @@ export default function ClassyRoofs() {
       <div className="tile tile-purple-glow p-8 mb-16 luxury-lazy-container transition-transform duration-300 hover:scale-105">
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
           <Box className="text-[#d4af37]" size={28} strokeWidth={2} />
-          Campaign Structure
+          Stack & Campaign Structure
         </h2>
         <div className="page-tone-line-soft mb-8" />
+
+        <div className="mb-8">
+          <h3 className="font-semibold text-lg text-[#d4af37] mb-4">Technology Stack</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="luxury-cascade-item flex items-start gap-3" data-delay="400">
+              <div className="w-2 h-2 rounded-full bg-[#d4af37] mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-semibold text-white">Google Ads</span>
+                <p className="text-sm text-gray-300">Active campaign, transitioning to scaling phase</p>
+              </div>
+            </div>
+            <div className="luxury-cascade-item flex items-start gap-3" data-delay="600">
+              <div className="w-2 h-2 rounded-full bg-[#d4af37] mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-semibold text-white">Google Analytics</span>
+                <p className="text-sm text-gray-300">Connected for performance tracking</p>
+              </div>
+            </div>
+            <div className="luxury-cascade-item flex items-start gap-3" data-delay="800">
+              <div className="w-2 h-2 rounded-full bg-[#d4af37] mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-semibold text-white">Conversion-Focused Setup</span>
+                <p className="text-sm text-gray-300">WhatsApp and phone lead capture system</p>
+              </div>
+            </div>
+            <div className="luxury-cascade-item flex items-start gap-3" data-delay="1000">
+              <div className="w-2 h-2 rounded-full bg-[#d4af37] mt-2 flex-shrink-0"></div>
+              <div>
+                <span className="font-semibold text-white">Validation-Driven Launch</span>
+                <p className="text-sm text-gray-300">Fast-track testing strategy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="page-tone-line-soft mb-8" />
+
+        <h3 className="font-semibold text-lg text-[#d4af37] mb-4">Campaign Approach</h3>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="flex flex-col gap-2 group">
-            <div className="luxury-cascade-item flex items-start gap-4" data-delay="400">
+            <div className="luxury-cascade-item flex items-start gap-4" data-delay="1200">
               <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#f4d03f] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] group-hover:scale-110 group-hover:rotate-3">
                 <Target className="text-gray-900" size={20} strokeWidth={2.5} />
               </div>
               <h3 className="font-semibold mb-1 text-[#d4af37]">Targeting</h3>
             </div>
-            <div className="luxury-cascade-item" data-delay="600">
+            <div className="luxury-cascade-item" data-delay="1400">
               <p className="text-sm text-white">Nigeria-wide targeting focused on property owners, construction professionals, and building renovation market segments.</p>
             </div>
           </div>
           <div className="flex flex-col gap-2 group">
-            <div className="luxury-cascade-item flex items-start gap-4" data-delay="800">
+            <div className="luxury-cascade-item flex items-start gap-4" data-delay="1600">
               <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#0099cc] flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,212,255,0.7)] group-hover:scale-110 group-hover:rotate-3">
                 <BarChart3 className="text-gray-900" size={20} strokeWidth={2.5} />
               </div>
               <h3 className="font-semibold mb-1 text-[#00d4ff]">Conversion System</h3>
             </div>
-            <div className="luxury-cascade-item" data-delay="1000">
-              <p className="text-sm text-white">Lead capture forms optimized for mobile, with qualification questions to filter roofing installation enquiries.</p>
+            <div className="luxury-cascade-item" data-delay="1800">
+              <p className="text-sm text-white">Primarily WhatsApp enquiries with additional phone calls. Lead forms optimized for mobile with qualification questions.</p>
             </div>
           </div>
           <div className="flex flex-col gap-2 group">
-            <div className="luxury-cascade-item flex items-start gap-4" data-delay="1200">
+            <div className="luxury-cascade-item flex items-start gap-4" data-delay="2000">
               <div className="p-2.5 rounded-lg bg-gradient-to-br from-[#00ff88] to-[#00cc6a] flex items-center justify-center shadow-[0_0_20px_rgba(0,255,136,0.4)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,255,136,0.7)] group-hover:scale-110 group-hover:rotate-3">
                 <Zap className="text-gray-900" size={20} strokeWidth={2.5} />
               </div>
-              <h3 className="font-semibold mb-1 text-[#00ff88]">Optimization</h3>
+              <h3 className="font-semibold mb-1 text-[#00ff88]">Traffic Source</h3>
             </div>
-            <div className="luxury-cascade-item" data-delay="1400">
-              <p className="text-sm text-white">Real-time campaign adjustments based on cost-per-lead performance and enquiry quality feedback.</p>
+            <div className="luxury-cascade-item" data-delay="2200">
+              <p className="text-sm text-white">All 72+ enquiries generated exclusively through Google Ads during the validation phase.</p>
             </div>
           </div>
         </div>
@@ -416,7 +430,7 @@ export default function ClassyRoofs() {
         <div className="space-y-4">
           <div className="luxury-cascade-item" data-delay="400">
             <p className="text-white leading-relaxed">
-              72+ roofing enquiries generated in 17 days during an initial test campaign. This validation phase demonstrated clear market demand and established a cost-effective lead generation baseline for future growth campaigns.
+              72+ roofing enquiries generated through Google Ads in 17 days starting October 10. Enquiries included a mix of serious homeowners and active buyers, with several converting into paying customers.
             </p>
           </div>
           <div className="relative w-full max-w-md mx-auto my-4 h-[3px]">
@@ -424,7 +438,7 @@ export default function ClassyRoofs() {
           </div>
           <div className="luxury-cascade-item" data-delay="800">
             <p className="text-gray-300 text-sm leading-relaxed">
-              The project delivered proven lead generation performance at ₦489 per enquiry, establishing a foundation for scaled roofing installation campaigns across Nigeria.
+              The validation phase demonstrated clear market demand at ₦489 per enquiry, establishing a foundation for scaled roofing installation campaigns across Nigeria. Validation phase completed, transitioning into scaling.
             </p>
           </div>
         </div>
@@ -481,7 +495,7 @@ export default function ClassyRoofs() {
                     Impact
                   </div>
                   <p className="text-white text-sm leading-relaxed text-center md:text-left pt-2">
-                    Abdul designed & executed the complete lead generation system that delivered a direct result of <span className="font-semibold text-[#f4d03f] whitespace-nowrap">72+ roofing enquiries in 17 days</span>.
+                    Abdul designed & executed the Google Ads campaign that generated <span className="font-semibold text-[#f4d03f] whitespace-nowrap">72+ roofing enquiries in 17 days</span>, with several converting into paying customers.
                   </p>
                 </div>
               </div>
@@ -499,36 +513,40 @@ export default function ClassyRoofs() {
               <ul className="space-y-3 text-white mb-8">
               <li className="flex items-start gap-3 results-cascade-item" data-delay="600">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>72+ roofing enquiries generated in 17-day validation phase</span>
+                <span>72+ enquiries generated through Google Ads in 17-day validation phase</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="1300">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>₦489 average cost per lead across all campaign activity</span>
+                <span>Primarily WhatsApp enquiries with additional phone calls</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2000">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>Proven baseline established for scaled growth campaigns</span>
+                <span>Enquiries included a mix of serious homeowners and active buyers</span>
               </li>
               <li className="flex items-start gap-3 results-cascade-item" data-delay="2700">
                 <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
-                <span>Fast validation timeline demonstrates market demand clarity</span>
+                <span>Several enquiries converted into paying customers</span>
+              </li>
+              <li className="flex items-start gap-3 results-cascade-item" data-delay="3400">
+                <span className="text-green-500 text-3xl font-bold leading-none">✓</span>
+                <span>Validation phase completed, transitioning into scaling</span>
               </li>
               </ul>
 
               <div className="text-white text-sm leading-relaxed space-y-3 mb-6">
-                <div className="flex items-start gap-3 results-cascade-item" data-delay="3400">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="4100">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Settings className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
                   <span>These outcomes are directly attributable to the growth systems implemented for this project.</span>
                 </div>
-                <div className="flex items-start gap-3 results-cascade-item" data-delay="4100">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Layers className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
-                  <span>Growth strategy, funnel design, and ad campaign execution were led by Abdul at DWK Digital.</span>
+                  <span>Google Ads campaign strategy, setup, and execution led by Abdul at DWK Digital.</span>
                 </div>
-                <div className="flex items-start gap-3 results-cascade-item" data-delay="4800">
+                <div className="flex items-start gap-3 results-cascade-item" data-delay="5500">
                   <div className="w-7 h-7 rounded-full bg-[#d4af37]/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)] border border-[#d4af37]/30">
                     <Award className="text-[#d4af37]" size={14} strokeWidth={2.5} />
                   </div>
