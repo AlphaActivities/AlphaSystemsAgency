@@ -279,7 +279,7 @@ export default function ClassyRoofs() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-lg text-[#40e0d0] mb-2">Phase 2: Funnel & Messaging Optimization</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
+                <p className="text-sm text-white">Post-validation funnel and messaging refinements to improve lead quality, reduce friction, and increase WhatsApp enquiry conversion consistency.</p>
               </div>
             </div>
           </div>
@@ -291,7 +291,7 @@ export default function ClassyRoofs() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-lg text-[#00d4ff] mb-2">Phase 3: Lead System Stabilization</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
+                <p className="text-sm text-white">Lead system stabilization, tracking, and routing improvements to keep enquiry flow reliable across WhatsApp and calls while preparing for scaling.</p>
               </div>
             </div>
           </div>
@@ -303,7 +303,7 @@ export default function ClassyRoofs() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-lg text-[#00ff88] mb-2">Phase 4: Scale-Ready Growth System</h3>
-                <p className="text-sm text-white"><span className="text-red-400 font-semibold">[PLACEHOLDER: awaiting confirmation]</span></p>
+                <p className="text-sm text-white">Scale-ready growth phase, validation completed and transitioning into scaling with ongoing optimization based on cost-per-lead and enquiry quality signals.</p>
               </div>
             </div>
           </div>
