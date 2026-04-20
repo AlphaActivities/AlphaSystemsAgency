@@ -14,26 +14,40 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
   const isVisibleRef = useRef(false);
   const isAnimatingRef = useRef(false);
   const animationIdRef = useRef<number>(0);
+  const prevFrameTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
     if (!container || !track) return;
 
-    const baseSpeed = 0.75;
+    const baseSpeed = 45; // px per second — consistent across all frame rates
     const friction = 0.92;
     const resumeDelay = 800;
+
+    const normalizePosition = (pos: number, width: number): number => {
+      if (width <= 0) return pos;
+      const normalized = ((pos % width) - width) % width;
+      return normalized === 0 ? -width : normalized;
+    };
 
     const updateSingleSetWidth = () => {
       const totalWidth = track.scrollWidth;
       if (totalWidth > 0 && cloneCount > 0) {
-        singleSetWidthRef.current = totalWidth / cloneCount;
+        const newWidth = totalWidth / cloneCount;
+        const prev = singleSetWidthRef.current;
+        singleSetWidthRef.current = newWidth;
+        // Normalize existing position so a width change never causes a visual snap
+        if (prev === null || Math.abs(newWidth - prev) > 1) {
+          positionRef.current = normalizePosition(positionRef.current, newWidth);
+        }
       }
     };
 
     const startAnimation = () => {
       if (isAnimatingRef.current) return;
       isAnimatingRef.current = true;
+      prevFrameTimeRef.current = 0; // reset so first frame delta is not huge
       animationIdRef.current = requestAnimationFrame(animate);
     };
 
@@ -42,11 +56,17 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
       cancelAnimationFrame(animationIdRef.current);
     };
 
-    const animate = () => {
+    const animate = (timestamp: number) => {
       if (!isVisibleRef.current) {
         isAnimatingRef.current = false;
         return;
       }
+
+      // Cap deltaTime at 50ms to absorb tab-switch, scroll-pause, or device-sleep
+      // gaps without causing a position jump
+      const rawDelta = prevFrameTimeRef.current ? timestamp - prevFrameTimeRef.current : 16;
+      const deltaTime = Math.min(rawDelta, 50);
+      prevFrameTimeRef.current = timestamp;
 
       const trackEl = trackRef.current;
       if (trackEl) {
@@ -59,7 +79,7 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
             positionRef.current += velocityRef.current;
           } else if (timeSinceInteraction > resumeDelay) {
             velocityRef.current = 0;
-            positionRef.current -= baseSpeed;
+            positionRef.current -= baseSpeed * (deltaTime / 1000);
           } else {
             velocityRef.current *= friction;
             positionRef.current += velocityRef.current;
@@ -74,10 +94,8 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
 
         const singleSetWidth = singleSetWidthRef.current;
         if (singleSetWidth && singleSetWidth > 0) {
-          if (positionRef.current < -singleSetWidth) {
-            positionRef.current = positionRef.current % singleSetWidth;
-          } else if (positionRef.current > 0) {
-            positionRef.current = -(singleSetWidth + (positionRef.current % singleSetWidth));
+          if (positionRef.current < -singleSetWidth || positionRef.current > 0) {
+            positionRef.current = normalizePosition(positionRef.current, singleSetWidth);
           }
         }
 
@@ -87,6 +105,7 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
       animationIdRef.current = requestAnimationFrame(animate);
     };
 
+    // Wait for images to be loaded before measuring track width
     const images = Array.from(track.querySelectorAll("img"));
     let pendingImages = images.filter((img) => !img.complete);
 
@@ -111,6 +130,17 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
       });
       resizeObserver.observe(track);
     }
+
+    // Pause/resume on tab visibility change — prevents large delta jumps when
+    // the OS suspends the page (common on iOS Safari)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else if (isVisibleRef.current) {
+        startAnimation();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -172,6 +202,7 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
       stopAnimation();
       observer.disconnect();
       if (resizeObserver) resizeObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       container.removeEventListener("pointerdown", handlePointerDown);
       container.removeEventListener("pointermove", handlePointerMove, { passive: false } as EventListenerOptions);
       container.removeEventListener("pointerup", handlePointerUp);
