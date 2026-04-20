@@ -1,216 +1,187 @@
 import React, { useEffect, useRef, useState } from "react";
 
+const MARQUEE_DURATION = 32; // seconds for one full loop
+
 export default function LogoCarousel({ logos }: { logos: { src: string; alt: string; scale?: number }[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const positionRef = useRef(0);
-  const velocityRef = useRef(0);
   const [cloneCount] = useState(4);
+
+  // Drag state
   const isDraggingRef = useRef(false);
-  const lastXRef = useRef(0);
-  const lastTimeRef = useRef(0);
-  const lastInteractionTimeRef = useRef(0);
+  const dragOffsetRef = useRef(0);
+  const dragStartXRef = useRef(0);
+  const animStartOffsetRef = useRef(0);
+  const pausedAtRef = useRef<number | null>(null);
+  const velocityRef = useRef(0);
+  const lastDragXRef = useRef(0);
+  const lastDragTimeRef = useRef(0);
+  const momentumIdRef = useRef<number>(0);
   const singleSetWidthRef = useRef<number | null>(null);
-  const isVisibleRef = useRef(false);
-  const isAnimatingRef = useRef(false);
-  const animationIdRef = useRef<number>(0);
-  const prevFrameTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const container = containerRef.current;
     const track = trackRef.current;
     if (!container || !track) return;
 
-    const baseSpeed = 45; // px per second — consistent across all frame rates
-    const friction = 0.92;
-    const resumeDelay = 800;
-
-    const normalizePosition = (pos: number, width: number): number => {
-      if (width <= 0) return pos;
-      const normalized = ((pos % width) - width) % width;
-      return normalized === 0 ? -width : normalized;
-    };
-
-    const updateSingleSetWidth = () => {
+    // Measure the width of one set of logos after images load
+    const measureWidth = () => {
       const totalWidth = track.scrollWidth;
-      if (totalWidth > 0 && cloneCount > 0) {
-        const newWidth = totalWidth / cloneCount;
-        const prev = singleSetWidthRef.current;
-        singleSetWidthRef.current = newWidth;
-        // Normalize existing position so a width change never causes a visual snap
-        if (prev === null || Math.abs(newWidth - prev) > 1) {
-          positionRef.current = normalizePosition(positionRef.current, newWidth);
-        }
+      if (totalWidth > 0) {
+        singleSetWidthRef.current = totalWidth / cloneCount;
       }
     };
 
-    const startAnimation = () => {
-      if (isAnimatingRef.current) return;
-      isAnimatingRef.current = true;
-      prevFrameTimeRef.current = 0; // reset so first frame delta is not huge
-      animationIdRef.current = requestAnimationFrame(animate);
+    const images = Array.from(track.querySelectorAll("img"));
+    const pending = images.filter((img) => !img.complete);
+    let settled = 0;
+    const onSettle = () => {
+      settled++;
+      if (settled >= pending.length) measureWidth();
+    };
+    pending.forEach((img) => {
+      img.addEventListener("load", onSettle, { once: true });
+      img.addEventListener("error", onSettle, { once: true });
+    });
+    if (pending.length === 0) measureWidth();
+
+    const resizeObs = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(measureWidth)
+      : null;
+    resizeObs?.observe(track);
+
+    // Get the current animated translateX from the running CSS animation
+    const getCurrentX = (): number => {
+      const style = getComputedStyle(track);
+      const matrix = new DOMMatrix(style.transform);
+      return matrix.m41; // translateX
     };
 
-    const stopAnimation = () => {
-      isAnimatingRef.current = false;
-      cancelAnimationFrame(animationIdRef.current);
+    const applyMomentum = () => {
+      const friction = 0.88;
+      velocityRef.current *= friction;
+
+      const width = singleSetWidthRef.current;
+      if (width) {
+        dragOffsetRef.current += velocityRef.current;
+        // wrap offset within [-width, 0]
+        dragOffsetRef.current = ((dragOffsetRef.current % width) + width) % width;
+        if (dragOffsetRef.current > 0) dragOffsetRef.current -= width;
+        track.style.transform = `translate3d(${dragOffsetRef.current}px, 0, 0)`;
+      }
+
+      if (Math.abs(velocityRef.current) > 0.3) {
+        momentumIdRef.current = requestAnimationFrame(applyMomentum);
+      } else {
+        // Resume CSS animation from current position
+        resumeAnimation();
+      }
     };
 
-    const animate = (timestamp: number) => {
-      if (!isVisibleRef.current) {
-        isAnimatingRef.current = false;
+    const resumeAnimation = () => {
+      const width = singleSetWidthRef.current;
+      if (!width) {
+        // No width yet — just remove the inline override
+        track.style.transform = "";
+        track.style.animationPlayState = "running";
         return;
       }
 
-      // Cap deltaTime at 50ms to absorb tab-switch, scroll-pause, or device-sleep
-      // gaps without causing a position jump
-      const rawDelta = prevFrameTimeRef.current ? timestamp - prevFrameTimeRef.current : 16;
-      const deltaTime = Math.min(rawDelta, 50);
-      prevFrameTimeRef.current = timestamp;
+      // Snap current offset into [- width, 0]
+      let offset = dragOffsetRef.current % width;
+      if (offset > 0) offset -= width;
 
-      const trackEl = trackRef.current;
-      if (trackEl) {
-        const now = performance.now();
-        const timeSinceInteraction = now - lastInteractionTimeRef.current;
+      // CSS animation travels from 0 → -25% (one set width).
+      // We need to resume at `offset`, i.e. set animation-delay so that
+      // at t=0 the position equals offset.
+      // position(t) = (offset_at_resume) + speed * t
+      // CSS keyframe: translateX goes from 0 to -width over MARQUEE_DURATION seconds.
+      // So position = -width * (t / MARQUEE_DURATION)
+      // We want -width * (elapsed / MARQUEE_DURATION) = offset
+      // => elapsed = -offset * MARQUEE_DURATION / width  (offset is negative)
+      const elapsed = (-offset / width) * MARQUEE_DURATION;
+      const delay = -elapsed; // negative delay = start mid-animation
 
-        if (!isDraggingRef.current) {
-          if (Math.abs(velocityRef.current) > 0.1) {
-            velocityRef.current *= friction;
-            positionRef.current += velocityRef.current;
-          } else if (timeSinceInteraction > resumeDelay) {
-            velocityRef.current = 0;
-            positionRef.current -= baseSpeed * (deltaTime / 1000);
-          } else {
-            velocityRef.current *= friction;
-            positionRef.current += velocityRef.current;
-          }
-        } else {
-          lastInteractionTimeRef.current = now;
-        }
-
-        if (!singleSetWidthRef.current) {
-          updateSingleSetWidth();
-        }
-
-        const singleSetWidth = singleSetWidthRef.current;
-        if (singleSetWidth && singleSetWidth > 0) {
-          if (positionRef.current < -singleSetWidth || positionRef.current > 0) {
-            positionRef.current = normalizePosition(positionRef.current, singleSetWidth);
-          }
-        }
-
-        trackEl.style.transform = `translate3d(${positionRef.current}px, 0, 0)`;
-      }
-
-      animationIdRef.current = requestAnimationFrame(animate);
+      track.style.transform = "";
+      track.style.animationDelay = `${delay}s`;
+      track.style.animationPlayState = "running";
     };
-
-    // Wait for images to be loaded before measuring track width
-    const images = Array.from(track.querySelectorAll("img"));
-    let pendingImages = images.filter((img) => !img.complete);
-
-    const onImageSettled = () => {
-      pendingImages = pendingImages.filter((img) => !img.complete);
-      if (pendingImages.length === 0) {
-        updateSingleSetWidth();
-      }
-    };
-
-    pendingImages.forEach((img) => {
-      img.addEventListener("load", onImageSettled, { once: true });
-      img.addEventListener("error", onImageSettled, { once: true });
-    });
-
-    updateSingleSetWidth();
-
-    let resizeObserver: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== "undefined") {
-      resizeObserver = new ResizeObserver(() => {
-        updateSingleSetWidth();
-      });
-      resizeObserver.observe(track);
-    }
-
-    // Pause/resume on tab visibility change — prevents large delta jumps when
-    // the OS suspends the page (common on iOS Safari)
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        stopAnimation();
-      } else if (isVisibleRef.current) {
-        startAnimation();
-      }
-    };
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            isVisibleRef.current = true;
-            startAnimation();
-          } else {
-            isVisibleRef.current = false;
-            stopAnimation();
-          }
-        }
-      },
-      { root: null, threshold: 0.1 }
-    );
-
-    observer.observe(container);
 
     const handlePointerDown = (e: PointerEvent) => {
+      cancelAnimationFrame(momentumIdRef.current);
       isDraggingRef.current = true;
-      lastXRef.current = e.clientX;
-      lastTimeRef.current = performance.now();
+      dragStartXRef.current = e.clientX;
+      lastDragXRef.current = e.clientX;
+      lastDragTimeRef.current = performance.now();
       velocityRef.current = 0;
+
+      // Freeze animation: read current animated X, store it as our offset base
+      const currentX = getCurrentX();
+      track.style.animationPlayState = "paused";
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+      animStartOffsetRef.current = currentX;
+      dragOffsetRef.current = currentX;
+      pausedAtRef.current = currentX;
+
       container.style.cursor = "grabbing";
       container.setPointerCapture(e.pointerId);
+      e.preventDefault();
     };
 
     const handlePointerMove = (e: PointerEvent) => {
       if (!isDraggingRef.current) return;
       const now = performance.now();
-      const deltaX = e.clientX - lastXRef.current;
-      const deltaTime = now - lastTimeRef.current;
-      if (deltaTime > 0) {
-        velocityRef.current = (deltaX / deltaTime) * 16;
+      const deltaX = e.clientX - lastDragXRef.current;
+      const deltaT = now - lastDragTimeRef.current;
+
+      if (deltaT > 0) velocityRef.current = (deltaX / deltaT) * 16;
+
+      dragOffsetRef.current += deltaX;
+      lastDragXRef.current = e.clientX;
+      lastDragTimeRef.current = now;
+
+      const width = singleSetWidthRef.current;
+      let displayOffset = dragOffsetRef.current;
+      if (width) {
+        displayOffset = ((displayOffset % width) + width) % width;
+        if (displayOffset > 0) displayOffset -= width;
       }
-      positionRef.current += deltaX;
-      lastXRef.current = e.clientX;
-      lastTimeRef.current = now;
+      track.style.transform = `translate3d(${displayOffset}px, 0, 0)`;
+      dragOffsetRef.current = displayOffset;
       e.preventDefault();
     };
 
     const handlePointerUp = (e: PointerEvent) => {
-      if (isDraggingRef.current) {
-        isDraggingRef.current = false;
-        container.style.cursor = "grab";
-        lastInteractionTimeRef.current = performance.now();
-        container.releasePointerCapture(e.pointerId);
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      container.style.cursor = "grab";
+      container.releasePointerCapture(e.pointerId);
+
+      if (Math.abs(velocityRef.current) > 0.5) {
+        momentumIdRef.current = requestAnimationFrame(applyMomentum);
+      } else {
+        resumeAnimation();
       }
     };
 
     container.style.cursor = "grab";
     container.style.touchAction = "none";
-    container.addEventListener("pointerdown", handlePointerDown);
+    container.addEventListener("pointerdown", handlePointerDown, { passive: false });
     container.addEventListener("pointermove", handlePointerMove, { passive: false });
     container.addEventListener("pointerup", handlePointerUp);
     container.addEventListener("pointercancel", handlePointerUp);
 
     return () => {
-      stopAnimation();
-      observer.disconnect();
-      if (resizeObserver) resizeObserver.disconnect();
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      cancelAnimationFrame(momentumIdRef.current);
+      resizeObs?.disconnect();
+      pending.forEach((img) => {
+        img.removeEventListener("load", onSettle);
+        img.removeEventListener("error", onSettle);
+      });
       container.removeEventListener("pointerdown", handlePointerDown);
-      container.removeEventListener("pointermove", handlePointerMove, { passive: false } as EventListenerOptions);
+      container.removeEventListener("pointermove", handlePointerMove);
       container.removeEventListener("pointerup", handlePointerUp);
       container.removeEventListener("pointercancel", handlePointerUp);
-      pendingImages.forEach((img) => {
-        img.removeEventListener("load", onImageSettled);
-        img.removeEventListener("error", onImageSettled);
-      });
     };
   }, [cloneCount]);
 
@@ -219,7 +190,11 @@ export default function LogoCarousel({ logos }: { logos: { src: string; alt: str
       <div ref={containerRef} className="relative w-full overflow-hidden">
         <div
           ref={trackRef}
-          className="flex gap-12 items-center will-change-transform select-none"
+          className="flex gap-12 items-center select-none"
+          style={{
+            willChange: "transform",
+            animation: `logo-marquee ${MARQUEE_DURATION}s linear infinite`,
+          }}
         >
           {Array.from({ length: cloneCount }).map((_, cloneIndex) => (
             <React.Fragment key={`clone-${cloneIndex}`}>

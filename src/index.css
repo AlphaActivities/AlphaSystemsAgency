@@ -5,6 +5,11 @@
 @keyframes crystalline-rotate { to { transform: rotate(360deg); } }
 .crystalline-rotator { animation: crystalline-rotate 60s linear infinite; }
 
+@keyframes logo-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
 .tone-smooth { transition: color 400ms, background-color 400ms, filter 400ms; }
 
 .page-tone-line {
@@ -253,6 +258,9 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [style*="logo-marquee"] {
+    animation: none !important;
+  }
   .crystalline-rotator {
     animation: none !important;
   }
